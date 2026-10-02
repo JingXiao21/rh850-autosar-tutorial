@@ -1,0 +1,825 @@
+
+==============================================================================
+== Power on: EcuM_Init brings up Can -> CanIf -> CanTp -> PduR -> NvM -> Dem -> Dcm -> Rte
+==============================================================================
+[     0 ms] [EcuM    ] ---- EcuM_Init: DriverInitZero/One (MCAL) ----
+[     0 ms] [Can     ] Init: receive rule 0 <- HRH0(0x7E0 phys req) (code=0x7E0 mask=0x7FF)
+[     0 ms] [Can     ] Init: receive rule 1 <- HRH1(0x7DF func req) (code=0x7DF mask=0x7FF)
+[     0 ms] [Can     ] Init done: controller 0 -> STOPPED (RS-CANFD channel reset mode)
+[     0 ms] [EcuM    ] ---- BSW init (normally BswM action list) ----
+[     0 ms] [CanIf   ] Init: 2 Rx L-PDUs, 2 Tx L-PDUs
+[     0 ms] [CanTp   ] Init: 2 Rx N-SDUs, 1 Tx N-SDUs, MainFunction period 1 ms
+[     0 ms] [PduR    ] Init: 2 RX routing paths, 1 TX routing paths
+[     0 ms] [NvM     ] ReadAll: DiagConfig block = [00 00 00 00 00 00 00 00 00 00]
+[     0 ms] [Dcm     ] Init: 9 services, 3 DIDs, 1 routines, 1 security rows; DefaultSession, LOCKED
+[     0 ms] [Rte     ] Rte_Start -> init runnables VehicleInfoSWC_Init, SecurityAccessSWC_Init
+[     0 ms] [EcuM    ] ---- start communication (normally ComM/CanSM) ----
+[     0 ms] [CanIf   ] SetControllerMode(0) -> Can_SetControllerMode
+[     0 ms] [Can     ] SetControllerMode(0, STARTED) requested (CmCTR.CHMDC written)
+[     1 ms] [Can     ] MainFunction_Mode: CmSTS shows STARTED -> CanIf_ControllerModeIndication
+[     1 ms] [CanIf   ] ControllerModeIndication(0, STARTED) (real stack: -> CanSM)
+
+==============================================================================
+== 22 F1 90  ReadDataByIdentifier VIN (async DID, 1x DCM_E_PENDING, multi-frame response)
+==============================================================================
+[    10 ms] [Tester  ] >>> UDS request physical 0x7E0 (3 bytes): 22 F1 90
+[    10 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  03 22 F1 90 55 55 55 55
+[    11 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    11 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    11 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=3 [22 F1 90] -> PduR_CanTpStartOfReception(0)
+[    11 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    11 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=3) -> BUFREQ_OK, buffer=128, S3 stopped
+[    11 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    11 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [22 F1 90] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[    20 ms] [Dcm/DSD ] SID 0x22: lookup in DcmDsdServiceTable -> ReadDataByIdentifier
+[    20 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDataByIdentifier
+[    20 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_INITIAL, Data)
+[    20 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_INITIAL) -> server runnable VehicleInfoSWC_ReadVin
+[    20 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (0 more)
+[    20 ms] [Rte     ]   <- DCM_E_PENDING
+[    20 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[    30 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[    30 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[    30 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN "LRH850DEMO0000001" copied -> E_OK
+[    30 ms] [Rte     ]   <- E_OK
+[    30 ms] [Dcm/DSD ] positive response assembled: SID 0x62 + 19 data bytes
+[    30 ms] [Dcm/DSL ] response [62 F1 90 4C 52 48 38 35 30 44 45 4D 4F 30 30 30 30 30 30 31] -> PduR_DcmTransmit(0, len=20)
+[    30 ms] [PduR    ] DcmTransmit(0) len=20 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[    30 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=20 -> segmented (FF + CFs, needs FC from tester)
+[    30 ms] [CanTp   ] TX TxNSdu_DiagPhys: FF payload=6 [62 F1 90 4C 52 48] -> CanIf_Transmit(L-PDU 0)
+[    30 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    30 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [10 14 62 F1 90 4C 52 48]
+[    31 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  10 14 62 F1 90 4C 52 48
+[    31 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    31 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    31 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[    31 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[    32 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    32 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    32 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[    32 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [38 35 30 44 45 4D 4F] -> CanIf_Transmit(L-PDU 0)
+[    32 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    32 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [21 38 35 30 44 45 4D 4F]
+[    33 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  21 38 35 30 44 45 4D 4F
+[    33 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    33 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    33 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[    33 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[    34 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    34 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    34 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[    34 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [30 30 30 30 30 30 31] -> CanIf_Transmit(L-PDU 0)
+[    34 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    34 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [22 30 30 30 30 30 30 31]
+[    35 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  22 30 30 30 30 30 30 31
+[    35 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    35 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    35 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (20 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[    35 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[    35 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[    35 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[    35 ms] [Tester  ] <<< UDS response (20 bytes): 62 F1 90 4C 52 48 38 35 30 44 45 4D 4F 30 30 30 30 30 30 31
+-- RESULT: 62 F1 90 4C 52 48 38 35 30 44 45 4D 4F 30 30 30 30 30 30 31  (after 25 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 22 F1 87  ReadDataByIdentifier SW version (sync DID, single frame)
+==============================================================================
+[    35 ms] [Tester  ] >>> UDS request physical 0x7E0 (3 bytes): 22 F1 87
+[    35 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  03 22 F1 87 55 55 55 55
+[    36 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    36 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    36 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=3 [22 F1 87] -> PduR_CanTpStartOfReception(0)
+[    36 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    36 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=3) -> BUFREQ_OK, buffer=128, S3 stopped
+[    36 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    36 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [22 F1 87] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[    40 ms] [Dcm/DSD ] SID 0x22: lookup in DcmDsdServiceTable -> ReadDataByIdentifier
+[    40 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDataByIdentifier
+[    40 ms] [Dcm/DSP ] 0x22: DID 0xF187 (SparePartNumber/SwVersion) USE_DATA_SYNCH_CLIENT_SERVER -> ReadData(Data)
+[    40 ms] [Rte     ] Rte_Call_DataServices_DID_F187_ReadData -> server runnable VehicleInfoSWC_ReadSwVersion
+[    40 ms] [SWC     ] VehicleInfoSWC_ReadSwVersion: "SW010203"
+[    40 ms] [Dcm/DSD ] positive response assembled: SID 0x62 + 10 data bytes
+[    40 ms] [Dcm/DSL ] response [62 F1 87 53 57 30 31 30 32 30 33] -> PduR_DcmTransmit(0, len=11)
+[    40 ms] [PduR    ] DcmTransmit(0) len=11 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[    40 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=11 -> segmented (FF + CFs, needs FC from tester)
+[    40 ms] [CanTp   ] TX TxNSdu_DiagPhys: FF payload=6 [62 F1 87 53 57 30] -> CanIf_Transmit(L-PDU 0)
+[    40 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    40 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [10 0B 62 F1 87 53 57 30]
+[    41 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  10 0B 62 F1 87 53 57 30
+[    41 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    41 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    41 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[    41 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[    42 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    42 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    42 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[    42 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=5 [31 30 32 30 33] -> CanIf_Transmit(L-PDU 0)
+[    42 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    42 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [21 31 30 32 30 33 CC CC]
+[    43 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  21 31 30 32 30 33 CC CC
+[    43 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    43 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    43 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (11 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[    43 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[    43 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[    43 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[    43 ms] [Tester  ] <<< UDS response (11 bytes): 62 F1 87 53 57 30 31 30 32 30 33
+-- RESULT: 62 F1 87 53 57 30 31 30 32 30 33  (after 8 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 10 03  DiagnosticSessionControl -> extended session (switch after TX confirmation)
+==============================================================================
+[    43 ms] [Tester  ] >>> UDS request physical 0x7E0 (2 bytes): 10 03
+[    43 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  02 10 03 55 55 55 55 55
+[    44 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    44 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    44 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=2 [10 03] -> PduR_CanTpStartOfReception(0)
+[    44 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    44 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=2) -> BUFREQ_OK, buffer=128, S3 stopped
+[    44 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    44 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [10 03] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[    50 ms] [Dcm/DSD ] SID 0x10: lookup in DcmDsdServiceTable -> DiagnosticSessionControl
+[    50 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP DiagnosticSessionControl
+[    50 ms] [Dcm/DSP ] 0x10: ExtendedDiagnosticSession accepted, P2=50 ms P2*=5000 ms; switch deferred until TX confirmation
+[    50 ms] [Dcm/DSD ] positive response assembled: SID 0x50 + 5 data bytes
+[    50 ms] [Dcm/DSL ] response [50 03 00 32 01 F4] -> PduR_DcmTransmit(0, len=6)
+[    50 ms] [PduR    ] DcmTransmit(0) len=6 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[    50 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=6 -> single frame
+[    50 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=6 [50 03 00 32 01 F4] -> CanIf_Transmit(L-PDU 0)
+[    50 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    50 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [06 50 03 00 32 01 F4 CC]
+[    51 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  06 50 03 00 32 01 F4 CC
+[    51 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    51 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    51 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (6 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[    51 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[    51 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[    51 ms] [Dcm/DSL ] session DefaultSession -> ExtendedDiagnosticSession (0x10 response confirmed); security LOCKED; P2=50 ms P2*=5000 ms
+[    51 ms] [Rte     ] SchM_Switch_Dcm_DcmDiagnosticSessionControl(0x03): mode users (BswM, SW-Cs) notified
+[    51 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[    51 ms] [Tester  ] <<< UDS response (6 bytes): 50 03 00 32 01 F4
+-- RESULT: 50 03 00 32 01 F4  (after 8 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 27 01  SecurityAccess requestSeed
+==============================================================================
+[    51 ms] [Tester  ] >>> UDS request physical 0x7E0 (2 bytes): 27 01
+[    51 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  02 27 01 55 55 55 55 55
+[    52 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    52 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    52 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=2 [27 01] -> PduR_CanTpStartOfReception(0)
+[    52 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    52 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=2) -> BUFREQ_OK, buffer=128, S3 stopped
+[    52 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    52 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [27 01] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[    60 ms] [Dcm/DSD ] SID 0x27: lookup in DcmDsdServiceTable -> SecurityAccess
+[    60 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP SecurityAccess
+[    60 ms] [Dcm/DSP ] 0x27 01: requestSeed level 1 -> GetSeed(DCM_INITIAL)
+[    60 ms] [Rte     ] Rte_Call_SecurityAccess_Level_01_GetSeed(DCM_INITIAL) -> SecurityAccessSWC_GetSeed_Level01
+[    60 ms] [SWC     ] SecurityAccessSWC_GetSeed_Level01: seed BA 53 CC 82
+[    60 ms] [Dcm/DSD ] positive response assembled: SID 0x67 + 5 data bytes
+[    60 ms] [Dcm/DSL ] response [67 01 BA 53 CC 82] -> PduR_DcmTransmit(0, len=6)
+[    60 ms] [PduR    ] DcmTransmit(0) len=6 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[    60 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=6 -> single frame
+[    60 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=6 [67 01 BA 53 CC 82] -> CanIf_Transmit(L-PDU 0)
+[    60 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    60 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [06 67 01 BA 53 CC 82 CC]
+[    61 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  06 67 01 BA 53 CC 82 CC
+[    61 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    61 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    61 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (6 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[    61 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[    61 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[    61 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[    61 ms] [Tester  ] <<< UDS response (6 bytes): 67 01 BA 53 CC 82
+-- RESULT: 67 01 BA 53 CC 82  (after 10 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 27 02 <key>  SecurityAccess sendKey (key = seed XOR mask)
+==============================================================================
+[    61 ms] [Tester  ] >>> UDS request physical 0x7E0 (6 bytes): 27 02 E0 6F 5A 63
+[    61 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  06 27 02 E0 6F 5A 63 55
+[    62 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    62 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    62 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=6 [27 02 E0 6F 5A 63] -> PduR_CanTpStartOfReception(0)
+[    62 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    62 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=6) -> BUFREQ_OK, buffer=128, S3 stopped
+[    62 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    62 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [27 02 E0 6F 5A 63] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[    70 ms] [Dcm/DSD ] SID 0x27: lookup in DcmDsdServiceTable -> SecurityAccess
+[    70 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP SecurityAccess
+[    70 ms] [Dcm/DSP ] 0x27 02: sendKey level 1 -> CompareKey(DCM_INITIAL)
+[    70 ms] [Rte     ] Rte_Call_SecurityAccess_Level_01_CompareKey(DCM_INITIAL) -> SecurityAccessSWC_CompareKey_Level01
+[    70 ms] [SWC     ] SecurityAccessSWC_CompareKey_Level01: key E0 6F 5A 63 -> E_OK
+[    70 ms] [Dcm/DSL ] security level 0 -> 1
+[    70 ms] [Dcm/DSD ] positive response assembled: SID 0x67 + 1 data bytes
+[    70 ms] [Dcm/DSL ] response [67 02] -> PduR_DcmTransmit(0, len=2)
+[    70 ms] [PduR    ] DcmTransmit(0) len=2 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[    70 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=2 -> single frame
+[    70 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=2 [67 02] -> CanIf_Transmit(L-PDU 0)
+[    70 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    70 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [02 67 02 CC CC CC CC CC]
+[    71 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  02 67 02 CC CC CC CC CC
+[    71 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    71 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    71 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (2 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[    71 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[    71 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[    71 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[    71 ms] [Tester  ] <<< UDS response (2 bytes): 67 02
+-- RESULT: 67 02  (after 10 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 2E F1 A0 <10 bytes>  WriteDataByIdentifier (13 byte request = ECU receives FF/CF, sends FC; NvM async)
+==============================================================================
+[    71 ms] [Tester  ] >>> UDS request physical 0x7E0 (13 bytes): 2E F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9
+[    71 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  10 0D 2E F1 A0 A0 A1 A2
+[    72 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    72 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    72 ms] [CanTp   ] RX RxNSdu_DiagPhys: FF total=13 -> PduR_CanTpStartOfReception(0)
+[    72 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    72 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=13) -> BUFREQ_OK, buffer=128, S3 stopped
+[    72 ms] [CanTp   ] RX RxNSdu_DiagPhys: send FC CTS (BS=2 STmin=5 ms)
+[    72 ms] [CanIf   ] Transmit L-PDU 1 (DiagRespFC_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    72 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [30 02 05 CC CC CC CC CC]
+[    73 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  30 02 05 CC CC CC CC CC
+[    73 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 1)
+[    73 ms] [CanIf   ] TxConfirmation L-PDU 1 (DiagRespFC_7E8) -> CanTp_TxConfirmation(N-PDU 1)
+[    73 ms] [Tester  ] got FC CTS from ECU: BS=2 STmin=5
+[    73 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  21 A3 A4 A5 A6 A7 A8 A9
+[    74 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    74 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    74 ms] [CanTp   ] RX RxNSdu_DiagPhys: CF SN=1 (13/13 bytes)
+[    74 ms] [CanTp   ] RX RxNSdu_DiagPhys: complete -> PduR_CanTpRxIndication(E_OK)
+[    74 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    74 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [2E F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[    80 ms] [Dcm/DSD ] SID 0x2E: lookup in DcmDsdServiceTable -> WriteDataByIdentifier
+[    80 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP WriteDataByIdentifier
+[    80 ms] [Dcm/DSP ] 0x2E: DID 0xF1A0 (DiagConfig(NvM)) -> WriteData(Data, DCM_INITIAL)
+[    80 ms] [Rte     ] Rte_Call_DataServices_DID_F1A0_WriteData(DCM_INITIAL) -> server runnable VehicleInfoSWC_WriteDiagConfig
+[    80 ms] [NvM     ] WriteBlock(DiagConfig) queued -> NVM_REQ_PENDING
+[    80 ms] [SWC     ] VehicleInfoSWC_WriteDiagConfig: NvM write requested -> DCM_E_PENDING
+[    80 ms] [Rte     ]   <- DCM_E_PENDING
+[    80 ms] [Dcm/DSD ] WriteDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[    90 ms] [NvM     ] MainFunction: DiagConfig written to emulated data flash -> NVM_REQ_OK
+[    90 ms] [Dcm/DSP ] 0x2E: DID 0xF1A0 (DiagConfig(NvM)) -> WriteData(Data, DCM_PENDING)
+[    90 ms] [Rte     ] Rte_Call_DataServices_DID_F1A0_WriteData(DCM_PENDING) -> server runnable VehicleInfoSWC_WriteDiagConfig
+[    90 ms] [SWC     ] VehicleInfoSWC_WriteDiagConfig: NvM job OK -> E_OK
+[    90 ms] [Rte     ]   <- E_OK
+[    90 ms] [Dcm/DSD ] positive response assembled: SID 0x6E + 2 data bytes
+[    90 ms] [Dcm/DSL ] response [6E F1 A0] -> PduR_DcmTransmit(0, len=3)
+[    90 ms] [PduR    ] DcmTransmit(0) len=3 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[    90 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=3 -> single frame
+[    90 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=3 [6E F1 A0] -> CanIf_Transmit(L-PDU 0)
+[    90 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[    90 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [03 6E F1 A0 CC CC CC CC]
+[    91 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  03 6E F1 A0 CC CC CC CC
+[    91 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[    91 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[    91 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (3 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[    91 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[    91 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[    91 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[    91 ms] [Tester  ] <<< UDS response (3 bytes): 6E F1 A0
+-- RESULT: 6E F1 A0  (after 20 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 22 F1 A0 F1 87  ReadDataByIdentifier with two DIDs in one request
+==============================================================================
+[    91 ms] [Tester  ] >>> UDS request physical 0x7E0 (5 bytes): 22 F1 A0 F1 87
+[    91 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  05 22 F1 A0 F1 87 55 55
+[    92 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[    92 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[    92 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=5 [22 F1 A0 F1 87] -> PduR_CanTpStartOfReception(0)
+[    92 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[    92 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=5) -> BUFREQ_OK, buffer=128, S3 stopped
+[    92 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[    92 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [22 F1 A0 F1 87] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   100 ms] [Dcm/DSD ] SID 0x22: lookup in DcmDsdServiceTable -> ReadDataByIdentifier
+[   100 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDataByIdentifier
+[   100 ms] [Dcm/DSP ] 0x22: DID 0xF1A0 (DiagConfig(NvM)) USE_DATA_SYNCH_CLIENT_SERVER -> ReadData(Data)
+[   100 ms] [Rte     ] Rte_Call_DataServices_DID_F1A0_ReadData -> server runnable VehicleInfoSWC_ReadDiagConfig
+[   100 ms] [Dcm/DSP ] 0x22: DID 0xF187 (SparePartNumber/SwVersion) USE_DATA_SYNCH_CLIENT_SERVER -> ReadData(Data)
+[   100 ms] [Rte     ] Rte_Call_DataServices_DID_F187_ReadData -> server runnable VehicleInfoSWC_ReadSwVersion
+[   100 ms] [SWC     ] VehicleInfoSWC_ReadSwVersion: "SW010203"
+[   100 ms] [Dcm/DSD ] positive response assembled: SID 0x62 + 22 data bytes
+[   100 ms] [Dcm/DSL ] response [62 F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 F1 87 53 57 30 31 30 32 30 33] -> PduR_DcmTransmit(0, len=23)
+[   100 ms] [PduR    ] DcmTransmit(0) len=23 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   100 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=23 -> segmented (FF + CFs, needs FC from tester)
+[   100 ms] [CanTp   ] TX TxNSdu_DiagPhys: FF payload=6 [62 F1 A0 A0 A1 A2] -> CanIf_Transmit(L-PDU 0)
+[   100 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   100 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [10 17 62 F1 A0 A0 A1 A2]
+[   101 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  10 17 62 F1 A0 A0 A1 A2
+[   101 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   101 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   101 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[   101 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[   102 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   102 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   102 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[   102 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [A3 A4 A5 A6 A7 A8 A9] -> CanIf_Transmit(L-PDU 0)
+[   102 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   102 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [21 A3 A4 A5 A6 A7 A8 A9]
+[   103 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  21 A3 A4 A5 A6 A7 A8 A9
+[   103 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   103 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   103 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[   103 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[   104 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   104 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   104 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[   104 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [F1 87 53 57 30 31 30] -> CanIf_Transmit(L-PDU 0)
+[   104 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   104 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [22 F1 87 53 57 30 31 30]
+[   105 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  22 F1 87 53 57 30 31 30
+[   105 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   105 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   105 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[   105 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[   106 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   106 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   106 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[   106 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=3 [32 30 33] -> CanIf_Transmit(L-PDU 0)
+[   106 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   106 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [23 32 30 33 CC CC CC CC]
+[   107 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  23 32 30 33 CC CC CC CC
+[   107 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   107 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   107 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (23 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   107 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   107 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   107 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   107 ms] [Tester  ] <<< UDS response (23 bytes): 62 F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 F1 87 53 57 30 31 30 32 30 33
+-- RESULT: 62 F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9 F1 87 53 57 30 31 30 32 30 33  (after 16 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 31 01 FF 00  RoutineControl startRoutine
+==============================================================================
+[   107 ms] [Tester  ] >>> UDS request physical 0x7E0 (4 bytes): 31 01 FF 00
+[   107 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  04 31 01 FF 00 55 55 55
+[   108 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   108 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   108 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=4 [31 01 FF 00] -> PduR_CanTpStartOfReception(0)
+[   108 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   108 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=4) -> BUFREQ_OK, buffer=128, S3 stopped
+[   108 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   108 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [31 01 FF 00] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   110 ms] [Dcm/DSD ] SID 0x31: lookup in DcmDsdServiceTable -> RoutineControl
+[   110 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP RoutineControl
+[   110 ms] [Dcm/DSP ] 0x31 01: routine 0xFF00 (Routine_FF00_SelfTest) -> RoutineServices Start(DCM_INITIAL)
+[   110 ms] [Rte     ] Rte_Call_RoutineServices_Routine_FF00_Start(DCM_INITIAL) -> VehicleInfoSWC_SelfTestStart
+[   110 ms] [SWC     ] VehicleInfoSWC_SelfTestStart: started (session seen via Rte_Mode = 0x03)
+[   110 ms] [Dcm/DSD ] positive response assembled: SID 0x71 + 3 data bytes
+[   110 ms] [Dcm/DSL ] response [71 01 FF 00] -> PduR_DcmTransmit(0, len=4)
+[   110 ms] [PduR    ] DcmTransmit(0) len=4 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   110 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=4 -> single frame
+[   110 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=4 [71 01 FF 00] -> CanIf_Transmit(L-PDU 0)
+[   110 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   110 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [04 71 01 FF 00 CC CC CC]
+[   111 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  04 71 01 FF 00 CC CC CC
+[   111 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   111 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   111 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (4 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   111 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   111 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   111 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   111 ms] [Tester  ] <<< UDS response (4 bytes): 71 01 FF 00
+-- RESULT: 71 01 FF 00  (after 4 ms, 0 x NRC 0x78 before)
+[   200 ms] [SWC     ] VehicleInfoSWC_Run10ms: self test finished after 100 ms
+
+==============================================================================
+== 31 03 FF 00  RoutineControl requestRoutineResults (02 = completed)
+==============================================================================
+[   261 ms] [Tester  ] >>> UDS request physical 0x7E0 (4 bytes): 31 03 FF 00
+[   261 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  04 31 03 FF 00 55 55 55
+[   262 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   262 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   262 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=4 [31 03 FF 00] -> PduR_CanTpStartOfReception(0)
+[   262 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   262 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=4) -> BUFREQ_OK, buffer=128, S3 stopped
+[   262 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   262 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [31 03 FF 00] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   270 ms] [Dcm/DSD ] SID 0x31: lookup in DcmDsdServiceTable -> RoutineControl
+[   270 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP RoutineControl
+[   270 ms] [Dcm/DSP ] 0x31 03: routine 0xFF00 (Routine_FF00_SelfTest) -> RoutineServices RequestResults(DCM_INITIAL)
+[   270 ms] [Rte     ] Rte_Call_RoutineServices_Routine_FF00_RequestResults(DCM_INITIAL) -> VehicleInfoSWC_SelfTestRequestResults
+[   270 ms] [SWC     ] VehicleInfoSWC_SelfTestRequestResults: status 0x02
+[   270 ms] [Dcm/DSD ] positive response assembled: SID 0x71 + 4 data bytes
+[   270 ms] [Dcm/DSL ] response [71 03 FF 00 02] -> PduR_DcmTransmit(0, len=5)
+[   270 ms] [PduR    ] DcmTransmit(0) len=5 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   270 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=5 -> single frame
+[   270 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=5 [71 03 FF 00 02] -> CanIf_Transmit(L-PDU 0)
+[   270 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   270 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [05 71 03 FF 00 02 CC CC]
+[   271 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  05 71 03 FF 00 02 CC CC
+[   271 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   271 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   271 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (5 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   271 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   271 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   271 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   271 ms] [Tester  ] <<< UDS response (5 bytes): 71 03 FF 00 02
+-- RESULT: 71 03 FF 00 02  (after 10 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 3E 00  TesterPresent (physical, response expected)
+==============================================================================
+[   271 ms] [Tester  ] >>> UDS request physical 0x7E0 (2 bytes): 3E 00
+[   271 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  02 3E 00 55 55 55 55 55
+[   272 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   272 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   272 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=2 [3E 00] -> PduR_CanTpStartOfReception(0)
+[   272 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   272 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=2) -> BUFREQ_OK, buffer=128, S3 stopped
+[   272 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   272 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [3E 00] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   280 ms] [Dcm/DSD ] SID 0x3E: lookup in DcmDsdServiceTable -> TesterPresent
+[   280 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP TesterPresent
+[   280 ms] [Dcm/DSD ] positive response assembled: SID 0x7E + 1 data bytes
+[   280 ms] [Dcm/DSL ] response [7E 00] -> PduR_DcmTransmit(0, len=2)
+[   280 ms] [PduR    ] DcmTransmit(0) len=2 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   280 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=2 -> single frame
+[   280 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=2 [7E 00] -> CanIf_Transmit(L-PDU 0)
+[   280 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   280 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [02 7E 00 CC CC CC CC CC]
+[   281 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  02 7E 00 CC CC CC CC CC
+[   281 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   281 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   281 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (2 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   281 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   281 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   281 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   281 ms] [Tester  ] <<< UDS response (2 bytes): 7E 00
+-- RESULT: 7E 00  (after 10 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 3E 80  TesterPresent functional with SPRMIB (handled in DSL, no response)
+==============================================================================
+[   281 ms] [Tester  ] >>> UDS request FUNCTIONAL 0x7DF (2 bytes): 3E 80
+[   281 ms] [Bus     ] Tester -> wire  ID=0x7DF DLC=8  02 3E 80 55 55 55 55 55
+[   282 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7DF HRH=1 DLC=8 -> CanIf_RxIndication
+[   282 ms] [CanIf   ] RxIndication HRH=1 ID=0x7DF -> Rx L-PDU 1 (DiagFuncReq_7DF) -> CanTp_RxIndication(N-PDU 1)
+[   282 ms] [CanTp   ] RX RxNSdu_DiagFunc: SF len=2 [3E 80] -> PduR_CanTpStartOfReception(1)
+[   282 ms] [PduR    ] CanTpStartOfReception(1) -> route 'CanTp(DiagFunc) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 1)
+[   282 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 1 functional, len=2) -> BUFREQ_OK, buffer=128, S3 stopped
+[   282 ms] [PduR    ] CanTpRxIndication(1, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 1)
+[   282 ms] [Dcm/DSL ] functional 3E 80: S3 restarted, request NOT passed to DSD, no response
+[   581 ms] [Tester  ] no final response within 300 ms
+-- RESULT: no response (expected for suppressed responses)
+
+==============================================================================
+== 19 02 FF  ReadDTCInformation reportDTCByStatusMask (via Dem stub)
+==============================================================================
+[   581 ms] [Tester  ] >>> UDS request physical 0x7E0 (3 bytes): 19 02 FF
+[   581 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  03 19 02 FF 55 55 55 55
+[   582 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   582 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   582 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=3 [19 02 FF] -> PduR_CanTpStartOfReception(0)
+[   582 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   582 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=3) -> BUFREQ_OK, buffer=128, S3 stopped
+[   582 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   582 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [19 02 FF] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   590 ms] [Dcm/DSD ] SID 0x19: lookup in DcmDsdServiceTable -> ReadDTCInformation
+[   590 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDTCInformation
+[   590 ms] [Dcm/DSP ] 0x19 02: mask 0xFF & availability 0x7F -> 2 DTC(s) from Dem
+[   590 ms] [Dcm/DSD ] positive response assembled: SID 0x59 + 10 data bytes
+[   590 ms] [Dcm/DSL ] response [59 02 7F C1 00 00 0B 05 62 00 08] -> PduR_DcmTransmit(0, len=11)
+[   590 ms] [PduR    ] DcmTransmit(0) len=11 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   590 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=11 -> segmented (FF + CFs, needs FC from tester)
+[   590 ms] [CanTp   ] TX TxNSdu_DiagPhys: FF payload=6 [59 02 7F C1 00 00] -> CanIf_Transmit(L-PDU 0)
+[   590 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   590 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [10 0B 59 02 7F C1 00 00]
+[   591 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  10 0B 59 02 7F C1 00 00
+[   591 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   591 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   591 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[   591 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[   592 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   592 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   592 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[   592 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=5 [0B 05 62 00 08] -> CanIf_Transmit(L-PDU 0)
+[   592 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   592 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [21 0B 05 62 00 08 CC CC]
+[   593 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  21 0B 05 62 00 08 CC CC
+[   593 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   593 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   593 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (11 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   593 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   593 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   593 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   593 ms] [Tester  ] <<< UDS response (11 bytes): 59 02 7F C1 00 00 0B 05 62 00 08
+-- RESULT: 59 02 7F C1 00 00 0B 05 62 00 08  (after 12 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 14 FF FF FF  ClearDiagnosticInformation all groups (Dem returns DEM_PENDING once)
+==============================================================================
+[   593 ms] [Tester  ] >>> UDS request physical 0x7E0 (4 bytes): 14 FF FF FF
+[   593 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  04 14 FF FF FF 55 55 55
+[   594 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   594 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   594 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=4 [14 FF FF FF] -> PduR_CanTpStartOfReception(0)
+[   594 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   594 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=4) -> BUFREQ_OK, buffer=128, S3 stopped
+[   594 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   594 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [14 FF FF FF] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   600 ms] [Dcm/DSD ] SID 0x14: lookup in DcmDsdServiceTable -> ClearDiagnosticInformation
+[   600 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ClearDiagnosticInformation
+[   600 ms] [Dcm/DSP ] 0x14: Dem_SelectDTC(client 0, 0xFFFFFF) + Dem_ClearDTC
+[   600 ms] [Dem     ] ClearDTC(0xFFFFFF): event memory update in progress -> DEM_PENDING
+[   600 ms] [Dcm/DSD ] ClearDiagnosticInformation returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   610 ms] [Dem     ] ClearDTC(0xFFFFFF) done
+[   610 ms] [Dcm/DSD ] positive response assembled: SID 0x54 + 0 data bytes
+[   610 ms] [Dcm/DSL ] response [54] -> PduR_DcmTransmit(0, len=1)
+[   610 ms] [PduR    ] DcmTransmit(0) len=1 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   610 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=1 -> single frame
+[   610 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=1 [54] -> CanIf_Transmit(L-PDU 0)
+[   610 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   610 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [01 54 CC CC CC CC CC CC]
+[   611 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  01 54 CC CC CC CC CC CC
+[   611 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   611 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   611 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (1 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   611 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   611 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   611 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   611 ms] [Tester  ] <<< UDS response (1 bytes): 54
+-- RESULT: 54  (after 18 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 19 02 FF  again: no DTC left
+==============================================================================
+[   611 ms] [Tester  ] >>> UDS request physical 0x7E0 (3 bytes): 19 02 FF
+[   611 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  03 19 02 FF 55 55 55 55
+[   612 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   612 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   612 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=3 [19 02 FF] -> PduR_CanTpStartOfReception(0)
+[   612 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   612 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=3) -> BUFREQ_OK, buffer=128, S3 stopped
+[   612 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   612 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [19 02 FF] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   620 ms] [Dcm/DSD ] SID 0x19: lookup in DcmDsdServiceTable -> ReadDTCInformation
+[   620 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDTCInformation
+[   620 ms] [Dcm/DSP ] 0x19 02: mask 0xFF & availability 0x7F -> 0 DTC(s) from Dem
+[   620 ms] [Dcm/DSD ] positive response assembled: SID 0x59 + 2 data bytes
+[   620 ms] [Dcm/DSL ] response [59 02 7F] -> PduR_DcmTransmit(0, len=3)
+[   620 ms] [PduR    ] DcmTransmit(0) len=3 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   620 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=3 -> single frame
+[   620 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=3 [59 02 7F] -> CanIf_Transmit(L-PDU 0)
+[   620 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   620 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [03 59 02 7F CC CC CC CC]
+[   621 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  03 59 02 7F CC CC CC CC
+[   621 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   621 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   621 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (3 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   621 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   621 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   621 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   621 ms] [Tester  ] <<< UDS response (3 bytes): 59 02 7F
+-- RESULT: 59 02 7F  (after 10 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 85 02  unsupported SID -> NRC 0x11
+==============================================================================
+[   621 ms] [Tester  ] >>> UDS request physical 0x7E0 (2 bytes): 85 02
+[   621 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  02 85 02 55 55 55 55 55
+[   622 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   622 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   622 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=2 [85 02] -> PduR_CanTpStartOfReception(0)
+[   622 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   622 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=2) -> BUFREQ_OK, buffer=128, S3 stopped
+[   622 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   622 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [85 02] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   630 ms] [Dcm/DSD ] SID 0x85: lookup in DcmDsdServiceTable -> not configured
+[   630 ms] [Dcm/DSD ] negative response 7F 85 11 (SID not in service table)
+[   630 ms] [Dcm/DSL ] response [7F 85 11] -> PduR_DcmTransmit(0, len=3)
+[   630 ms] [PduR    ] DcmTransmit(0) len=3 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   630 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=3 -> single frame
+[   630 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=3 [7F 85 11] -> CanIf_Transmit(L-PDU 0)
+[   630 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   630 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [03 7F 85 11 CC CC CC CC]
+[   631 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  03 7F 85 11 CC CC CC CC
+[   631 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   631 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   631 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (3 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   631 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   631 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   631 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   631 ms] [Tester  ] <<< UDS response (3 bytes): 7F 85 11
+-- RESULT: 7F 85 11  (after 10 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== 22 F1 90 with a slow SW-C (8 x DCM_E_PENDING = 80 ms > P2 50 ms) -> NRC 0x78 first
+==============================================================================
+[   631 ms] [Tester  ] >>> UDS request physical 0x7E0 (3 bytes): 22 F1 90
+[   631 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  03 22 F1 90 55 55 55 55
+[   632 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   632 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   632 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=3 [22 F1 90] -> PduR_CanTpStartOfReception(0)
+[   632 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[   632 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=3) -> BUFREQ_OK, buffer=128, S3 stopped
+[   632 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[   632 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [22 F1 90] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[   640 ms] [Dcm/DSD ] SID 0x22: lookup in DcmDsdServiceTable -> ReadDataByIdentifier
+[   640 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDataByIdentifier
+[   640 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_INITIAL, Data)
+[   640 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_INITIAL) -> server runnable VehicleInfoSWC_ReadVin
+[   640 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (7 more)
+[   640 ms] [Rte     ]   <- DCM_E_PENDING
+[   640 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   650 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   650 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   650 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (6 more)
+[   650 ms] [Rte     ]   <- DCM_E_PENDING
+[   650 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   660 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   660 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   660 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (5 more)
+[   660 ms] [Rte     ]   <- DCM_E_PENDING
+[   660 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   670 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   670 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   670 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (4 more)
+[   670 ms] [Rte     ]   <- DCM_E_PENDING
+[   670 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   670 ms] [Dcm/DSL ] P2 expired while service pending -> NRC 0x78 [7F 22 78] (#1) from separate buffer
+[   670 ms] [PduR    ] DcmTransmit(0) len=3 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   670 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=3 -> single frame
+[   670 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=3 [7F 22 78] -> CanIf_Transmit(L-PDU 0)
+[   670 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   670 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [03 7F 22 78 CC CC CC CC]
+[   671 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  03 7F 22 78 CC CC CC CC
+[   671 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   671 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   671 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (3 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   671 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   671 ms] [Dcm/DSL ] TpTxConfirmation(0x78, E_OK); service keeps running
+[   671 ms] [Tester  ] <<< UDS response (3 bytes): 7F 22 78
+[   680 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   680 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   680 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (3 more)
+[   680 ms] [Rte     ]   <- DCM_E_PENDING
+[   680 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   690 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   690 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   690 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (2 more)
+[   690 ms] [Rte     ]   <- DCM_E_PENDING
+[   690 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   700 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   700 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   700 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (1 more)
+[   700 ms] [Rte     ]   <- DCM_E_PENDING
+[   700 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   710 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   710 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   710 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN not ready yet -> DCM_E_PENDING (0 more)
+[   710 ms] [Rte     ]   <- DCM_E_PENDING
+[   710 ms] [Dcm/DSD ] ReadDataByIdentifier returned DCM_E_PENDING -> call again with DCM_PENDING next cycle
+[   720 ms] [Dcm/DSP ] 0x22: DID 0xF190 (VIN) USE_DATA_ASYNCH_CLIENT_SERVER -> ReadData(DCM_PENDING, Data)
+[   720 ms] [Rte     ] Rte_Call_DataServices_DID_F190_ReadData(DCM_PENDING) -> server runnable VehicleInfoSWC_ReadVin
+[   720 ms] [SWC     ] VehicleInfoSWC_ReadVin: VIN "LRH850DEMO0000001" copied -> E_OK
+[   720 ms] [Rte     ]   <- E_OK
+[   720 ms] [Dcm/DSD ] positive response assembled: SID 0x62 + 19 data bytes
+[   720 ms] [Dcm/DSL ] response [62 F1 90 4C 52 48 38 35 30 44 45 4D 4F 30 30 30 30 30 30 31] -> PduR_DcmTransmit(0, len=20)
+[   720 ms] [PduR    ] DcmTransmit(0) len=20 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[   720 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=20 -> segmented (FF + CFs, needs FC from tester)
+[   720 ms] [CanTp   ] TX TxNSdu_DiagPhys: FF payload=6 [62 F1 90 4C 52 48] -> CanIf_Transmit(L-PDU 0)
+[   720 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   720 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [10 14 62 F1 90 4C 52 48]
+[   721 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  10 14 62 F1 90 4C 52 48
+[   721 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   721 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   721 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[   721 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[   722 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   722 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   722 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[   722 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [38 35 30 44 45 4D 4F] -> CanIf_Transmit(L-PDU 0)
+[   722 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   722 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [21 38 35 30 44 45 4D 4F]
+[   723 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  21 38 35 30 44 45 4D 4F
+[   723 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   723 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   723 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[   723 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[   724 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[   724 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[   724 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[   724 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [30 30 30 30 30 30 31] -> CanIf_Transmit(L-PDU 0)
+[   724 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[   724 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [22 30 30 30 30 30 30 31]
+[   725 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  22 30 30 30 30 30 30 31
+[   725 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[   725 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[   725 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (20 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[   725 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[   725 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[   725 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[   725 ms] [Tester  ] <<< UDS response (20 bytes): 62 F1 90 4C 52 48 38 35 30 44 45 4D 4F 30 30 30 30 30 30 31
+-- RESULT: 62 F1 90 4C 52 48 38 35 30 44 45 4D 4F 30 30 30 30 30 30 31  (after 94 ms, 1 x NRC 0x78 before)
+
+==============================================================================
+== Idle 5 s without TesterPresent -> S3 timeout -> default session
+==============================================================================
+[  5720 ms] [Dcm/DSL ] S3 timeout (5000 ms without request) -> back to default session
+[  5720 ms] [Dcm/DSL ] session ExtendedDiagnosticSession -> DefaultSession (S3 timeout); security LOCKED; P2=50 ms P2*=5000 ms
+[  5720 ms] [Rte     ] SchM_Switch_Dcm_DcmDiagnosticSessionControl(0x01): mode users (BswM, SW-Cs) notified
+
+==============================================================================
+== 11 01  ECUReset hard (reset executed after the positive response is on the bus)
+==============================================================================
+[  5825 ms] [Tester  ] >>> UDS request physical 0x7E0 (2 bytes): 11 01
+[  5825 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  02 11 01 55 55 55 55 55
+[  5826 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[  5826 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[  5826 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=2 [11 01] -> PduR_CanTpStartOfReception(0)
+[  5826 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[  5826 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=2) -> BUFREQ_OK, buffer=128, S3 stopped
+[  5826 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[  5826 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [11 01] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[  5830 ms] [Dcm/DSD ] SID 0x11: lookup in DcmDsdServiceTable -> ECUReset
+[  5830 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ECUReset
+[  5830 ms] [Rte     ] SchM_Switch_Dcm_DcmEcuReset(1)
+[  5830 ms] [Dcm/DSD ] positive response assembled: SID 0x51 + 1 data bytes
+[  5830 ms] [Dcm/DSL ] response [51 01] -> PduR_DcmTransmit(0, len=2)
+[  5830 ms] [PduR    ] DcmTransmit(0) len=2 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[  5830 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=2 -> single frame
+[  5830 ms] [CanTp   ] TX TxNSdu_DiagPhys: SF payload=2 [51 01] -> CanIf_Transmit(L-PDU 0)
+[  5830 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[  5830 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [02 51 01 CC CC CC CC CC]
+[  5831 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  02 51 01 CC CC CC CC CC
+[  5831 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[  5831 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[  5831 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (2 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[  5831 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[  5831 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[  5831 ms] [Dcm/DSL ] 0x11 response confirmed -> SchM_Switch DcmEcuReset = EXECUTE
+[  5831 ms] [Rte     ] SchM_Switch_Dcm_DcmEcuReset(5)
+[  5831 ms] [Rte     ]   (BswM role) DcmEcuReset=EXECUTE -> EcuM_SimRequestReset
+[  5831 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[  5831 ms] [EcuM    ] ==== simulated ECU RESET (Mcu_PerformReset) - RAM state lost, NV data kept ====
+[  5831 ms] [EcuM    ] ---- EcuM_Init: DriverInitZero/One (MCAL) ----
+[  5831 ms] [Can     ] Init: receive rule 0 <- HRH0(0x7E0 phys req) (code=0x7E0 mask=0x7FF)
+[  5831 ms] [Can     ] Init: receive rule 1 <- HRH1(0x7DF func req) (code=0x7DF mask=0x7FF)
+[  5831 ms] [Can     ] Init done: controller 0 -> STOPPED (RS-CANFD channel reset mode)
+[  5831 ms] [EcuM    ] ---- BSW init (normally BswM action list) ----
+[  5831 ms] [CanIf   ] Init: 2 Rx L-PDUs, 2 Tx L-PDUs
+[  5831 ms] [CanTp   ] Init: 2 Rx N-SDUs, 1 Tx N-SDUs, MainFunction period 1 ms
+[  5831 ms] [PduR    ] Init: 2 RX routing paths, 1 TX routing paths
+[  5831 ms] [NvM     ] ReadAll: DiagConfig block = [A0 A1 A2 A3 A4 A5 A6 A7 A8 A9]
+[  5831 ms] [Dcm     ] Init: 9 services, 3 DIDs, 1 routines, 1 security rows; DefaultSession, LOCKED
+[  5831 ms] [Rte     ] Rte_Start -> init runnables VehicleInfoSWC_Init, SecurityAccessSWC_Init
+[  5831 ms] [EcuM    ] ---- start communication (normally ComM/CanSM) ----
+[  5831 ms] [CanIf   ] SetControllerMode(0) -> Can_SetControllerMode
+[  5831 ms] [Can     ] SetControllerMode(0, STARTED) requested (CmCTR.CHMDC written)
+[  5831 ms] [Tester  ] <<< UDS response (2 bytes): 51 01
+-- RESULT: 51 01  (after 6 ms, 0 x NRC 0x78 before)
+[  5832 ms] [Can     ] MainFunction_Mode: CmSTS shows STARTED -> CanIf_ControllerModeIndication
+[  5832 ms] [CanIf   ] ControllerModeIndication(0, STARTED) (real stack: -> CanSM)
+
+==============================================================================
+== 22 F1 A0 after reset: value written before survived in (emulated) NvM
+==============================================================================
+[  5851 ms] [Tester  ] >>> UDS request physical 0x7E0 (3 bytes): 22 F1 A0
+[  5851 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  03 22 F1 A0 55 55 55 55
+[  5852 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[  5852 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[  5852 ms] [CanTp   ] RX RxNSdu_DiagPhys: SF len=3 [22 F1 A0] -> PduR_CanTpStartOfReception(0)
+[  5852 ms] [PduR    ] CanTpStartOfReception(0) -> route 'CanTp(DiagPhys) -> Dcm' -> Dcm_StartOfReception(DcmRxPduId 0)
+[  5852 ms] [Dcm/DSL ] StartOfReception(DcmRxPduId 0 physical, len=3) -> BUFREQ_OK, buffer=128, S3 stopped
+[  5852 ms] [PduR    ] CanTpRxIndication(0, E_OK) -> Dcm_TpRxIndication(DcmRxPduId 0)
+[  5852 ms] [Dcm/DSL ] TpRxIndication(E_OK): request [22 F1 A0] complete; P2 timer = 50-10 ms; DSD runs in next Dcm_MainFunction
+[  5860 ms] [Dcm/DSD ] SID 0x22: lookup in DcmDsdServiceTable -> ReadDataByIdentifier
+[  5860 ms] [Dcm/DSD ] checks passed (session/security/length/sub-function) -> dispatch to DSP ReadDataByIdentifier
+[  5860 ms] [Dcm/DSP ] 0x22: DID 0xF1A0 (DiagConfig(NvM)) USE_DATA_SYNCH_CLIENT_SERVER -> ReadData(Data)
+[  5860 ms] [Rte     ] Rte_Call_DataServices_DID_F1A0_ReadData -> server runnable VehicleInfoSWC_ReadDiagConfig
+[  5860 ms] [Dcm/DSD ] positive response assembled: SID 0x62 + 12 data bytes
+[  5860 ms] [Dcm/DSL ] response [62 F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9] -> PduR_DcmTransmit(0, len=13)
+[  5860 ms] [PduR    ] DcmTransmit(0) len=13 -> route 'Dcm -> CanTp(DiagPhys)' -> CanTp_Transmit(N-SDU 0)
+[  5860 ms] [CanTp   ] Transmit TxNSdu_DiagPhys length=13 -> segmented (FF + CFs, needs FC from tester)
+[  5860 ms] [CanTp   ] TX TxNSdu_DiagPhys: FF payload=6 [62 F1 A0 A0 A1 A2] -> CanIf_Transmit(L-PDU 0)
+[  5860 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[  5860 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [10 0D 62 F1 A0 A0 A1 A2]
+[  5861 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  10 0D 62 F1 A0 A0 A1 A2
+[  5861 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[  5861 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[  5861 ms] [Tester  ] send FC CTS BS=1 STmin=2
+[  5861 ms] [Bus     ] Tester -> wire  ID=0x7E0 DLC=8  30 01 02 55 55 55 55 55
+[  5862 ms] [Can     ] ISR EI190 (RX FIFO): ID=0x7E0 HRH=0 DLC=8 -> CanIf_RxIndication
+[  5862 ms] [CanIf   ] RxIndication HRH=0 ID=0x7E0 -> Rx L-PDU 0 (DiagPhysReq_7E0) -> CanTp_RxIndication(N-PDU 0)
+[  5862 ms] [CanTp   ] TX TxNSdu_DiagPhys: FC CTS received (BS=1 STmin=2 ms) -> CFs from CanTp_MainFunction
+[  5862 ms] [CanTp   ] TX TxNSdu_DiagPhys: CF payload=7 [A3 A4 A5 A6 A7 A8 A9] -> CanIf_Transmit(L-PDU 0)
+[  5862 ms] [CanIf   ] Transmit L-PDU 0 (DiagResp_7E8) -> Can_Write(HTH=2, ID=0x7E8)
+[  5862 ms] [Can     ] Write HTH=2 ID=0x7E8 DLC=8 -> TX buffer 0, TMC.TMTR=1  [21 A3 A4 A5 A6 A7 A8 A9]
+[  5863 ms] [Bus     ] ECU    -> wire  ID=0x7E8 DLC=8  21 A3 A4 A5 A6 A7 A8 A9
+[  5863 ms] [Can     ] MainFunction_Write: TX buffer 0 done (TMSTS.TMTRF) -> CanIf_TxConfirmation(L-PDU 0)
+[  5863 ms] [CanIf   ] TxConfirmation L-PDU 0 (DiagResp_7E8) -> CanTp_TxConfirmation(N-PDU 0)
+[  5863 ms] [CanTp   ] TX TxNSdu_DiagPhys: complete (13 bytes) -> PduR_CanTpTxConfirmation(E_OK)
+[  5863 ms] [PduR    ] CanTpTxConfirmation(0, E_OK) -> Dcm_TpTxConfirmation(DcmTxPduId 0)
+[  5863 ms] [Dcm/DSL ] TpTxConfirmation(E_OK): response on the bus (SWS_Dcm_00353: P2 monitoring stops)
+[  5863 ms] [Dcm/DSL ] request finished; S3 timer (re)started (5000 ms)
+[  5863 ms] [Tester  ] <<< UDS response (13 bytes): 62 F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9
+-- RESULT: 62 F1 A0 A0 A1 A2 A3 A4 A5 A6 A7 A8 A9  (after 12 ms, 0 x NRC 0x78 before)
+
+==============================================================================
+== Demo finished
+==============================================================================

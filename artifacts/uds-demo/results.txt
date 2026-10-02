@@ -1,0 +1,35 @@
+gcc.EXE (tdm64-1) 10.3.0
+Copyright (c) 2020 Free Software Foundation, Inc.
+本程序是自由软件；请参看源代码的版权声明。本软件没有任何担保；
+包括没有适销性和某一专用目的下的适用性担保。
+
+BUILD test_uds_demo.exe
+C:\D_disk\software\TDM_GCC\bin\gcc.EXE -std=c99 -O2 -Wall -Wextra -Werror -pedantic -I D:\side_project\rh850\examples\uds_diag_demo\general -I D:\side_project\rh850\examples\uds_diag_demo\sim -I D:\side_project\rh850\examples\uds_diag_demo\mcal -I D:\side_project\rh850\examples\uds_diag_demo\ecual -I D:\side_project\rh850\examples\uds_diag_demo\com -I D:\side_project\rh850\examples\uds_diag_demo\diag -I D:\side_project\rh850\examples\uds_diag_demo\mem -I D:\side_project\rh850\examples\uds_diag_demo\rte -I D:\side_project\rh850\examples\uds_diag_demo\swc -I D:\side_project\rh850\examples\uds_diag_demo\integration D:\side_project\rh850\examples\uds_diag_demo\general\Det.c D:\side_project\rh850\examples\uds_diag_demo\general\UdsTrace.c D:\side_project\rh850\examples\uds_diag_demo\general\SimClock.c D:\side_project\rh850\examples\uds_diag_demo\sim\VirtualCanBus.c D:\side_project\rh850\examples\uds_diag_demo\sim\UdsTester.c D:\side_project\rh850\examples\uds_diag_demo\sim\SimHarness.c D:\side_project\rh850\examples\uds_diag_demo\mcal\Can.c D:\side_project\rh850\examples\uds_diag_demo\mcal\Can_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\ecual\CanIf.c D:\side_project\rh850\examples\uds_diag_demo\ecual\CanIf_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\com\CanTp.c D:\side_project\rh850\examples\uds_diag_demo\com\CanTp_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\com\PduR.c D:\side_project\rh850\examples\uds_diag_demo\com\PduR_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Dsl.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Dsd.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Dsp.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dem.c D:\side_project\rh850\examples\uds_diag_demo\mem\NvM.c D:\side_project\rh850\examples\uds_diag_demo\rte\Rte_Dcm.c D:\side_project\rh850\examples\uds_diag_demo\swc\VehicleInfoSWC.c D:\side_project\rh850\examples\uds_diag_demo\swc\SecurityAccessSWC.c D:\side_project\rh850\examples\uds_diag_demo\integration\EcuM.c D:\side_project\rh850\examples\uds_diag_demo\integration\BswScheduler.c D:\side_project\rh850\examples\uds_diag_demo\tests\test_uds_demo.c -o D:\side_project\rh850\artifacts\uds-demo\test_uds_demo.exe
+
+build exit code: 0
+
+BUILD uds_demo.exe
+C:\D_disk\software\TDM_GCC\bin\gcc.EXE -std=c99 -O2 -Wall -Wextra -Werror -pedantic -I D:\side_project\rh850\examples\uds_diag_demo\general -I D:\side_project\rh850\examples\uds_diag_demo\sim -I D:\side_project\rh850\examples\uds_diag_demo\mcal -I D:\side_project\rh850\examples\uds_diag_demo\ecual -I D:\side_project\rh850\examples\uds_diag_demo\com -I D:\side_project\rh850\examples\uds_diag_demo\diag -I D:\side_project\rh850\examples\uds_diag_demo\mem -I D:\side_project\rh850\examples\uds_diag_demo\rte -I D:\side_project\rh850\examples\uds_diag_demo\swc -I D:\side_project\rh850\examples\uds_diag_demo\integration D:\side_project\rh850\examples\uds_diag_demo\general\Det.c D:\side_project\rh850\examples\uds_diag_demo\general\UdsTrace.c D:\side_project\rh850\examples\uds_diag_demo\general\SimClock.c D:\side_project\rh850\examples\uds_diag_demo\sim\VirtualCanBus.c D:\side_project\rh850\examples\uds_diag_demo\sim\UdsTester.c D:\side_project\rh850\examples\uds_diag_demo\sim\SimHarness.c D:\side_project\rh850\examples\uds_diag_demo\mcal\Can.c D:\side_project\rh850\examples\uds_diag_demo\mcal\Can_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\ecual\CanIf.c D:\side_project\rh850\examples\uds_diag_demo\ecual\CanIf_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\com\CanTp.c D:\side_project\rh850\examples\uds_diag_demo\com\CanTp_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\com\PduR.c D:\side_project\rh850\examples\uds_diag_demo\com\PduR_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Dsl.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Dsd.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Dsp.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dcm_Cfg.c D:\side_project\rh850\examples\uds_diag_demo\diag\Dem.c D:\side_project\rh850\examples\uds_diag_demo\mem\NvM.c D:\side_project\rh850\examples\uds_diag_demo\rte\Rte_Dcm.c D:\side_project\rh850\examples\uds_diag_demo\swc\VehicleInfoSWC.c D:\side_project\rh850\examples\uds_diag_demo\swc\SecurityAccessSWC.c D:\side_project\rh850\examples\uds_diag_demo\integration\EcuM.c D:\side_project\rh850\examples\uds_diag_demo\integration\BswScheduler.c D:\side_project\rh850\examples\uds_diag_demo\integration\main_demo.c -o D:\side_project\rh850\artifacts\uds-demo\uds_demo.exe
+
+build exit code: 0
+
+RUN TESTS
+UDS educational stack host tests (12 test cases)
+[PASS] 22 F1 90 multi-frame VIN with FC
+[PASS] 22 F1 87 + multi-DID + unsupported DID
+[PASS] 10 01/03 -> 50 xx + P2/P2*, 10 02 -> 0x12
+[PASS] 27 01/02 good+bad key, 0x24/0x35/0x36/0x37
+[PASS] 2E without security 0x33, with security 6E
+[PASS] 31 01/03 FF00 routine + 0x24/0x31
+[PASS] 3E 00 -> 7E 00, 3E 80 -> no response, S3
+[PASS] unknown SID 0x11, wrong length 0x13, 0x12
+[PASS] S3 timeout -> default session + locked
+[PASS] NRC 0x78 response pending sequence
+[PASS] 19 02 FF / 14 FF FF FF via Dem stub
+[PASS] 11 01 -> 51 01, reset after response
+
+12/12 test cases passed, 80 checks executed
+test exit code: 0
+
+RUN DEMO
+demo exit code: 0, trace lines: 825 -> artifacts/uds-demo/trace.txt

@@ -1,0 +1,1186 @@
+name,address,width_bits,mode,access,hw_e_pages,note
+GCFG,0xFFD20084,32,CAN_BOTH,RW,949-950,"DCS bit4; 0=40MHz, 1=16MHz; FD-only fields exist"
+GCTR,0xFFD20088,32,CAN_BOTH,RW,951-953,GMDC bits1:0; GSLPR bit2; configure in global reset
+GSTS,0xFFD2008C,32,CAN_BOTH,RO,954-955,GRAMINIT bit3; mode status bits2:0
+GERFL,0xFFD20090,32,CAN_BOTH,mixed,956-957,W0C and summary flags; mask undefined reserved reads
+GAFLECTR,0xFFD20098,32,CAN_BOTH,RW,963,AFLDAE bit8; AFLPN bits4:0; page0..11
+GAFLCFG0,0xFFD2009C,32,CAN_BOTH,RW,964,RNC0 31:24; RNC1 23:16; RNC2 15:8
+RMNB,0xFFD200A4,32,CAN_BOTH,RW,972,NRXMB 7:0; FD RMPLS 9:8; reference NRXMB=0
+GRMCFG,0xFFD204FC,32,CAN_BOTH,RW,920,RCMC bit0; change only in global reset before other config
+CANFDMDR,0xFFD28000,32,CAN_BOTH,RO,1056,FDMDR bit0 reports interface mode
+GFDCFG,0xFFD20474,32,CAN_FD,RW,962,RPED bit0; TSCCFG 9:8; no ISO selector defined here
+C0CFG,0xFFD20000,32,CAN_CLASSIC,RW,803-804,physical values minus1; channel reset/halt restrictions
+C0NCFG,0xFFD20000,32,CAN_FD,RW,921-922,not the same layout as Classic CFG
+C0CTR,0xFFD20004,32,CAN_BOTH,RW,923-925,FD pages cited; Classic common fields only
+C0STS,0xFFD20008,32,CAN_BOTH,mixed,928-929,FD pages cited; Classic common fields only
+C0ERFL,0xFFD2000C,32,CAN_BOTH,W0C,930-934,FD pages cited; Classic common fields only
+C0DCFG,0xFFD20500,32,CAN_FD,RW,935-936,overlaps Classic AFL window
+C0FDCFG,0xFFD20504,32,CAN_FD,RW,938-940,TDC needs board timing; FDOE is not RCMC
+TXQCC0,0xFFD203A0,32,CAN_BOTH,RW,1039-1040,reference disabled
+THLCC0,0xFFD20400,32,CAN_BOTH,RW,1044-1045,reference disabled
+C1CFG,0xFFD20010,32,CAN_CLASSIC,RW,803-804,physical values minus1; channel reset/halt restrictions
+C1NCFG,0xFFD20010,32,CAN_FD,RW,921-922,not the same layout as Classic CFG
+C1CTR,0xFFD20014,32,CAN_BOTH,RW,923-925,FD pages cited; Classic common fields only
+C1STS,0xFFD20018,32,CAN_BOTH,mixed,928-929,FD pages cited; Classic common fields only
+C1ERFL,0xFFD2001C,32,CAN_BOTH,W0C,930-934,FD pages cited; Classic common fields only
+C1DCFG,0xFFD20520,32,CAN_FD,RW,935-936,overlaps Classic AFL window
+C1FDCFG,0xFFD20524,32,CAN_FD,RW,938-940,TDC needs board timing; FDOE is not RCMC
+TXQCC1,0xFFD203A4,32,CAN_BOTH,RW,1039-1040,reference disabled
+THLCC1,0xFFD20404,32,CAN_BOTH,RW,1044-1045,reference disabled
+C2CFG,0xFFD20020,32,CAN_CLASSIC,RW,803-804,physical values minus1; channel reset/halt restrictions
+C2NCFG,0xFFD20020,32,CAN_FD,RW,921-922,not the same layout as Classic CFG
+C2CTR,0xFFD20024,32,CAN_BOTH,RW,923-925,FD pages cited; Classic common fields only
+C2STS,0xFFD20028,32,CAN_BOTH,mixed,928-929,FD pages cited; Classic common fields only
+C2ERFL,0xFFD2002C,32,CAN_BOTH,W0C,930-934,FD pages cited; Classic common fields only
+C2DCFG,0xFFD20540,32,CAN_FD,RW,935-936,overlaps Classic AFL window
+C2FDCFG,0xFFD20544,32,CAN_FD,RW,938-940,TDC needs board timing; FDOE is not RCMC
+TXQCC2,0xFFD203A8,32,CAN_BOTH,RW,1039-1040,reference disabled
+THLCC2,0xFFD20408,32,CAN_BOTH,RW,1044-1045,reference disabled
+RFCC0,0xFFD200B8,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS0,0xFFD200D8,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR0,0xFFD200F8,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC1,0xFFD200BC,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS1,0xFFD200DC,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR1,0xFFD200FC,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC2,0xFFD200C0,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS2,0xFFD200E0,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR2,0xFFD20100,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC3,0xFFD200C4,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS3,0xFFD200E4,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR3,0xFFD20104,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC4,0xFFD200C8,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS4,0xFFD200E8,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR4,0xFFD20108,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC5,0xFFD200CC,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS5,0xFFD200EC,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR5,0xFFD2010C,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC6,0xFFD200D0,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS6,0xFFD200F0,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR6,0xFFD20110,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+RFCC7,0xFFD200D4,32,CAN_BOTH,RW,979-980,RFE bit0; enable separately after global operating
+RFSTS7,0xFFD200F4,32,CAN_BOTH,mixed,981-982,RFEMP0 RFFLL1 RO; RFMLT2 RFIF3 W0C; RFMC15:8 RO
+RFPCTR7,0xFFD20114,32,CAN_BOTH,WO,983,write0xFF only while enabled and nonempty; pops a message
+CFCC0,0xFFD20118,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC1,0xFFD2011C,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC2,0xFFD20120,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC3,0xFFD20124,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC4,0xFFD20128,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC5,0xFFD2012C,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC6,0xFFD20130,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC7,0xFFD20134,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+CFCC8,0xFFD20138,32,CAN_BOTH,RW,990-994,common FIFO; reference disabled; not RFCC
+TMC0,0xFFD20250,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS0,0xFFD202D0,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC1,0xFFD20251,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS1,0xFFD202D1,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC2,0xFFD20252,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS2,0xFFD202D2,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC3,0xFFD20253,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS3,0xFFD202D3,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC4,0xFFD20254,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS4,0xFFD202D4,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC5,0xFFD20255,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS5,0xFFD202D5,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC6,0xFFD20256,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS6,0xFFD202D6,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC7,0xFFD20257,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS7,0xFFD202D7,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC8,0xFFD20258,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS8,0xFFD202D8,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC9,0xFFD20259,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS9,0xFFD202D9,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC10,0xFFD2025A,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS10,0xFFD202DA,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC11,0xFFD2025B,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS11,0xFFD202DB,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC12,0xFFD2025C,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS12,0xFFD202DC,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC13,0xFFD2025D,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS13,0xFFD202DD,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC14,0xFFD2025E,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS14,0xFFD202DE,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC15,0xFFD2025F,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS15,0xFFD202DF,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC16,0xFFD20260,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS16,0xFFD202E0,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC17,0xFFD20261,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS17,0xFFD202E1,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC18,0xFFD20262,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS18,0xFFD202E2,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC19,0xFFD20263,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS19,0xFFD202E3,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC20,0xFFD20264,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS20,0xFFD202E4,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC21,0xFFD20265,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS21,0xFFD202E5,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC22,0xFFD20266,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS22,0xFFD202E6,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC23,0xFFD20267,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS23,0xFFD202E7,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC24,0xFFD20268,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS24,0xFFD202E8,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC25,0xFFD20269,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS25,0xFFD202E9,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC26,0xFFD2026A,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS26,0xFFD202EA,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC27,0xFFD2026B,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS27,0xFFD202EB,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC28,0xFFD2026C,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS28,0xFFD202EC,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC29,0xFFD2026D,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS29,0xFFD202ED,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC30,0xFFD2026E,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS30,0xFFD202EE,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC31,0xFFD2026F,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS31,0xFFD202EF,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC32,0xFFD20270,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS32,0xFFD202F0,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC33,0xFFD20271,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS33,0xFFD202F1,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC34,0xFFD20272,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS34,0xFFD202F2,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC35,0xFFD20273,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS35,0xFFD202F3,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC36,0xFFD20274,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS36,0xFFD202F4,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC37,0xFFD20275,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS37,0xFFD202F5,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC38,0xFFD20276,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS38,0xFFD202F6,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC39,0xFFD20277,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS39,0xFFD202F7,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC40,0xFFD20278,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS40,0xFFD202F8,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC41,0xFFD20279,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS41,0xFFD202F9,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC42,0xFFD2027A,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS42,0xFFD202FA,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC43,0xFFD2027B,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS43,0xFFD202FB,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC44,0xFFD2027C,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS44,0xFFD202FC,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC45,0xFFD2027D,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS45,0xFFD202FD,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC46,0xFFD2027E,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS46,0xFFD202FE,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMC47,0xFFD2027F,8,CAN_BOTH,command,1018-1019,TMTR0/TMTAR1 write1 requests; TMOM2
+TMSTS47,0xFFD202FF,8,CAN_BOTH,mixed,1020-1021,TMTRF2:1 result; write0 after consuming; request clear alone is not success
+TMIEC0,0xFFD20390,32,CAN_BOTH,RW,1036-1037,y1 only low16 implemented
+TMIEC1,0xFFD20394,32,CAN_BOTH,RW,1036-1037,y1 only low16 implemented
+GAFLID_0,0xFFD20500,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_0,0xFFD20504,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_0,0xFFD20508,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_0,0xFFD2050C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_1,0xFFD20510,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_1,0xFFD20514,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_1,0xFFD20518,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_1,0xFFD2051C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_2,0xFFD20520,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_2,0xFFD20524,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_2,0xFFD20528,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_2,0xFFD2052C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_3,0xFFD20530,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_3,0xFFD20534,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_3,0xFFD20538,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_3,0xFFD2053C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_4,0xFFD20540,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_4,0xFFD20544,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_4,0xFFD20548,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_4,0xFFD2054C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_5,0xFFD20550,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_5,0xFFD20554,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_5,0xFFD20558,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_5,0xFFD2055C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_6,0xFFD20560,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_6,0xFFD20564,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_6,0xFFD20568,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_6,0xFFD2056C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_7,0xFFD20570,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_7,0xFFD20574,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_7,0xFFD20578,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_7,0xFFD2057C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_8,0xFFD20580,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_8,0xFFD20584,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_8,0xFFD20588,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_8,0xFFD2058C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_9,0xFFD20590,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_9,0xFFD20594,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_9,0xFFD20598,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_9,0xFFD2059C,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_10,0xFFD205A0,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_10,0xFFD205A4,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_10,0xFFD205A8,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_10,0xFFD205AC,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_11,0xFFD205B0,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_11,0xFFD205B4,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_11,0xFFD205B8,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_11,0xFFD205BC,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_12,0xFFD205C0,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_12,0xFFD205C4,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_12,0xFFD205C8,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_12,0xFFD205CC,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_13,0xFFD205D0,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_13,0xFFD205D4,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_13,0xFFD205D8,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_13,0xFFD205DC,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_14,0xFFD205E0,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_14,0xFFD205E4,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_14,0xFFD205E8,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_14,0xFFD205EC,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_15,0xFFD205F0,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_15,0xFFD205F4,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_15,0xFFD205F8,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_15,0xFFD205FC,32,CAN_CLASSIC,RW,797-802; 17.3,"page window slot, not absolute rule index; write only AFLDAE=1"
+RFID0,0xFFD20E00,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR0,0xFFD20E04,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_0,0xFFD20E08,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_0,0xFFD20E0C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID1,0xFFD20E10,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR1,0xFFD20E14,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_1,0xFFD20E18,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_1,0xFFD20E1C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID2,0xFFD20E20,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR2,0xFFD20E24,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_2,0xFFD20E28,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_2,0xFFD20E2C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID3,0xFFD20E30,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR3,0xFFD20E34,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_3,0xFFD20E38,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_3,0xFFD20E3C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID4,0xFFD20E40,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR4,0xFFD20E44,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_4,0xFFD20E48,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_4,0xFFD20E4C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID5,0xFFD20E50,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR5,0xFFD20E54,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_5,0xFFD20E58,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_5,0xFFD20E5C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID6,0xFFD20E60,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR6,0xFFD20E64,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_6,0xFFD20E68,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_6,0xFFD20E6C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFID7,0xFFD20E70,32,CAN_CLASSIC,RO,797-802; 17.3,allocated enabled nonempty FIFO only
+RFPTR7,0xFFD20E74,32,CAN_CLASSIC,RO,797-802; 17.3,DLC31:28; label27:16; timestamp15:0
+RFDF0_7,0xFFD20E78,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+RFDF1_7,0xFFD20E7C,32,CAN_CLASSIC,RO,797-802; 17.3,read only allocated payload words for current frame before pop
+TMID0,0xFFD21000,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR0,0xFFD21004,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_0,0xFFD21008,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_0,0xFFD2100C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID1,0xFFD21010,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR1,0xFFD21014,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_1,0xFFD21018,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_1,0xFFD2101C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID2,0xFFD21020,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR2,0xFFD21024,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_2,0xFFD21028,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_2,0xFFD2102C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID3,0xFFD21030,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR3,0xFFD21034,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_3,0xFFD21038,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_3,0xFFD2103C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID4,0xFFD21040,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR4,0xFFD21044,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_4,0xFFD21048,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_4,0xFFD2104C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID5,0xFFD21050,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR5,0xFFD21054,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_5,0xFFD21058,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_5,0xFFD2105C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID6,0xFFD21060,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR6,0xFFD21064,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_6,0xFFD21068,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_6,0xFFD2106C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID7,0xFFD21070,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR7,0xFFD21074,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_7,0xFFD21078,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_7,0xFFD2107C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID8,0xFFD21080,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR8,0xFFD21084,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_8,0xFFD21088,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_8,0xFFD2108C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID9,0xFFD21090,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR9,0xFFD21094,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_9,0xFFD21098,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_9,0xFFD2109C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID10,0xFFD210A0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR10,0xFFD210A4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_10,0xFFD210A8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_10,0xFFD210AC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID11,0xFFD210B0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR11,0xFFD210B4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_11,0xFFD210B8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_11,0xFFD210BC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID12,0xFFD210C0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR12,0xFFD210C4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_12,0xFFD210C8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_12,0xFFD210CC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID13,0xFFD210D0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR13,0xFFD210D4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_13,0xFFD210D8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_13,0xFFD210DC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID14,0xFFD210E0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR14,0xFFD210E4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_14,0xFFD210E8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_14,0xFFD210EC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID15,0xFFD210F0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR15,0xFFD210F4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_15,0xFFD210F8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_15,0xFFD210FC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID16,0xFFD21100,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR16,0xFFD21104,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_16,0xFFD21108,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_16,0xFFD2110C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID17,0xFFD21110,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR17,0xFFD21114,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_17,0xFFD21118,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_17,0xFFD2111C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID18,0xFFD21120,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR18,0xFFD21124,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_18,0xFFD21128,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_18,0xFFD2112C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID19,0xFFD21130,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR19,0xFFD21134,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_19,0xFFD21138,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_19,0xFFD2113C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID20,0xFFD21140,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR20,0xFFD21144,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_20,0xFFD21148,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_20,0xFFD2114C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID21,0xFFD21150,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR21,0xFFD21154,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_21,0xFFD21158,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_21,0xFFD2115C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID22,0xFFD21160,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR22,0xFFD21164,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_22,0xFFD21168,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_22,0xFFD2116C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID23,0xFFD21170,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR23,0xFFD21174,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_23,0xFFD21178,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_23,0xFFD2117C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID24,0xFFD21180,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR24,0xFFD21184,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_24,0xFFD21188,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_24,0xFFD2118C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID25,0xFFD21190,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR25,0xFFD21194,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_25,0xFFD21198,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_25,0xFFD2119C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID26,0xFFD211A0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR26,0xFFD211A4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_26,0xFFD211A8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_26,0xFFD211AC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID27,0xFFD211B0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR27,0xFFD211B4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_27,0xFFD211B8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_27,0xFFD211BC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID28,0xFFD211C0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR28,0xFFD211C4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_28,0xFFD211C8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_28,0xFFD211CC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID29,0xFFD211D0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR29,0xFFD211D4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_29,0xFFD211D8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_29,0xFFD211DC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID30,0xFFD211E0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR30,0xFFD211E4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_30,0xFFD211E8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_30,0xFFD211EC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID31,0xFFD211F0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR31,0xFFD211F4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_31,0xFFD211F8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_31,0xFFD211FC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID32,0xFFD21200,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR32,0xFFD21204,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_32,0xFFD21208,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_32,0xFFD2120C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID33,0xFFD21210,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR33,0xFFD21214,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_33,0xFFD21218,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_33,0xFFD2121C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID34,0xFFD21220,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR34,0xFFD21224,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_34,0xFFD21228,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_34,0xFFD2122C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID35,0xFFD21230,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR35,0xFFD21234,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_35,0xFFD21238,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_35,0xFFD2123C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID36,0xFFD21240,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR36,0xFFD21244,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_36,0xFFD21248,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_36,0xFFD2124C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID37,0xFFD21250,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR37,0xFFD21254,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_37,0xFFD21258,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_37,0xFFD2125C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID38,0xFFD21260,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR38,0xFFD21264,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_38,0xFFD21268,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_38,0xFFD2126C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID39,0xFFD21270,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR39,0xFFD21274,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_39,0xFFD21278,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_39,0xFFD2127C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID40,0xFFD21280,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR40,0xFFD21284,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_40,0xFFD21288,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_40,0xFFD2128C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID41,0xFFD21290,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR41,0xFFD21294,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_41,0xFFD21298,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_41,0xFFD2129C,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID42,0xFFD212A0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR42,0xFFD212A4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_42,0xFFD212A8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_42,0xFFD212AC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID43,0xFFD212B0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR43,0xFFD212B4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_43,0xFFD212B8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_43,0xFFD212BC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID44,0xFFD212C0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR44,0xFFD212C4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_44,0xFFD212C8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_44,0xFFD212CC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID45,0xFFD212D0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR45,0xFFD212D4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_45,0xFFD212D8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_45,0xFFD212DC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID46,0xFFD212E0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR46,0xFFD212E4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_46,0xFFD212E8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_46,0xFFD212EC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMID47,0xFFD212F0,32,CAN_CLASSIC,RW,797-802; 17.3,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR47,0xFFD212F4,32,CAN_CLASSIC,RW,797-802; 17.3,DLC31:28; label23:16
+TMDF0_47,0xFFD212F8,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+TMDF1_47,0xFFD212FC,32,CAN_CLASSIC,RW,797-802; 17.3,byte0 in low8; never overwrite pending transmission
+GAFLID_0,0xFFD21000,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_0,0xFFD21004,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_0,0xFFD21008,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_0,0xFFD2100C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_1,0xFFD21010,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_1,0xFFD21014,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_1,0xFFD21018,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_1,0xFFD2101C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_2,0xFFD21020,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_2,0xFFD21024,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_2,0xFFD21028,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_2,0xFFD2102C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_3,0xFFD21030,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_3,0xFFD21034,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_3,0xFFD21038,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_3,0xFFD2103C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_4,0xFFD21040,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_4,0xFFD21044,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_4,0xFFD21048,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_4,0xFFD2104C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_5,0xFFD21050,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_5,0xFFD21054,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_5,0xFFD21058,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_5,0xFFD2105C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_6,0xFFD21060,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_6,0xFFD21064,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_6,0xFFD21068,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_6,0xFFD2106C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_7,0xFFD21070,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_7,0xFFD21074,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_7,0xFFD21078,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_7,0xFFD2107C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_8,0xFFD21080,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_8,0xFFD21084,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_8,0xFFD21088,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_8,0xFFD2108C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_9,0xFFD21090,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_9,0xFFD21094,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_9,0xFFD21098,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_9,0xFFD2109C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_10,0xFFD210A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_10,0xFFD210A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_10,0xFFD210A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_10,0xFFD210AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_11,0xFFD210B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_11,0xFFD210B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_11,0xFFD210B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_11,0xFFD210BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_12,0xFFD210C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_12,0xFFD210C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_12,0xFFD210C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_12,0xFFD210CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_13,0xFFD210D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_13,0xFFD210D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_13,0xFFD210D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_13,0xFFD210DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_14,0xFFD210E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_14,0xFFD210E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_14,0xFFD210E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_14,0xFFD210EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLID_15,0xFFD210F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLM_15,0xFFD210F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP0_15,0xFFD210F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+GAFLP1_15,0xFFD210FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,"page window slot, not absolute rule index; write only AFLDAE=1"
+RFID0,0xFFD23000,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR0,0xFFD23004,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS0,0xFFD23008,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_0,0xFFD2300C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_0,0xFFD23010,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_0,0xFFD23014,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_0,0xFFD23018,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_0,0xFFD2301C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_0,0xFFD23020,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_0,0xFFD23024,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_0,0xFFD23028,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_0,0xFFD2302C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_0,0xFFD23030,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_0,0xFFD23034,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_0,0xFFD23038,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_0,0xFFD2303C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_0,0xFFD23040,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_0,0xFFD23044,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_0,0xFFD23048,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID1,0xFFD23080,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR1,0xFFD23084,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS1,0xFFD23088,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_1,0xFFD2308C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_1,0xFFD23090,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_1,0xFFD23094,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_1,0xFFD23098,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_1,0xFFD2309C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_1,0xFFD230A0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_1,0xFFD230A4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_1,0xFFD230A8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_1,0xFFD230AC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_1,0xFFD230B0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_1,0xFFD230B4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_1,0xFFD230B8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_1,0xFFD230BC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_1,0xFFD230C0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_1,0xFFD230C4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_1,0xFFD230C8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID2,0xFFD23100,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR2,0xFFD23104,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS2,0xFFD23108,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_2,0xFFD2310C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_2,0xFFD23110,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_2,0xFFD23114,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_2,0xFFD23118,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_2,0xFFD2311C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_2,0xFFD23120,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_2,0xFFD23124,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_2,0xFFD23128,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_2,0xFFD2312C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_2,0xFFD23130,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_2,0xFFD23134,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_2,0xFFD23138,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_2,0xFFD2313C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_2,0xFFD23140,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_2,0xFFD23144,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_2,0xFFD23148,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID3,0xFFD23180,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR3,0xFFD23184,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS3,0xFFD23188,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_3,0xFFD2318C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_3,0xFFD23190,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_3,0xFFD23194,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_3,0xFFD23198,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_3,0xFFD2319C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_3,0xFFD231A0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_3,0xFFD231A4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_3,0xFFD231A8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_3,0xFFD231AC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_3,0xFFD231B0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_3,0xFFD231B4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_3,0xFFD231B8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_3,0xFFD231BC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_3,0xFFD231C0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_3,0xFFD231C4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_3,0xFFD231C8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID4,0xFFD23200,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR4,0xFFD23204,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS4,0xFFD23208,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_4,0xFFD2320C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_4,0xFFD23210,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_4,0xFFD23214,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_4,0xFFD23218,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_4,0xFFD2321C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_4,0xFFD23220,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_4,0xFFD23224,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_4,0xFFD23228,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_4,0xFFD2322C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_4,0xFFD23230,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_4,0xFFD23234,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_4,0xFFD23238,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_4,0xFFD2323C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_4,0xFFD23240,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_4,0xFFD23244,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_4,0xFFD23248,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID5,0xFFD23280,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR5,0xFFD23284,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS5,0xFFD23288,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_5,0xFFD2328C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_5,0xFFD23290,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_5,0xFFD23294,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_5,0xFFD23298,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_5,0xFFD2329C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_5,0xFFD232A0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_5,0xFFD232A4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_5,0xFFD232A8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_5,0xFFD232AC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_5,0xFFD232B0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_5,0xFFD232B4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_5,0xFFD232B8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_5,0xFFD232BC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_5,0xFFD232C0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_5,0xFFD232C4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_5,0xFFD232C8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID6,0xFFD23300,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR6,0xFFD23304,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS6,0xFFD23308,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_6,0xFFD2330C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_6,0xFFD23310,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_6,0xFFD23314,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_6,0xFFD23318,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_6,0xFFD2331C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_6,0xFFD23320,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_6,0xFFD23324,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_6,0xFFD23328,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_6,0xFFD2332C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_6,0xFFD23330,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_6,0xFFD23334,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_6,0xFFD23338,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_6,0xFFD2333C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_6,0xFFD23340,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_6,0xFFD23344,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_6,0xFFD23348,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFID7,0xFFD23380,32,CAN_FD,RO,963-971; 984-989; 1022-1028,allocated enabled nonempty FIFO only
+RFPTR7,0xFFD23384,32,CAN_FD,RO,963-971; 984-989; 1022-1028,DLC31:28; label27:16; timestamp15:0
+RFFDSTS7,0xFFD23388,32,CAN_FD,RO,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+RFDF0_7,0xFFD2338C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF1_7,0xFFD23390,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF2_7,0xFFD23394,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF3_7,0xFFD23398,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF4_7,0xFFD2339C,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF5_7,0xFFD233A0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF6_7,0xFFD233A4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF7_7,0xFFD233A8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF8_7,0xFFD233AC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF9_7,0xFFD233B0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF10_7,0xFFD233B4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF11_7,0xFFD233B8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF12_7,0xFFD233BC,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF13_7,0xFFD233C0,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF14_7,0xFFD233C4,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+RFDF15_7,0xFFD233C8,32,CAN_FD,RO,963-971; 984-989; 1022-1028,read only allocated payload words for current frame before pop
+TMID0,0xFFD24000,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR0,0xFFD24004,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR0,0xFFD24008,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_0,0xFFD2400C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_0,0xFFD24010,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_0,0xFFD24014,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_0,0xFFD24018,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_0,0xFFD2401C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID1,0xFFD24020,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR1,0xFFD24024,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR1,0xFFD24028,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_1,0xFFD2402C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_1,0xFFD24030,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_1,0xFFD24034,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_1,0xFFD24038,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_1,0xFFD2403C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID2,0xFFD24040,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR2,0xFFD24044,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR2,0xFFD24048,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_2,0xFFD2404C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_2,0xFFD24050,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_2,0xFFD24054,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_2,0xFFD24058,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_2,0xFFD2405C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID3,0xFFD24060,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR3,0xFFD24064,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR3,0xFFD24068,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_3,0xFFD2406C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_3,0xFFD24070,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_3,0xFFD24074,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_3,0xFFD24078,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_3,0xFFD2407C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID4,0xFFD24080,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR4,0xFFD24084,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR4,0xFFD24088,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_4,0xFFD2408C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_4,0xFFD24090,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_4,0xFFD24094,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_4,0xFFD24098,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_4,0xFFD2409C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID5,0xFFD240A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR5,0xFFD240A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR5,0xFFD240A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_5,0xFFD240AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_5,0xFFD240B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_5,0xFFD240B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_5,0xFFD240B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_5,0xFFD240BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID6,0xFFD240C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR6,0xFFD240C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR6,0xFFD240C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_6,0xFFD240CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_6,0xFFD240D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_6,0xFFD240D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_6,0xFFD240D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_6,0xFFD240DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID7,0xFFD240E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR7,0xFFD240E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR7,0xFFD240E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_7,0xFFD240EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_7,0xFFD240F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_7,0xFFD240F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_7,0xFFD240F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_7,0xFFD240FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID8,0xFFD24100,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR8,0xFFD24104,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR8,0xFFD24108,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_8,0xFFD2410C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_8,0xFFD24110,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_8,0xFFD24114,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_8,0xFFD24118,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_8,0xFFD2411C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID9,0xFFD24120,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR9,0xFFD24124,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR9,0xFFD24128,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_9,0xFFD2412C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_9,0xFFD24130,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_9,0xFFD24134,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_9,0xFFD24138,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_9,0xFFD2413C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID10,0xFFD24140,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR10,0xFFD24144,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR10,0xFFD24148,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_10,0xFFD2414C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_10,0xFFD24150,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_10,0xFFD24154,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_10,0xFFD24158,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_10,0xFFD2415C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID11,0xFFD24160,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR11,0xFFD24164,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR11,0xFFD24168,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_11,0xFFD2416C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_11,0xFFD24170,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_11,0xFFD24174,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_11,0xFFD24178,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_11,0xFFD2417C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID12,0xFFD24180,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR12,0xFFD24184,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR12,0xFFD24188,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_12,0xFFD2418C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_12,0xFFD24190,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_12,0xFFD24194,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_12,0xFFD24198,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_12,0xFFD2419C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID13,0xFFD241A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR13,0xFFD241A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR13,0xFFD241A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_13,0xFFD241AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_13,0xFFD241B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_13,0xFFD241B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_13,0xFFD241B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_13,0xFFD241BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID14,0xFFD241C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR14,0xFFD241C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR14,0xFFD241C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_14,0xFFD241CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_14,0xFFD241D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_14,0xFFD241D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_14,0xFFD241D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_14,0xFFD241DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID15,0xFFD241E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR15,0xFFD241E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR15,0xFFD241E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_15,0xFFD241EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_15,0xFFD241F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_15,0xFFD241F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_15,0xFFD241F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_15,0xFFD241FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID16,0xFFD24200,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR16,0xFFD24204,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR16,0xFFD24208,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_16,0xFFD2420C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_16,0xFFD24210,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_16,0xFFD24214,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_16,0xFFD24218,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_16,0xFFD2421C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID17,0xFFD24220,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR17,0xFFD24224,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR17,0xFFD24228,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_17,0xFFD2422C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_17,0xFFD24230,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_17,0xFFD24234,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_17,0xFFD24238,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_17,0xFFD2423C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID18,0xFFD24240,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR18,0xFFD24244,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR18,0xFFD24248,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_18,0xFFD2424C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_18,0xFFD24250,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_18,0xFFD24254,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_18,0xFFD24258,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_18,0xFFD2425C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID19,0xFFD24260,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR19,0xFFD24264,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR19,0xFFD24268,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_19,0xFFD2426C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_19,0xFFD24270,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_19,0xFFD24274,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_19,0xFFD24278,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_19,0xFFD2427C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID20,0xFFD24280,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR20,0xFFD24284,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR20,0xFFD24288,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_20,0xFFD2428C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_20,0xFFD24290,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_20,0xFFD24294,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_20,0xFFD24298,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_20,0xFFD2429C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID21,0xFFD242A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR21,0xFFD242A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR21,0xFFD242A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_21,0xFFD242AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_21,0xFFD242B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_21,0xFFD242B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_21,0xFFD242B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_21,0xFFD242BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID22,0xFFD242C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR22,0xFFD242C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR22,0xFFD242C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_22,0xFFD242CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_22,0xFFD242D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_22,0xFFD242D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_22,0xFFD242D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_22,0xFFD242DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID23,0xFFD242E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR23,0xFFD242E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR23,0xFFD242E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_23,0xFFD242EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_23,0xFFD242F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_23,0xFFD242F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_23,0xFFD242F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_23,0xFFD242FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID24,0xFFD24300,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR24,0xFFD24304,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR24,0xFFD24308,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_24,0xFFD2430C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_24,0xFFD24310,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_24,0xFFD24314,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_24,0xFFD24318,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_24,0xFFD2431C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID25,0xFFD24320,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR25,0xFFD24324,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR25,0xFFD24328,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_25,0xFFD2432C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_25,0xFFD24330,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_25,0xFFD24334,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_25,0xFFD24338,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_25,0xFFD2433C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID26,0xFFD24340,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR26,0xFFD24344,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR26,0xFFD24348,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_26,0xFFD2434C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_26,0xFFD24350,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_26,0xFFD24354,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_26,0xFFD24358,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_26,0xFFD2435C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID27,0xFFD24360,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR27,0xFFD24364,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR27,0xFFD24368,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_27,0xFFD2436C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_27,0xFFD24370,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_27,0xFFD24374,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_27,0xFFD24378,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_27,0xFFD2437C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID28,0xFFD24380,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR28,0xFFD24384,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR28,0xFFD24388,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_28,0xFFD2438C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_28,0xFFD24390,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_28,0xFFD24394,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_28,0xFFD24398,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_28,0xFFD2439C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID29,0xFFD243A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR29,0xFFD243A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR29,0xFFD243A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_29,0xFFD243AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_29,0xFFD243B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_29,0xFFD243B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_29,0xFFD243B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_29,0xFFD243BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID30,0xFFD243C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR30,0xFFD243C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR30,0xFFD243C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_30,0xFFD243CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_30,0xFFD243D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_30,0xFFD243D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_30,0xFFD243D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_30,0xFFD243DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID31,0xFFD243E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR31,0xFFD243E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR31,0xFFD243E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_31,0xFFD243EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_31,0xFFD243F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_31,0xFFD243F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_31,0xFFD243F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_31,0xFFD243FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID32,0xFFD24400,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR32,0xFFD24404,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR32,0xFFD24408,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_32,0xFFD2440C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_32,0xFFD24410,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_32,0xFFD24414,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_32,0xFFD24418,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_32,0xFFD2441C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID33,0xFFD24420,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR33,0xFFD24424,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR33,0xFFD24428,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_33,0xFFD2442C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_33,0xFFD24430,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_33,0xFFD24434,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_33,0xFFD24438,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_33,0xFFD2443C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID34,0xFFD24440,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR34,0xFFD24444,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR34,0xFFD24448,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_34,0xFFD2444C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_34,0xFFD24450,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_34,0xFFD24454,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_34,0xFFD24458,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_34,0xFFD2445C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID35,0xFFD24460,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR35,0xFFD24464,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR35,0xFFD24468,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_35,0xFFD2446C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_35,0xFFD24470,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_35,0xFFD24474,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_35,0xFFD24478,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_35,0xFFD2447C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID36,0xFFD24480,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR36,0xFFD24484,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR36,0xFFD24488,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_36,0xFFD2448C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_36,0xFFD24490,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_36,0xFFD24494,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_36,0xFFD24498,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_36,0xFFD2449C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID37,0xFFD244A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR37,0xFFD244A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR37,0xFFD244A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_37,0xFFD244AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_37,0xFFD244B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_37,0xFFD244B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_37,0xFFD244B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_37,0xFFD244BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID38,0xFFD244C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR38,0xFFD244C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR38,0xFFD244C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_38,0xFFD244CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_38,0xFFD244D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_38,0xFFD244D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_38,0xFFD244D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_38,0xFFD244DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID39,0xFFD244E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR39,0xFFD244E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR39,0xFFD244E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_39,0xFFD244EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_39,0xFFD244F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_39,0xFFD244F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_39,0xFFD244F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_39,0xFFD244FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID40,0xFFD24500,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR40,0xFFD24504,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR40,0xFFD24508,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_40,0xFFD2450C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_40,0xFFD24510,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_40,0xFFD24514,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_40,0xFFD24518,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_40,0xFFD2451C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID41,0xFFD24520,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR41,0xFFD24524,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR41,0xFFD24528,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_41,0xFFD2452C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_41,0xFFD24530,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_41,0xFFD24534,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_41,0xFFD24538,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_41,0xFFD2453C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID42,0xFFD24540,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR42,0xFFD24544,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR42,0xFFD24548,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_42,0xFFD2454C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_42,0xFFD24550,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_42,0xFFD24554,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_42,0xFFD24558,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_42,0xFFD2455C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID43,0xFFD24560,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR43,0xFFD24564,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR43,0xFFD24568,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_43,0xFFD2456C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_43,0xFFD24570,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_43,0xFFD24574,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_43,0xFFD24578,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_43,0xFFD2457C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID44,0xFFD24580,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR44,0xFFD24584,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR44,0xFFD24588,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_44,0xFFD2458C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_44,0xFFD24590,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_44,0xFFD24594,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_44,0xFFD24598,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_44,0xFFD2459C,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID45,0xFFD245A0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR45,0xFFD245A4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR45,0xFFD245A8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_45,0xFFD245AC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_45,0xFFD245B0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_45,0xFFD245B4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_45,0xFFD245B8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_45,0xFFD245BC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID46,0xFFD245C0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR46,0xFFD245C4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR46,0xFFD245C8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_46,0xFFD245CC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_46,0xFFD245D0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_46,0xFFD245D4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_46,0xFFD245D8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_46,0xFFD245DC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMID47,0xFFD245E0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,standalone Tx buffer; ownership required; merge/queue can repurpose
+TMPTR47,0xFFD245E4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,DLC31:28; label23:16
+TMFDCTR47,0xFFD245E8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,FDF2 BRS1 ESI0
+TMDF0_47,0xFFD245EC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF1_47,0xFFD245F0,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF2_47,0xFFD245F4,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF3_47,0xFFD245F8,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+TMDF4_47,0xFFD245FC,32,CAN_FD,RW,963-971; 984-989; 1022-1028,byte0 in low8; never overwrite pending transmission
+P2,0xFFC10080,16,SYSTEM,RW,113,CAN candidate port group; only implemented pin bits; preserve other owners
+PSR2,0xFFC10084,32,SYSTEM,RW,115,CAN candidate port group; only implemented pin bits; preserve other owners
+PPR2,0xFFC1008C,16,SYSTEM,RO,112,CAN candidate port group; only implemented pin bits; preserve other owners
+PM2,0xFFC10090,16,SYSTEM,RW,104,CAN candidate port group; only implemented pin bits; preserve other owners
+PMC2,0xFFC10094,16,SYSTEM,RW,101,CAN candidate port group; only implemented pin bits; preserve other owners
+PFC2,0xFFC10098,16,SYSTEM,RW,107,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCE2,0xFFC1009C,16,SYSTEM,RW,108,CAN candidate port group; only implemented pin bits; preserve other owners
+PMSR2,0xFFC100A0,32,SYSTEM,RW,105,CAN candidate port group; only implemented pin bits; preserve other owners
+PMCSR2,0xFFC100A4,32,SYSTEM,RW,102,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCAE2,0xFFC100A8,16,SYSTEM,RW,109,CAN candidate port group; only implemented pin bits; preserve other owners
+PINV2,0xFFC100B0,32,SYSTEM,RW,116,CAN candidate port group; only implemented pin bits; preserve other owners
+PIBC2,0xFFC14080,16,SYSTEM,RW,106,CAN candidate port group; only implemented pin bits; preserve other owners
+PBDC2,0xFFC14084,16,SYSTEM,RW,111,CAN candidate port group; only implemented pin bits; preserve other owners
+PIPC2,0xFFC14088,16,SYSTEM,RW,103;131,CAN candidate port group; only implemented pin bits; preserve other owners
+PU2,0xFFC1408C,16,SYSTEM,RW,117,CAN candidate port group; only implemented pin bits; preserve other owners
+PD2,0xFFC14090,16,SYSTEM,RW,118,CAN candidate port group; only implemented pin bits; preserve other owners
+PODC2,0xFFC14094,32,SYSTEM,RW,119,CAN candidate port group; only implemented pin bits; preserve other owners
+PDSC2,0xFFC14098,32,SYSTEM,RW,121,CAN candidate port group; only implemented pin bits; preserve other owners
+PUCC2,0xFFC140A8,32,SYSTEM,RW,122,CAN candidate port group; only implemented pin bits; preserve other owners
+PISA2,0xFFC140AC,16,SYSTEM,RW,123,CAN candidate port group; only implemented pin bits; preserve other owners
+PODCE2,0xFFC140BC,32,SYSTEM,RW,120,CAN candidate port group; only implemented pin bits; preserve other owners
+P3,0xFFC100C0,16,SYSTEM,RW,113,CAN candidate port group; only implemented pin bits; preserve other owners
+PSR3,0xFFC100C4,32,SYSTEM,RW,115,CAN candidate port group; only implemented pin bits; preserve other owners
+PPR3,0xFFC100CC,16,SYSTEM,RO,112,CAN candidate port group; only implemented pin bits; preserve other owners
+PM3,0xFFC100D0,16,SYSTEM,RW,104,CAN candidate port group; only implemented pin bits; preserve other owners
+PMC3,0xFFC100D4,16,SYSTEM,RW,101,CAN candidate port group; only implemented pin bits; preserve other owners
+PFC3,0xFFC100D8,16,SYSTEM,RW,107,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCE3,0xFFC100DC,16,SYSTEM,RW,108,CAN candidate port group; only implemented pin bits; preserve other owners
+PMSR3,0xFFC100E0,32,SYSTEM,RW,105,CAN candidate port group; only implemented pin bits; preserve other owners
+PMCSR3,0xFFC100E4,32,SYSTEM,RW,102,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCAE3,0xFFC100E8,16,SYSTEM,RW,109,CAN candidate port group; only implemented pin bits; preserve other owners
+PINV3,0xFFC100F0,32,SYSTEM,RW,116,CAN candidate port group; only implemented pin bits; preserve other owners
+PIBC3,0xFFC140C0,16,SYSTEM,RW,106,CAN candidate port group; only implemented pin bits; preserve other owners
+PBDC3,0xFFC140C4,16,SYSTEM,RW,111,CAN candidate port group; only implemented pin bits; preserve other owners
+PIPC3,0xFFC140C8,16,SYSTEM,RW,103;131,CAN candidate port group; only implemented pin bits; preserve other owners
+PU3,0xFFC140CC,16,SYSTEM,RW,117,CAN candidate port group; only implemented pin bits; preserve other owners
+PD3,0xFFC140D0,16,SYSTEM,RW,118,CAN candidate port group; only implemented pin bits; preserve other owners
+PODC3,0xFFC140D4,32,SYSTEM,RW,119,CAN candidate port group; only implemented pin bits; preserve other owners
+PDSC3,0xFFC140D8,32,SYSTEM,RW,121,CAN candidate port group; only implemented pin bits; preserve other owners
+PUCC3,0xFFC140E8,32,SYSTEM,RW,122,CAN candidate port group; only implemented pin bits; preserve other owners
+PISA3,0xFFC140EC,16,SYSTEM,RW,123,CAN candidate port group; only implemented pin bits; preserve other owners
+PODCE3,0xFFC140FC,32,SYSTEM,RW,120,CAN candidate port group; only implemented pin bits; preserve other owners
+P4,0xFFC10100,16,SYSTEM,RW,113,CAN candidate port group; only implemented pin bits; preserve other owners
+PSR4,0xFFC10104,32,SYSTEM,RW,115,CAN candidate port group; only implemented pin bits; preserve other owners
+PPR4,0xFFC1010C,16,SYSTEM,RO,112,CAN candidate port group; only implemented pin bits; preserve other owners
+PM4,0xFFC10110,16,SYSTEM,RW,104,CAN candidate port group; only implemented pin bits; preserve other owners
+PMC4,0xFFC10114,16,SYSTEM,RW,101,CAN candidate port group; only implemented pin bits; preserve other owners
+PFC4,0xFFC10118,16,SYSTEM,RW,107,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCE4,0xFFC1011C,16,SYSTEM,RW,108,CAN candidate port group; only implemented pin bits; preserve other owners
+PMSR4,0xFFC10120,32,SYSTEM,RW,105,CAN candidate port group; only implemented pin bits; preserve other owners
+PMCSR4,0xFFC10124,32,SYSTEM,RW,102,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCAE4,0xFFC10128,16,SYSTEM,RW,109,CAN candidate port group; only implemented pin bits; preserve other owners
+PINV4,0xFFC10130,32,SYSTEM,RW,116,CAN candidate port group; only implemented pin bits; preserve other owners
+PIBC4,0xFFC14100,16,SYSTEM,RW,106,CAN candidate port group; only implemented pin bits; preserve other owners
+PBDC4,0xFFC14104,16,SYSTEM,RW,111,CAN candidate port group; only implemented pin bits; preserve other owners
+PIPC4,0xFFC14108,16,SYSTEM,RW,103;131,CAN candidate port group; only implemented pin bits; preserve other owners
+PU4,0xFFC1410C,16,SYSTEM,RW,117,CAN candidate port group; only implemented pin bits; preserve other owners
+PD4,0xFFC14110,16,SYSTEM,RW,118,CAN candidate port group; only implemented pin bits; preserve other owners
+PODC4,0xFFC14114,32,SYSTEM,RW,119,CAN candidate port group; only implemented pin bits; preserve other owners
+PDSC4,0xFFC14118,32,SYSTEM,RW,121,CAN candidate port group; only implemented pin bits; preserve other owners
+PUCC4,0xFFC14128,32,SYSTEM,RW,122,CAN candidate port group; only implemented pin bits; preserve other owners
+PISA4,0xFFC1412C,16,SYSTEM,RW,123,CAN candidate port group; only implemented pin bits; preserve other owners
+PODCE4,0xFFC1413C,32,SYSTEM,RW,120,CAN candidate port group; only implemented pin bits; preserve other owners
+P5,0xFFC10140,16,SYSTEM,RW,113,CAN candidate port group; only implemented pin bits; preserve other owners
+PSR5,0xFFC10144,32,SYSTEM,RW,115,CAN candidate port group; only implemented pin bits; preserve other owners
+PPR5,0xFFC1014C,16,SYSTEM,RO,112,CAN candidate port group; only implemented pin bits; preserve other owners
+PM5,0xFFC10150,16,SYSTEM,RW,104,CAN candidate port group; only implemented pin bits; preserve other owners
+PMC5,0xFFC10154,16,SYSTEM,RW,101,CAN candidate port group; only implemented pin bits; preserve other owners
+PFC5,0xFFC10158,16,SYSTEM,RW,107,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCE5,0xFFC1015C,16,SYSTEM,RW,108,CAN candidate port group; only implemented pin bits; preserve other owners
+PMSR5,0xFFC10160,32,SYSTEM,RW,105,CAN candidate port group; only implemented pin bits; preserve other owners
+PMCSR5,0xFFC10164,32,SYSTEM,RW,102,CAN candidate port group; only implemented pin bits; preserve other owners
+PFCAE5,0xFFC10168,16,SYSTEM,RW,109,CAN candidate port group; only implemented pin bits; preserve other owners
+PINV5,0xFFC10170,32,SYSTEM,RW,116,CAN candidate port group; only implemented pin bits; preserve other owners
+PIBC5,0xFFC14140,16,SYSTEM,RW,106,CAN candidate port group; only implemented pin bits; preserve other owners
+PBDC5,0xFFC14144,16,SYSTEM,RW,111,CAN candidate port group; only implemented pin bits; preserve other owners
+PIPC5,0xFFC14148,16,SYSTEM,RW,103;131,CAN candidate port group; only implemented pin bits; preserve other owners
+PU5,0xFFC1414C,16,SYSTEM,RW,117,CAN candidate port group; only implemented pin bits; preserve other owners
+PD5,0xFFC14150,16,SYSTEM,RW,118,CAN candidate port group; only implemented pin bits; preserve other owners
+PODC5,0xFFC14154,32,SYSTEM,RW,119,CAN candidate port group; only implemented pin bits; preserve other owners
+PDSC5,0xFFC14158,32,SYSTEM,RW,121,CAN candidate port group; only implemented pin bits; preserve other owners
+PUCC5,0xFFC14168,32,SYSTEM,RW,122,CAN candidate port group; only implemented pin bits; preserve other owners
+PODCE5,0xFFC1417C,32,SYSTEM,RW,120,CAN candidate port group; only implemented pin bits; preserve other owners
+IC0CKSEL0,0xFFDD6000,16,SYSTEM,RW,1557-1560,bit15=0 selects PCLK80MHz; configure stopped
+OSTM0CMP,0xFFDD8000,32,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0CNT,0xFFDD8004,32,SYSTEM,RO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0TO,0xFFDD8008,8,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0TOE,0xFFDD800C,8,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0TE,0xFFDD8010,8,SYSTEM,RO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0TS,0xFFDD8014,8,SYSTEM,WO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0TT,0xFFDD8018,8,SYSTEM,WO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM0CTL,0xFFDD8020,8,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+IC0CKSEL1,0xFFDD6004,16,SYSTEM,RW,1557-1560,bit15=0 selects PCLK80MHz; configure stopped
+OSTM1CMP,0xFFDD9000,32,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1CNT,0xFFDD9004,32,SYSTEM,RO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1TO,0xFFDD9008,8,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1TOE,0xFFDD900C,8,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1TE,0xFFDD9010,8,SYSTEM,RO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1TS,0xFFDD9014,8,SYSTEM,WO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1TT,0xFFDD9018,8,SYSTEM,WO,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+OSTM1CTL,0xFFDD9020,8,SYSTEM,RW,1551-1556,"OS/Gpt unique owner; TS/TT commands, do not read-modify-write"
+EIC74_OSTM0,0xFFFFB094,16,SYSTEM,mixed,267-268;283;285-286,edge; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC75_OSTM1,0xFFFFB096,16,SYSTEM,mixed,267-268;283;285-286,edge; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC183_CAN0ERR,0xFFFFB16E,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC184_CAN0REC_COMMON,0xFFFFB170,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC185_CAN0TRX,0xFFFFB172,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC186_CAN1ERR,0xFFFFB174,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC187_CAN1REC_COMMON,0xFFFFB176,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC188_CAN1TRX,0xFFFFB178,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC189_CANGERR,0xFFFFB17A,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC190_CANGRECC_RXFIFO,0xFFFFB17C,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC191_CAN2ERR,0xFFFFB17E,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC192_CAN2REC_COMMON,0xFFFFB180,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+EIC193_CAN2TRX,0xFFFFB182,16,SYSTEM,mixed,267-268;283;285-286,level; EIP3:0 EITB6 EIMK7 EIRF12 EICT15; OS ownership
+CLKD2DIV,0xFFF88810,32,SYSTEM,RW,471-477,external clock output only; not a CPU PLL control
+CLKD2STAT,0xFFF88814,32,SYSTEM,RO,471-477,external clock output only; not a CPU PLL control
+CKSC2C,0xFFF89080,32,SYSTEM,RW,471-477,external clock output only; not a CPU PLL control
+CKSC2S,0xFFF89088,32,SYSTEM,RO,471-477,external clock output only; not a CPU PLL control
+WDTA0WDTE,0xFFD74000,8,SYSTEM,RW,1527-1532,startup/window/VAC restrictions apply; not a general-purpose timer
+WDTA0EVAC,0xFFD74004,8,SYSTEM,RW,1527-1532,startup/window/VAC restrictions apply; not a general-purpose timer
+WDTA0REF,0xFFD74008,8,SYSTEM,RO,1527-1532,startup/window/VAC restrictions apply; not a general-purpose timer
+WDTA0MD,0xFFD7400C,8,SYSTEM,RW,1527-1532,startup/window/VAC restrictions apply; not a general-purpose timer
+OPBT0,0xFFCD0030,32,SYSTEM,RO,2884,read-only mirror; not an MMIO option-byte programming interface
+RESF,0xFFF81000,32,SYSTEM,RO,421-422,capture reset causes before clear; bit6 undefined
+RESFC,0xFFF81008,32,SYSTEM,WO,423,write1 clears matching cause; not CAN W0C semantics
+STAC_DTSRAM,0xFFF81320,32,SYSTEM,RW,427,application reset RAM policy
+STAC_GRAM,0xFFF81420,32,SYSTEM,RW,428,application reset RAM policy
+STAC_LM0,0xFFF81520,32,SYSTEM,RW,429,system reset except CVM and application reset LRAM policy
+STAC_LM10,0xFFF81E20,32,SYSTEM,RW,430,application reset CSIH RAM policy

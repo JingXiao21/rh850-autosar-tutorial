@@ -1,0 +1,16 @@
+RH850/P1M-E hardware handoff review, 2026-10-01
+
+Command: .venv\Scripts\python.exe tools/build_hardware_index.py --check
+PASS: 1185 register entries; 2 exclusive CAN maps; widths/alignment,
+worked addresses, timing and FIFO profiles; published JSON/CSV match source.
+
+Documentation check:
+PASS: 15 Markdown files, 150 local file links, UTF-8 integrity,
+source PDF SHA-256 matched the index.
+PASS: 19 selected access-width declarations matched extracted manual text.
+The link count was measured before this validation-log link was added.
+
+Scope: static documentation consistency and selected source checks only.
+No target MMIO access, flashing, RH850 build, MCAL generation, OS ABI
+validation, physical CAN capture or diagnostic-stack execution was performed.
+Existing C reference components were not changed or retested in this review.

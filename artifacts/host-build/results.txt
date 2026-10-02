@@ -1,0 +1,13 @@
+gcc.EXE (tdm64-1) 10.3.0
+Copyright (c) 2020 Free Software Foundation, Inc.
+本程序是自由软件；请参看源代码的版权声明。本软件没有任何担保；
+包括没有适销性和某一专用目的下的适用性担保。
+
+BUILD
+C:\D_disk\software\TDM_GCC\bin\gcc.EXE -std=c99 -O2 -Wall -Wextra -Werror -pedantic -I D:\side_project\rh850\examples\rh850_mcal_reference\platform -I D:\side_project\rh850\examples\rh850_mcal_reference\mcal\gpt -I D:\side_project\rh850\examples\rh850_mcal_reference\mcal\can -I D:\side_project\rh850\examples\rh850_mcal_reference\integration D:\side_project\rh850\examples\rh850_mcal_reference\tests\test_reference.c D:\side_project\rh850\examples\rh850_mcal_reference\platform\Rh850_Mmio.c D:\side_project\rh850\examples\rh850_mcal_reference\mcal\gpt\Ostm.c D:\side_project\rh850\examples\rh850_mcal_reference\mcal\can\Can_BitTiming.c D:\side_project\rh850\examples\rh850_mcal_reference\integration\Tick_Accumulator.c -o D:\side_project\rh850\artifacts\host-build\test_reference.exe
+
+RUN
+40MHz candidate: NCFG=0x071E1801 DCFG=0x023E0001
+PASS: 5 test groups; 100000 tick samples across hardware/OS rollovers.
+
+Exit code: 0

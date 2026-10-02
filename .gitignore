@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+*.exe
+*.o
+*.obj
+artifacts/host-build/test_reference.exe
+
+# Copyrighted source documents (Renesas / AUTOSAR / NXP) — not redistributed.
+# See README "参考资料获取" for official download links and how to regenerate.
+*.pdf
+artifacts/pdf-text/
+artifacts/page-previews/
+
+# Duplicate archive packages of files already in the repo
+*.zip
