@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "profile_status": "template",
+  "profile_id": "REQUIRED_COMPANY_PROFILE_ID",
+  "device": {
+    "part_number": "REQUIRED_EXACT_PART_NUMBER",
+    "silicon_revision": "REQUIRED_SILICON_REVISION",
+    "board_id": "REQUIRED_BOARD_REVISION_AND_ID"
+  },
+  "tool": {
+    "name": "REQUIRED_PROGRAMMER",
+    "version": "REQUIRED_VERSION",
+    "cpu_selection": "REQUIRED_CPU_SELECTION",
+    "algorithm": "REQUIRED_ALGORITHM"
+  },
+  "layout_evidence": {
+    "path": "REQUIRED_LAYOUT_REVIEW.txt",
+    "sha256": "REQUIRED_SHA256"
+  },
+  "algorithm_sha256": "REQUIRED_SHA256",
+  "flash_banks": [
+    {
+      "name": "REQUIRED_BANK_NAME",
+      "start": "REQUIRED_START",
+      "end": "REQUIRED_INCLUSIVE_END",
+      "erase_block_size": "REQUIRED_SIZE",
+      "program_unit": "REQUIRED_UNIT"
+    }
+  ],
+  "ram_ranges": [
+    {
+      "start": "REQUIRED_START",
+      "end": "REQUIRED_INCLUSIVE_END"
+    }
+  ],
+  "allowed_program_ranges": [
+    {
+      "start": "REQUIRED_APPLICATION_START",
+      "end": "REQUIRED_APPLICATION_END"
+    }
+  ],
+  "allowed_erase_ranges": [
+    {
+      "start": "REQUIRED_ERASE_START",
+      "end": "REQUIRED_ERASE_END"
+    }
+  ],
+  "allowed_blank_ranges": [],
+  "protected_ranges": [
+    {
+      "start": "REQUIRED_PROTECTED_START",
+      "end": "REQUIRED_PROTECTED_END"
+    }
+  ],
+  "entry_ranges": [
+    {
+      "start": "REQUIRED_ENTRY_START",
+      "end": "REQUIRED_ENTRY_END"
+    }
+  ],
+  "required_image_ranges": [
+    {
+      "start": "REQUIRED_VECTOR_START",
+      "end": "REQUIRED_VECTOR_END"
+    }
+  ],
+  "elf_machine": "REQUIRED_MACHINE",
+  "elf_flags": "REQUIRED_FLAGS",
+  "hex_padding": "none"
+}

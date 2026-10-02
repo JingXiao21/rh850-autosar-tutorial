@@ -227,6 +227,62 @@ CAN Bus → CANoe             → VIII-05、VIII-06
 | IX-06 | [如何在真实 ECU 上追踪 UDS 请求](09-real-project-preparation/06-how-to-trace-uds-request.md) | ✅ | [IX-05](09-real-project-preparation/05-how-to-trace-can-signal.md)、[IX-03](09-real-project-preparation/03-how-to-read-dcm.md)、[VIII-04](08-integration/04-f190-vin-demo.md)、[VIII-05](08-integration/05-uds-end-to-end.md) | [IX-07](09-real-project-preparation/07-rtacar-dcm-upgrade-preparation.md) | SWS-DCM R20-11 p.61/81/135–141/243–276 | `artifacts/uds-demo/trace.txt`；demo |
 | IX-07 | [RTA-CAR DCM 升级准备清单](09-real-project-preparation/07-rtacar-dcm-upgrade-preparation.md) | ✅ | [IX-01](09-real-project-preparation/01-how-to-read-real-autosar-project.md)、[IX-03](09-real-project-preparation/03-how-to-read-dcm.md)、[IX-06](09-real-project-preparation/06-how-to-trace-uds-request.md)、[VIII-01](08-integration/01-ecu-configuration-checklist.md) | [DCM 升级指南](dcm-upgrade-guide.md) | SWS-DCM R20-11（R21-11+ 本仓库无） | demo `tests/test_uds_demo.c`、`tools/run_uds_demo.py` |
 
+## Part X — Boot Debug：启动失败与早期 Trap 调试
+
+> 系列入口：[10-boot-debug/README.md](10-boot-debug/README.md)（含上电前检查清单与“出事后 5 分钟”清单）。场景：flash 之后上电，ECU 直接 trap / 复位循环 / 调试器连不上。
+
+| # | Chapter | Status | Prerequisite | Next | 对应依据 | 对应 source implementation |
+|---|---|---|---|---|---|---|
+| X-01 | [启动失败总览：分类与“留下证据”](10-boot-debug/01-boot-failure-overview.md) | ✅ | [I-04](01-rh850/04-startup-process.md)、[I-06](01-rh850/06-interrupt-exception.md)、[I-03](01-rh850/03-memory-map.md) | [X-02](10-boot-debug/02-exception-and-trap-handlers.md) | HW-E §8（复位）、§36（ECC/BRAMDAT） | — |
+| X-02 | [异常模型与 trap handler](10-boot-debug/02-exception-and-trap-handlers.md) | ✅ | [X-01](10-boot-debug/01-boot-failure-overview.md)、[I-02](01-rh850/02-cpu-architecture.md)、[I-06](01-rh850/06-interrupt-exception.md) | [X-03](10-boot-debug/03-reset-causes-and-reset-loops.md) | HW-E p.205–206、p.244–247；G3M SM（本仓库无） | 教学汇编/C 片段 |
+| X-03 | [复位原因与复位循环](10-boot-debug/03-reset-causes-and-reset-loops.md) | ✅ | [X-01](10-boot-debug/01-boot-failure-overview.md)、[X-02](10-boot-debug/02-exception-and-trap-handlers.md) | [X-04](10-boot-debug/04-debugger-attach-and-recovery.md) | HW-E §8 RESF/RESFC、ECM p.2790–2817、p.434 | — |
+| X-04 | [调试器连接模式与“救砖”](10-boot-debug/04-debugger-attach-and-recovery.md) | ✅ | [X-03](10-boot-debug/03-reset-causes-and-reset-loops.md)、[III-03](03-mcal/03-port-driver.md) | [X-05](10-boot-debug/05-startup-code-failure-points.md) | HW-E §34 调试（p.2853–2856）、Option Bytes p.2881–2886、p.179 | — |
+| X-05 | [启动代码失败点逐步排查](10-boot-debug/05-startup-code-failure-points.md) | ✅ | [X-04](10-boot-debug/04-debugger-attach-and-recovery.md)、[I-05](01-rh850/05-linker-script.md)、[内存布局速查](reference/p1me-memory-layout-ghs-memmap.md) | [X-06](10-boot-debug/06-incremental-bring-up-strategy.md) | HW-E p.250/256/223/1090/1531/2759 | map/ELF 检查伪代码 |
+| X-06 | [增量式上板策略与 BootStatus](10-boot-debug/06-incremental-bring-up-strategy.md) | ✅ | [X-01–X-05](10-boot-debug/README.md)、[II-03](02-autosar-classic/03-ecu-startup.md) | [X-07](10-boot-debug/07-boot-trap-troubleshooting-playbook.md) | HW-E p.2890–2891（RAM 清零 / BRAMDAT） | BootStatus 教学 C 代码 |
+| X-07 | [启动 Trap 排查手册（决策树 + 症状表）](10-boot-debug/07-boot-trap-troubleshooting-playbook.md) | ✅ | [X-06](10-boot-debug/06-incremental-bring-up-strategy.md) | [诊断调试手册](debugging-autosar-diagnostics.md) | 汇总 X-01–X-06 | — |
+
+## Part XI — Classic AUTOSAR 入门：原理与工作流
+
+> 系列入口：[11-classic-autosar-primer/README.md](11-classic-autosar-primer/README.md)。面向第一次系统学习 Classic AUTOSAR 的读者：EcuM 接管后做什么、MCAL 架构、整体架构、RTE 与 OS 的关系、SWC 如何与 RTE 交互、OEM/Tier1/厂商分工、方法论工作流。规范依据为 **R25-11**（[specs/autosar-cp-R25-11](../specs/autosar-cp-R25-11/README.md)），研究底稿见 [research/06](reference/research/06-primer-ecum-bswm-os-rte-notes.md)、[research/07](reference/research/07-primer-architecture-methodology-mcal-notes.md)，审校记录见 [research/09](reference/research/09-primer-review-log.md)。建议在 Part II 之前或与之并行阅读。
+
+| # | Chapter | Status |
+|---|---|---|
+| XI-01 | [01 架构全景：Classic AUTOSAR 为什么这样分层](11-classic-autosar-primer/01-architecture-big-picture.md) | ✅ |
+| XI-02 | [02 谁做什么：方法论角色、供应链与交付物](11-classic-autosar-primer/02-who-builds-what.md) | ✅ |
+| XI-03 | [03 端到端开发工作流：从 System Description 到刷写与测试（Methodology）](11-classic-autosar-primer/03-methodology-workflow.md) | ✅ |
+| XI-04 | [04 ECU 启动：EcuM 接管之后到底做了什么](11-classic-autosar-primer/04-ecu-startup-ecum.md) | ✅ |
+| XI-05 | [05 MCAL：它在哪一层、做什么、长什么样](11-classic-autosar-primer/05-mcal-role-and-architecture.md) | ✅ |
+| XI-06 | [06 OS 基础：AUTOSAR OS 给 Classic 平台提供了什么](11-classic-autosar-primer/06-os-basics.md) | ✅ |
+| XI-07 | [07 RTE 与 OS：两个世界之间的那座桥](11-classic-autosar-primer/07-rte-and-os.md) | ✅ |
+| XI-08 | [08 SWC 与 RTE 交互：你的代码怎么"说话"](11-classic-autosar-primer/08-swc-rte-interaction.md) | ✅ |
+| XI-09 | [09 信号的一生：从 ADC 到 CAN 总线，再回到另一个 SWC](11-classic-autosar-primer/09-life-of-a-signal.md) | ✅ |
+| XI-10 | [10 工作流实践与 FAQ：第一周在真实项目里做什么](11-classic-autosar-primer/10-workflow-practice-and-faq.md) | ✅ |
+
+## Part XII — 产业生态调研：ETAS / Vector / EB、OEM 合作模式、RTA-CAR 工作流
+
+> 系列入口与一页纸结论：[12-industry-ecosystem/README.md](12-industry-ecosystem/README.md)。**仅基于公开资料**（访问日期 2026-10），每条结论标注 [事实/有来源] / [行业惯例] / [推断]；需登录的 ETAS / Vector / Renesas 文档内容需在真实项目确认。审校记录：[research/10](reference/research/10-industry-review-log.md)。
+
+| # | Report | Status |
+|---|---|---|
+| XII-01 | [01 Classic AUTOSAR 产业生态全景：谁是谁](12-industry-ecosystem/01-autosar-industry-landscape.md) | ✅ |
+| XII-02 | [02 OEM / Tier1 / 栈厂商的合作模式、授权与生命周期归属](12-industry-ecosystem/02-oem-tier1-vendor-cooperation-models.md) | ✅ |
+| XII-03 | [03 各方交付物对比：谁交付什么、格式、何时、用于什么](12-industry-ecosystem/03-vendor-deliverables.md) | ✅ |
+| XII-04 | [04 ETAS RTA-CAR 深入：组成、版本、端到端工作流](12-industry-ecosystem/04-rta-car-workflow.md) | ✅ |
+| XII-05 | [05 Vector 与 EB 工作流对比（及与 RTA-CAR 的概念映射）](12-industry-ecosystem/05-vector-eb-workflows-comparison.md) | ✅ |
+| XII-06 | [06 在 RTA-CAR 工程中升级 DCM 的含义](12-industry-ecosystem/06-rta-car-dcm-upgrade-implications.md) | ✅ |
+
+## Part XIII — 商业调研：MCU 趋势与机器人实时软件
+
+> 系列入口与一页纸结论：[13-market-research/README.md](13-market-research/README.md)（直接回答“MCU 领域趋势”和“机器人行业如何处理实时性代码”）。市场数字均注明机构与年份并标为 [分析师预测]。审校记录：[research/11](reference/research/11-market-review-log.md)。
+
+| # | Report | Status |
+|---|---|---|
+| XIII-01 | [车载 MCU 技术与架构趋势](13-market-research/01-automotive-mcu-trends.md) | ✅ |
+| XIII-02 | [车载 MCU 厂商格局与路线图](13-market-research/02-mcu-vendor-landscape-and-roadmaps.md) | ✅ |
+| XIII-03 | [机器人行业如何解决实时性问题:软件架构调研](13-market-research/03-robotics-realtime-software-architecture.md) | ✅ |
+| XIII-04 | [机器人 MCU 硬件、功能安全标准与市场趋势](13-market-research/04-robotics-mcu-hardware-and-safety.md) | ✅ |
+| XIII-05 | [05 实时嵌入式软件平台的跨行业收敛：从 Classic AUTOSAR 到 ROS 2 / Zephyr / SDV 开源栈](13-market-research/05-realtime-software-platforms-convergence.md) | ✅ |
+
 ## Standalone guides（独立指南）
 
 | Guide | Status | 定位 | 对应章节 |
@@ -242,6 +298,7 @@ CAN Bus → CANoe             → VIII-05、VIII-06
 | [autosar-api-map.md](reference/autosar-api-map.md) | API：谁调用、调用谁、上下文、同步/异步 |
 | [autosar-module-map.md](reference/autosar-module-map.md) | 模块：层、SWS 可用性、openAUTOSAR / 本项目路径 |
 | [rh850-autosar-mapping.md](reference/rh850-autosar-mapping.md) | RH850 寄存器块 → MCAL → API → 配置容器 |
+| [p1me-memory-layout-ghs-memmap.md](reference/p1me-memory-layout-ghs-memmap.md) | P1M-E 地址空间、推荐 section 布局、写入风险、AUTOSAR MemMap、GHS 链接脚本 |
 | [can-configuration-map.md](reference/can-configuration-map.md) | 0x7E0/0x7E8 的 Can → CanIf → CanTp → PduR 参数链 |
 | [dcm-configuration-map.md](reference/dcm-configuration-map.md) | DCM ECUC 容器 → demo `Dcm_Cfg.*` → RTE 接口 |
 | [glossary.md](reference/glossary.md) | 中英术语表 |
@@ -304,7 +361,7 @@ CAN Bus → CANoe             → VIII-05、VIII-06
 
 | # | 限制 | 影响 | 需要在真实项目中确认什么 / 去哪里找 |
 |---|---|---|---|
-| 1 | 本仓库**没有** CanIf / CanTp / PduR / Dem / NvM / Rte / Os（以及 EcuM / BswM / ComM / Port / Dio / Gpt / Icu）的 SWS | Part II、III、V、VII 中这些模块的 API 与配置名只按 AUTOSAR R4.x 公认形态讲解，不给 SWS ID | 用项目所用 release 的 SWS 与工具文档（RTA-CAR / Renesas MCAL 手册）核对 API 签名、配置容器与行为 |
+| 1 | 教程写作时本仓库**没有** CanIf / CanTp / PduR / Dem / NvM / Rte / Os（以及 EcuM / BswM / ComM / Port / Dio / Gpt / Icu）的 SWS。**现已补充** R25-11 全套 Classic SWS（按 stack 分类，见 [specs/autosar-cp-R25-11/README.md](../specs/autosar-cp-R25-11/README.md)，本地用 `python tools/download_autosar_specs.py` 下载） | Part II、III、V、VII 中这些模块的 API 与配置名按 AUTOSAR R4.x 公认形态讲解，尚未逐条对照 R25-11 补 SWS ID | 用项目所用 release 的 SWS 与工具文档（RTA-CAR / Renesas MCAL 手册）核对 API 签名、配置容器与行为 |
 | 2 | 本地 SWS release 混用：MCU = **R24-11**、CAN Driver = **R22-11**、DCM = **R20-11**、IoHwAb = **R24-11** | 跨模块接口（如 `Can_Write` 返回类型、DCM 端口签名）可能与项目 release 不同 | 先确定项目的 AUTOSAR release，再对照 [研究笔记 02](reference/research/02-autosar-sws-notes.md) 与 [DCM 升级指南](dcm-upgrade-guide.md) 做差异分析 |
 | 3 | `AUTOSAR_SWS_Diagnostics.pdf` 是 **Adaptive Platform** 规范 | 不能作为 Classic DCM 依据；Part VI 只引用 DCM SWS CP R20-11 | Classic DCM 一律以 CP DCM SWS 为准 |
 | 4 | 没有 **RH850G3M Software User's Manual**（指令集、系统寄存器完整定义） | [I-02](01-rh850/02-cpu-architecture.md)、[I-06](01-rh850/06-interrupt-exception.md) 中的指令/ABI 细节只到硬件手册可证的程度 | 向 Renesas 获取 G3M 软件手册；对照编译器（GHS）ABI 文档 |
@@ -328,6 +385,10 @@ CAN Bus → CANoe             → VIII-05、VIII-06
 | VII — RTE / SWC | 9 | 9 | 4386 |
 | VIII — Integration | 7 | 7 | 2185 |
 | IX — Real Project Preparation | 7 | 7 | 1295 |
-| **合计** | **81** | **81** | **38039** |
+| X — Boot Debug | 7 | 7 | 4713 |
+| XI — Classic AUTOSAR 入门 | 10 | 10 | 4286 |
+| XII — 产业生态调研 | 6 | 6 | 920 |
+| XIII — 商业调研 | 5 | 5 | 742 |
+| **合计** | **109** | **109** | **48700** |
 
 目标目录（`claude_plan.md`「推荐目录结构」）中的全部章节文件均已存在；当前没有 ⬜ 章节。后续工作集中在“已知限制”中需要真实项目 / 真实硬件确认的事项。

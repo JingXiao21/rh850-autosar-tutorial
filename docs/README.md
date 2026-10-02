@@ -4,6 +4,8 @@
 
 ## 从哪里开始
 
+烧录前检查：[Flash preflight harness](flash-preflight/README.md) 与 [公司 agent 执行指令](flash-preflight/AGENT_GUIDE.md)。只做离线校验，默认缺少公司器件配置或烧录计划时不能通过。
+
 | 入口 | 用途 |
 |---|---|
 | **[Master Index（学习指南总目录）](rh850-autosar-tutorial-content.md)** | 全部章节、完成状态、前置 / 后续章节、对应 SWS 与源码、§23 十个问题的答案位置、已知限制 |
@@ -34,5 +36,9 @@ python tools/run_host_tests.py   # examples/rh850_mcal_reference：OSTM、CAN FD
 
 - `01-rh850/` … `09-real-project-preparation/`：按 Part I–IX 组织的章节（编号即阅读顺序）
 - 独立指南：[调试手册](debugging-autosar-diagnostics.md)、[DCM 升级指南](dcm-upgrade-guide.md)、[SWC + RTE 教程](autosar-swc-rte-tutorial.md)
+- 启动失败 / 早期 trap 调试系列：[10-boot-debug/README.md](10-boot-debug/README.md)
+- **Classic AUTOSAR 入门（原理与工作流，新手从这里开始）**：[11-classic-autosar-primer/README.md](11-classic-autosar-primer/README.md)
+- 产业生态调研（ETAS / Vector / EB、OEM 合作模式、RTA-CAR 工作流）：[12-industry-ecosystem/README.md](12-industry-ecosystem/README.md)
+- 商业调研（MCU 趋势、机器人实时软件）：[13-market-research/README.md](13-market-research/README.md)
 - `reference/`：API / 模块 / 配置地图、术语表、源码追踪表；`reference/research/`：写作底稿与复审日志
 - `legacy/` 及带 Legacy banner 的文件：上一阶段产物，只作线索，不再维护

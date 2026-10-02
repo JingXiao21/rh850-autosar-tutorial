@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "device": {
+    "part_number": "REQUIRED_EXACT_PART_NUMBER",
+    "silicon_revision": "REQUIRED_SILICON_REVISION",
+    "board_id": "REQUIRED_BOARD_REVISION_AND_ID"
+  },
+  "tool": {
+    "name": "REQUIRED_PROGRAMMER",
+    "version": "REQUIRED_VERSION",
+    "cpu_selection": "REQUIRED_CPU_SELECTION",
+    "algorithm": "REQUIRED_ALGORITHM"
+  },
+  "image_sha256": "REQUIRED_SHA256",
+  "elf_sha256": "REQUIRED_SHA256",
+  "profile_sha256": "REQUIRED_SHA256",
+  "operations": [
+    "erase",
+    "program",
+    "verify"
+  ],
+  "erase_mode": "unknown",
+  "erase_ranges": [],
+  "program_ranges": [],
+  "blank_after_erase_ranges": [],
+  "run_after_programming": false,
+  "review": {
+    "all_script_dependencies_listed": false,
+    "no_configuration_security_otp_writes": false,
+    "erase_plan_includes_implicit_erase": false,
+    "no_application_run_after_programming": false,
+    "recovery_path_verified": false,
+    "elf_paddr_is_flash_lma_verified": false,
+    "map_linker_layout_reviewed": false,
+    "bootloader_integrity_requirements_verified": false
+  },
+  "artifacts": [
+    {
+      "role": "device_readback",
+      "path": "REQUIRED_device_readback.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "linker",
+      "path": "REQUIRED_linker.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "map",
+      "path": "REQUIRED_map.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "flash_script",
+      "path": "REQUIRED_flash_script.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "flash_algorithm",
+      "path": "REQUIRED_flash_algorithm.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "tool_settings",
+      "path": "REQUIRED_tool_settings.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "recovery",
+      "path": "REQUIRED_recovery.txt",
+      "sha256": "REQUIRED_SHA256"
+    },
+    {
+      "role": "review",
+      "path": "REQUIRED_review.txt",
+      "sha256": "REQUIRED_SHA256"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ RH850 (CPU / Memory / Clock / Port / Interrupt) → MCAL → CAN Driver → CanI
 - [学习路线图](docs/00-learning-roadmap.md)：依赖图、学习顺序、里程碑与自测题。
 - [docs/README.md](docs/README.md)：docs 目录入口。
 - 端到端汇聚章：[UDS 端到端：CANoe → SWC → CANoe](docs/08-integration/05-uds-end-to-end.md)。
+- **[烧录前离线检查 harness](docs/flash-preflight/README.md)**：HEX/ELF 一致性、器件白名单、完整擦除扇区与证据哈希；[给公司 agent 的执行指令](docs/flash-preflight/AGENT_GUIDE.md)。不连接或烧录 ECU。
 
 ## 可运行的教学代码（主机 PC，需要 Python 3 与 PATH 上的 gcc）
 
@@ -52,6 +53,15 @@ RH850 (CPU / Memory / Clock / Port / Interrupt) → MCAL → CAN Driver → CanI
 python -m venv .venv && .venv/Scripts/pip install -r tools/requirements.txt   # Linux/macOS: .venv/bin/pip
 .venv/Scripts/python tools/pdf_extract.py *.pdf references/downloads/*.pdf      # 输出到 artifacts/pdf-text/
 ```
+
+### AUTOSAR Classic Platform 全套 SWS（R25-11，按 stack 分类）
+
+```bash
+python tools/download_autosar_specs.py            # 默认 R25-11，约 170 MB，105 份
+python tools/download_autosar_specs.py --release R24-11
+```
+
+下载到 `specs/autosar-cp-R25-11/<stack>/`（MCAL、CAN stack、Com services、Diagnostics、Memory、System services、Crypto、RTE…），目录说明见 [specs/autosar-cp-R25-11/README.md](specs/autosar-cp-R25-11/README.md)。PDF 同样不提交到 git。
 
 ## License
 
