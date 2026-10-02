@@ -6,6 +6,7 @@ __pycache__/
 *.exe
 *.o
 *.obj
+artifacts/can-irq-demo/
 artifacts/host-build/test_reference.exe
 
 # Copyrighted source documents (Renesas / AUTOSAR / NXP) — not redistributed.
