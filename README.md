@@ -19,7 +19,7 @@ RH850 (CPU / Memory / Clock / Port / Interrupt) → MCAL → CAN Driver → CanI
 
 | 命令 | 内容 | 输出 |
 |---|---|---|
-| `python tools/run_can_irq_demo.py` | [CAN 接收中断小实验](examples/can_irq_demo/README.md)：AFL → 硬件 FIFO → **EI190** → 向量/wrapper → ISR → 上层回调；中文注释、6 个实验、16 项测试 | `artifacts/can-irq-demo/trace.txt`、`results.txt` |
+| `python tools/run_can_irq_demo.py` | [ECU 启动到 OS 接管](examples/can_irq_demo/startup/README.md) + [CAN FIFO/EI190 实验](examples/can_irq_demo/README.md)；中文注释，14 项启动测试 + 16 项 CAN 测试 | `artifacts/can-irq-demo/boot_trace.txt`、`trace.txt`、`results.txt` |
 | `python tools/run_uds_demo.py` | [examples/uds_diag_demo](examples/uds_diag_demo/README.md)：Virtual CAN → Can → CanIf → CanTp → PduR → Dcm → Rte → VehicleInfoSWC，跑通 `22 F1 90` 等 UDS 请求 | `artifacts/uds-demo/trace.txt`、`results.txt` |
 | `python tools/run_host_tests.py` | [examples/rh850_mcal_reference](examples/rh850_mcal_reference/README.md)：OSTM 驱动、CAN FD 位时间、tick 累加的主机测试 | `artifacts/host-build/results.txt`（每次覆盖） |
 | `python tools/build_hardware_index.py --check` | 寄存器索引（`docs/hardware-registers.json/.csv`）一致性检查 | — |

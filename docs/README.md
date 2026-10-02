@@ -17,9 +17,11 @@
 
 新实验：[CAN 接收 → 硬件 FIFO → EI190 → ISR](../examples/can_irq_demo/README.md)，包含中文讲解和注释、错误 EI90 绑定实验、清标志竞争及 FIFO 溢出测试。
 
+启动前篇：[ECU 复位 → CRT → EcuM → OS 接管](../examples/can_irq_demo/startup/README.md)，提供主机模型、14 项测试及目标启动汇编/C 参考，范围停在 OS 接管。
+
 ```text
-python tools/run_can_irq_demo.py # examples/can_irq_demo：6 个逐层实验、16 项测试
-                                # 输出 artifacts/can-irq-demo/trace.txt、results.txt
+python tools/run_can_irq_demo.py # examples/can_irq_demo：14 项启动测试 + 16 项 CAN 测试
+                                # 输出 artifacts/can-irq-demo/boot_trace.txt、trace.txt、results.txt
 python tools/run_uds_demo.py     # examples/uds_diag_demo：Virtual CAN → Can → CanIf → CanTp → PduR → Dcm → Rte → SWC
                                  # 输出 artifacts/uds-demo/trace.txt、results.txt
 python tools/run_host_tests.py   # examples/rh850_mcal_reference：OSTM、CAN FD 位时间、tick 累加的主机测试

@@ -3,7 +3,7 @@
 > Prerequisite: [02-cpu-architecture.md](02-cpu-architecture.md), [03-memory-map.md](03-memory-map.md)
 > Next: [05-linker-script.md](05-linker-script.md)；之后在 AUTOSAR 层面继续看 [../02-autosar-classic/03-ecu-startup.md](../02-autosar-classic/03-ecu-startup.md)
 > 对应规范: HW-E §8 Reset Controller p.418–434、§4.2.1 p.258（复位向量）、§3.2.3.4 p.250（lock-step 注意事项）、§5 p.261–263（工作模式）、§35.10 p.2884–2886（option bytes）、§36.2.1.4 p.2890（RAM 初始化）、§32 p.2790、p.2817（ECM）；SWS-MCU **R24-11** p.13–14（start-up code）、p.25（寄存器初始化归属）、p.26–31（Mcu API）、p.36（示例序列）；SWS-CAN **R22-11** p.22（`SWS_Can_00240`）。**本仓库没有 EcuM / BswM / Os / Rte 的 SWS**
-> 对应源码: openAUTOSAR `system/kernel/src/init.c:290-343`、`system/EcuM/src/EcuM.c:115-249`、`system/EcuM/src/EcuM_Callout_Stubs.c:184-376`、`system/SchM/src/SchM.c:351-371`；本项目无启动代码（全部 `[Conceptual]`）
+> 对应源码: openAUTOSAR `system/kernel/src/init.c:290-343`、`system/EcuM/src/EcuM.c:115-249`、`system/EcuM/src/EcuM_Callout_Stubs.c:184-376`、`system/SchM/src/SchM.c:351-371`；新增 [可运行启动模型与目标启动参考](../../examples/can_irq_demo/startup/README.md)，到 OS 接管为止；目标汇编未经目标工具链验证。
 > 事实底稿: [04-rh850-hardware-notes.md](../reference/research/04-rh850-hardware-notes.md) §3；[03-openautosar-trace.md](../reference/research/03-openautosar-trace.md) §6
 
 ---

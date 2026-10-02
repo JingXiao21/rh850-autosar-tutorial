@@ -2,6 +2,8 @@
 
 这是一个可以在 PC 上编译、运行、单步调试的 C99 教学项目，参考器件为 **R7F701381 / RH850/P1M-E**。代码有中文注释，运行日志用英文标识，便于在不同终端中阅读。
 
+新增启动前篇：[ECU 从复位到 AUTOSAR Classic OS 接管](startup/README.md)，包含启动流程模型、14 项启动测试，以及 CC-RH 复位汇编、CRT 段表和目标 C 入口参考。启动演示在 OS 接管处停止，与后面的 CAN 接收实验分开运行。
+
 **先纠正通道号：本器件的 RX FIFO 中断是 EI190，不是 EI90。EI90 是 CSIH1 通信错误中断。** 通道映射是芯片硬件定义，不能通过把函数填到第 90 个表项来改变 CAN 的中断线路。这里使用普通 RX FIFO0；CAN0 的 common FIFO 是另一类硬件资源，其中断为 EI184。
 
 项目完整演示了接收驱动主体、FIFO 寄存器窗口、中断屏蔽和向量分发。CAN 协议引擎、INTC、CPU 和 OS wrapper 在 PC 上由模型代替；**没有生成可直接烧录的 RH850 工程，也没有实现 AUTOSAR OS、完整 MCAL、CanIf、CanTp 或 DCM**。目标机适配文件仅提供真实 MMIO 访问层，所需启动、编译器入口和 OS 集成见第 12 节。
@@ -15,13 +17,14 @@ python tools/run_can_irq_demo.py
 Get-Content -Encoding UTF8 artifacts/can-irq-demo/trace.txt
 ```
 
-脚本使用 `-std=c99 -O2 -Wall -Wextra -Werror -pedantic` 构建，运行 16 项测试及 6 个演示场景。失败时返回非零退出码。
+脚本使用 `-std=c99 -O2 -Wall -Wextra -Werror -pedantic` 构建，运行 16 项 CAN 测试、14 项启动测试，以及对应演示。失败时返回非零退出码。
 
 | 文件 | 用途 |
 |---|---|
 | `artifacts/can-irq-demo/demo.exe`（Windows） | 再次运行六个场景 |
 | `artifacts/can-irq-demo/tests.exe`（Windows） | 单独运行测试 |
 | `artifacts/can-irq-demo/trace.txt` | 从入帧到返回被打断代码的逐层日志 |
+| `artifacts/can-irq-demo/boot_demo.exe` / `boot_trace.txt` | ECU 启动演示及日志；到 OS 接管为止 |
 | `artifacts/can-irq-demo/results.txt` | 编译器版本、命令、测试结果、退出码 |
 
 Linux/macOS 的可执行文件不带 `.exe`。构建输出不提交到 Git，可通过上述命令重新生成。
@@ -334,7 +337,7 @@ CPU 执行原计划：写 RFIF=0
 
 | 责任 | 接入要求 |
 |---|---|
-| 启动与链接 | RH850 编译器、reset/CRT、堆栈、链接脚本、异常入口和正确向量布局 |
+| 启动与链接 | 参考新增 [启动前篇](startup/README.md)，提供匹配的 RH850 编译器/BSP/CRT、堆栈、链接脚本、异常入口和正确向量布局 |
 | OS | 将 EI190 绑定到正确 wrapper；配置 ISR 类别、优先级、栈、入口及退出机制 |
 | INTC / CPU | 正确 EIBD 绑定、EIC190、INTBP 或直接向量方式、全局屏蔽和优先级状态；通过 OS 受控路径设置 |
 | 时钟与 CAN 模式 | CAN 时钟、nominal bitrate、RAM 初始化、global/channel 状态切换、超时处理；不能用模型布尔量替代 |
