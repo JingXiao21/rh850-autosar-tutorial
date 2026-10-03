@@ -283,6 +283,22 @@ CAN Bus → CANoe             → VIII-05、VIII-06
 | XIII-04 | [机器人 MCU 硬件、功能安全标准与市场趋势](13-market-research/04-robotics-mcu-hardware-and-safety.md) | ✅ |
 | XIII-05 | [05 实时嵌入式软件平台的跨行业收敛：从 Classic AUTOSAR 到 ROS 2 / Zephyr / SDV 开源栈](13-market-research/05-realtime-software-platforms-convergence.md) | ✅ |
 
+## Part XIV — 动手：可运行的迷你 Classic AUTOSAR ECU（STM32L552 / RAMN + Renode + GCC）
+
+> 系列入口：[14-mini-autosar-project/README.md](14-mini-autosar-project/README.md)（含“30 分钟首跑”路径）；代码：[examples/mini_autosar_ecu/](../examples/mini_autosar_ecu/README.md)。两 ECU + rest-bus 在 Renode 的 CAN 总线上运行，SWC / RTE（生成）/ OS / Com / PduR / CanIf / Can / EcuM / BswM 全部自写（MIT；openAUTOSAR 仅作架构参考）。一键：`python tools/setup_toolchains.py` → `python examples/mini_autosar_ecu/tools/run_mini_autosar.py`。审校记录：[research/12](reference/research/12-mini-autosar-review-log.md)。
+
+| # | Chapter | Status |
+|---|---|---|
+| XIV-01 | [01 项目总览：两个 ECU、一条 CAN、一套完整的 Classic AUTOSAR 纵向通路](14-mini-autosar-project/01-project-overview.md) | ✅ |
+| XIV-02 | [02 配置与生成：从 ARXML / ECUC 到 `gen/<Ecu>/`](14-mini-autosar-project/02-config-and-generation.md) | ✅ |
+| XIV-03 | [03 OS 代码：从 `ActivateTask` 到 PendSV 上下文切换](14-mini-autosar-project/03-os-code.md) | ✅ |
+| XIV-04 | [04 RTE 代码：契约头、`Rte.c`、`Rte_Tasks.c`，以及 RTE 如何"挂"在 OS 上](14-mini-autosar-project/04-rte-code.md) | ✅ |
+| XIV-05 | [05 SWC 代码：四个 SWC 怎么写、能写什么、不能写什么](14-mini-autosar-project/05-swc-code.md) | ✅ |
+| XIV-06 | [06 通信栈代码：从 `Rte_Write` 到总线，再从 FDCAN 中断回到 `SetEvent`](14-mini-autosar-project/06-com-can-stack-code.md) | ✅ |
+| XIV-07 | [07 启动追踪：从复位向量到第一个 Runnable](14-mini-autosar-project/07-startup-trace.md) | ✅ |
+| XIV-08 | [08 map / ELF / 链接脚本分析：用编译器自带的工具把镜像"读"出来](14-mini-autosar-project/08-map-elf-linker-analysis.md) | ✅ |
+| XIV-09 | [09 Renode、GDB 与 RH850 移植：跑起来、停下来、再搬家](14-mini-autosar-project/09-renode-gdb-and-rh850-porting.md) | ✅ |
+
 ## Standalone guides（独立指南）
 
 | Guide | Status | 定位 | 对应章节 |
@@ -389,6 +405,7 @@ CAN Bus → CANoe             → VIII-05、VIII-06
 | XI — Classic AUTOSAR 入门 | 10 | 10 | 4286 |
 | XII — 产业生态调研 | 6 | 6 | 920 |
 | XIII — 商业调研 | 5 | 5 | 742 |
-| **合计** | **109** | **109** | **48700** |
+| XIV — 迷你 AUTOSAR ECU 项目 | 9 | 9 | 5923 |
+| **合计** | **118** | **118** | **54623** |
 
 目标目录（`claude_plan.md`「推荐目录结构」）中的全部章节文件均已存在；当前没有 ⬜ 章节。后续工作集中在“已知限制”中需要真实项目 / 真实硬件确认的事项。

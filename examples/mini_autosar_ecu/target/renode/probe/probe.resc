@@ -1,0 +1,15 @@
+:name: mini_autosar register probe
+:description: Runs target/renode/probe/probe.elf on one STM32L552 (RAMN board model); wheel-speed ADC channel 6 set to 1650 mV.
+# usage: renode --disable-gui --console -e "$elf=@<probe.elf>; $uart=@<uart.log>; include @<this file>; quit"
+mach create "PROBE"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf
+sysbus.usart1 CreateFileBackend $uart true
+sysbus.adc1 SetVoltage 1650000 6
+emulation RunFor "0.1"
+sysbus.adc1 SetVoltage 3300000 6
+emulation RunFor "0.1"
+sysbus.adc1 SetVoltage 825000 6
+emulation RunFor "0.1"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.3"

@@ -1,0 +1,131 @@
+{
+  "_comment": [
+    "[Educational Implementation] ECUC-like configuration of ECU_A 'SensorEcu' (schema mini-ecuc/1, see DESIGN.md section 5).",
+    "Same structure as LightEcu.ecuc.json; see the comments there."
+  ],
+  "schema": "mini-ecuc/1",
+
+  "Ecu": {
+    "name": "SensorEcu",
+    "arxmlEcuInstance": "/Ecus/SensorEcu",
+    "define": "MINI_ECU_A",
+    "tag": "ECUA",
+    "swcPrototypes": ["SpeedSensor", "BswM"],
+    "genDir": "gen/SensorEcu"
+  },
+
+  "Os": {
+    "OsOS": { "tickDurationUs": 1000, "appModes": ["OSDEFAULTAPPMODE"], "status": "STANDARD", "scalabilityClass": "SC1" },
+    "OsHooks": { "startup": true, "error": true, "shutdown": true, "preTask": false, "postTask": false },
+    "OsCounter": [
+      { "name": "Counter_System", "hardware": true, "maxAllowedValue": 65535, "ticksPerBase": 1, "minCycle": 1 }
+    ],
+    "OsEvent": [],
+    "OsTask": [
+      { "name": "Task_Init",     "priority": 10, "activation": 1, "type": "BASIC", "schedule": "FULL", "autostart": ["OSDEFAULTAPPMODE"], "stackWords": 256 },
+      { "name": "Task_BswMain",  "priority": 3,  "activation": 1, "type": "BASIC", "schedule": "FULL", "autostart": [], "stackWords": 256 },
+      { "name": "Task_Swc10ms",  "priority": 2,  "activation": 1, "type": "BASIC", "schedule": "FULL", "autostart": [], "stackWords": 256 }
+    ],
+    "OsAlarm": [
+      { "name": "Alarm_BswMain",  "counter": "Counter_System", "action": { "type": "ACTIVATETASK", "task": "Task_BswMain" },
+        "autostart": { "mode": ["OSDEFAULTAPPMODE"], "type": "REL", "start": 10, "cycle": 10 } },
+      { "name": "Alarm_Swc10ms",  "counter": "Counter_System", "action": { "type": "ACTIVATETASK", "task": "Task_Swc10ms" },
+        "autostart": { "mode": ["OSDEFAULTAPPMODE"], "type": "REL", "start": 10, "cycle": 10 } }
+    ],
+    "OsResource": [],
+    "OsIsr": []
+  },
+
+  "Rte": {
+    "RteExclusiveArea": [],
+    "RteEventToTaskMapping": [
+      { "swc": "SpeedSensor", "event": "TE_SpeedSensor_10ms", "runnable": "SpeedSensor_Run10ms", "task": "Task_Swc10ms", "position": 1,
+        "trigger": { "type": "OS_ALARM", "alarm": "Alarm_Swc10ms" } }
+    ],
+    "RteBswServerMapping": [
+      { "swc": "SpeedSensor", "port": "R_WheelSpeed", "operation": "GetWheelSpeed", "function": "IoHwAb_GetWheelSpeed", "header": "IoHwAb.h" }
+    ],
+    "RteModeManager": { "swc": "BswM", "port": "P_EcuMode", "modeGroup": "EcuMode", "initialMode": "RUN" },
+    "RteTrace": { "writes": true, "reads": false, "calls": true, "mode": true }
+  },
+
+  "SchM": {
+    "tasks": [
+      { "task": "Task_Init",    "order": ["EcuM_StartupTwo"] },
+      { "task": "Task_BswMain", "order": ["Can_MainFunction_Write", "Com_MainFunctionTx", "BswM_MainFunction", "EcuM_MainFunction"] }
+    ]
+  },
+
+  "EcuM": {
+    "EcuMFlexUserConfig": [ { "name": "BswM" } ],
+    "EcuMDriverInitListZero": [ "Trace_Init(NULL_PTR)", "Det_Init(&Det_Config)", "Det_Start()" ],
+    "EcuMDriverInitListOne":  [ "Mcu_Init(&Mcu_Config)", "Mcu_InitClock(McuConf_McuClockSettingConfig_0)", "Mcu_DistributePllClock()", "Port_Init(&Port_Config)", "Adc_Init(&Adc_Config)" ],
+    "EcuMDriverInitListTwo":  [ "IoHwAb_Init()" ]
+  },
+
+  "BswM": {
+    "BswMActionList": [
+      { "name": "AL_Startup", "items": [
+          { "name": "EcuM_AL_DriverInitTwo",  "call": "EcuM_AL_DriverInitTwo()" },
+          { "name": "Can_Init",               "call": "Can_Init(&Can_Config)" },
+          { "name": "CanIf_Init",             "call": "CanIf_Init(&CanIf_Config)" },
+          { "name": "PduR_Init",              "call": "PduR_Init(&PduR_Config)" },
+          { "name": "Com_Init",               "call": "Com_Init(&Com_Config)" },
+          { "name": "Rte_Start",              "call": "Rte_Start()" },
+          { "name": "EcuM_RequestRUN",        "call": "EcuM_RequestRUN(EcuMConf_EcuMFlexUserConfig_BswM)" } ] },
+      { "name": "AL_Run", "items": [
+          { "name": "CanIf_Start",            "call": "CanIf_SetControllerMode(0u, CAN_CS_STARTED)" },
+          { "name": "Com_IpduGroupStart",     "call": "Com_IpduGroupStart(0u, TRUE)" },
+          { "name": "Rte_SwitchRun",          "call": "Rte_Switch_P_EcuMode_EcuMode(RTE_MODE_EcuMode_RUN)" } ] }
+    ],
+    "BswMRule": [
+      { "name": "R_Startup", "source": "ECUM_STATE", "arg": 0, "expected": "ECUM_STATE_STARTUP", "true": "AL_Startup" },
+      { "name": "R_Run",     "source": "ECUM_STATE", "arg": 0, "expected": "ECUM_STATE_RUN",     "true": "AL_Run" }
+    ],
+    "numRequestUsers": 1
+  },
+
+  "Com": {
+    "mainFunctionPeriodMs": 10,
+    "ComIPduGroup": [ { "name": "IG_All", "id": 0 } ],
+    "ComIPdu": [
+      { "name": "Ipdu_VehicleSpeed_Tx", "direction": "TX", "lengthBytes": 2, "group": "IG_All", "txMode": "PERIODIC", "txPeriodMs": 20, "txOffsetMs": 0, "pduR": "PduRTxPdu_VehicleSpeed", "canId": "0x101" }
+    ],
+    "ComSignal": [
+      { "name": "VehicleSpeed", "ipdu": "Ipdu_VehicleSpeed_Tx", "bitPosition": 0, "bitSize": 16, "type": "UINT16", "endianness": "LITTLE", "init": 0, "transfer": "PENDING", "notification": null }
+    ]
+  },
+
+  "PduR": {
+    "PduRRoutingPath": [
+      { "name": "RP_VehicleSpeed", "dir": "TX", "canIfTxPdu": "CanIfTxPdu_VehicleSpeed", "comIPdu": "Ipdu_VehicleSpeed_Tx" }
+    ]
+  },
+
+  "CanIf": {
+    "numControllers": 1,
+    "CanIfRxPduCfg": [],
+    "CanIfTxPduCfg": [
+      { "name": "CanIfTxPdu_VehicleSpeed", "canId": "0x101", "dlc": 2, "hth": "Hth_VehicleSpeed" }
+    ]
+  },
+
+  "Can": {
+    "CanController": { "name": "CanController_0", "baudrate": 500000, "rxInterrupt": true, "hardware": "FDCAN1" },
+    "CanHardwareObject": [
+      { "name": "Hth_VehicleSpeed", "type": "TRANSMIT", "canId": "0x101", "filterMask": "0x7FF" }
+    ]
+  },
+
+  "Mcu":  { "McuClockSettingConfig": [ { "name": "McuClockSettingConfig_0", "sysClockHz": 80000000 } ] },
+  "Port": { "PortPin": [
+      { "name": "Pin_Usart1Tx",      "pin": "PA9",  "direction": "OUT",    "mode": 7, "level": 1, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_Usart1Rx",      "pin": "PA10", "direction": "IN",     "mode": 7, "level": 0, "pull": "UP",   "openDrain": false },
+      { "name": "Pin_WheelSpeedAdc", "pin": "PA1",  "direction": "ANALOG", "mode": 0, "level": 0, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_CanTx",         "pin": "PD1",  "direction": "OUT",    "mode": 9, "level": 1, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_CanRx",         "pin": "PD0",  "direction": "IN",     "mode": 9, "level": 0, "pull": "UP",   "openDrain": false } ] },
+  "Dio":  { "DioChannel": [] },
+  "Adc":  { "AdcGroup": [ { "name": "WheelSpeed", "channel": 6, "sampleTime": 4 } ] },
+  "Det":  { "DetDevErrorDetect": true },
+  "IoHwAb": { "note": "ECU_A links IoHwAb.c too; IoHwAb_SetHeadlight is compiled out (no Dio channels) via -DMINI_ECU_A" }
+}

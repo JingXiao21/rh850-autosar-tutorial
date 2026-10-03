@@ -1,0 +1,23 @@
+:name: mini_autosar MCAL CAN smoke test
+:description: Two STM32L552 machines (RAMN board model) on one CANHub running mcal_can_smoke.c (node A sender / node B receiver), USART1 of each logged to a file.
+# [Educational Implementation] Variables defined by run_smoke.sh: $elf_a $elf_b $uart_a $uart_b
+# Pattern copied from Renode scripts/multi-node/ramn.resc (CreateCANHub + connector Connect sysbus.fdcan1).
+emulation SetGlobalQuantum "0.0001"
+emulation CreateCANHub "canHub"
+
+mach create "NODE_A"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf_a
+sysbus.usart1 CreateFileBackend $uart_a true
+connector Connect sysbus.fdcan1 canHub
+# wheel-speed input: ADC1 channel 6 (PA1). SetVoltage takes MICROVOLT: 825000 uV -> raw = 825000*4096/3300000 = 1024
+sysbus.adc1 SetVoltage 825000 6
+
+mach create "NODE_B"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf_b
+sysbus.usart1 CreateFileBackend $uart_b true
+connector Connect sysbus.fdcan1 canHub
+sysbus.adc1 SetVoltage 825000 6
+
+emulation RunFor "0.5"

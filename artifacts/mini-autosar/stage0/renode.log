@@ -1,0 +1,17 @@
+[22:56:03.3321] [INFO] Loaded monitor commands from: D:\side_project\rh850\tools\toolchains\renode_1.17.0-portable\scripts/monitor.py
+[0mRenode, version 1.17.0 (1.17.0+20260906gitf1dd1b4af)
+
+[91m(monitor) [0m$elf=@D:/side_project/rh850/artifacts/mini-autosar/stage0/stage0.elf;  $uartlog=@D:/side_project/rh850/artifacts/mini-autosar/stage0/uart.txt;  include @D:/side_project/rh850/examples/mini_autosar_ecu/bringup/stage0_hello/stage0.resc;  start;  sleep 3;  quit
+[22:56:03.3759] [INFO] Including script(s): D:\side_project\rh850\examples\mini_autosar_ecu\bringup\stage0_hello\stage0.resc
+[22:56:03.3898] [INFO] System bus created.
+[22:56:04.4362] [INFO] sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-16960\2177a174-5760-4e7a-a053-ffdf133b86ed.tmp. Name: STM32L552. Description: STM32L552.
+[22:56:04.4716] [INFO] sysbus: Loading block of 548 bytes length at 0x8000000.
+[22:56:04.4811] [INFO] sysbus: Loading block of 8 bytes length at 0x8000224.
+[22:56:04.4812] [INFO] sysbus: Loading block of 8192 bytes length at 0x20000008.
+Starting emulation...
+[22:56:04.5745] [INFO] cpu: Guessing VectorTableOffset value to be 0x8000000.
+[22:56:04.5853] [INFO] cpu: Setting initial values: PC = 0x8000083, SP = 0x20002008.
+[22:56:04.5870] [INFO] ECU_A: Machine started.
+[92mR[0m[92me[0m[92mn[0m[92mo[0m[92md[0m[92me[0m[92m [0m[92mi[0m[92ms[0m[92m [0m[92mq[0m[92mu[0m[92mi[0m[92mt[0m[92mt[0m[92mi[0m[92mn[0m[92mg[0m[92m[0m[92m
+[0m[92m[0m[0m[0m[22:56:07.7771] [INFO] ECU_A: Machine paused.
+[22:56:07.8102] [INFO] ECU_A: Disposed.

@@ -1,0 +1,6 @@
+:name: mini_autosar OS selftest
+:description: OS-only smoke test on one STM32L552 (RAMN board model), USART1 logged to a file. Variables: $elf, $uartlog
+mach create "OS_SELFTEST"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf
+sysbus.usart1 CreateFileBackend $uartlog true

@@ -1,0 +1,801 @@
+mach set "ECU_A"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 0 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 24176 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 48352 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 72527 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 96703 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 120879 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 145055 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 169231 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 193407 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 217582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 241758 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 265934 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 290110 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 314286 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 338462 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 362637 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 386813 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 410989 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 435165 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 459341 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 483516 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 507692 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 531868 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 556044 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 580220 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 604396 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 628571 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 652747 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 676923 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 701099 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 725275 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 749451 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 773626 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 797802 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 821978 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 846154 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 870330 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 894505 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 918681 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 942857 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 967033 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 991209 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1015385 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1039560 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1063736 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1087912 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1112088 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1136264 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1160440 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1184615 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1208791 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1232967 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1257143 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1281319 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1305495 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1329670 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1353846 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1378022 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1402198 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1426374 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1450549 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1474725 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1498901 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1523077 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1547253 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1571429 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1595604 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1619780 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1643956 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1668132 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1692308 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1716484 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1740659 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1764835 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1789011 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1813187 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1837363 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1861538 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1885714 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1909890 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1934066 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1958242 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 1982418 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2006593 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2030769 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2054945 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2079121 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2103297 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2127473 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2151648 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2175824 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2200000 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2224176 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2248352 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2272527 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2296703 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2320879 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2345055 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2369231 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2393407 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"
+sysbus.adc1 SetVoltage 2417582 6
+emulation RunFor "0.010"

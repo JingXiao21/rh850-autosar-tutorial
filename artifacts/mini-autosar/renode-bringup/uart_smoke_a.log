@@ -1,0 +1,38 @@
+SMOKE A start
+SMOKE A info resetReason=0x00000003
+SMOKE A ok   Mcu_InitClock
+SMOKE A ok   Mcu_GetPllStatus==LOCKED
+  trace MCU clock=80000000
+SMOKE A ok   Mcu_DistributePllClock
+SMOKE A info sysClockHz=0x04C4B400
+SMOKE A info RCC.CFGR=0x0000000F
+SMOKE A info GPIOC.MODER=0xFFFF7FFF
+SMOKE A ok   Dio low beam high
+SMOKE A info GPIOC.ODR=0x00000080
+SMOKE A ok   Dio_FlipChannel returns new level
+SMOKE A ok   Dio low beam low
+SMOKE A ok   Dio_ReadPort(B) bit7
+SMOKE A ok   Adc_SetupResultBuffer
+SMOKE A ok   Adc status COMPLETED
+SMOKE A ok   Adc_ReadGroup
+SMOKE A info adc.raw=0x00000400
+SMOKE A ok   Adc status IDLE after read
+SMOKE A ok   Can_Write before START -> CAN_NOT_OK
+SMOKE A ok   Can_SetControllerMode(START)
+SMOKE A ok   CanIf mode indication STARTED
+  DET mod=0x00000050 inst=0x00000000 api=0x00000003 err=0x00000006
+SMOKE A ok   second START rejected (CAN_E_TRANSITION)
+  trace TX id=0x101 dlc=2 data=00 04
+SMOKE A ok   Can_Write 0x101 -> CAN_OK
+SMOKE A ok   Can_Write while HTH busy -> CAN_BUSY
+SMOKE A ok   TX confirmation for handle 7
+  trace TX id=0x7aa dlc=1 data=ee
+SMOKE A ok   Can_Write 0x7AA -> CAN_OK
+SMOKE A ok   TX confirmation for handle 8
+  trace RX id=0x301 dlc=1 data=01
+SMOKE A ok   reply 0x301 received by polling
+SMOKE A ok   reply data == raw+1
+SMOKE A info reply.id=0x00000301
+SMOKE A ok   Can_SetControllerMode(STOP)
+SMOKE A ok   mode indication STOPPED
+SMOKE A PASS

@@ -1,0 +1,34 @@
+SMOKE B start
+SMOKE B info resetReason=0x00000003
+SMOKE B ok   Mcu_InitClock
+SMOKE B ok   Mcu_GetPllStatus==LOCKED
+  trace MCU clock=80000000
+SMOKE B ok   Mcu_DistributePllClock
+SMOKE B info sysClockHz=0x04C4B400
+SMOKE B info RCC.CFGR=0x0000000F
+SMOKE B info GPIOC.MODER=0xFFFF7FFF
+SMOKE B ok   Dio low beam high
+SMOKE B info GPIOC.ODR=0x00000080
+SMOKE B ok   Dio_FlipChannel returns new level
+SMOKE B ok   Dio low beam low
+SMOKE B ok   Dio_ReadPort(B) bit7
+SMOKE B ok   Adc_SetupResultBuffer
+SMOKE B ok   Adc status COMPLETED
+SMOKE B ok   Adc_ReadGroup
+SMOKE B info adc.raw=0x00000400
+SMOKE B ok   Adc status IDLE after read
+SMOKE B ok   Can_Write before START -> CAN_NOT_OK
+SMOKE B ok   Can_SetControllerMode(START)
+SMOKE B ok   CanIf mode indication STARTED
+  DET mod=0x00000050 inst=0x00000000 api=0x00000003 err=0x00000006
+SMOKE B ok   second START rejected (CAN_E_TRANSITION)
+  trace RX id=0x101 dlc=2 data=00 04
+SMOKE B ok   0x101 received by interrupt
+SMOKE B info rx.data0=0x00000000
+SMOKE B info rx.data1=0x00000004
+SMOKE B ok   0x101 payload == ADC raw of node A (1024 @ 825 mV)
+  trace TX id=0x301 dlc=1 data=01
+SMOKE B ok   Can_Write reply 0x301
+SMOKE B ok   TX confirmation of reply
+SMOKE B ok   hardware filter rejected 0x7AA (only 1 frame received)
+SMOKE B PASS

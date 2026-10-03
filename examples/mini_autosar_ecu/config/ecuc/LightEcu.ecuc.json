@@ -1,0 +1,186 @@
+{
+  "_comment": [
+    "[Educational Implementation] ECUC-like configuration of ECU_B 'LightEcu' (schema mini-ecuc/1, see DESIGN.md section 5).",
+    "Real AUTOSAR counterpart: the ECU Configuration Description (ECUC) ARXML. Container and parameter names",
+    "(OsTask, OsAlarm, RteEventToTaskMapping, ComSignal, ...) are kept so each JSON object maps 1:1 to an ECUC",
+    "container; JSON is used instead of ECUC-ARXML because the XML wrapping (DEFINITION-REF, PARAMETER-VALUES,",
+    "REFERENCE-VALUES) adds ~10x text and no teaching value. Consumed by generator/gen_rte.py (agent D)."
+  ],
+  "schema": "mini-ecuc/1",
+
+  "Ecu": {
+    "name": "LightEcu",
+    "arxmlEcuInstance": "/Ecus/LightEcu",
+    "define": "MINI_ECU_B",
+    "tag": "ECUB",
+    "swcPrototypes": ["LightControl", "LightActuator", "Odometer", "BswM"],
+    "genDir": "gen/LightEcu"
+  },
+
+  "Os": {
+    "OsOS": { "tickDurationUs": 1000, "appModes": ["OSDEFAULTAPPMODE"], "status": "STANDARD", "scalabilityClass": "SC1" },
+    "OsHooks": { "startup": true, "error": true, "shutdown": true, "preTask": false, "postTask": false },
+    "OsCounter": [
+      { "name": "Counter_System", "hardware": true, "maxAllowedValue": 65535, "ticksPerBase": 1, "minCycle": 1 }
+    ],
+    "OsEvent": [
+      { "name": "Ev_LightCtl_Timer20ms",   "mask": "0x00000001" },
+      { "name": "Ev_LightCtl_VehicleSpeed","mask": "0x00000002" },
+      { "name": "Ev_LightCtl_ModeSwitch",  "mask": "0x00000004" }
+    ],
+    "OsTask": [
+      { "name": "Task_Init",     "priority": 10, "activation": 1, "type": "BASIC",    "schedule": "FULL", "autostart": ["OSDEFAULTAPPMODE"], "stackWords": 256 },
+      { "name": "Task_BswMain",  "priority": 4,  "activation": 1, "type": "BASIC",    "schedule": "FULL", "autostart": [],                    "stackWords": 256 },
+      { "name": "Task_LightCtl", "priority": 3,  "activation": 1, "type": "EXTENDED", "schedule": "FULL", "autostart": ["OSDEFAULTAPPMODE"], "stackWords": 384,
+        "_comment": "extended task: autostarted, then parks in WaitEvent; alarms/Com callbacks/mode switches SetEvent() it",
+        "events": ["Ev_LightCtl_Timer20ms", "Ev_LightCtl_VehicleSpeed", "Ev_LightCtl_ModeSwitch"] },
+      { "name": "Task_LightAct", "priority": 2,  "activation": 2, "type": "BASIC",    "schedule": "FULL", "autostart": [],                    "stackWords": 256,
+        "_comment": "activation 2: LightControl may Rte_Write (-> ActivateTask) while the actuator runnable is still running/preempted; the queued activation is served afterwards instead of raising E_OS_LIMIT" }
+    ],
+    "OsAlarm": [
+      { "name": "Alarm_BswMain",       "counter": "Counter_System", "action": { "type": "ACTIVATETASK", "task": "Task_BswMain" },
+        "autostart": { "mode": ["OSDEFAULTAPPMODE"], "type": "REL", "start": 10, "cycle": 10 } },
+      { "name": "Alarm_LightCtl20ms",  "counter": "Counter_System", "action": { "type": "SETEVENT", "task": "Task_LightCtl", "event": "Ev_LightCtl_Timer20ms" },
+        "autostart": { "mode": ["OSDEFAULTAPPMODE"], "type": "REL", "start": 20, "cycle": 20 } }
+    ],
+    "OsResource": [
+      { "name": "Res_EA_Odo", "_ceiling": "computed by the generator = max(priority of tasks in accessedBy)", "accessedBy": ["Task_LightCtl", "Task_LightAct"] }
+    ],
+    "OsIsr": [
+      { "name": "Isr_CanRx", "category": 2, "irq": 39, "nvicPriority": "0x40", "calls": ["Can_Isr_Rx"], "_comment": "FDCAN1_IT0, RX FIFO0 new message" }
+    ]
+  },
+
+  "Rte": {
+    "_comment": "RteEventToTaskMapping: every RTE event of every runnable of the ECU's SWCs. 'position' = order inside the task body (RtePositionInTask). 'trigger' = how the event is raised.",
+    "RteExclusiveArea": [
+      { "name": "EA_Odo", "swc": "OdometerSWC", "implementation": "OS_RESOURCE", "resource": "Res_EA_Odo" }
+    ],
+    "RteEventToTaskMapping": [
+      { "swc": "LightControl",  "event": "TE_LightCtl_20ms",            "runnable": "LightCtl_Run20ms",       "task": "Task_LightCtl", "position": 1,
+        "trigger": { "type": "OS_ALARM", "alarm": "Alarm_LightCtl20ms", "osEvent": "Ev_LightCtl_Timer20ms" } },
+      { "swc": "LightControl",  "event": "DRE_LightCtl_VehicleSpeed",   "runnable": "LightCtl_OnSpeed",       "task": "Task_LightCtl", "position": 2,
+        "trigger": { "type": "COM_NOTIFICATION", "comSignal": "VehicleSpeed", "osEvent": "Ev_LightCtl_VehicleSpeed" } },
+      { "swc": "LightControl",  "event": "MSE_LightCtl_EnterRun",       "runnable": "LightCtl_OnModeSwitch",  "task": "Task_LightCtl", "position": 3,
+        "trigger": { "type": "MODE_SWITCH", "osEvent": "Ev_LightCtl_ModeSwitch" } },
+      { "swc": "LightControl",  "event": "MSE_LightCtl_EnterPostRun",   "runnable": "LightCtl_OnModeSwitch",  "task": "Task_LightCtl", "position": 3,
+        "trigger": { "type": "MODE_SWITCH", "osEvent": "Ev_LightCtl_ModeSwitch" } },
+      { "swc": "LightActuator", "event": "DRE_Actuator_HeadlightCmd",   "runnable": "Actuator_OnCmd",         "task": "Task_LightAct", "position": 1,
+        "trigger": { "type": "INTERNAL_WRITE", "activate": "ACTIVATETASK" } },
+      { "swc": "Odometer",      "event": "OIE_Odo_UpdateSpeed",         "runnable": "Odo_UpdateSpeed",        "task": null,
+        "_comment": "sync C/S inside one partition: no task mapping, runnable is executed in the CALLER's task context (direct call)" },
+      { "swc": "Odometer",      "event": "OIE_Odo_GetDistance",         "runnable": "Odo_GetDistance",        "task": null }
+    ],
+    "RteBswServerMapping": [
+      { "swc": "LightActuator", "port": "R_LightHw", "operation": "SetHeadlight", "function": "IoHwAb_SetHeadlight", "header": "IoHwAb.h" }
+    ],
+    "RteModeManager": { "swc": "BswM", "port": "P_EcuMode", "modeGroup": "EcuMode", "initialMode": "RUN" },
+    "RteTrace": { "writes": true, "reads": false, "calls": true, "mode": true }
+  },
+
+  "SchM": {
+    "_comment": "BSW scheduler part of the generator: task bodies that call BSW functions (BswSchedulableEntity mapping).",
+    "tasks": [
+      { "task": "Task_Init",    "order": ["EcuM_StartupTwo"] },
+      { "task": "Task_BswMain", "order": ["Can_MainFunction_Write", "Com_MainFunctionRx", "Com_MainFunctionTx", "BswM_MainFunction", "EcuM_MainFunction"] }
+    ]
+  },
+
+  "EcuM": {
+    "EcuMFlexUserConfig": [ { "name": "BswM" } ],
+    "EcuMDriverInitListZero": [ "Trace_Init(NULL_PTR)", "Det_Init(&Det_Config)", "Det_Start()" ],
+    "EcuMDriverInitListOne":  [ "Mcu_Init(&Mcu_Config)", "Mcu_InitClock(McuConf_McuClockSettingConfig_0)", "Mcu_DistributePllClock()", "Port_Init(&Port_Config)", "Adc_Init(&Adc_Config)" ],
+    "EcuMDriverInitListTwo":  [ "IoHwAb_Init()" ]
+  },
+
+  "BswM": {
+    "_comment": "Rule/action configuration. Action names are C functions generated into BswM_Cfg.c (static); 'calls' lists the C expressions executed in order.",
+    "BswMActionList": [
+      { "name": "AL_Startup", "items": [
+          { "name": "EcuM_AL_DriverInitTwo",  "call": "EcuM_AL_DriverInitTwo()" },
+          { "name": "Can_Init",               "call": "Can_Init(&Can_Config)" },
+          { "name": "CanIf_Init",             "call": "CanIf_Init(&CanIf_Config)" },
+          { "name": "PduR_Init",              "call": "PduR_Init(&PduR_Config)" },
+          { "name": "Com_Init",               "call": "Com_Init(&Com_Config)" },
+          { "name": "Rte_Start",              "call": "Rte_Start()" },
+          { "name": "EcuM_RequestRUN",        "call": "EcuM_RequestRUN(EcuMConf_EcuMFlexUserConfig_BswM)" } ] },
+      { "name": "AL_Run", "items": [
+          { "name": "CanIf_Start",            "call": "CanIf_SetControllerMode(0u, CAN_CS_STARTED)" },
+          { "name": "Com_IpduGroupStart",     "call": "Com_IpduGroupStart(0u, TRUE)" },
+          { "name": "Rte_SwitchRun",          "call": "Rte_Switch_P_EcuMode_EcuMode(RTE_MODE_EcuMode_RUN)" } ] },
+      { "name": "AL_ModePostRun", "items": [ { "name": "Rte_SwitchPostRun", "call": "Rte_Switch_P_EcuMode_EcuMode(RTE_MODE_EcuMode_POST_RUN)" } ] },
+      { "name": "AL_ModeRun",     "items": [ { "name": "Rte_SwitchRun2",    "call": "Rte_Switch_P_EcuMode_EcuMode(RTE_MODE_EcuMode_RUN)" } ] }
+    ],
+    "BswMRule": [
+      { "name": "R_Startup",  "source": "ECUM_STATE",  "arg": 0,                  "expected": "ECUM_STATE_STARTUP", "true": "AL_Startup" },
+      { "name": "R_Run",      "source": "ECUM_STATE",  "arg": 0,                  "expected": "ECUM_STATE_RUN",     "true": "AL_Run" },
+      { "name": "R_EcuModeRequest", "source": "COM_SIGNAL", "arg": "ComConf_ComSignal_EcuModeRequest", "expected": 1, "true": "AL_ModePostRun", "false": "AL_ModeRun" }
+    ],
+    "numRequestUsers": 1
+  },
+
+  "Com": {
+    "mainFunctionPeriodMs": 10,
+    "ComIPduGroup": [ { "name": "IG_All", "id": 0 } ],
+    "ComIPdu": [
+      { "name": "Ipdu_VehicleSpeed_Rx", "direction": "RX", "lengthBytes": 2, "group": "IG_All", "rxProcessing": "DEFERRED",  "pduR": "PduRRxPdu_VehicleSpeed", "canId": "0x101" },
+      { "name": "Ipdu_AmbientLight_Rx", "direction": "RX", "lengthBytes": 1, "group": "IG_All", "rxProcessing": "IMMEDIATE", "pduR": "PduRRxPdu_AmbientLight", "canId": "0x301" },
+      { "name": "Ipdu_EcuModeReq_Rx",   "direction": "RX", "lengthBytes": 1, "group": "IG_All", "rxProcessing": "IMMEDIATE", "pduR": "PduRRxPdu_EcuModeReq",   "canId": "0x3F0" },
+      { "name": "Ipdu_LightStatus_Tx",  "direction": "TX", "lengthBytes": 6, "group": "IG_All", "txMode": "PERIODIC", "txPeriodMs": 100, "txOffsetMs": 0, "pduR": "PduRTxPdu_LightStatus", "canId": "0x201" }
+    ],
+    "ComSignal": [
+      { "name": "VehicleSpeed",     "ipdu": "Ipdu_VehicleSpeed_Rx", "bitPosition": 0,  "bitSize": 16, "type": "UINT16", "endianness": "LITTLE", "init": 0,   "transfer": "PENDING",   "notification": "Rte_COMCbk_VehicleSpeed" },
+      { "name": "AmbientLight",     "ipdu": "Ipdu_AmbientLight_Rx", "bitPosition": 0,  "bitSize": 8,  "type": "UINT8",  "endianness": "LITTLE", "init": 255, "transfer": "PENDING",   "notification": null },
+      { "name": "EcuModeRequest",   "ipdu": "Ipdu_EcuModeReq_Rx",   "bitPosition": 0,  "bitSize": 8,  "type": "UINT8",  "endianness": "LITTLE", "init": 0,   "transfer": "PENDING",   "notification": null },
+      { "name": "HeadlightStatus",  "ipdu": "Ipdu_LightStatus_Tx",  "bitPosition": 0,  "bitSize": 8,  "type": "UINT8",  "endianness": "LITTLE", "init": 0,   "transfer": "PENDING",   "notification": null },
+      { "name": "OdometerDistance", "ipdu": "Ipdu_LightStatus_Tx",  "bitPosition": 16, "bitSize": 32, "type": "UINT32", "endianness": "LITTLE", "init": 0,   "transfer": "PENDING",   "notification": null }
+    ]
+  },
+
+  "PduR": {
+    "PduRRoutingPath": [
+      { "name": "RP_VehicleSpeed", "dir": "RX", "canIfRxPdu": "CanIfRxPdu_VehicleSpeed", "comIPdu": "Ipdu_VehicleSpeed_Rx" },
+      { "name": "RP_AmbientLight", "dir": "RX", "canIfRxPdu": "CanIfRxPdu_AmbientLight", "comIPdu": "Ipdu_AmbientLight_Rx" },
+      { "name": "RP_EcuModeReq",   "dir": "RX", "canIfRxPdu": "CanIfRxPdu_EcuModeReq",   "comIPdu": "Ipdu_EcuModeReq_Rx" },
+      { "name": "RP_LightStatus",  "dir": "TX", "canIfTxPdu": "CanIfTxPdu_LightStatus",  "comIPdu": "Ipdu_LightStatus_Tx" }
+    ]
+  },
+
+  "CanIf": {
+    "numControllers": 1,
+    "CanIfRxPduCfg": [
+      { "name": "CanIfRxPdu_VehicleSpeed", "canId": "0x101", "dlc": 2, "hrh": "Hrh_VehicleSpeed" },
+      { "name": "CanIfRxPdu_AmbientLight", "canId": "0x301", "dlc": 1, "hrh": "Hrh_AmbientLight" },
+      { "name": "CanIfRxPdu_EcuModeReq",   "canId": "0x3F0", "dlc": 1, "hrh": "Hrh_EcuModeReq" }
+    ],
+    "CanIfTxPduCfg": [
+      { "name": "CanIfTxPdu_LightStatus",  "canId": "0x201", "dlc": 6, "hth": "Hth_LightStatus" }
+    ]
+  },
+
+  "Can": {
+    "CanController": { "name": "CanController_0", "baudrate": 500000, "rxInterrupt": true, "hardware": "FDCAN1" },
+    "CanHardwareObject": [
+      { "name": "Hrh_VehicleSpeed", "type": "RECEIVE",  "canId": "0x101", "filterMask": "0x7FF" },
+      { "name": "Hrh_AmbientLight", "type": "RECEIVE",  "canId": "0x301", "filterMask": "0x7FF" },
+      { "name": "Hrh_EcuModeReq",   "type": "RECEIVE",  "canId": "0x3F0", "filterMask": "0x7FF" },
+      { "name": "Hth_LightStatus",  "type": "TRANSMIT", "canId": "0x201", "filterMask": "0x7FF" }
+    ]
+  },
+
+  "Mcu":  { "McuClockSettingConfig": [ { "name": "McuClockSettingConfig_0", "sysClockHz": 80000000 } ] },
+  "Port": { "PortPin": [
+      { "name": "Pin_Usart1Tx",      "pin": "PA9",  "direction": "OUT",    "mode": 7, "level": 1, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_Usart1Rx",      "pin": "PA10", "direction": "IN",     "mode": 7, "level": 0, "pull": "UP",   "openDrain": false },
+      { "name": "Pin_WheelSpeedAdc", "pin": "PA1",  "direction": "ANALOG", "mode": 0, "level": 0, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_HeadlightLow",  "pin": "PC7",  "direction": "OUT",    "mode": 0, "level": 0, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_HeadlightHigh", "pin": "PB7",  "direction": "OUT",    "mode": 0, "level": 0, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_CanTx",         "pin": "PD1",  "direction": "OUT",    "mode": 9, "level": 1, "pull": "NONE", "openDrain": false },
+      { "name": "Pin_CanRx",         "pin": "PD0",  "direction": "IN",     "mode": 9, "level": 0, "pull": "UP",   "openDrain": false } ] },
+  "Dio":  { "DioChannel": [
+      { "name": "HeadlightLow",  "pin": "PC7" },
+      { "name": "HeadlightHigh", "pin": "PB7" } ] },
+  "Adc":  { "AdcGroup": [ { "name": "WheelSpeed", "channel": 6, "sampleTime": 4 } ] },
+  "Det":  { "DetDevErrorDetect": true },
+  "IoHwAb": { "note": "hand-written IoHwAb.c uses DioConf_DioChannel_HeadlightLow/High and AdcConf_AdcGroup_WheelSpeed" }
+}

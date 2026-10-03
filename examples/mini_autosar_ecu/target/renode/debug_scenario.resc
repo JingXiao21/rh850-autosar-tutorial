@@ -1,0 +1,31 @@
+:name: mini_autosar GDB debug session (3-machine scenario)
+:description: SensorEcu + LightEcu + RestBus on one CANHub (like mini_autosar_2ecu.resc) with a GDB server on the machine selected by $gdb_machine (default ECU_B).
+# [Educational Implementation]  usage:
+#   renode --disable-gui --console -e "$elf_a=@..; $elf_b=@..; $elf_rest=@..; $uart_a=@..; $uart_b=@..; $uart_rest=@..; include @<this file>"
+# optional: $gdb_port (default 3333).  The GDB server is attached to ECU_B (LightEcu); stopping ECU_B at a breakpoint
+# pauses the whole emulation (all three machines share one virtual clock), so you can inspect the other ECUs'
+# UART logs / memory consistently.  The wheel-speed ADC is held at 1.65 V (no scripted profile).
+$gdb_port?=3333
+
+emulation SetGlobalQuantum "0.0001"
+emulation CreateCANHub "canHub"
+
+mach create "ECU_A"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf_a
+sysbus.usart1 CreateFileBackend $uart_a true
+connector Connect sysbus.fdcan1 canHub
+sysbus.adc1 SetVoltage 1650000 6
+
+mach create "ECU_B"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf_b
+sysbus.usart1 CreateFileBackend $uart_b true
+connector Connect sysbus.fdcan1 canHub
+machine StartGdbServer $gdb_port
+
+mach create "REST"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf_rest
+sysbus.usart1 CreateFileBackend $uart_rest true
+connector Connect sysbus.fdcan1 canHub

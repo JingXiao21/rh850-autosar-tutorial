@@ -1,0 +1,2876 @@
+[18:47:08.1884] [INFO] Loaded monitor commands from: D:\side_project\rh850\tools\toolchains\renode_1.17.0-portable\scripts/monitor.py
+[0mRenode, version 1.17.0 (1.17.0+20260906gitf1dd1b4af)
+
+
+[91m(monitor) [0m$elf_a=@D:/side_project/rh850/artifacts/mini-autosar/target/SensorEcu/SensorEcu.elf;  $elf_b=@D:/side_project/rh850/artifacts/mini-autosar/target/LightEcu/LightEcu.elf;  $elf_rest=@D:/side_project/rh850/artifacts/mini-autosar/target/RestBus/RestBus.elf;  $uart_a=@D:/side_project/rh850/artifacts/mini-autosar/renode/uart_a.log;  $uart_b=@D:/side_project/rh850/artifacts/mini-autosar/renode/uart_b.log;  $uart_rest=@D:/side_project/rh850/artifacts/mini-autosar/renode/uart_rest.log;  $profile=@D:/side_project/rh850/artifacts/mini-autosar/renode/adc_profile.resc;  include @D:/side_project/rh850/examples/mini_autosar_ecu/target/renode/mini_autosar_2ecu.resc;  quit
+
+[18:47:08.2337] [INFO] Including script(s): D:\side_project\rh850\examples\mini_autosar_ecu\target\renode\mini_autosar_2ecu.resc
+[18:47:08.4230] [INFO] System bus created.
+[18:47:09.5096] [INFO] sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-22564\c72174df-7670-4966-b7bf-40461857191f.tmp. Name: STM32L552. Description: STM32L552.
+[18:47:09.5399] [INFO] sysbus: Loading block of 13500 bytes length at 0x8000000.
+[18:47:09.5503] [INFO] sysbus: Loading block of 12 bytes length at 0x80034BC.
+[18:47:09.5504] [INFO] sysbus: Loading block of 3328 bytes length at 0x80034C8.
+[18:47:09.5505] [INFO] sysbus: Loading block of 5280 bytes length at 0x20000D10.
+[18:47:09.6657] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\renode\uart_a.log moved to D:\side_project\rh850\artifacts\mini-autosar\renode\uart_a.log.5
+[18:47:09.6698] [INFO] System bus created.
+[18:47:10.0801] [INFO] ECU_B/sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-22564\21d09dec-78be-44f0-8204-546c7679720c.tmp. Name: STM32L552. Description: STM32L552.
+[18:47:10.0842] [INFO] ECU_B/sysbus: Loading block of 16764 bytes length at 0x8000000.
+[18:47:10.0844] [INFO] ECU_B/sysbus: Loading block of 12 bytes length at 0x800417C.
+[18:47:10.0844] [INFO] ECU_B/sysbus: Loading block of 4864 bytes length at 0x8004188.
+[18:47:10.0844] [INFO] ECU_B/sysbus: Loading block of 5352 bytes length at 0x20001310.
+[18:47:10.0877] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\renode\uart_b.log moved to D:\side_project\rh850\artifacts\mini-autosar\renode\uart_b.log.5
+[18:47:10.0887] [INFO] System bus created.
+[18:47:10.4491] [INFO] REST/sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-22564\238d4fca-5e4a-401e-be0d-4a991afe873b.tmp. Name: STM32L552. Description: STM32L552.
+[18:47:10.4595] [INFO] REST/sysbus: Loading block of 5152 bytes length at 0x8000000.
+[18:47:10.4597] [INFO] REST/sysbus: Loading block of 8 bytes length at 0x8001420.
+[18:47:10.4598] [INFO] REST/sysbus: Loading block of 4200 bytes length at 0x20000008.
+[18:47:10.4617] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\renode\uart_rest.log moved to D:\side_project\rh850\artifacts\mini-autosar\renode\uart_rest.log.5
+[18:47:10.5978] [INFO] ECU_A/cpu: Guessing VectorTableOffset value to be 0x8000000.
+[18:47:10.6080] [INFO] ECU_A/cpu: Setting initial values: PC = 0x8002AF1, SP = 0x200021B0.
+[18:47:10.6098] [INFO] ECU_A: Machine started.
+[18:47:10.6101] [INFO] ECU_B/cpu: Guessing VectorTableOffset value to be 0x8000000.
+[18:47:10.6115] [INFO] ECU_B/cpu: Setting initial values: PC = 0x8003415, SP = 0x200027F8.
+[18:47:10.6121] [INFO] ECU_B: Machine started.
+[18:47:10.6121] [INFO] REST/cpu: Guessing VectorTableOffset value to be 0x8000000.
+[18:47:10.6132] [INFO] REST/cpu: Setting initial values: PC = 0x80011ED, SP = 0x20001070.
+[18:47:10.6137] [INFO] REST: Machine started.
+[18:47:10.9675] [WARNING] ECU_B/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9675] [WARNING] ECU_A/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9676] [WARNING] REST/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9677] [WARNING] ECU_B/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9677] [WARNING] ECU_A/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9677] [WARNING] REST/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9700] [WARNING] ECU_B/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9700] [WARNING] ECU_A/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9700] [WARNING] ECU_B/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9700] [WARNING] REST/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9700] [WARNING] ECU_A/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9700] [WARNING] REST/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9701] [WARNING] ECU_B/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9701] [WARNING] ECU_A/gpioPortA: Unhandled read from offset 0x2C.
+[18:47:10.9701] [WARNING] ECU_B/gpioPortA: Unhandled write to offset 0x2C, value 0x2.
+[18:47:10.9701] [WARNING] ECU_A/gpioPortA: Unhandled write to offset 0x2C, value 0x2.
+[18:47:10.9703] [WARNING] REST/gpioPortD: Unhandled read from offset 0x2C.
+[18:47:10.9703] [WARNING] ECU_A/gpioPortD: Unhandled read from offset 0x2C.
+[18:47:10.9703] [WARNING] REST/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9703] [WARNING] ECU_A/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9704] [WARNING] REST/gpioPortD: Unhandled read from offset 0x2C.
+[18:47:10.9704] [WARNING] ECU_A/gpioPortD: Unhandled read from offset 0x2C.
+[18:47:10.9704] [WARNING] REST/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9704] [WARNING] ECU_A/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9707] [WARNING] ECU_B/gpioPortC: Unhandled read from offset 0x2C.
+[18:47:10.9707] [WARNING] ECU_B/gpioPortC: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9708] [WARNING] ECU_B/gpioPortB: Unhandled read from offset 0x2C.
+[18:47:10.9708] [WARNING] ECU_B/gpioPortB: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9709] [WARNING] ECU_B/gpioPortD: Unhandled read from offset 0x2C.
+[18:47:10.9709] [WARNING] ECU_B/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9709] [WARNING] ECU_B/gpioPortD: Unhandled read from offset 0x2C.
+[18:47:10.9709] [WARNING] ECU_B/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:10.9811] [WARNING] REST/fdcan1: Unhandled write to offset 0x50. Unhandled bits: [24-31] when writing value 0xFFFFFFFF. Tags: RESERVED (0xFF).
+[18:47:11.0045] [WARNING] ECU_A/adc1: Unhandled write to offset 0x8. Unhandled bits: [31] when writing value 0x90000000. Tags: ADCAL (0x1).
+[18:47:11.0049] [WARNING] ECU_B/adc1: Unhandled write to offset 0x8. Unhandled bits: [31] when writing value 0x90000000. Tags: ADCAL (0x1).
+[18:47:11.0241] [WARNING] ECU_A/fdcan1: Unhandled write to offset 0x50. Unhandled bits: [24-31] when writing value 0xFFFFFFFF. Tags: RESERVED (0xFF).
+[18:47:11.0253] [WARNING] ECU_B/fdcan1: Unhandled write to offset 0x50. Unhandled bits: [24-31] when writing value 0xFFFFFFFF. Tags: RESERVED (0xFF).
+[18:47:11.0702] [INFO] ECU_A: Machine paused.
+[18:47:11.0702] [INFO] ECU_B: Machine paused.
+[18:47:11.0702] [INFO] REST: Machine paused.
+[18:47:11.0719] [INFO] ECU_A: Machine resumed.
+[18:47:11.0720] [INFO] ECU_B: Machine resumed.
+[18:47:11.0722] [INFO] REST: Machine resumed.
+[18:47:11.0826] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.1064] [INFO] ECU_A: Machine paused.
+[18:47:11.1064] [INFO] ECU_B: Machine paused.
+[18:47:11.1064] [INFO] REST: Machine paused.
+[18:47:11.1075] [INFO] ECU_A: Machine resumed.
+[18:47:11.1077] [INFO] ECU_B: Machine resumed.
+[18:47:11.1079] [INFO] REST: Machine resumed.
+[18:47:11.1144] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.1280] [INFO] ECU_A: Machine paused.
+[18:47:11.1280] [INFO] ECU_B: Machine paused.
+[18:47:11.1280] [INFO] REST: Machine paused.
+[18:47:11.1292] [INFO] ECU_A: Machine resumed.
+[18:47:11.1295] [INFO] ECU_B: Machine resumed.
+[18:47:11.1296] [INFO] REST: Machine resumed.
+[18:47:11.1391] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.1500] [INFO] ECU_A: Machine paused.
+[18:47:11.1501] [INFO] ECU_B: Machine paused.
+[18:47:11.1501] [INFO] REST: Machine paused.
+[18:47:11.1511] [INFO] ECU_A: Machine resumed.
+[18:47:11.1512] [INFO] ECU_B: Machine resumed.
+[18:47:11.1514] [INFO] REST: Machine resumed.
+[18:47:11.1577] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.1690] [INFO] ECU_A: Machine paused.
+[18:47:11.1690] [INFO] ECU_B: Machine paused.
+[18:47:11.1690] [INFO] REST: Machine paused.
+[18:47:11.1699] [INFO] ECU_A: Machine resumed.
+[18:47:11.1701] [INFO] ECU_B: Machine resumed.
+[18:47:11.1703] [INFO] REST: Machine resumed.
+[18:47:11.1799] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.1896] [INFO] ECU_A: Machine paused.
+[18:47:11.1896] [INFO] ECU_B: Machine paused.
+[18:47:11.1896] [INFO] REST: Machine paused.
+[18:47:11.1905] [INFO] ECU_A: Machine resumed.
+[18:47:11.1907] [INFO] ECU_B: Machine resumed.
+[18:47:11.1909] [INFO] REST: Machine resumed.
+[18:47:11.1980] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.2095] [INFO] ECU_A: Machine paused.
+[18:47:11.2095] [INFO] ECU_B: Machine paused.
+[18:47:11.2095] [INFO] REST: Machine paused.
+[18:47:11.2104] [INFO] ECU_A: Machine resumed.
+[18:47:11.2106] [INFO] ECU_B: Machine resumed.
+[18:47:11.2109] [INFO] REST: Machine resumed.
+[18:47:11.2200] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.2310] [INFO] ECU_A: Machine paused.
+[18:47:11.2310] [INFO] ECU_B: Machine paused.
+[18:47:11.2310] [INFO] REST: Machine paused.
+[18:47:11.2322] [INFO] ECU_A: Machine resumed.
+[18:47:11.2324] [INFO] ECU_B: Machine resumed.
+[18:47:11.2326] [INFO] REST: Machine resumed.
+[18:47:11.2388] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.2500] [INFO] ECU_A: Machine paused.
+[18:47:11.2501] [INFO] ECU_B: Machine paused.
+[18:47:11.2501] [INFO] REST: Machine paused.
+[18:47:11.2509] [INFO] ECU_A: Machine resumed.
+[18:47:11.2511] [INFO] ECU_B: Machine resumed.
+[18:47:11.2512] [INFO] REST: Machine resumed.
+[18:47:11.2601] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.2706] [INFO] ECU_A: Machine paused.
+[18:47:11.2706] [INFO] ECU_B: Machine paused.
+[18:47:11.2706] [INFO] REST: Machine paused.
+[18:47:11.2716] [INFO] ECU_A: Machine resumed.
+[18:47:11.2717] [INFO] ECU_B: Machine resumed.
+[18:47:11.2718] [INFO] REST: Machine resumed.
+[18:47:11.2798] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.2983] [INFO] ECU_A: Machine paused.
+[18:47:11.2983] [INFO] ECU_B: Machine paused.
+[18:47:11.2984] [INFO] REST: Machine paused.
+[18:47:11.2993] [INFO] ECU_A: Machine resumed.
+[18:47:11.2995] [INFO] ECU_B: Machine resumed.
+[18:47:11.2997] [INFO] REST: Machine resumed.
+[18:47:11.3088] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.3234] [INFO] ECU_A: Machine paused.
+[18:47:11.3234] [INFO] ECU_B: Machine paused.
+[18:47:11.3234] [INFO] REST: Machine paused.
+[18:47:11.3245] [INFO] ECU_A: Machine resumed.
+[18:47:11.3247] [INFO] ECU_B: Machine resumed.
+[18:47:11.3248] [INFO] REST: Machine resumed.
+[18:47:11.3302] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.3396] [INFO] ECU_A: Machine paused.
+[18:47:11.3397] [INFO] ECU_B: Machine paused.
+[18:47:11.3397] [INFO] REST: Machine paused.
+[18:47:11.3412] [INFO] ECU_A: Machine resumed.
+[18:47:11.3414] [INFO] ECU_B: Machine resumed.
+[18:47:11.3416] [INFO] REST: Machine resumed.
+[18:47:11.3504] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.3594] [INFO] ECU_A: Machine paused.
+[18:47:11.3594] [INFO] ECU_B: Machine paused.
+[18:47:11.3594] [INFO] REST: Machine paused.
+[18:47:11.3603] [INFO] ECU_A: Machine resumed.
+[18:47:11.3605] [INFO] ECU_B: Machine resumed.
+[18:47:11.3607] [INFO] REST: Machine resumed.
+[18:47:11.3671] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.3777] [INFO] ECU_A: Machine paused.
+[18:47:11.3777] [INFO] ECU_B: Machine paused.
+[18:47:11.3777] [INFO] REST: Machine paused.
+[18:47:11.3786] [INFO] ECU_A: Machine resumed.
+[18:47:11.3788] [INFO] ECU_B: Machine resumed.
+[18:47:11.3790] [INFO] REST: Machine resumed.
+[18:47:11.3882] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.3975] [INFO] ECU_A: Machine paused.
+[18:47:11.3975] [INFO] ECU_B: Machine paused.
+[18:47:11.3975] [INFO] REST: Machine paused.
+[18:47:11.3986] [INFO] ECU_A: Machine resumed.
+[18:47:11.3987] [INFO] ECU_B: Machine resumed.
+[18:47:11.3989] [INFO] REST: Machine resumed.
+[18:47:11.4044] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.4154] [INFO] ECU_A: Machine paused.
+[18:47:11.4154] [INFO] ECU_B: Machine paused.
+[18:47:11.4154] [INFO] REST: Machine paused.
+[18:47:11.4162] [INFO] ECU_A: Machine resumed.
+[18:47:11.4164] [INFO] ECU_B: Machine resumed.
+[18:47:11.4166] [INFO] REST: Machine resumed.
+[18:47:11.4255] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.4349] [INFO] ECU_A: Machine paused.
+[18:47:11.4349] [INFO] ECU_B: Machine paused.
+[18:47:11.4349] [INFO] REST: Machine paused.
+[18:47:11.4360] [INFO] ECU_A: Machine resumed.
+[18:47:11.4361] [INFO] ECU_B: Machine resumed.
+[18:47:11.4363] [INFO] REST: Machine resumed.
+[18:47:11.4417] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.4530] [INFO] ECU_A: Machine paused.
+[18:47:11.4531] [INFO] ECU_B: Machine paused.
+[18:47:11.4531] [INFO] REST: Machine paused.
+[18:47:11.4539] [INFO] ECU_A: Machine resumed.
+[18:47:11.4541] [INFO] ECU_B: Machine resumed.
+[18:47:11.4543] [INFO] REST: Machine resumed.
+[18:47:11.4633] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.4728] [INFO] ECU_A: Machine paused.
+[18:47:11.4728] [INFO] ECU_B: Machine paused.
+[18:47:11.4728] [INFO] REST: Machine paused.
+[18:47:11.4738] [INFO] ECU_A: Machine resumed.
+[18:47:11.4740] [INFO] ECU_B: Machine resumed.
+[18:47:11.4741] [INFO] REST: Machine resumed.
+[18:47:11.4830] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.4980] [INFO] ECU_A: Machine paused.
+[18:47:11.4981] [INFO] ECU_B: Machine paused.
+[18:47:11.4981] [INFO] REST: Machine paused.
+[18:47:11.4990] [INFO] ECU_A: Machine resumed.
+[18:47:11.4991] [INFO] ECU_B: Machine resumed.
+[18:47:11.4993] [INFO] REST: Machine resumed.
+[18:47:11.5080] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.5214] [INFO] ECU_A: Machine paused.
+[18:47:11.5214] [INFO] ECU_B: Machine paused.
+[18:47:11.5214] [INFO] REST: Machine paused.
+[18:47:11.5223] [INFO] ECU_A: Machine resumed.
+[18:47:11.5225] [INFO] ECU_B: Machine resumed.
+[18:47:11.5226] [INFO] REST: Machine resumed.
+[18:47:11.5284] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.5394] [INFO] ECU_A: Machine paused.
+[18:47:11.5394] [INFO] ECU_B: Machine paused.
+[18:47:11.5394] [INFO] REST: Machine paused.
+[18:47:11.5404] [INFO] ECU_A: Machine resumed.
+[18:47:11.5406] [INFO] ECU_B: Machine resumed.
+[18:47:11.5407] [INFO] REST: Machine resumed.
+[18:47:11.5490] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.5590] [INFO] ECU_A: Machine paused.
+[18:47:11.5590] [INFO] ECU_B: Machine paused.
+[18:47:11.5590] [INFO] REST: Machine paused.
+[18:47:11.5599] [INFO] ECU_A: Machine resumed.
+[18:47:11.5601] [INFO] ECU_B: Machine resumed.
+[18:47:11.5602] [INFO] REST: Machine resumed.
+[18:47:11.5655] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.5773] [INFO] ECU_A: Machine paused.
+[18:47:11.5773] [INFO] ECU_B: Machine paused.
+[18:47:11.5773] [INFO] REST: Machine paused.
+[18:47:11.5783] [INFO] ECU_A: Machine resumed.
+[18:47:11.5785] [INFO] ECU_B: Machine resumed.
+[18:47:11.5786] [INFO] REST: Machine resumed.
+[18:47:11.5905] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.6005] [INFO] ECU_A: Machine paused.
+[18:47:11.6005] [INFO] ECU_B: Machine paused.
+[18:47:11.6005] [INFO] REST: Machine paused.
+[18:47:11.6015] [INFO] ECU_A: Machine resumed.
+[18:47:11.6016] [INFO] ECU_B: Machine resumed.
+[18:47:11.6017] [INFO] REST: Machine resumed.
+[18:47:11.6081] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.6206] [INFO] ECU_A: Machine paused.
+[18:47:11.6206] [INFO] ECU_B: Machine paused.
+[18:47:11.6206] [INFO] REST: Machine paused.
+[18:47:11.6216] [INFO] ECU_A: Machine resumed.
+[18:47:11.6217] [INFO] ECU_B: Machine resumed.
+[18:47:11.6218] [INFO] REST: Machine resumed.
+[18:47:11.6311] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.6401] [INFO] ECU_A: Machine paused.
+[18:47:11.6401] [INFO] ECU_B: Machine paused.
+[18:47:11.6401] [INFO] REST: Machine paused.
+[18:47:11.6411] [INFO] ECU_A: Machine resumed.
+[18:47:11.6412] [INFO] ECU_B: Machine resumed.
+[18:47:11.6414] [INFO] REST: Machine resumed.
+[18:47:11.6529] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.6649] [INFO] ECU_A: Machine paused.
+[18:47:11.6649] [INFO] ECU_B: Machine paused.
+[18:47:11.6650] [INFO] REST: Machine paused.
+[18:47:11.6660] [INFO] ECU_A: Machine resumed.
+[18:47:11.6661] [INFO] ECU_B: Machine resumed.
+[18:47:11.6663] [INFO] REST: Machine resumed.
+[18:47:11.6755] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.6858] [INFO] ECU_A: Machine paused.
+[18:47:11.6858] [INFO] ECU_B: Machine paused.
+[18:47:11.6858] [INFO] REST: Machine paused.
+[18:47:11.6867] [INFO] ECU_A: Machine resumed.
+[18:47:11.6870] [INFO] ECU_B: Machine resumed.
+[18:47:11.6871] [INFO] REST: Machine resumed.
+[18:47:11.6985] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.7149] [INFO] ECU_A: Machine paused.
+[18:47:11.7149] [INFO] ECU_B: Machine paused.
+[18:47:11.7149] [INFO] REST: Machine paused.
+[18:47:11.7160] [INFO] ECU_A: Machine resumed.
+[18:47:11.7162] [INFO] ECU_B: Machine resumed.
+[18:47:11.7163] [INFO] REST: Machine resumed.
+[18:47:11.7259] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.7412] [INFO] ECU_A: Machine paused.
+[18:47:11.7413] [INFO] ECU_B: Machine paused.
+[18:47:11.7413] [INFO] REST: Machine paused.
+[18:47:11.7423] [INFO] ECU_A: Machine resumed.
+[18:47:11.7425] [INFO] ECU_B: Machine resumed.
+[18:47:11.7427] [INFO] REST: Machine resumed.
+[18:47:11.7505] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.7637] [INFO] ECU_A: Machine paused.
+[18:47:11.7637] [INFO] ECU_B: Machine paused.
+[18:47:11.7637] [INFO] REST: Machine paused.
+[18:47:11.7647] [INFO] ECU_A: Machine resumed.
+[18:47:11.7649] [INFO] ECU_B: Machine resumed.
+[18:47:11.7651] [INFO] REST: Machine resumed.
+[18:47:11.7740] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.7845] [INFO] ECU_A: Machine paused.
+[18:47:11.7845] [INFO] ECU_B: Machine paused.
+[18:47:11.7845] [INFO] REST: Machine paused.
+[18:47:11.7854] [INFO] ECU_A: Machine resumed.
+[18:47:11.7856] [INFO] ECU_B: Machine resumed.
+[18:47:11.7858] [INFO] REST: Machine resumed.
+[18:47:11.7913] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.8013] [INFO] ECU_A: Machine paused.
+[18:47:11.8014] [INFO] ECU_B: Machine paused.
+[18:47:11.8014] [INFO] REST: Machine paused.
+[18:47:11.8022] [INFO] ECU_A: Machine resumed.
+[18:47:11.8024] [INFO] ECU_B: Machine resumed.
+[18:47:11.8025] [INFO] REST: Machine resumed.
+[18:47:11.8113] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.8213] [INFO] ECU_A: Machine paused.
+[18:47:11.8213] [INFO] ECU_B: Machine paused.
+[18:47:11.8213] [INFO] REST: Machine paused.
+[18:47:11.8222] [INFO] ECU_A: Machine resumed.
+[18:47:11.8224] [INFO] ECU_B: Machine resumed.
+[18:47:11.8225] [INFO] REST: Machine resumed.
+[18:47:11.8286] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.8394] [INFO] ECU_A: Machine paused.
+[18:47:11.8394] [INFO] ECU_B: Machine paused.
+[18:47:11.8394] [INFO] REST: Machine paused.
+[18:47:11.8402] [INFO] ECU_A: Machine resumed.
+[18:47:11.8404] [INFO] ECU_B: Machine resumed.
+[18:47:11.8406] [INFO] REST: Machine resumed.
+[18:47:11.8483] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.8599] [INFO] ECU_A: Machine paused.
+[18:47:11.8599] [INFO] ECU_B: Machine paused.
+[18:47:11.8599] [INFO] REST: Machine paused.
+[18:47:11.8614] [INFO] ECU_A: Machine resumed.
+[18:47:11.8616] [INFO] ECU_B: Machine resumed.
+[18:47:11.8618] [INFO] REST: Machine resumed.
+[18:47:11.8672] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.8776] [INFO] ECU_A: Machine paused.
+[18:47:11.8776] [INFO] ECU_B: Machine paused.
+[18:47:11.8776] [INFO] REST: Machine paused.
+[18:47:11.8788] [INFO] ECU_A: Machine resumed.
+[18:47:11.8791] [INFO] ECU_B: Machine resumed.
+[18:47:11.8793] [INFO] REST: Machine resumed.
+[18:47:11.8879] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.8966] [INFO] ECU_A: Machine paused.
+[18:47:11.8966] [INFO] ECU_B: Machine paused.
+[18:47:11.8966] [INFO] REST: Machine paused.
+[18:47:11.8976] [INFO] ECU_A: Machine resumed.
+[18:47:11.8977] [INFO] ECU_B: Machine resumed.
+[18:47:11.8979] [INFO] REST: Machine resumed.
+[18:47:11.9083] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.9234] [INFO] ECU_A: Machine paused.
+[18:47:11.9235] [INFO] ECU_B: Machine paused.
+[18:47:11.9235] [INFO] REST: Machine paused.
+[18:47:11.9244] [INFO] ECU_A: Machine resumed.
+[18:47:11.9246] [INFO] ECU_B: Machine resumed.
+[18:47:11.9248] [INFO] REST: Machine resumed.
+[18:47:11.9335] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.9488] [INFO] ECU_A: Machine paused.
+[18:47:11.9488] [INFO] ECU_B: Machine paused.
+[18:47:11.9488] [INFO] REST: Machine paused.
+[18:47:11.9499] [INFO] ECU_A: Machine resumed.
+[18:47:11.9500] [INFO] ECU_B: Machine resumed.
+[18:47:11.9502] [INFO] REST: Machine resumed.
+[18:47:11.9562] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.9666] [INFO] ECU_A: Machine paused.
+[18:47:11.9666] [INFO] ECU_B: Machine paused.
+[18:47:11.9666] [INFO] REST: Machine paused.
+[18:47:11.9675] [INFO] ECU_A: Machine resumed.
+[18:47:11.9677] [INFO] ECU_B: Machine resumed.
+[18:47:11.9679] [INFO] REST: Machine resumed.
+[18:47:11.9774] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:11.9874] [INFO] ECU_A: Machine paused.
+[18:47:11.9874] [INFO] ECU_B: Machine paused.
+[18:47:11.9874] [INFO] REST: Machine paused.
+[18:47:11.9883] [INFO] ECU_A: Machine resumed.
+[18:47:11.9884] [INFO] ECU_B: Machine resumed.
+[18:47:11.9885] [INFO] REST: Machine resumed.
+[18:47:11.9949] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.0056] [INFO] ECU_A: Machine paused.
+[18:47:12.0057] [INFO] ECU_B: Machine paused.
+[18:47:12.0057] [INFO] REST: Machine paused.
+[18:47:12.0066] [INFO] ECU_A: Machine resumed.
+[18:47:12.0068] [INFO] ECU_B: Machine resumed.
+[18:47:12.0070] [INFO] REST: Machine resumed.
+[18:47:12.0156] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.0246] [INFO] ECU_A: Machine paused.
+[18:47:12.0246] [INFO] ECU_B: Machine paused.
+[18:47:12.0246] [INFO] REST: Machine paused.
+[18:47:12.0258] [INFO] ECU_A: Machine resumed.
+[18:47:12.0260] [INFO] ECU_B: Machine resumed.
+[18:47:12.0261] [INFO] REST: Machine resumed.
+[18:47:12.0315] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.0423] [INFO] ECU_A: Machine paused.
+[18:47:12.0423] [INFO] ECU_B: Machine paused.
+[18:47:12.0423] [INFO] REST: Machine paused.
+[18:47:12.0432] [INFO] ECU_A: Machine resumed.
+[18:47:12.0433] [INFO] ECU_B: Machine resumed.
+[18:47:12.0435] [INFO] REST: Machine resumed.
+[18:47:12.0523] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.0647] [INFO] ECU_A: Machine paused.
+[18:47:12.0648] [INFO] ECU_B: Machine paused.
+[18:47:12.0648] [INFO] REST: Machine paused.
+[18:47:12.0659] [INFO] ECU_A: Machine resumed.
+[18:47:12.0661] [INFO] ECU_B: Machine resumed.
+[18:47:12.0662] [INFO] REST: Machine resumed.
+[18:47:12.0722] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.0852] [INFO] ECU_A: Machine paused.
+[18:47:12.0852] [INFO] ECU_B: Machine paused.
+[18:47:12.0852] [INFO] REST: Machine paused.
+[18:47:12.0862] [INFO] ECU_A: Machine resumed.
+[18:47:12.0864] [INFO] ECU_B: Machine resumed.
+[18:47:12.0866] [INFO] REST: Machine resumed.
+[18:47:12.0973] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.1104] [INFO] ECU_A: Machine paused.
+[18:47:12.1104] [INFO] ECU_B: Machine paused.
+[18:47:12.1104] [INFO] REST: Machine paused.
+[18:47:12.1115] [INFO] ECU_A: Machine resumed.
+[18:47:12.1116] [INFO] ECU_B: Machine resumed.
+[18:47:12.1118] [INFO] REST: Machine resumed.
+[18:47:12.1241] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.1453] [INFO] ECU_A: Machine paused.
+[18:47:12.1453] [INFO] ECU_B: Machine paused.
+[18:47:12.1453] [INFO] REST: Machine paused.
+[18:47:12.1466] [INFO] ECU_A: Machine resumed.
+[18:47:12.1468] [INFO] ECU_B: Machine resumed.
+[18:47:12.1470] [INFO] REST: Machine resumed.
+[18:47:12.1585] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.1758] [INFO] ECU_A: Machine paused.
+[18:47:12.1758] [INFO] ECU_B: Machine paused.
+[18:47:12.1758] [INFO] REST: Machine paused.
+[18:47:12.1769] [INFO] ECU_A: Machine resumed.
+[18:47:12.1771] [INFO] ECU_B: Machine resumed.
+[18:47:12.1772] [INFO] REST: Machine resumed.
+[18:47:12.1849] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.1972] [INFO] ECU_A: Machine paused.
+[18:47:12.1972] [INFO] ECU_B: Machine paused.
+[18:47:12.1972] [INFO] REST: Machine paused.
+[18:47:12.1986] [INFO] ECU_A: Machine resumed.
+[18:47:12.1988] [INFO] ECU_B: Machine resumed.
+[18:47:12.1989] [INFO] REST: Machine resumed.
+[18:47:12.2089] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.2204] [INFO] ECU_A: Machine paused.
+[18:47:12.2204] [INFO] ECU_B: Machine paused.
+[18:47:12.2204] [INFO] REST: Machine paused.
+[18:47:12.2216] [INFO] ECU_A: Machine resumed.
+[18:47:12.2218] [INFO] ECU_B: Machine resumed.
+[18:47:12.2220] [INFO] REST: Machine resumed.
+[18:47:12.2354] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.2509] [INFO] ECU_A: Machine paused.
+[18:47:12.2510] [INFO] ECU_B: Machine paused.
+[18:47:12.2510] [INFO] REST: Machine paused.
+[18:47:12.2526] [INFO] ECU_A: Machine resumed.
+[18:47:12.2528] [INFO] ECU_B: Machine resumed.
+[18:47:12.2529] [INFO] REST: Machine resumed.
+[18:47:12.2650] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.2768] [INFO] ECU_A: Machine paused.
+[18:47:12.2768] [INFO] ECU_B: Machine paused.
+[18:47:12.2768] [INFO] REST: Machine paused.
+[18:47:12.2778] [INFO] ECU_A: Machine resumed.
+[18:47:12.2780] [INFO] ECU_B: Machine resumed.
+[18:47:12.2781] [INFO] REST: Machine resumed.
+[18:47:12.2840] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.2950] [INFO] ECU_A: Machine paused.
+[18:47:12.2950] [INFO] ECU_B: Machine paused.
+[18:47:12.2950] [INFO] REST: Machine paused.
+[18:47:12.2961] [INFO] ECU_A: Machine resumed.
+[18:47:12.2963] [INFO] ECU_B: Machine resumed.
+[18:47:12.2964] [INFO] REST: Machine resumed.
+[18:47:12.3049] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.3140] [INFO] ECU_A: Machine paused.
+[18:47:12.3140] [INFO] ECU_B: Machine paused.
+[18:47:12.3140] [INFO] REST: Machine paused.
+[18:47:12.3150] [INFO] ECU_A: Machine resumed.
+[18:47:12.3151] [INFO] ECU_B: Machine resumed.
+[18:47:12.3153] [INFO] REST: Machine resumed.
+[18:47:12.3211] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.3350] [INFO] ECU_A: Machine paused.
+[18:47:12.3350] [INFO] ECU_B: Machine paused.
+[18:47:12.3350] [INFO] REST: Machine paused.
+[18:47:12.3361] [INFO] ECU_A: Machine resumed.
+[18:47:12.3363] [INFO] ECU_B: Machine resumed.
+[18:47:12.3364] [INFO] REST: Machine resumed.
+[18:47:12.3456] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.3549] [INFO] ECU_A: Machine paused.
+[18:47:12.3549] [INFO] ECU_B: Machine paused.
+[18:47:12.3549] [INFO] REST: Machine paused.
+[18:47:12.3558] [INFO] ECU_A: Machine resumed.
+[18:47:12.3560] [INFO] ECU_B: Machine resumed.
+[18:47:12.3563] [INFO] REST: Machine resumed.
+[18:47:12.3663] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.3813] [INFO] ECU_A: Machine paused.
+[18:47:12.3813] [INFO] ECU_B: Machine paused.
+[18:47:12.3813] [INFO] REST: Machine paused.
+[18:47:12.3823] [INFO] ECU_A: Machine resumed.
+[18:47:12.3825] [INFO] ECU_B: Machine resumed.
+[18:47:12.3826] [INFO] REST: Machine resumed.
+[18:47:12.3916] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.4083] [INFO] ECU_A: Machine paused.
+[18:47:12.4083] [INFO] ECU_B: Machine paused.
+[18:47:12.4083] [INFO] REST: Machine paused.
+[18:47:12.4093] [INFO] ECU_A: Machine resumed.
+[18:47:12.4095] [INFO] ECU_B: Machine resumed.
+[18:47:12.4096] [INFO] REST: Machine resumed.
+[18:47:12.4155] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.4259] [INFO] ECU_A: Machine paused.
+[18:47:12.4259] [INFO] ECU_B: Machine paused.
+[18:47:12.4259] [INFO] REST: Machine paused.
+[18:47:12.4269] [INFO] ECU_A: Machine resumed.
+[18:47:12.4271] [INFO] ECU_B: Machine resumed.
+[18:47:12.4272] [INFO] REST: Machine resumed.
+[18:47:12.4360] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.4454] [INFO] ECU_A: Machine paused.
+[18:47:12.4454] [INFO] ECU_B: Machine paused.
+[18:47:12.4454] [INFO] REST: Machine paused.
+[18:47:12.4464] [INFO] ECU_A: Machine resumed.
+[18:47:12.4466] [INFO] ECU_B: Machine resumed.
+[18:47:12.4467] [INFO] REST: Machine resumed.
+[18:47:12.4531] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.4641] [INFO] ECU_A: Machine paused.
+[18:47:12.4642] [INFO] ECU_B: Machine paused.
+[18:47:12.4642] [INFO] REST: Machine paused.
+[18:47:12.4651] [INFO] ECU_A: Machine resumed.
+[18:47:12.4652] [INFO] ECU_B: Machine resumed.
+[18:47:12.4654] [INFO] REST: Machine resumed.
+[18:47:12.4741] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.4837] [INFO] ECU_A: Machine paused.
+[18:47:12.4837] [INFO] ECU_B: Machine paused.
+[18:47:12.4837] [INFO] REST: Machine paused.
+[18:47:12.4846] [INFO] ECU_A: Machine resumed.
+[18:47:12.4847] [INFO] ECU_B: Machine resumed.
+[18:47:12.4849] [INFO] REST: Machine resumed.
+[18:47:12.4917] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.5027] [INFO] ECU_A: Machine paused.
+[18:47:12.5027] [INFO] ECU_B: Machine paused.
+[18:47:12.5027] [INFO] REST: Machine paused.
+[18:47:12.5036] [INFO] ECU_A: Machine resumed.
+[18:47:12.5042] [INFO] ECU_B: Machine resumed.
+[18:47:12.5043] [INFO] REST: Machine resumed.
+[18:47:12.5125] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.5222] [INFO] ECU_A: Machine paused.
+[18:47:12.5222] [INFO] ECU_B: Machine paused.
+[18:47:12.5222] [INFO] REST: Machine paused.
+[18:47:12.5231] [INFO] ECU_A: Machine resumed.
+[18:47:12.5233] [INFO] ECU_B: Machine resumed.
+[18:47:12.5235] [INFO] REST: Machine resumed.
+[18:47:12.5305] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.5409] [INFO] ECU_A: Machine paused.
+[18:47:12.5409] [INFO] ECU_B: Machine paused.
+[18:47:12.5409] [INFO] REST: Machine paused.
+[18:47:12.5419] [INFO] ECU_A: Machine resumed.
+[18:47:12.5420] [INFO] ECU_B: Machine resumed.
+[18:47:12.5422] [INFO] REST: Machine resumed.
+[18:47:12.5506] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.5610] [INFO] ECU_A: Machine paused.
+[18:47:12.5610] [INFO] ECU_B: Machine paused.
+[18:47:12.5611] [INFO] REST: Machine paused.
+[18:47:12.5620] [INFO] ECU_A: Machine resumed.
+[18:47:12.5621] [INFO] ECU_B: Machine resumed.
+[18:47:12.5622] [INFO] REST: Machine resumed.
+[18:47:12.5854] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.6002] [INFO] ECU_A: Machine paused.
+[18:47:12.6002] [INFO] ECU_B: Machine paused.
+[18:47:12.6002] [INFO] REST: Machine paused.
+[18:47:12.6015] [INFO] ECU_A: Machine resumed.
+[18:47:12.6016] [INFO] ECU_B: Machine resumed.
+[18:47:12.6018] [INFO] REST: Machine resumed.
+[18:47:12.6113] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.6266] [INFO] ECU_A: Machine paused.
+[18:47:12.6266] [INFO] ECU_B: Machine paused.
+[18:47:12.6266] [INFO] REST: Machine paused.
+[18:47:12.6276] [INFO] ECU_A: Machine resumed.
+[18:47:12.6277] [INFO] ECU_B: Machine resumed.
+[18:47:12.6279] [INFO] REST: Machine resumed.
+[18:47:12.6344] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.6449] [INFO] ECU_A: Machine paused.
+[18:47:12.6449] [INFO] ECU_B: Machine paused.
+[18:47:12.6449] [INFO] REST: Machine paused.
+[18:47:12.6458] [INFO] ECU_A: Machine resumed.
+[18:47:12.6459] [INFO] ECU_B: Machine resumed.
+[18:47:12.6461] [INFO] REST: Machine resumed.
+[18:47:12.6547] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.6649] [INFO] ECU_A: Machine paused.
+[18:47:12.6649] [INFO] ECU_B: Machine paused.
+[18:47:12.6649] [INFO] REST: Machine paused.
+[18:47:12.6658] [INFO] ECU_A: Machine resumed.
+[18:47:12.6659] [INFO] ECU_B: Machine resumed.
+[18:47:12.6660] [INFO] REST: Machine resumed.
+[18:47:12.6715] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.6810] [INFO] ECU_A: Machine paused.
+[18:47:12.6810] [INFO] ECU_B: Machine paused.
+[18:47:12.6810] [INFO] REST: Machine paused.
+[18:47:12.6820] [INFO] ECU_A: Machine resumed.
+[18:47:12.6823] [INFO] ECU_B: Machine resumed.
+[18:47:12.6824] [INFO] REST: Machine resumed.
+[18:47:12.6914] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.7016] [INFO] ECU_A: Machine paused.
+[18:47:12.7016] [INFO] ECU_B: Machine paused.
+[18:47:12.7016] [INFO] REST: Machine paused.
+[18:47:12.7030] [INFO] ECU_A: Machine resumed.
+[18:47:12.7031] [INFO] ECU_B: Machine resumed.
+[18:47:12.7032] [INFO] REST: Machine resumed.
+[18:47:12.7097] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.7203] [INFO] ECU_A: Machine paused.
+[18:47:12.7203] [INFO] ECU_B: Machine paused.
+[18:47:12.7203] [INFO] REST: Machine paused.
+[18:47:12.7213] [INFO] ECU_A: Machine resumed.
+[18:47:12.7215] [INFO] ECU_B: Machine resumed.
+[18:47:12.7216] [INFO] REST: Machine resumed.
+[18:47:12.7306] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.7408] [INFO] ECU_A: Machine paused.
+[18:47:12.7408] [INFO] ECU_B: Machine paused.
+[18:47:12.7408] [INFO] REST: Machine paused.
+[18:47:12.7418] [INFO] ECU_A: Machine resumed.
+[18:47:12.7419] [INFO] ECU_B: Machine resumed.
+[18:47:12.7420] [INFO] REST: Machine resumed.
+[18:47:12.7484] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.7603] [INFO] ECU_A: Machine paused.
+[18:47:12.7603] [INFO] ECU_B: Machine paused.
+[18:47:12.7603] [INFO] REST: Machine paused.
+[18:47:12.7613] [INFO] ECU_A: Machine resumed.
+[18:47:12.7614] [INFO] ECU_B: Machine resumed.
+[18:47:12.7616] [INFO] REST: Machine resumed.
+[18:47:12.7713] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.7831] [INFO] ECU_A: Machine paused.
+[18:47:12.7831] [INFO] ECU_B: Machine paused.
+[18:47:12.7831] [INFO] REST: Machine paused.
+[18:47:12.7841] [INFO] ECU_A: Machine resumed.
+[18:47:12.7842] [INFO] ECU_B: Machine resumed.
+[18:47:12.7844] [INFO] REST: Machine resumed.
+[18:47:12.7957] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.8126] [INFO] ECU_A: Machine paused.
+[18:47:12.8126] [INFO] ECU_B: Machine paused.
+[18:47:12.8126] [INFO] REST: Machine paused.
+[18:47:12.8136] [INFO] ECU_A: Machine resumed.
+[18:47:12.8138] [INFO] ECU_B: Machine resumed.
+[18:47:12.8139] [INFO] REST: Machine resumed.
+[18:47:12.8260] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.8531] [INFO] ECU_A: Machine paused.
+[18:47:12.8532] [INFO] ECU_B: Machine paused.
+[18:47:12.8532] [INFO] REST: Machine paused.
+[18:47:12.8545] [INFO] ECU_A: Machine resumed.
+[18:47:12.8547] [INFO] ECU_B: Machine resumed.
+[18:47:12.8548] [INFO] REST: Machine resumed.
+[18:47:12.8619] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.8732] [INFO] ECU_A: Machine paused.
+[18:47:12.8732] [INFO] ECU_B: Machine paused.
+[18:47:12.8732] [INFO] REST: Machine paused.
+[18:47:12.8742] [INFO] ECU_A: Machine resumed.
+[18:47:12.8744] [INFO] ECU_B: Machine resumed.
+[18:47:12.8746] [INFO] REST: Machine resumed.
+[18:47:12.8860] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.8983] [INFO] ECU_A: Machine paused.
+[18:47:12.8983] [INFO] ECU_B: Machine paused.
+[18:47:12.8983] [INFO] REST: Machine paused.
+[18:47:12.8994] [INFO] ECU_A: Machine resumed.
+[18:47:12.8995] [INFO] ECU_B: Machine resumed.
+[18:47:12.8998] [INFO] REST: Machine resumed.
+[18:47:12.9066] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.9572] [INFO] ECU_A: Machine paused.
+[18:47:12.9572] [INFO] ECU_B: Machine paused.
+[18:47:12.9572] [INFO] REST: Machine paused.
+[18:47:12.9584] [INFO] ECU_A: Machine resumed.
+[18:47:12.9585] [INFO] ECU_B: Machine resumed.
+[18:47:12.9587] [INFO] REST: Machine resumed.
+[18:47:12.9679] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.9779] [INFO] ECU_A: Machine paused.
+[18:47:12.9779] [INFO] ECU_B: Machine paused.
+[18:47:12.9779] [INFO] REST: Machine paused.
+[18:47:12.9790] [INFO] ECU_A: Machine resumed.
+[18:47:12.9791] [INFO] ECU_B: Machine resumed.
+[18:47:12.9793] [INFO] REST: Machine resumed.
+[18:47:12.9849] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:12.9954] [INFO] ECU_A: Machine paused.
+[18:47:12.9955] [INFO] ECU_B: Machine paused.
+[18:47:12.9955] [INFO] REST: Machine paused.
+[18:47:12.9965] [INFO] ECU_A: Machine resumed.
+[18:47:12.9967] [INFO] ECU_B: Machine resumed.
+[18:47:12.9969] [INFO] REST: Machine resumed.
+[18:47:13.0069] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.0160] [INFO] ECU_A: Machine paused.
+[18:47:13.0161] [INFO] ECU_B: Machine paused.
+[18:47:13.0161] [INFO] REST: Machine paused.
+[18:47:13.0172] [INFO] ECU_A: Machine resumed.
+[18:47:13.0173] [INFO] ECU_B: Machine resumed.
+[18:47:13.0175] [INFO] REST: Machine resumed.
+[18:47:13.0233] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.0338] [INFO] ECU_A: Machine paused.
+[18:47:13.0339] [INFO] ECU_B: Machine paused.
+[18:47:13.0339] [INFO] REST: Machine paused.
+[18:47:13.0349] [INFO] ECU_A: Machine resumed.
+[18:47:13.0351] [INFO] ECU_B: Machine resumed.
+[18:47:13.0353] [INFO] REST: Machine resumed.
+[18:47:13.0450] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.0552] [INFO] ECU_A: Machine paused.
+[18:47:13.0552] [INFO] ECU_B: Machine paused.
+[18:47:13.0552] [INFO] REST: Machine paused.
+[18:47:13.0562] [INFO] ECU_A: Machine resumed.
+[18:47:13.0563] [INFO] ECU_B: Machine resumed.
+[18:47:13.0565] [INFO] REST: Machine resumed.
+[18:47:13.0659] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.0827] [INFO] ECU_A: Machine paused.
+[18:47:13.0827] [INFO] ECU_B: Machine paused.
+[18:47:13.0827] [INFO] REST: Machine paused.
+[18:47:13.0838] [INFO] ECU_A: Machine resumed.
+[18:47:13.0840] [INFO] ECU_B: Machine resumed.
+[18:47:13.0842] [INFO] REST: Machine resumed.
+[18:47:13.0929] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.1069] [INFO] ECU_A: Machine paused.
+[18:47:13.1070] [INFO] ECU_B: Machine paused.
+[18:47:13.1070] [INFO] REST: Machine paused.
+[18:47:13.1081] [INFO] ECU_A: Machine resumed.
+[18:47:13.1082] [INFO] ECU_B: Machine resumed.
+[18:47:13.1084] [INFO] REST: Machine resumed.
+[18:47:13.1152] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.1276] [INFO] ECU_A: Machine paused.
+[18:47:13.1276] [INFO] ECU_B: Machine paused.
+[18:47:13.1276] [INFO] REST: Machine paused.
+[18:47:13.1287] [INFO] ECU_A: Machine resumed.
+[18:47:13.1288] [INFO] ECU_B: Machine resumed.
+[18:47:13.1289] [INFO] REST: Machine resumed.
+[18:47:13.1382] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.1476] [INFO] ECU_A: Machine paused.
+[18:47:13.1476] [INFO] ECU_B: Machine paused.
+[18:47:13.1476] [INFO] REST: Machine paused.
+[18:47:13.1488] [INFO] ECU_A: Machine resumed.
+[18:47:13.1490] [INFO] ECU_B: Machine resumed.
+[18:47:13.1491] [INFO] REST: Machine resumed.
+[18:47:13.1546] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.1659] [INFO] ECU_A: Machine paused.
+[18:47:13.1660] [INFO] ECU_B: Machine paused.
+[18:47:13.1660] [INFO] REST: Machine paused.
+[18:47:13.1669] [INFO] ECU_A: Machine resumed.
+[18:47:13.1671] [INFO] ECU_B: Machine resumed.
+[18:47:13.1673] [INFO] REST: Machine resumed.
+[18:47:13.1755] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.1857] [INFO] ECU_A: Machine paused.
+[18:47:13.1858] [INFO] ECU_B: Machine paused.
+[18:47:13.1858] [INFO] REST: Machine paused.
+[18:47:13.1867] [INFO] ECU_A: Machine resumed.
+[18:47:13.1868] [INFO] ECU_B: Machine resumed.
+[18:47:13.1870] [INFO] REST: Machine resumed.
+[18:47:13.1927] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.2039] [INFO] ECU_A: Machine paused.
+[18:47:13.2039] [INFO] ECU_B: Machine paused.
+[18:47:13.2039] [INFO] REST: Machine paused.
+[18:47:13.2050] [INFO] ECU_A: Machine resumed.
+[18:47:13.2052] [INFO] ECU_B: Machine resumed.
+[18:47:13.2053] [INFO] REST: Machine resumed.
+[18:47:13.2139] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.2228] [INFO] ECU_A: Machine paused.
+[18:47:13.2228] [INFO] ECU_B: Machine paused.
+[18:47:13.2228] [INFO] REST: Machine paused.
+[18:47:13.2238] [INFO] ECU_A: Machine resumed.
+[18:47:13.2240] [INFO] ECU_B: Machine resumed.
+[18:47:13.2241] [INFO] REST: Machine resumed.
+[18:47:13.2303] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.2423] [INFO] ECU_A: Machine paused.
+[18:47:13.2423] [INFO] ECU_B: Machine paused.
+[18:47:13.2423] [INFO] REST: Machine paused.
+[18:47:13.2435] [INFO] ECU_A: Machine resumed.
+[18:47:13.2436] [INFO] ECU_B: Machine resumed.
+[18:47:13.2438] [INFO] REST: Machine resumed.
+[18:47:13.2522] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.2630] [INFO] ECU_A: Machine paused.
+[18:47:13.2630] [INFO] ECU_B: Machine paused.
+[18:47:13.2630] [INFO] REST: Machine paused.
+[18:47:13.2641] [INFO] ECU_A: Machine resumed.
+[18:47:13.2643] [INFO] ECU_B: Machine resumed.
+[18:47:13.2644] [INFO] REST: Machine resumed.
+[18:47:13.2745] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.2907] [INFO] ECU_A: Machine paused.
+[18:47:13.2907] [INFO] ECU_B: Machine paused.
+[18:47:13.2908] [INFO] REST: Machine paused.
+[18:47:13.2919] [INFO] ECU_A: Machine resumed.
+[18:47:13.2921] [INFO] ECU_B: Machine resumed.
+[18:47:13.2923] [INFO] REST: Machine resumed.
+[18:47:13.3013] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.3172] [INFO] ECU_A: Machine paused.
+[18:47:13.3173] [INFO] ECU_B: Machine paused.
+[18:47:13.3173] [INFO] REST: Machine paused.
+[18:47:13.3184] [INFO] ECU_A: Machine resumed.
+[18:47:13.3186] [INFO] ECU_B: Machine resumed.
+[18:47:13.3187] [INFO] REST: Machine resumed.
+[18:47:13.3247] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.3356] [INFO] ECU_A: Machine paused.
+[18:47:13.3356] [INFO] ECU_B: Machine paused.
+[18:47:13.3356] [INFO] REST: Machine paused.
+[18:47:13.3366] [INFO] ECU_A: Machine resumed.
+[18:47:13.3368] [INFO] ECU_B: Machine resumed.
+[18:47:13.3369] [INFO] REST: Machine resumed.
+[18:47:13.3460] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.3555] [INFO] ECU_A: Machine paused.
+[18:47:13.3555] [INFO] ECU_B: Machine paused.
+[18:47:13.3555] [INFO] REST: Machine paused.
+[18:47:13.3572] [INFO] ECU_A: Machine resumed.
+[18:47:13.3574] [INFO] ECU_B: Machine resumed.
+[18:47:13.3576] [INFO] REST: Machine resumed.
+[18:47:13.3632] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.3739] [INFO] ECU_A: Machine paused.
+[18:47:13.3739] [INFO] ECU_B: Machine paused.
+[18:47:13.3739] [INFO] REST: Machine paused.
+[18:47:13.3748] [INFO] ECU_A: Machine resumed.
+[18:47:13.3750] [INFO] ECU_B: Machine resumed.
+[18:47:13.3751] [INFO] REST: Machine resumed.
+[18:47:13.3840] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.3935] [INFO] ECU_A: Machine paused.
+[18:47:13.3935] [INFO] ECU_B: Machine paused.
+[18:47:13.3935] [INFO] REST: Machine paused.
+[18:47:13.3945] [INFO] ECU_A: Machine resumed.
+[18:47:13.3947] [INFO] ECU_B: Machine resumed.
+[18:47:13.3948] [INFO] REST: Machine resumed.
+[18:47:13.4012] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.4125] [INFO] ECU_A: Machine paused.
+[18:47:13.4126] [INFO] ECU_B: Machine paused.
+[18:47:13.4126] [INFO] REST: Machine paused.
+[18:47:13.4139] [INFO] ECU_A: Machine resumed.
+[18:47:13.4141] [INFO] ECU_B: Machine resumed.
+[18:47:13.4143] [INFO] REST: Machine resumed.
+[18:47:13.4244] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.4347] [INFO] ECU_A: Machine paused.
+[18:47:13.4347] [INFO] ECU_B: Machine paused.
+[18:47:13.4347] [INFO] REST: Machine paused.
+[18:47:13.4359] [INFO] ECU_A: Machine resumed.
+[18:47:13.4360] [INFO] ECU_B: Machine resumed.
+[18:47:13.4361] [INFO] REST: Machine resumed.
+[18:47:13.4441] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.4548] [INFO] ECU_A: Machine paused.
+[18:47:13.4548] [INFO] ECU_B: Machine paused.
+[18:47:13.4548] [INFO] REST: Machine paused.
+[18:47:13.4559] [INFO] ECU_A: Machine resumed.
+[18:47:13.4561] [INFO] ECU_B: Machine resumed.
+[18:47:13.4562] [INFO] REST: Machine resumed.
+[18:47:13.4649] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.4744] [INFO] ECU_A: Machine paused.
+[18:47:13.4744] [INFO] ECU_B: Machine paused.
+[18:47:13.4744] [INFO] REST: Machine paused.
+[18:47:13.4754] [INFO] ECU_A: Machine resumed.
+[18:47:13.4755] [INFO] ECU_B: Machine resumed.
+[18:47:13.4756] [INFO] REST: Machine resumed.
+[18:47:13.4866] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.5004] [INFO] ECU_A: Machine paused.
+[18:47:13.5004] [INFO] ECU_B: Machine paused.
+[18:47:13.5004] [INFO] REST: Machine paused.
+[18:47:13.5014] [INFO] ECU_A: Machine resumed.
+[18:47:13.5016] [INFO] ECU_B: Machine resumed.
+[18:47:13.5018] [INFO] REST: Machine resumed.
+[18:47:13.5116] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.5258] [INFO] ECU_A: Machine paused.
+[18:47:13.5259] [INFO] ECU_B: Machine paused.
+[18:47:13.5259] [INFO] REST: Machine paused.
+[18:47:13.5269] [INFO] ECU_A: Machine resumed.
+[18:47:13.5270] [INFO] ECU_B: Machine resumed.
+[18:47:13.5272] [INFO] REST: Machine resumed.
+[18:47:13.5328] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.5434] [INFO] ECU_A: Machine paused.
+[18:47:13.5434] [INFO] ECU_B: Machine paused.
+[18:47:13.5434] [INFO] REST: Machine paused.
+[18:47:13.5444] [INFO] ECU_A: Machine resumed.
+[18:47:13.5446] [INFO] ECU_B: Machine resumed.
+[18:47:13.5448] [INFO] REST: Machine resumed.
+[18:47:13.5540] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.5635] [INFO] ECU_A: Machine paused.
+[18:47:13.5635] [INFO] ECU_B: Machine paused.
+[18:47:13.5635] [INFO] REST: Machine paused.
+[18:47:13.5645] [INFO] ECU_A: Machine resumed.
+[18:47:13.5647] [INFO] ECU_B: Machine resumed.
+[18:47:13.5649] [INFO] REST: Machine resumed.
+[18:47:13.5707] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.5811] [INFO] ECU_A: Machine paused.
+[18:47:13.5811] [INFO] ECU_B: Machine paused.
+[18:47:13.5811] [INFO] REST: Machine paused.
+[18:47:13.5821] [INFO] ECU_A: Machine resumed.
+[18:47:13.5823] [INFO] ECU_B: Machine resumed.
+[18:47:13.5825] [INFO] REST: Machine resumed.
+[18:47:13.5913] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.6020] [INFO] ECU_A: Machine paused.
+[18:47:13.6021] [INFO] ECU_B: Machine paused.
+[18:47:13.6021] [INFO] REST: Machine paused.
+[18:47:13.6031] [INFO] ECU_A: Machine resumed.
+[18:47:13.6032] [INFO] ECU_B: Machine resumed.
+[18:47:13.6034] [INFO] REST: Machine resumed.
+[18:47:13.6090] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.6199] [INFO] ECU_A: Machine paused.
+[18:47:13.6199] [INFO] ECU_B: Machine paused.
+[18:47:13.6199] [INFO] REST: Machine paused.
+[18:47:13.6209] [INFO] ECU_A: Machine resumed.
+[18:47:13.6211] [INFO] ECU_B: Machine resumed.
+[18:47:13.6212] [INFO] REST: Machine resumed.
+[18:47:13.6306] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.6410] [INFO] ECU_A: Machine paused.
+[18:47:13.6410] [INFO] ECU_B: Machine paused.
+[18:47:13.6410] [INFO] REST: Machine paused.
+[18:47:13.6422] [INFO] ECU_A: Machine resumed.
+[18:47:13.6423] [INFO] ECU_B: Machine resumed.
+[18:47:13.6424] [INFO] REST: Machine resumed.
+[18:47:13.6488] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.6602] [INFO] ECU_A: Machine paused.
+[18:47:13.6602] [INFO] ECU_B: Machine paused.
+[18:47:13.6602] [INFO] REST: Machine paused.
+[18:47:13.6613] [INFO] ECU_A: Machine resumed.
+[18:47:13.6614] [INFO] ECU_B: Machine resumed.
+[18:47:13.6616] [INFO] REST: Machine resumed.
+[18:47:13.6737] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.6855] [INFO] ECU_A: Machine paused.
+[18:47:13.6855] [INFO] ECU_B: Machine paused.
+[18:47:13.6855] [INFO] REST: Machine paused.
+[18:47:13.6866] [INFO] ECU_A: Machine resumed.
+[18:47:13.6868] [INFO] ECU_B: Machine resumed.
+[18:47:13.6869] [INFO] REST: Machine resumed.
+[18:47:13.6978] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.7127] [INFO] ECU_A: Machine paused.
+[18:47:13.7127] [INFO] ECU_B: Machine paused.
+[18:47:13.7127] [INFO] REST: Machine paused.
+[18:47:13.7138] [INFO] ECU_A: Machine resumed.
+[18:47:13.7140] [INFO] ECU_B: Machine resumed.
+[18:47:13.7142] [INFO] REST: Machine resumed.
+[18:47:13.7235] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.7377] [INFO] ECU_A: Machine paused.
+[18:47:13.7377] [INFO] ECU_B: Machine paused.
+[18:47:13.7377] [INFO] REST: Machine paused.
+[18:47:13.7388] [INFO] ECU_A: Machine resumed.
+[18:47:13.7390] [INFO] ECU_B: Machine resumed.
+[18:47:13.7391] [INFO] REST: Machine resumed.
+[18:47:13.7454] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.7572] [INFO] ECU_A: Machine paused.
+[18:47:13.7572] [INFO] ECU_B: Machine paused.
+[18:47:13.7572] [INFO] REST: Machine paused.
+[18:47:13.7583] [INFO] ECU_A: Machine resumed.
+[18:47:13.7585] [INFO] ECU_B: Machine resumed.
+[18:47:13.7586] [INFO] REST: Machine resumed.
+[18:47:13.7671] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.7767] [INFO] ECU_A: Machine paused.
+[18:47:13.7767] [INFO] ECU_B: Machine paused.
+[18:47:13.7767] [INFO] REST: Machine paused.
+[18:47:13.7779] [INFO] ECU_A: Machine resumed.
+[18:47:13.7780] [INFO] ECU_B: Machine resumed.
+[18:47:13.7781] [INFO] REST: Machine resumed.
+[18:47:13.7835] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.7937] [INFO] ECU_A: Machine paused.
+[18:47:13.7937] [INFO] ECU_B: Machine paused.
+[18:47:13.7937] [INFO] REST: Machine paused.
+[18:47:13.7954] [INFO] ECU_A: Machine resumed.
+[18:47:13.7956] [INFO] ECU_B: Machine resumed.
+[18:47:13.7959] [INFO] REST: Machine resumed.
+[18:47:13.8046] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.8140] [INFO] ECU_A: Machine paused.
+[18:47:13.8140] [INFO] ECU_B: Machine paused.
+[18:47:13.8140] [INFO] REST: Machine paused.
+[18:47:13.8150] [INFO] ECU_A: Machine resumed.
+[18:47:13.8151] [INFO] ECU_B: Machine resumed.
+[18:47:13.8153] [INFO] REST: Machine resumed.
+[18:47:13.8208] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.8323] [INFO] ECU_A: Machine paused.
+[18:47:13.8323] [INFO] ECU_B: Machine paused.
+[18:47:13.8323] [INFO] REST: Machine paused.
+[18:47:13.8332] [INFO] ECU_A: Machine resumed.
+[18:47:13.8334] [INFO] ECU_B: Machine resumed.
+[18:47:13.8336] [INFO] REST: Machine resumed.
+[18:47:13.8435] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.8528] [INFO] ECU_A: Machine paused.
+[18:47:13.8528] [INFO] ECU_B: Machine paused.
+[18:47:13.8528] [INFO] REST: Machine paused.
+[18:47:13.8539] [INFO] ECU_A: Machine resumed.
+[18:47:13.8540] [INFO] ECU_B: Machine resumed.
+[18:47:13.8541] [INFO] REST: Machine resumed.
+[18:47:13.8596] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.8708] [INFO] ECU_A: Machine paused.
+[18:47:13.8708] [INFO] ECU_B: Machine paused.
+[18:47:13.8708] [INFO] REST: Machine paused.
+[18:47:13.8718] [INFO] ECU_A: Machine resumed.
+[18:47:13.8720] [INFO] ECU_B: Machine resumed.
+[18:47:13.8722] [INFO] REST: Machine resumed.
+[18:47:13.8825] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.8925] [INFO] ECU_A: Machine paused.
+[18:47:13.8925] [INFO] ECU_B: Machine paused.
+[18:47:13.8925] [INFO] REST: Machine paused.
+[18:47:13.8936] [INFO] ECU_A: Machine resumed.
+[18:47:13.8938] [INFO] ECU_B: Machine resumed.
+[18:47:13.8939] [INFO] REST: Machine resumed.
+[18:47:13.9031] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.9241] [INFO] ECU_A: Machine paused.
+[18:47:13.9241] [INFO] ECU_B: Machine paused.
+[18:47:13.9241] [INFO] REST: Machine paused.
+[18:47:13.9254] [INFO] ECU_A: Machine resumed.
+[18:47:13.9256] [INFO] ECU_B: Machine resumed.
+[18:47:13.9257] [INFO] REST: Machine resumed.
+[18:47:13.9429] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.9579] [INFO] ECU_A: Machine paused.
+[18:47:13.9579] [INFO] ECU_B: Machine paused.
+[18:47:13.9579] [INFO] REST: Machine paused.
+[18:47:13.9590] [INFO] ECU_A: Machine resumed.
+[18:47:13.9592] [INFO] ECU_B: Machine resumed.
+[18:47:13.9593] [INFO] REST: Machine resumed.
+[18:47:13.9666] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:13.9782] [INFO] ECU_A: Machine paused.
+[18:47:13.9782] [INFO] ECU_B: Machine paused.
+[18:47:13.9782] [INFO] REST: Machine paused.
+[18:47:13.9795] [INFO] ECU_A: Machine resumed.
+[18:47:13.9797] [INFO] ECU_B: Machine resumed.
+[18:47:13.9798] [INFO] REST: Machine resumed.
+[18:47:13.9884] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.0006] [INFO] ECU_A: Machine paused.
+[18:47:14.0006] [INFO] ECU_B: Machine paused.
+[18:47:14.0006] [INFO] REST: Machine paused.
+[18:47:14.0018] [INFO] ECU_A: Machine resumed.
+[18:47:14.0019] [INFO] ECU_B: Machine resumed.
+[18:47:14.0021] [INFO] REST: Machine resumed.
+[18:47:14.0100] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.0249] [INFO] ECU_A: Machine paused.
+[18:47:14.0249] [INFO] ECU_B: Machine paused.
+[18:47:14.0249] [INFO] REST: Machine paused.
+[18:47:14.0262] [INFO] ECU_A: Machine resumed.
+[18:47:14.0265] [INFO] ECU_B: Machine resumed.
+[18:47:14.0267] [INFO] REST: Machine resumed.
+[18:47:14.0381] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.0508] [INFO] ECU_A: Machine paused.
+[18:47:14.0508] [INFO] ECU_B: Machine paused.
+[18:47:14.0508] [INFO] REST: Machine paused.
+[18:47:14.0519] [INFO] ECU_A: Machine resumed.
+[18:47:14.0521] [INFO] ECU_B: Machine resumed.
+[18:47:14.0523] [INFO] REST: Machine resumed.
+[18:47:14.0596] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.0727] [INFO] ECU_A: Machine paused.
+[18:47:14.0727] [INFO] ECU_B: Machine paused.
+[18:47:14.0727] [INFO] REST: Machine paused.
+[18:47:14.0739] [INFO] ECU_A: Machine resumed.
+[18:47:14.0740] [INFO] ECU_B: Machine resumed.
+[18:47:14.0743] [INFO] REST: Machine resumed.
+[18:47:14.0851] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.0964] [INFO] ECU_A: Machine paused.
+[18:47:14.0965] [INFO] ECU_B: Machine paused.
+[18:47:14.0965] [INFO] REST: Machine paused.
+[18:47:14.0978] [INFO] ECU_A: Machine resumed.
+[18:47:14.0980] [INFO] ECU_B: Machine resumed.
+[18:47:14.0981] [INFO] REST: Machine resumed.
+[18:47:14.1067] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.1217] [INFO] ECU_A: Machine paused.
+[18:47:14.1218] [INFO] ECU_B: Machine paused.
+[18:47:14.1218] [INFO] REST: Machine paused.
+[18:47:14.1230] [INFO] ECU_A: Machine resumed.
+[18:47:14.1233] [INFO] ECU_B: Machine resumed.
+[18:47:14.1234] [INFO] REST: Machine resumed.
+[18:47:14.1337] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.1443] [INFO] ECU_A: Machine paused.
+[18:47:14.1443] [INFO] ECU_B: Machine paused.
+[18:47:14.1443] [INFO] REST: Machine paused.
+[18:47:14.1453] [INFO] ECU_A: Machine resumed.
+[18:47:14.1455] [INFO] ECU_B: Machine resumed.
+[18:47:14.1457] [INFO] REST: Machine resumed.
+[18:47:14.1584] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.1750] [INFO] ECU_A: Machine paused.
+[18:47:14.1750] [INFO] ECU_B: Machine paused.
+[18:47:14.1750] [INFO] REST: Machine paused.
+[18:47:14.1762] [INFO] ECU_A: Machine resumed.
+[18:47:14.1763] [INFO] ECU_B: Machine resumed.
+[18:47:14.1764] [INFO] REST: Machine resumed.
+[18:47:14.1872] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.2043] [INFO] ECU_A: Machine paused.
+[18:47:14.2043] [INFO] ECU_B: Machine paused.
+[18:47:14.2043] [INFO] REST: Machine paused.
+[18:47:14.2054] [INFO] ECU_A: Machine resumed.
+[18:47:14.2056] [INFO] ECU_B: Machine resumed.
+[18:47:14.2057] [INFO] REST: Machine resumed.
+[18:47:14.2123] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.2245] [INFO] ECU_A: Machine paused.
+[18:47:14.2246] [INFO] ECU_B: Machine paused.
+[18:47:14.2246] [INFO] REST: Machine paused.
+[18:47:14.2257] [INFO] ECU_A: Machine resumed.
+[18:47:14.2259] [INFO] ECU_B: Machine resumed.
+[18:47:14.2260] [INFO] REST: Machine resumed.
+[18:47:14.2379] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.2510] [INFO] ECU_A: Machine paused.
+[18:47:14.2510] [INFO] ECU_B: Machine paused.
+[18:47:14.2510] [INFO] REST: Machine paused.
+[18:47:14.2521] [INFO] ECU_A: Machine resumed.
+[18:47:14.2522] [INFO] ECU_B: Machine resumed.
+[18:47:14.2523] [INFO] REST: Machine resumed.
+[18:47:14.2595] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.2739] [INFO] ECU_A: Machine paused.
+[18:47:14.2739] [INFO] ECU_B: Machine paused.
+[18:47:14.2739] [INFO] REST: Machine paused.
+[18:47:14.2751] [INFO] ECU_A: Machine resumed.
+[18:47:14.2752] [INFO] ECU_B: Machine resumed.
+[18:47:14.2754] [INFO] REST: Machine resumed.
+[18:47:14.2863] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.2987] [INFO] ECU_A: Machine paused.
+[18:47:14.2987] [INFO] ECU_B: Machine paused.
+[18:47:14.2987] [INFO] REST: Machine paused.
+[18:47:14.2999] [INFO] ECU_A: Machine resumed.
+[18:47:14.3001] [INFO] ECU_B: Machine resumed.
+[18:47:14.3002] [INFO] REST: Machine resumed.
+[18:47:14.3071] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.3194] [INFO] ECU_A: Machine paused.
+[18:47:14.3195] [INFO] ECU_B: Machine paused.
+[18:47:14.3195] [INFO] REST: Machine paused.
+[18:47:14.3205] [INFO] ECU_A: Machine resumed.
+[18:47:14.3206] [INFO] ECU_B: Machine resumed.
+[18:47:14.3208] [INFO] REST: Machine resumed.
+[18:47:14.3301] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.3412] [INFO] ECU_A: Machine paused.
+[18:47:14.3413] [INFO] ECU_B: Machine paused.
+[18:47:14.3413] [INFO] REST: Machine paused.
+[18:47:14.3423] [INFO] ECU_A: Machine resumed.
+[18:47:14.3425] [INFO] ECU_B: Machine resumed.
+[18:47:14.3427] [INFO] REST: Machine resumed.
+[18:47:14.3493] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.3609] [INFO] ECU_A: Machine paused.
+[18:47:14.3609] [INFO] ECU_B: Machine paused.
+[18:47:14.3610] [INFO] REST: Machine paused.
+[18:47:14.3620] [INFO] ECU_A: Machine resumed.
+[18:47:14.3622] [INFO] ECU_B: Machine resumed.
+[18:47:14.3624] [INFO] REST: Machine resumed.
+[18:47:14.3713] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.3826] [INFO] ECU_A: Machine paused.
+[18:47:14.3827] [INFO] ECU_B: Machine paused.
+[18:47:14.3827] [INFO] REST: Machine paused.
+[18:47:14.3838] [INFO] ECU_A: Machine resumed.
+[18:47:14.3839] [INFO] ECU_B: Machine resumed.
+[18:47:14.3840] [INFO] REST: Machine resumed.
+[18:47:14.3950] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.4142] [INFO] ECU_A: Machine paused.
+[18:47:14.4143] [INFO] ECU_B: Machine paused.
+[18:47:14.4143] [INFO] REST: Machine paused.
+[18:47:14.4154] [INFO] ECU_A: Machine resumed.
+[18:47:14.4156] [INFO] ECU_B: Machine resumed.
+[18:47:14.4158] [INFO] REST: Machine resumed.
+[18:47:14.4272] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.4425] [INFO] ECU_A: Machine paused.
+[18:47:14.4426] [INFO] ECU_B: Machine paused.
+[18:47:14.4426] [INFO] REST: Machine paused.
+[18:47:14.4436] [INFO] ECU_A: Machine resumed.
+[18:47:14.4437] [INFO] ECU_B: Machine resumed.
+[18:47:14.4439] [INFO] REST: Machine resumed.
+[18:47:14.4499] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.4611] [INFO] ECU_A: Machine paused.
+[18:47:14.4611] [INFO] ECU_B: Machine paused.
+[18:47:14.4611] [INFO] REST: Machine paused.
+[18:47:14.4621] [INFO] ECU_A: Machine resumed.
+[18:47:14.4623] [INFO] ECU_B: Machine resumed.
+[18:47:14.4625] [INFO] REST: Machine resumed.
+[18:47:14.4730] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.4833] [INFO] ECU_A: Machine paused.
+[18:47:14.4833] [INFO] ECU_B: Machine paused.
+[18:47:14.4833] [INFO] REST: Machine paused.
+[18:47:14.4843] [INFO] ECU_A: Machine resumed.
+[18:47:14.4845] [INFO] ECU_B: Machine resumed.
+[18:47:14.4847] [INFO] REST: Machine resumed.
+[18:47:14.4920] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.5034] [INFO] ECU_A: Machine paused.
+[18:47:14.5034] [INFO] ECU_B: Machine paused.
+[18:47:14.5034] [INFO] REST: Machine paused.
+[18:47:14.5045] [INFO] ECU_A: Machine resumed.
+[18:47:14.5047] [INFO] ECU_B: Machine resumed.
+[18:47:14.5048] [INFO] REST: Machine resumed.
+[18:47:14.5154] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.5268] [INFO] ECU_A: Machine paused.
+[18:47:14.5268] [INFO] ECU_B: Machine paused.
+[18:47:14.5268] [INFO] REST: Machine paused.
+[18:47:14.5278] [INFO] ECU_A: Machine resumed.
+[18:47:14.5279] [INFO] ECU_B: Machine resumed.
+[18:47:14.5280] [INFO] REST: Machine resumed.
+[18:47:14.5343] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.5465] [INFO] ECU_A: Machine paused.
+[18:47:14.5465] [INFO] ECU_B: Machine paused.
+[18:47:14.5465] [INFO] REST: Machine paused.
+[18:47:14.5478] [INFO] ECU_A: Machine resumed.
+[18:47:14.5480] [INFO] ECU_B: Machine resumed.
+[18:47:14.5482] [INFO] REST: Machine resumed.
+[18:47:14.5581] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.5685] [INFO] ECU_A: Machine paused.
+[18:47:14.5685] [INFO] ECU_B: Machine paused.
+[18:47:14.5685] [INFO] REST: Machine paused.
+[18:47:14.5696] [INFO] ECU_A: Machine resumed.
+[18:47:14.5697] [INFO] ECU_B: Machine resumed.
+[18:47:14.5699] [INFO] REST: Machine resumed.
+[18:47:14.5758] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.5878] [INFO] ECU_A: Machine paused.
+[18:47:14.5878] [INFO] ECU_B: Machine paused.
+[18:47:14.5879] [INFO] REST: Machine paused.
+[18:47:14.5890] [INFO] ECU_A: Machine resumed.
+[18:47:14.5891] [INFO] ECU_B: Machine resumed.
+[18:47:14.5892] [INFO] REST: Machine resumed.
+[18:47:14.5993] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.6104] [INFO] ECU_A: Machine paused.
+[18:47:14.6104] [INFO] ECU_B: Machine paused.
+[18:47:14.6104] [INFO] REST: Machine paused.
+[18:47:14.6114] [INFO] ECU_A: Machine resumed.
+[18:47:14.6115] [INFO] ECU_B: Machine resumed.
+[18:47:14.6116] [INFO] REST: Machine resumed.
+[18:47:14.6227] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.6416] [INFO] ECU_A: Machine paused.
+[18:47:14.6416] [INFO] ECU_B: Machine paused.
+[18:47:14.6416] [INFO] REST: Machine paused.
+[18:47:14.6428] [INFO] ECU_A: Machine resumed.
+[18:47:14.6430] [INFO] ECU_B: Machine resumed.
+[18:47:14.6432] [INFO] REST: Machine resumed.
+[18:47:14.6537] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.6701] [INFO] ECU_A: Machine paused.
+[18:47:14.6701] [INFO] ECU_B: Machine paused.
+[18:47:14.6701] [INFO] REST: Machine paused.
+[18:47:14.6715] [INFO] ECU_A: Machine resumed.
+[18:47:14.6717] [INFO] ECU_B: Machine resumed.
+[18:47:14.6718] [INFO] REST: Machine resumed.
+[18:47:14.6794] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.6951] [INFO] ECU_A: Machine paused.
+[18:47:14.6952] [INFO] ECU_B: Machine paused.
+[18:47:14.6952] [INFO] REST: Machine paused.
+[18:47:14.6965] [INFO] ECU_A: Machine resumed.
+[18:47:14.6966] [INFO] ECU_B: Machine resumed.
+[18:47:14.6968] [INFO] REST: Machine resumed.
+[18:47:14.7097] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.7260] [INFO] ECU_A: Machine paused.
+[18:47:14.7261] [INFO] ECU_B: Machine paused.
+[18:47:14.7261] [INFO] REST: Machine paused.
+[18:47:14.7274] [INFO] ECU_A: Machine resumed.
+[18:47:14.7276] [INFO] ECU_B: Machine resumed.
+[18:47:14.7277] [INFO] REST: Machine resumed.
+[18:47:14.7386] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.7539] [INFO] ECU_A: Machine paused.
+[18:47:14.7539] [INFO] ECU_B: Machine paused.
+[18:47:14.7539] [INFO] REST: Machine paused.
+[18:47:14.7554] [INFO] ECU_A: Machine resumed.
+[18:47:14.7555] [INFO] ECU_B: Machine resumed.
+[18:47:14.7557] [INFO] REST: Machine resumed.
+[18:47:14.7669] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.7886] [INFO] ECU_A: Machine paused.
+[18:47:14.7886] [INFO] ECU_B: Machine paused.
+[18:47:14.7886] [INFO] REST: Machine paused.
+[18:47:14.7905] [INFO] ECU_A: Machine resumed.
+[18:47:14.7907] [INFO] ECU_B: Machine resumed.
+[18:47:14.7909] [INFO] REST: Machine resumed.
+[18:47:14.8006] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.8168] [INFO] ECU_A: Machine paused.
+[18:47:14.8168] [INFO] ECU_B: Machine paused.
+[18:47:14.8168] [INFO] REST: Machine paused.
+[18:47:14.8183] [INFO] ECU_A: Machine resumed.
+[18:47:14.8184] [INFO] ECU_B: Machine resumed.
+[18:47:14.8186] [INFO] REST: Machine resumed.
+[18:47:14.8292] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.8433] [INFO] ECU_A: Machine paused.
+[18:47:14.8433] [INFO] ECU_B: Machine paused.
+[18:47:14.8433] [INFO] REST: Machine paused.
+[18:47:14.8443] [INFO] ECU_A: Machine resumed.
+[18:47:14.8445] [INFO] ECU_B: Machine resumed.
+[18:47:14.8446] [INFO] REST: Machine resumed.
+[18:47:14.8518] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.8673] [INFO] ECU_A: Machine paused.
+[18:47:14.8673] [INFO] ECU_B: Machine paused.
+[18:47:14.8673] [INFO] REST: Machine paused.
+[18:47:14.8685] [INFO] ECU_A: Machine resumed.
+[18:47:14.8687] [INFO] ECU_B: Machine resumed.
+[18:47:14.8688] [INFO] REST: Machine resumed.
+[18:47:14.8792] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.8907] [INFO] ECU_A: Machine paused.
+[18:47:14.8907] [INFO] ECU_B: Machine paused.
+[18:47:14.8907] [INFO] REST: Machine paused.
+[18:47:14.8918] [INFO] ECU_A: Machine resumed.
+[18:47:14.8919] [INFO] ECU_B: Machine resumed.
+[18:47:14.8920] [INFO] REST: Machine resumed.
+[18:47:14.9029] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.9192] [INFO] ECU_A: Machine paused.
+[18:47:14.9192] [INFO] ECU_B: Machine paused.
+[18:47:14.9192] [INFO] REST: Machine paused.
+[18:47:14.9201] [INFO] ECU_A: Machine resumed.
+[18:47:14.9202] [INFO] ECU_B: Machine resumed.
+[18:47:14.9203] [INFO] REST: Machine resumed.
+[18:47:14.9293] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.9433] [INFO] ECU_A: Machine paused.
+[18:47:14.9433] [INFO] ECU_B: Machine paused.
+[18:47:14.9433] [INFO] REST: Machine paused.
+[18:47:14.9441] [INFO] ECU_A: Machine resumed.
+[18:47:14.9443] [INFO] ECU_B: Machine resumed.
+[18:47:14.9444] [INFO] REST: Machine resumed.
+[18:47:14.9506] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.9613] [INFO] ECU_A: Machine paused.
+[18:47:14.9613] [INFO] ECU_B: Machine paused.
+[18:47:14.9613] [INFO] REST: Machine paused.
+[18:47:14.9621] [INFO] ECU_A: Machine resumed.
+[18:47:14.9623] [INFO] ECU_B: Machine resumed.
+[18:47:14.9625] [INFO] REST: Machine resumed.
+[18:47:14.9713] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.9817] [INFO] ECU_A: Machine paused.
+[18:47:14.9817] [INFO] ECU_B: Machine paused.
+[18:47:14.9817] [INFO] REST: Machine paused.
+[18:47:14.9824] [INFO] ECU_A: Machine resumed.
+[18:47:14.9826] [INFO] ECU_B: Machine resumed.
+[18:47:14.9827] [INFO] REST: Machine resumed.
+[18:47:14.9883] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:14.9994] [INFO] ECU_A: Machine paused.
+[18:47:14.9995] [INFO] ECU_B: Machine paused.
+[18:47:14.9995] [INFO] REST: Machine paused.
+[18:47:15.0002] [INFO] ECU_A: Machine resumed.
+[18:47:15.0004] [INFO] ECU_B: Machine resumed.
+[18:47:15.0006] [INFO] REST: Machine resumed.
+[18:47:15.0086] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.0188] [INFO] ECU_A: Machine paused.
+[18:47:15.0188] [INFO] ECU_B: Machine paused.
+[18:47:15.0188] [INFO] REST: Machine paused.
+[18:47:15.0196] [INFO] ECU_A: Machine resumed.
+[18:47:15.0198] [INFO] ECU_B: Machine resumed.
+[18:47:15.0199] [INFO] REST: Machine resumed.
+[18:47:15.0262] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.0358] [INFO] ECU_A: Machine paused.
+[18:47:15.0358] [INFO] ECU_B: Machine paused.
+[18:47:15.0358] [INFO] REST: Machine paused.
+[18:47:15.0364] [INFO] ECU_A: Machine resumed.
+[18:47:15.0365] [INFO] ECU_B: Machine resumed.
+[18:47:15.0367] [INFO] REST: Machine resumed.
+[18:47:15.0459] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.0567] [INFO] ECU_A: Machine paused.
+[18:47:15.0568] [INFO] ECU_B: Machine paused.
+[18:47:15.0568] [INFO] REST: Machine paused.
+[18:47:15.0576] [INFO] ECU_A: Machine resumed.
+[18:47:15.0578] [INFO] ECU_B: Machine resumed.
+[18:47:15.0579] [INFO] REST: Machine resumed.
+[18:47:15.0633] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.0744] [INFO] ECU_A: Machine paused.
+[18:47:15.0744] [INFO] ECU_B: Machine paused.
+[18:47:15.0744] [INFO] REST: Machine paused.
+[18:47:15.0752] [INFO] ECU_A: Machine resumed.
+[18:47:15.0753] [INFO] ECU_B: Machine resumed.
+[18:47:15.0755] [INFO] REST: Machine resumed.
+[18:47:15.0841] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.0929] [INFO] ECU_A: Machine paused.
+[18:47:15.0929] [INFO] ECU_B: Machine paused.
+[18:47:15.0930] [INFO] REST: Machine paused.
+[18:47:15.0937] [INFO] ECU_A: Machine resumed.
+[18:47:15.0953] [INFO] ECU_B: Machine resumed.
+[18:47:15.0955] [INFO] REST: Machine resumed.
+[18:47:15.1047] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.1188] [INFO] ECU_A: Machine paused.
+[18:47:15.1188] [INFO] ECU_B: Machine paused.
+[18:47:15.1188] [INFO] REST: Machine paused.
+[18:47:15.1196] [INFO] ECU_A: Machine resumed.
+[18:47:15.1198] [INFO] ECU_B: Machine resumed.
+[18:47:15.1199] [INFO] REST: Machine resumed.
+[18:47:15.1279] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.1486] [INFO] ECU_A: Machine paused.
+[18:47:15.1486] [INFO] ECU_B: Machine paused.
+[18:47:15.1486] [INFO] REST: Machine paused.
+[18:47:15.1495] [INFO] ECU_A: Machine resumed.
+[18:47:15.1497] [INFO] ECU_B: Machine resumed.
+[18:47:15.1499] [INFO] REST: Machine resumed.
+[18:47:15.1563] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.1679] [INFO] ECU_A: Machine paused.
+[18:47:15.1679] [INFO] ECU_B: Machine paused.
+[18:47:15.1679] [INFO] REST: Machine paused.
+[18:47:15.1685] [INFO] ECU_A: Machine resumed.
+[18:47:15.1687] [INFO] ECU_B: Machine resumed.
+[18:47:15.1689] [INFO] REST: Machine resumed.
+[18:47:15.1773] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.1869] [INFO] ECU_A: Machine paused.
+[18:47:15.1869] [INFO] ECU_B: Machine paused.
+[18:47:15.1869] [INFO] REST: Machine paused.
+[18:47:15.1876] [INFO] ECU_A: Machine resumed.
+[18:47:15.1877] [INFO] ECU_B: Machine resumed.
+[18:47:15.1879] [INFO] REST: Machine resumed.
+[18:47:15.1940] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.2047] [INFO] ECU_A: Machine paused.
+[18:47:15.2047] [INFO] ECU_B: Machine paused.
+[18:47:15.2047] [INFO] REST: Machine paused.
+[18:47:15.2054] [INFO] ECU_A: Machine resumed.
+[18:47:15.2056] [INFO] ECU_B: Machine resumed.
+[18:47:15.2058] [INFO] REST: Machine resumed.
+[18:47:15.2172] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.2280] [INFO] ECU_A: Machine paused.
+[18:47:15.2280] [INFO] ECU_B: Machine paused.
+[18:47:15.2280] [INFO] REST: Machine paused.
+[18:47:15.2287] [INFO] ECU_A: Machine resumed.
+[18:47:15.2288] [INFO] ECU_B: Machine resumed.
+[18:47:15.2290] [INFO] REST: Machine resumed.
+[18:47:15.2345] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.2489] [INFO] ECU_A: Machine paused.
+[18:47:15.2489] [INFO] ECU_B: Machine paused.
+[18:47:15.2489] [INFO] REST: Machine paused.
+[18:47:15.2496] [INFO] ECU_A: Machine resumed.
+[18:47:15.2497] [INFO] ECU_B: Machine resumed.
+[18:47:15.2499] [INFO] REST: Machine resumed.
+[18:47:15.2583] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.2660] [INFO] ECU_A: Machine paused.
+[18:47:15.2660] [INFO] ECU_B: Machine paused.
+[18:47:15.2660] [INFO] REST: Machine paused.
+[18:47:15.2668] [INFO] ECU_A: Machine resumed.
+[18:47:15.2669] [INFO] ECU_B: Machine resumed.
+[18:47:15.2670] [INFO] REST: Machine resumed.
+[18:47:15.2836] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.3198] [INFO] ECU_A: Machine paused.
+[18:47:15.3198] [INFO] ECU_B: Machine paused.
+[18:47:15.3198] [INFO] REST: Machine paused.
+[18:47:15.3209] [INFO] ECU_A: Machine resumed.
+[18:47:15.3211] [INFO] ECU_B: Machine resumed.
+[18:47:15.3212] [INFO] REST: Machine resumed.
+[18:47:15.3314] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.3404] [INFO] ECU_A: Machine paused.
+[18:47:15.3404] [INFO] ECU_B: Machine paused.
+[18:47:15.3404] [INFO] REST: Machine paused.
+[18:47:15.3412] [INFO] ECU_A: Machine resumed.
+[18:47:15.3414] [INFO] ECU_B: Machine resumed.
+[18:47:15.3415] [INFO] REST: Machine resumed.
+[18:47:15.3483] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.3597] [INFO] ECU_A: Machine paused.
+[18:47:15.3597] [INFO] ECU_B: Machine paused.
+[18:47:15.3597] [INFO] REST: Machine paused.
+[18:47:15.3613] [INFO] ECU_A: Machine resumed.
+[18:47:15.3615] [INFO] ECU_B: Machine resumed.
+[18:47:15.3616] [INFO] REST: Machine resumed.
+[18:47:15.3678] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.3772] [INFO] ECU_A: Machine paused.
+[18:47:15.3772] [INFO] ECU_B: Machine paused.
+[18:47:15.3772] [INFO] REST: Machine paused.
+[18:47:15.3779] [INFO] ECU_A: Machine resumed.
+[18:47:15.3781] [INFO] ECU_B: Machine resumed.
+[18:47:15.3782] [INFO] REST: Machine resumed.
+[18:47:15.3826] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.3903] [INFO] ECU_A: Machine paused.
+[18:47:15.3903] [INFO] ECU_B: Machine paused.
+[18:47:15.3903] [INFO] REST: Machine paused.
+[18:47:15.3912] [INFO] ECU_A: Machine resumed.
+[18:47:15.3914] [INFO] ECU_B: Machine resumed.
+[18:47:15.3916] [INFO] REST: Machine resumed.
+[18:47:15.3972] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4040] [INFO] ECU_A: Machine paused.
+[18:47:15.4040] [INFO] ECU_B: Machine paused.
+[18:47:15.4040] [INFO] REST: Machine paused.
+[18:47:15.4048] [INFO] ECU_A: Machine resumed.
+[18:47:15.4050] [INFO] ECU_B: Machine resumed.
+[18:47:15.4051] [INFO] REST: Machine resumed.
+[18:47:15.4089] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4155] [INFO] ECU_A: Machine paused.
+[18:47:15.4155] [INFO] ECU_B: Machine paused.
+[18:47:15.4156] [INFO] REST: Machine paused.
+[18:47:15.4163] [INFO] ECU_A: Machine resumed.
+[18:47:15.4164] [INFO] ECU_B: Machine resumed.
+[18:47:15.4166] [INFO] REST: Machine resumed.
+[18:47:15.4242] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4298] [INFO] ECU_A: Machine paused.
+[18:47:15.4298] [INFO] ECU_B: Machine paused.
+[18:47:15.4298] [INFO] REST: Machine paused.
+[18:47:15.4305] [INFO] ECU_A: Machine resumed.
+[18:47:15.4306] [INFO] ECU_B: Machine resumed.
+[18:47:15.4308] [INFO] REST: Machine resumed.
+[18:47:15.4339] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4407] [INFO] ECU_A: Machine paused.
+[18:47:15.4407] [INFO] ECU_B: Machine paused.
+[18:47:15.4407] [INFO] REST: Machine paused.
+[18:47:15.4414] [INFO] ECU_A: Machine resumed.
+[18:47:15.4416] [INFO] ECU_B: Machine resumed.
+[18:47:15.4417] [INFO] REST: Machine resumed.
+[18:47:15.4486] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4557] [INFO] ECU_A: Machine paused.
+[18:47:15.4558] [INFO] ECU_B: Machine paused.
+[18:47:15.4558] [INFO] REST: Machine paused.
+[18:47:15.4571] [INFO] ECU_A: Machine resumed.
+[18:47:15.4573] [INFO] ECU_B: Machine resumed.
+[18:47:15.4575] [INFO] REST: Machine resumed.
+[18:47:15.4606] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4673] [INFO] ECU_A: Machine paused.
+[18:47:15.4673] [INFO] ECU_B: Machine paused.
+[18:47:15.4673] [INFO] REST: Machine paused.
+[18:47:15.4680] [INFO] ECU_A: Machine resumed.
+[18:47:15.4681] [INFO] ECU_B: Machine resumed.
+[18:47:15.4683] [INFO] REST: Machine resumed.
+[18:47:15.4736] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4813] [INFO] ECU_A: Machine paused.
+[18:47:15.4813] [INFO] ECU_B: Machine paused.
+[18:47:15.4813] [INFO] REST: Machine paused.
+[18:47:15.4820] [INFO] ECU_A: Machine resumed.
+[18:47:15.4822] [INFO] ECU_B: Machine resumed.
+[18:47:15.4823] [INFO] REST: Machine resumed.
+[18:47:15.4880] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.4999] [INFO] ECU_A: Machine paused.
+[18:47:15.4999] [INFO] ECU_B: Machine paused.
+[18:47:15.4999] [INFO] REST: Machine paused.
+[18:47:15.5007] [INFO] ECU_A: Machine resumed.
+[18:47:15.5009] [INFO] ECU_B: Machine resumed.
+[18:47:15.5010] [INFO] REST: Machine resumed.
+[18:47:15.5084] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5171] [INFO] ECU_A: Machine paused.
+[18:47:15.5171] [INFO] ECU_B: Machine paused.
+[18:47:15.5171] [INFO] REST: Machine paused.
+[18:47:15.5178] [INFO] ECU_A: Machine resumed.
+[18:47:15.5179] [INFO] ECU_B: Machine resumed.
+[18:47:15.5181] [INFO] REST: Machine resumed.
+[18:47:15.5236] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5297] [INFO] ECU_A: Machine paused.
+[18:47:15.5297] [INFO] ECU_B: Machine paused.
+[18:47:15.5297] [INFO] REST: Machine paused.
+[18:47:15.5306] [INFO] ECU_A: Machine resumed.
+[18:47:15.5307] [INFO] ECU_B: Machine resumed.
+[18:47:15.5308] [INFO] REST: Machine resumed.
+[18:47:15.5369] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5421] [INFO] ECU_A: Machine paused.
+[18:47:15.5421] [INFO] ECU_B: Machine paused.
+[18:47:15.5421] [INFO] REST: Machine paused.
+[18:47:15.5428] [INFO] ECU_A: Machine resumed.
+[18:47:15.5429] [INFO] ECU_B: Machine resumed.
+[18:47:15.5430] [INFO] REST: Machine resumed.
+[18:47:15.5472] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5516] [INFO] ECU_A: Machine paused.
+[18:47:15.5516] [INFO] ECU_B: Machine paused.
+[18:47:15.5516] [INFO] REST: Machine paused.
+[18:47:15.5522] [INFO] ECU_A: Machine resumed.
+[18:47:15.5523] [INFO] ECU_B: Machine resumed.
+[18:47:15.5526] [INFO] REST: Machine resumed.
+[18:47:15.5570] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5639] [INFO] ECU_A: Machine paused.
+[18:47:15.5639] [INFO] ECU_B: Machine paused.
+[18:47:15.5639] [INFO] REST: Machine paused.
+[18:47:15.5648] [INFO] ECU_A: Machine resumed.
+[18:47:15.5650] [INFO] ECU_B: Machine resumed.
+[18:47:15.5652] [INFO] REST: Machine resumed.
+[18:47:15.5732] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5797] [INFO] ECU_A: Machine paused.
+[18:47:15.5797] [INFO] ECU_B: Machine paused.
+[18:47:15.5797] [INFO] REST: Machine paused.
+[18:47:15.5816] [INFO] ECU_A: Machine resumed.
+[18:47:15.5824] [INFO] ECU_B: Machine resumed.
+[18:47:15.5830] [INFO] REST: Machine resumed.
+[18:47:15.5891] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.5957] [INFO] ECU_A: Machine paused.
+[18:47:15.5957] [INFO] ECU_B: Machine paused.
+[18:47:15.5957] [INFO] REST: Machine paused.
+[18:47:15.5970] [INFO] ECU_A: Machine resumed.
+[18:47:15.5973] [INFO] ECU_B: Machine resumed.
+[18:47:15.5975] [INFO] REST: Machine resumed.
+[18:47:15.6035] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6092] [INFO] ECU_A: Machine paused.
+[18:47:15.6092] [INFO] ECU_B: Machine paused.
+[18:47:15.6092] [INFO] REST: Machine paused.
+[18:47:15.6101] [INFO] ECU_A: Machine resumed.
+[18:47:15.6103] [INFO] ECU_B: Machine resumed.
+[18:47:15.6104] [INFO] REST: Machine resumed.
+[18:47:15.6180] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6221] [INFO] ECU_A: Machine paused.
+[18:47:15.6221] [INFO] ECU_B: Machine paused.
+[18:47:15.6221] [INFO] REST: Machine paused.
+[18:47:15.6229] [INFO] ECU_A: Machine resumed.
+[18:47:15.6230] [INFO] ECU_B: Machine resumed.
+[18:47:15.6233] [INFO] REST: Machine resumed.
+[18:47:15.6299] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6379] [INFO] ECU_A: Machine paused.
+[18:47:15.6379] [INFO] ECU_B: Machine paused.
+[18:47:15.6379] [INFO] REST: Machine paused.
+[18:47:15.6386] [INFO] ECU_A: Machine resumed.
+[18:47:15.6387] [INFO] ECU_B: Machine resumed.
+[18:47:15.6389] [INFO] REST: Machine resumed.
+[18:47:15.6433] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6509] [INFO] ECU_A: Machine paused.
+[18:47:15.6510] [INFO] ECU_B: Machine paused.
+[18:47:15.6510] [INFO] REST: Machine paused.
+[18:47:15.6516] [INFO] ECU_A: Machine resumed.
+[18:47:15.6518] [INFO] ECU_B: Machine resumed.
+[18:47:15.6519] [INFO] REST: Machine resumed.
+[18:47:15.6552] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6600] [INFO] ECU_A: Machine paused.
+[18:47:15.6600] [INFO] ECU_B: Machine paused.
+[18:47:15.6600] [INFO] REST: Machine paused.
+[18:47:15.6606] [INFO] ECU_A: Machine resumed.
+[18:47:15.6607] [INFO] ECU_B: Machine resumed.
+[18:47:15.6609] [INFO] REST: Machine resumed.
+[18:47:15.6655] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6711] [INFO] ECU_A: Machine paused.
+[18:47:15.6711] [INFO] ECU_B: Machine paused.
+[18:47:15.6711] [INFO] REST: Machine paused.
+[18:47:15.6718] [INFO] ECU_A: Machine resumed.
+[18:47:15.6719] [INFO] ECU_B: Machine resumed.
+[18:47:15.6720] [INFO] REST: Machine resumed.
+[18:47:15.6752] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6802] [INFO] ECU_A: Machine paused.
+[18:47:15.6802] [INFO] ECU_B: Machine paused.
+[18:47:15.6803] [INFO] REST: Machine paused.
+[18:47:15.6808] [INFO] ECU_A: Machine resumed.
+[18:47:15.6810] [INFO] ECU_B: Machine resumed.
+[18:47:15.6811] [INFO] REST: Machine resumed.
+[18:47:15.6856] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6909] [INFO] ECU_A: Machine paused.
+[18:47:15.6909] [INFO] ECU_B: Machine paused.
+[18:47:15.6909] [INFO] REST: Machine paused.
+[18:47:15.6916] [INFO] ECU_A: Machine resumed.
+[18:47:15.6917] [INFO] ECU_B: Machine resumed.
+[18:47:15.6918] [INFO] REST: Machine resumed.
+[18:47:15.6944] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.6985] [INFO] ECU_A: Machine paused.
+[18:47:15.6986] [INFO] ECU_B: Machine paused.
+[18:47:15.6986] [INFO] REST: Machine paused.
+[18:47:15.6991] [INFO] ECU_A: Machine resumed.
+[18:47:15.6993] [INFO] ECU_B: Machine resumed.
+[18:47:15.6994] [INFO] REST: Machine resumed.
+[18:47:15.7040] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7097] [INFO] ECU_A: Machine paused.
+[18:47:15.7097] [INFO] ECU_B: Machine paused.
+[18:47:15.7098] [INFO] REST: Machine paused.
+[18:47:15.7104] [INFO] ECU_A: Machine resumed.
+[18:47:15.7105] [INFO] ECU_B: Machine resumed.
+[18:47:15.7107] [INFO] REST: Machine resumed.
+[18:47:15.7132] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7184] [INFO] ECU_A: Machine paused.
+[18:47:15.7184] [INFO] ECU_B: Machine paused.
+[18:47:15.7184] [INFO] REST: Machine paused.
+[18:47:15.7191] [INFO] ECU_A: Machine resumed.
+[18:47:15.7192] [INFO] ECU_B: Machine resumed.
+[18:47:15.7193] [INFO] REST: Machine resumed.
+[18:47:15.7237] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7294] [INFO] ECU_A: Machine paused.
+[18:47:15.7294] [INFO] ECU_B: Machine paused.
+[18:47:15.7294] [INFO] REST: Machine paused.
+[18:47:15.7301] [INFO] ECU_A: Machine resumed.
+[18:47:15.7302] [INFO] ECU_B: Machine resumed.
+[18:47:15.7303] [INFO] REST: Machine resumed.
+[18:47:15.7345] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7431] [INFO] ECU_A: Machine paused.
+[18:47:15.7431] [INFO] ECU_B: Machine paused.
+[18:47:15.7431] [INFO] REST: Machine paused.
+[18:47:15.7437] [INFO] ECU_A: Machine resumed.
+[18:47:15.7438] [INFO] ECU_B: Machine resumed.
+[18:47:15.7439] [INFO] REST: Machine resumed.
+[18:47:15.7492] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7574] [INFO] ECU_A: Machine paused.
+[18:47:15.7574] [INFO] ECU_B: Machine paused.
+[18:47:15.7574] [INFO] REST: Machine paused.
+[18:47:15.7580] [INFO] ECU_A: Machine resumed.
+[18:47:15.7581] [INFO] ECU_B: Machine resumed.
+[18:47:15.7582] [INFO] REST: Machine resumed.
+[18:47:15.7609] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7652] [INFO] ECU_A: Machine paused.
+[18:47:15.7652] [INFO] ECU_B: Machine paused.
+[18:47:15.7652] [INFO] REST: Machine paused.
+[18:47:15.7657] [INFO] ECU_A: Machine resumed.
+[18:47:15.7659] [INFO] ECU_B: Machine resumed.
+[18:47:15.7660] [INFO] REST: Machine resumed.
+[18:47:15.7706] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7746] [INFO] ECU_A: Machine paused.
+[18:47:15.7746] [INFO] ECU_B: Machine paused.
+[18:47:15.7746] [INFO] REST: Machine paused.
+[18:47:15.7752] [INFO] ECU_A: Machine resumed.
+[18:47:15.7754] [INFO] ECU_B: Machine resumed.
+[18:47:15.7755] [INFO] REST: Machine resumed.
+[18:47:15.7783] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7833] [INFO] ECU_A: Machine paused.
+[18:47:15.7833] [INFO] ECU_B: Machine paused.
+[18:47:15.7833] [INFO] REST: Machine paused.
+[18:47:15.7838] [INFO] ECU_A: Machine resumed.
+[18:47:15.7839] [INFO] ECU_B: Machine resumed.
+[18:47:15.7840] [INFO] REST: Machine resumed.
+[18:47:15.7889] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.7930] [INFO] ECU_A: Machine paused.
+[18:47:15.7930] [INFO] ECU_B: Machine paused.
+[18:47:15.7930] [INFO] REST: Machine paused.
+[18:47:15.7936] [INFO] ECU_A: Machine resumed.
+[18:47:15.7937] [INFO] ECU_B: Machine resumed.
+[18:47:15.7939] [INFO] REST: Machine resumed.
+[18:47:15.7963] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8021] [INFO] ECU_A: Machine paused.
+[18:47:15.8021] [INFO] ECU_B: Machine paused.
+[18:47:15.8022] [INFO] REST: Machine paused.
+[18:47:15.8030] [INFO] ECU_A: Machine resumed.
+[18:47:15.8031] [INFO] ECU_B: Machine resumed.
+[18:47:15.8032] [INFO] REST: Machine resumed.
+[18:47:15.8095] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8148] [INFO] ECU_A: Machine paused.
+[18:47:15.8148] [INFO] ECU_B: Machine paused.
+[18:47:15.8148] [INFO] REST: Machine paused.
+[18:47:15.8154] [INFO] ECU_A: Machine resumed.
+[18:47:15.8155] [INFO] ECU_B: Machine resumed.
+[18:47:15.8156] [INFO] REST: Machine resumed.
+[18:47:15.8185] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8238] [INFO] ECU_A: Machine paused.
+[18:47:15.8238] [INFO] ECU_B: Machine paused.
+[18:47:15.8238] [INFO] REST: Machine paused.
+[18:47:15.8245] [INFO] ECU_A: Machine resumed.
+[18:47:15.8247] [INFO] ECU_B: Machine resumed.
+[18:47:15.8248] [INFO] REST: Machine resumed.
+[18:47:15.8319] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8368] [INFO] ECU_A: Machine paused.
+[18:47:15.8368] [INFO] ECU_B: Machine paused.
+[18:47:15.8368] [INFO] REST: Machine paused.
+[18:47:15.8375] [INFO] ECU_A: Machine resumed.
+[18:47:15.8376] [INFO] ECU_B: Machine resumed.
+[18:47:15.8378] [INFO] REST: Machine resumed.
+[18:47:15.8421] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8517] [INFO] ECU_A: Machine paused.
+[18:47:15.8517] [INFO] ECU_B: Machine paused.
+[18:47:15.8517] [INFO] REST: Machine paused.
+[18:47:15.8526] [INFO] ECU_A: Machine resumed.
+[18:47:15.8527] [INFO] ECU_B: Machine resumed.
+[18:47:15.8529] [INFO] REST: Machine resumed.
+[18:47:15.8580] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8652] [INFO] ECU_A: Machine paused.
+[18:47:15.8652] [INFO] ECU_B: Machine paused.
+[18:47:15.8652] [INFO] REST: Machine paused.
+[18:47:15.8660] [INFO] ECU_A: Machine resumed.
+[18:47:15.8661] [INFO] ECU_B: Machine resumed.
+[18:47:15.8663] [INFO] REST: Machine resumed.
+[18:47:15.8694] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8762] [INFO] ECU_A: Machine paused.
+[18:47:15.8762] [INFO] ECU_B: Machine paused.
+[18:47:15.8762] [INFO] REST: Machine paused.
+[18:47:15.8770] [INFO] ECU_A: Machine resumed.
+[18:47:15.8771] [INFO] ECU_B: Machine resumed.
+[18:47:15.8773] [INFO] REST: Machine resumed.
+[18:47:15.8813] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8860] [INFO] ECU_A: Machine paused.
+[18:47:15.8861] [INFO] ECU_B: Machine paused.
+[18:47:15.8861] [INFO] REST: Machine paused.
+[18:47:15.8867] [INFO] ECU_A: Machine resumed.
+[18:47:15.8869] [INFO] ECU_B: Machine resumed.
+[18:47:15.8871] [INFO] REST: Machine resumed.
+[18:47:15.8902] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.8970] [INFO] ECU_A: Machine paused.
+[18:47:15.8971] [INFO] ECU_B: Machine paused.
+[18:47:15.8971] [INFO] REST: Machine paused.
+[18:47:15.8980] [INFO] ECU_A: Machine resumed.
+[18:47:15.8982] [INFO] ECU_B: Machine resumed.
+[18:47:15.8983] [INFO] REST: Machine resumed.
+[18:47:15.9039] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9094] [INFO] ECU_A: Machine paused.
+[18:47:15.9094] [INFO] ECU_B: Machine paused.
+[18:47:15.9094] [INFO] REST: Machine paused.
+[18:47:15.9109] [INFO] ECU_A: Machine resumed.
+[18:47:15.9113] [INFO] ECU_B: Machine resumed.
+[18:47:15.9115] [INFO] REST: Machine resumed.
+[18:47:15.9152] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9231] [INFO] ECU_A: Machine paused.
+[18:47:15.9232] [INFO] ECU_B: Machine paused.
+[18:47:15.9232] [INFO] REST: Machine paused.
+[18:47:15.9238] [INFO] ECU_A: Machine resumed.
+[18:47:15.9239] [INFO] ECU_B: Machine resumed.
+[18:47:15.9241] [INFO] REST: Machine resumed.
+[18:47:15.9293] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9349] [INFO] ECU_A: Machine paused.
+[18:47:15.9349] [INFO] ECU_B: Machine paused.
+[18:47:15.9349] [INFO] REST: Machine paused.
+[18:47:15.9358] [INFO] ECU_A: Machine resumed.
+[18:47:15.9360] [INFO] ECU_B: Machine resumed.
+[18:47:15.9361] [INFO] REST: Machine resumed.
+[18:47:15.9401] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9463] [INFO] ECU_A: Machine paused.
+[18:47:15.9463] [INFO] ECU_B: Machine paused.
+[18:47:15.9463] [INFO] REST: Machine paused.
+[18:47:15.9472] [INFO] ECU_A: Machine resumed.
+[18:47:15.9473] [INFO] ECU_B: Machine resumed.
+[18:47:15.9475] [INFO] REST: Machine resumed.
+[18:47:15.9521] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9580] [INFO] ECU_A: Machine paused.
+[18:47:15.9580] [INFO] ECU_B: Machine paused.
+[18:47:15.9580] [INFO] REST: Machine paused.
+[18:47:15.9589] [INFO] ECU_A: Machine resumed.
+[18:47:15.9591] [INFO] ECU_B: Machine resumed.
+[18:47:15.9592] [INFO] REST: Machine resumed.
+[18:47:15.9645] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9758] [INFO] ECU_A: Machine paused.
+[18:47:15.9758] [INFO] ECU_B: Machine paused.
+[18:47:15.9758] [INFO] REST: Machine paused.
+[18:47:15.9765] [INFO] ECU_A: Machine resumed.
+[18:47:15.9767] [INFO] ECU_B: Machine resumed.
+[18:47:15.9769] [INFO] REST: Machine resumed.
+[18:47:15.9823] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:15.9918] [INFO] ECU_A: Machine paused.
+[18:47:15.9918] [INFO] ECU_B: Machine paused.
+[18:47:15.9918] [INFO] REST: Machine paused.
+[18:47:15.9926] [INFO] ECU_A: Machine resumed.
+[18:47:15.9928] [INFO] ECU_B: Machine resumed.
+[18:47:15.9930] [INFO] REST: Machine resumed.
+[18:47:15.9958] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0008] [INFO] ECU_A: Machine paused.
+[18:47:16.0008] [INFO] ECU_B: Machine paused.
+[18:47:16.0008] [INFO] REST: Machine paused.
+[18:47:16.0014] [INFO] ECU_A: Machine resumed.
+[18:47:16.0015] [INFO] ECU_B: Machine resumed.
+[18:47:16.0017] [INFO] REST: Machine resumed.
+[18:47:16.0055] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0112] [INFO] ECU_A: Machine paused.
+[18:47:16.0112] [INFO] ECU_B: Machine paused.
+[18:47:16.0112] [INFO] REST: Machine paused.
+[18:47:16.0119] [INFO] ECU_A: Machine resumed.
+[18:47:16.0121] [INFO] ECU_B: Machine resumed.
+[18:47:16.0124] [INFO] REST: Machine resumed.
+[18:47:16.0153] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0201] [INFO] ECU_A: Machine paused.
+[18:47:16.0201] [INFO] ECU_B: Machine paused.
+[18:47:16.0202] [INFO] REST: Machine paused.
+[18:47:16.0208] [INFO] ECU_A: Machine resumed.
+[18:47:16.0209] [INFO] ECU_B: Machine resumed.
+[18:47:16.0210] [INFO] REST: Machine resumed.
+[18:47:16.0253] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0299] [INFO] ECU_A: Machine paused.
+[18:47:16.0299] [INFO] ECU_B: Machine paused.
+[18:47:16.0299] [INFO] REST: Machine paused.
+[18:47:16.0307] [INFO] ECU_A: Machine resumed.
+[18:47:16.0308] [INFO] ECU_B: Machine resumed.
+[18:47:16.0310] [INFO] REST: Machine resumed.
+[18:47:16.0354] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0402] [INFO] ECU_A: Machine paused.
+[18:47:16.0402] [INFO] ECU_B: Machine paused.
+[18:47:16.0402] [INFO] REST: Machine paused.
+[18:47:16.0408] [INFO] ECU_A: Machine resumed.
+[18:47:16.0409] [INFO] ECU_B: Machine resumed.
+[18:47:16.0411] [INFO] REST: Machine resumed.
+[18:47:16.0450] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0494] [INFO] ECU_A: Machine paused.
+[18:47:16.0494] [INFO] ECU_B: Machine paused.
+[18:47:16.0494] [INFO] REST: Machine paused.
+[18:47:16.0500] [INFO] ECU_A: Machine resumed.
+[18:47:16.0501] [INFO] ECU_B: Machine resumed.
+[18:47:16.0502] [INFO] REST: Machine resumed.
+[18:47:16.0542] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0589] [INFO] ECU_A: Machine paused.
+[18:47:16.0590] [INFO] ECU_B: Machine paused.
+[18:47:16.0590] [INFO] REST: Machine paused.
+[18:47:16.0597] [INFO] ECU_A: Machine resumed.
+[18:47:16.0599] [INFO] ECU_B: Machine resumed.
+[18:47:16.0600] [INFO] REST: Machine resumed.
+[18:47:16.0647] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0690] [INFO] ECU_A: Machine paused.
+[18:47:16.0690] [INFO] ECU_B: Machine paused.
+[18:47:16.0690] [INFO] REST: Machine paused.
+[18:47:16.0700] [INFO] ECU_A: Machine resumed.
+[18:47:16.0702] [INFO] ECU_B: Machine resumed.
+[18:47:16.0704] [INFO] REST: Machine resumed.
+[18:47:16.0755] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0824] [INFO] ECU_A: Machine paused.
+[18:47:16.0824] [INFO] ECU_B: Machine paused.
+[18:47:16.0824] [INFO] REST: Machine paused.
+[18:47:16.0830] [INFO] ECU_A: Machine resumed.
+[18:47:16.0832] [INFO] ECU_B: Machine resumed.
+[18:47:16.0834] [INFO] REST: Machine resumed.
+[18:47:16.0883] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.0963] [INFO] ECU_A: Machine paused.
+[18:47:16.0963] [INFO] ECU_B: Machine paused.
+[18:47:16.0963] [INFO] REST: Machine paused.
+[18:47:16.0971] [INFO] ECU_A: Machine resumed.
+[18:47:16.0972] [INFO] ECU_B: Machine resumed.
+[18:47:16.0973] [INFO] REST: Machine resumed.
+[18:47:16.1002] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1045] [INFO] ECU_A: Machine paused.
+[18:47:16.1045] [INFO] ECU_B: Machine paused.
+[18:47:16.1045] [INFO] REST: Machine paused.
+[18:47:16.1056] [INFO] ECU_A: Machine resumed.
+[18:47:16.1061] [INFO] ECU_B: Machine resumed.
+[18:47:16.1064] [INFO] REST: Machine resumed.
+[18:47:16.1123] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1170] [INFO] ECU_A: Machine paused.
+[18:47:16.1170] [INFO] ECU_B: Machine paused.
+[18:47:16.1170] [INFO] REST: Machine paused.
+[18:47:16.1177] [INFO] ECU_A: Machine resumed.
+[18:47:16.1179] [INFO] ECU_B: Machine resumed.
+[18:47:16.1180] [INFO] REST: Machine resumed.
+[18:47:16.1213] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1257] [INFO] ECU_A: Machine paused.
+[18:47:16.1257] [INFO] ECU_B: Machine paused.
+[18:47:16.1257] [INFO] REST: Machine paused.
+[18:47:16.1272] [INFO] ECU_A: Machine resumed.
+[18:47:16.1274] [INFO] ECU_B: Machine resumed.
+[18:47:16.1276] [INFO] REST: Machine resumed.
+[18:47:16.1339] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1383] [INFO] ECU_A: Machine paused.
+[18:47:16.1383] [INFO] ECU_B: Machine paused.
+[18:47:16.1383] [INFO] REST: Machine paused.
+[18:47:16.1391] [INFO] ECU_A: Machine resumed.
+[18:47:16.1393] [INFO] ECU_B: Machine resumed.
+[18:47:16.1394] [INFO] REST: Machine resumed.
+[18:47:16.1421] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1475] [INFO] ECU_A: Machine paused.
+[18:47:16.1475] [INFO] ECU_B: Machine paused.
+[18:47:16.1475] [INFO] REST: Machine paused.
+[18:47:16.1484] [INFO] ECU_A: Machine resumed.
+[18:47:16.1485] [INFO] ECU_B: Machine resumed.
+[18:47:16.1487] [INFO] REST: Machine resumed.
+[18:47:16.1542] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1596] [INFO] ECU_A: Machine paused.
+[18:47:16.1596] [INFO] ECU_B: Machine paused.
+[18:47:16.1597] [INFO] REST: Machine paused.
+[18:47:16.1604] [INFO] ECU_A: Machine resumed.
+[18:47:16.1606] [INFO] ECU_B: Machine resumed.
+[18:47:16.1608] [INFO] REST: Machine resumed.
+[18:47:16.1642] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1695] [INFO] ECU_A: Machine paused.
+[18:47:16.1696] [INFO] ECU_B: Machine paused.
+[18:47:16.1696] [INFO] REST: Machine paused.
+[18:47:16.1704] [INFO] ECU_A: Machine resumed.
+[18:47:16.1705] [INFO] ECU_B: Machine resumed.
+[18:47:16.1706] [INFO] REST: Machine resumed.
+[18:47:16.1747] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1797] [INFO] ECU_A: Machine paused.
+[18:47:16.1797] [INFO] ECU_B: Machine paused.
+[18:47:16.1797] [INFO] REST: Machine paused.
+[18:47:16.1803] [INFO] ECU_A: Machine resumed.
+[18:47:16.1805] [INFO] ECU_B: Machine resumed.
+[18:47:16.1806] [INFO] REST: Machine resumed.
+[18:47:16.1852] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.1933] [INFO] ECU_A: Machine paused.
+[18:47:16.1934] [INFO] ECU_B: Machine paused.
+[18:47:16.1934] [INFO] REST: Machine paused.
+[18:47:16.1939] [INFO] ECU_A: Machine resumed.
+[18:47:16.1940] [INFO] ECU_B: Machine resumed.
+[18:47:16.1941] [INFO] REST: Machine resumed.
+[18:47:16.1993] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2063] [INFO] ECU_A: Machine paused.
+[18:47:16.2063] [INFO] ECU_B: Machine paused.
+[18:47:16.2064] [INFO] REST: Machine paused.
+[18:47:16.2073] [INFO] ECU_A: Machine resumed.
+[18:47:16.2076] [INFO] ECU_B: Machine resumed.
+[18:47:16.2077] [INFO] REST: Machine resumed.
+[18:47:16.2105] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2154] [INFO] ECU_A: Machine paused.
+[18:47:16.2155] [INFO] ECU_B: Machine paused.
+[18:47:16.2155] [INFO] REST: Machine paused.
+[18:47:16.2161] [INFO] ECU_A: Machine resumed.
+[18:47:16.2162] [INFO] ECU_B: Machine resumed.
+[18:47:16.2163] [INFO] REST: Machine resumed.
+[18:47:16.2202] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2249] [INFO] ECU_A: Machine paused.
+[18:47:16.2249] [INFO] ECU_B: Machine paused.
+[18:47:16.2249] [INFO] REST: Machine paused.
+[18:47:16.2256] [INFO] ECU_A: Machine resumed.
+[18:47:16.2257] [INFO] ECU_B: Machine resumed.
+[18:47:16.2259] [INFO] REST: Machine resumed.
+[18:47:16.2283] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2336] [INFO] ECU_A: Machine paused.
+[18:47:16.2336] [INFO] ECU_B: Machine paused.
+[18:47:16.2336] [INFO] REST: Machine paused.
+[18:47:16.2343] [INFO] ECU_A: Machine resumed.
+[18:47:16.2344] [INFO] ECU_B: Machine resumed.
+[18:47:16.2346] [INFO] REST: Machine resumed.
+[18:47:16.2384] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2422] [INFO] ECU_A: Machine paused.
+[18:47:16.2422] [INFO] ECU_B: Machine paused.
+[18:47:16.2422] [INFO] REST: Machine paused.
+[18:47:16.2427] [INFO] ECU_A: Machine resumed.
+[18:47:16.2428] [INFO] ECU_B: Machine resumed.
+[18:47:16.2429] [INFO] REST: Machine resumed.
+[18:47:16.2453] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2497] [INFO] ECU_A: Machine paused.
+[18:47:16.2497] [INFO] ECU_B: Machine paused.
+[18:47:16.2497] [INFO] REST: Machine paused.
+[18:47:16.2505] [INFO] ECU_A: Machine resumed.
+[18:47:16.2506] [INFO] ECU_B: Machine resumed.
+[18:47:16.2508] [INFO] REST: Machine resumed.
+[18:47:16.2567] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2601] [INFO] ECU_A: Machine paused.
+[18:47:16.2601] [INFO] ECU_B: Machine paused.
+[18:47:16.2601] [INFO] REST: Machine paused.
+[18:47:16.2607] [INFO] ECU_A: Machine resumed.
+[18:47:16.2610] [INFO] ECU_B: Machine resumed.
+[18:47:16.2612] [INFO] REST: Machine resumed.
+[18:47:16.2634] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2674] [INFO] ECU_A: Machine paused.
+[18:47:16.2674] [INFO] ECU_B: Machine paused.
+[18:47:16.2674] [INFO] REST: Machine paused.
+[18:47:16.2682] [INFO] ECU_A: Machine resumed.
+[18:47:16.2684] [INFO] ECU_B: Machine resumed.
+[18:47:16.2686] [INFO] REST: Machine resumed.
+[18:47:16.2735] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2770] [INFO] ECU_A: Machine paused.
+[18:47:16.2771] [INFO] ECU_B: Machine paused.
+[18:47:16.2771] [INFO] REST: Machine paused.
+[18:47:16.2777] [INFO] ECU_A: Machine resumed.
+[18:47:16.2778] [INFO] ECU_B: Machine resumed.
+[18:47:16.2779] [INFO] REST: Machine resumed.
+[18:47:16.2824] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.2916] [INFO] ECU_A: Machine paused.
+[18:47:16.2916] [INFO] ECU_B: Machine paused.
+[18:47:16.2916] [INFO] REST: Machine paused.
+[18:47:16.2922] [INFO] ECU_A: Machine resumed.
+[18:47:16.2924] [INFO] ECU_B: Machine resumed.
+[18:47:16.2926] [INFO] REST: Machine resumed.
+[18:47:16.2965] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3021] [INFO] ECU_A: Machine paused.
+[18:47:16.3022] [INFO] ECU_B: Machine paused.
+[18:47:16.3022] [INFO] REST: Machine paused.
+[18:47:16.3028] [INFO] ECU_A: Machine resumed.
+[18:47:16.3031] [INFO] ECU_B: Machine resumed.
+[18:47:16.3032] [INFO] REST: Machine resumed.
+[18:47:16.3065] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3106] [INFO] ECU_A: Machine paused.
+[18:47:16.3106] [INFO] ECU_B: Machine paused.
+[18:47:16.3106] [INFO] REST: Machine paused.
+[18:47:16.3113] [INFO] ECU_A: Machine resumed.
+[18:47:16.3115] [INFO] ECU_B: Machine resumed.
+[18:47:16.3116] [INFO] REST: Machine resumed.
+[18:47:16.3153] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3193] [INFO] ECU_A: Machine paused.
+[18:47:16.3193] [INFO] ECU_B: Machine paused.
+[18:47:16.3193] [INFO] REST: Machine paused.
+[18:47:16.3199] [INFO] ECU_A: Machine resumed.
+[18:47:16.3200] [INFO] ECU_B: Machine resumed.
+[18:47:16.3202] [INFO] REST: Machine resumed.
+[18:47:16.3238] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3280] [INFO] ECU_A: Machine paused.
+[18:47:16.3280] [INFO] ECU_B: Machine paused.
+[18:47:16.3280] [INFO] REST: Machine paused.
+[18:47:16.3285] [INFO] ECU_A: Machine resumed.
+[18:47:16.3287] [INFO] ECU_B: Machine resumed.
+[18:47:16.3289] [INFO] REST: Machine resumed.
+[18:47:16.3326] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3364] [INFO] ECU_A: Machine paused.
+[18:47:16.3364] [INFO] ECU_B: Machine paused.
+[18:47:16.3364] [INFO] REST: Machine paused.
+[18:47:16.3370] [INFO] ECU_A: Machine resumed.
+[18:47:16.3371] [INFO] ECU_B: Machine resumed.
+[18:47:16.3374] [INFO] REST: Machine resumed.
+[18:47:16.3398] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3457] [INFO] ECU_A: Machine paused.
+[18:47:16.3457] [INFO] ECU_B: Machine paused.
+[18:47:16.3457] [INFO] REST: Machine paused.
+[18:47:16.3464] [INFO] ECU_A: Machine resumed.
+[18:47:16.3465] [INFO] ECU_B: Machine resumed.
+[18:47:16.3467] [INFO] REST: Machine resumed.
+[18:47:16.3508] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3545] [INFO] ECU_A: Machine paused.
+[18:47:16.3545] [INFO] ECU_B: Machine paused.
+[18:47:16.3545] [INFO] REST: Machine paused.
+[18:47:16.3553] [INFO] ECU_A: Machine resumed.
+[18:47:16.3554] [INFO] ECU_B: Machine resumed.
+[18:47:16.3556] [INFO] REST: Machine resumed.
+[18:47:16.3582] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3632] [INFO] ECU_A: Machine paused.
+[18:47:16.3632] [INFO] ECU_B: Machine paused.
+[18:47:16.3632] [INFO] REST: Machine paused.
+[18:47:16.3638] [INFO] ECU_A: Machine resumed.
+[18:47:16.3640] [INFO] ECU_B: Machine resumed.
+[18:47:16.3642] [INFO] REST: Machine resumed.
+[18:47:16.3683] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3723] [INFO] ECU_A: Machine paused.
+[18:47:16.3723] [INFO] ECU_B: Machine paused.
+[18:47:16.3723] [INFO] REST: Machine paused.
+[18:47:16.3730] [INFO] ECU_A: Machine resumed.
+[18:47:16.3731] [INFO] ECU_B: Machine resumed.
+[18:47:16.3732] [INFO] REST: Machine resumed.
+[18:47:16.3864] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.3932] [INFO] ECU_A: Machine paused.
+[18:47:16.3932] [INFO] ECU_B: Machine paused.
+[18:47:16.3932] [INFO] REST: Machine paused.
+[18:47:16.3938] [INFO] ECU_A: Machine resumed.
+[18:47:16.3940] [INFO] ECU_B: Machine resumed.
+[18:47:16.3941] [INFO] REST: Machine resumed.
+[18:47:16.3984] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4061] [INFO] ECU_A: Machine paused.
+[18:47:16.4061] [INFO] ECU_B: Machine paused.
+[18:47:16.4062] [INFO] REST: Machine paused.
+[18:47:16.4071] [INFO] ECU_A: Machine resumed.
+[18:47:16.4073] [INFO] ECU_B: Machine resumed.
+[18:47:16.4075] [INFO] REST: Machine resumed.
+[18:47:16.4102] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4151] [INFO] ECU_A: Machine paused.
+[18:47:16.4151] [INFO] ECU_B: Machine paused.
+[18:47:16.4151] [INFO] REST: Machine paused.
+[18:47:16.4158] [INFO] ECU_A: Machine resumed.
+[18:47:16.4159] [INFO] ECU_B: Machine resumed.
+[18:47:16.4161] [INFO] REST: Machine resumed.
+[18:47:16.4203] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4252] [INFO] ECU_A: Machine paused.
+[18:47:16.4253] [INFO] ECU_B: Machine paused.
+[18:47:16.4253] [INFO] REST: Machine paused.
+[18:47:16.4260] [INFO] ECU_A: Machine resumed.
+[18:47:16.4262] [INFO] ECU_B: Machine resumed.
+[18:47:16.4263] [INFO] REST: Machine resumed.
+[18:47:16.4291] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4341] [INFO] ECU_A: Machine paused.
+[18:47:16.4342] [INFO] ECU_B: Machine paused.
+[18:47:16.4342] [INFO] REST: Machine paused.
+[18:47:16.4349] [INFO] ECU_A: Machine resumed.
+[18:47:16.4351] [INFO] ECU_B: Machine resumed.
+[18:47:16.4353] [INFO] REST: Machine resumed.
+[18:47:16.4392] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4443] [INFO] ECU_A: Machine paused.
+[18:47:16.4443] [INFO] ECU_B: Machine paused.
+[18:47:16.4444] [INFO] REST: Machine paused.
+[18:47:16.4450] [INFO] ECU_A: Machine resumed.
+[18:47:16.4453] [INFO] ECU_B: Machine resumed.
+[18:47:16.4454] [INFO] REST: Machine resumed.
+[18:47:16.4480] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4614] [INFO] ECU_A: Machine paused.
+[18:47:16.4614] [INFO] ECU_B: Machine paused.
+[18:47:16.4614] [INFO] REST: Machine paused.
+[18:47:16.4622] [INFO] ECU_A: Machine resumed.
+[18:47:16.4623] [INFO] ECU_B: Machine resumed.
+[18:47:16.4625] [INFO] REST: Machine resumed.
+[18:47:16.4694] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4750] [INFO] ECU_A: Machine paused.
+[18:47:16.4750] [INFO] ECU_B: Machine paused.
+[18:47:16.4750] [INFO] REST: Machine paused.
+[18:47:16.4758] [INFO] ECU_A: Machine resumed.
+[18:47:16.4767] [INFO] ECU_B: Machine resumed.
+[18:47:16.4768] [INFO] REST: Machine resumed.
+[18:47:16.4834] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.4872] [INFO] ECU_A: Machine paused.
+[18:47:16.4872] [INFO] ECU_B: Machine paused.
+[18:47:16.4872] [INFO] REST: Machine paused.
+[18:47:16.4879] [INFO] ECU_A: Machine resumed.
+[18:47:16.4881] [INFO] ECU_B: Machine resumed.
+[18:47:16.4883] [INFO] REST: Machine resumed.
+[18:47:16.4954] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5008] [INFO] ECU_A: Machine paused.
+[18:47:16.5009] [INFO] ECU_B: Machine paused.
+[18:47:16.5009] [INFO] REST: Machine paused.
+[18:47:16.5015] [INFO] ECU_A: Machine resumed.
+[18:47:16.5018] [INFO] ECU_B: Machine resumed.
+[18:47:16.5019] [INFO] REST: Machine resumed.
+[18:47:16.5066] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5145] [INFO] ECU_A: Machine paused.
+[18:47:16.5145] [INFO] ECU_B: Machine paused.
+[18:47:16.5145] [INFO] REST: Machine paused.
+[18:47:16.5151] [INFO] ECU_A: Machine resumed.
+[18:47:16.5152] [INFO] ECU_B: Machine resumed.
+[18:47:16.5154] [INFO] REST: Machine resumed.
+[18:47:16.5199] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5261] [INFO] ECU_A: Machine paused.
+[18:47:16.5261] [INFO] ECU_B: Machine paused.
+[18:47:16.5261] [INFO] REST: Machine paused.
+[18:47:16.5267] [INFO] ECU_A: Machine resumed.
+[18:47:16.5268] [INFO] ECU_B: Machine resumed.
+[18:47:16.5270] [INFO] REST: Machine resumed.
+[18:47:16.5295] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5336] [INFO] ECU_A: Machine paused.
+[18:47:16.5336] [INFO] ECU_B: Machine paused.
+[18:47:16.5336] [INFO] REST: Machine paused.
+[18:47:16.5342] [INFO] ECU_A: Machine resumed.
+[18:47:16.5344] [INFO] ECU_B: Machine resumed.
+[18:47:16.5345] [INFO] REST: Machine resumed.
+[18:47:16.5401] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5451] [INFO] ECU_A: Machine paused.
+[18:47:16.5451] [INFO] ECU_B: Machine paused.
+[18:47:16.5451] [INFO] REST: Machine paused.
+[18:47:16.5462] [INFO] ECU_A: Machine resumed.
+[18:47:16.5463] [INFO] ECU_B: Machine resumed.
+[18:47:16.5465] [INFO] REST: Machine resumed.
+[18:47:16.5492] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5545] [INFO] ECU_A: Machine paused.
+[18:47:16.5545] [INFO] ECU_B: Machine paused.
+[18:47:16.5545] [INFO] REST: Machine paused.
+[18:47:16.5552] [INFO] ECU_A: Machine resumed.
+[18:47:16.5554] [INFO] ECU_B: Machine resumed.
+[18:47:16.5555] [INFO] REST: Machine resumed.
+[18:47:16.5618] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5666] [INFO] ECU_A: Machine paused.
+[18:47:16.5666] [INFO] ECU_B: Machine paused.
+[18:47:16.5666] [INFO] REST: Machine paused.
+[18:47:16.5673] [INFO] ECU_A: Machine resumed.
+[18:47:16.5675] [INFO] ECU_B: Machine resumed.
+[18:47:16.5676] [INFO] REST: Machine resumed.
+[18:47:16.5705] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5757] [INFO] ECU_A: Machine paused.
+[18:47:16.5757] [INFO] ECU_B: Machine paused.
+[18:47:16.5757] [INFO] REST: Machine paused.
+[18:47:16.5765] [INFO] ECU_A: Machine resumed.
+[18:47:16.5767] [INFO] ECU_B: Machine resumed.
+[18:47:16.5768] [INFO] REST: Machine resumed.
+[18:47:16.5829] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5874] [INFO] ECU_A: Machine paused.
+[18:47:16.5874] [INFO] ECU_B: Machine paused.
+[18:47:16.5875] [INFO] REST: Machine paused.
+[18:47:16.5884] [INFO] ECU_A: Machine resumed.
+[18:47:16.5886] [INFO] ECU_B: Machine resumed.
+[18:47:16.5887] [INFO] REST: Machine resumed.
+[18:47:16.5914] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.5959] [INFO] ECU_A: Machine paused.
+[18:47:16.5959] [INFO] ECU_B: Machine paused.
+[18:47:16.5959] [INFO] REST: Machine paused.
+[18:47:16.5966] [INFO] ECU_A: Machine resumed.
+[18:47:16.5967] [INFO] ECU_B: Machine resumed.
+[18:47:16.5969] [INFO] REST: Machine resumed.
+[18:47:16.6033] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6089] [INFO] ECU_A: Machine paused.
+[18:47:16.6089] [INFO] ECU_B: Machine paused.
+[18:47:16.6089] [INFO] REST: Machine paused.
+[18:47:16.6101] [INFO] ECU_A: Machine resumed.
+[18:47:16.6105] [INFO] ECU_B: Machine resumed.
+[18:47:16.6107] [INFO] REST: Machine resumed.
+[18:47:16.6152] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6242] [INFO] ECU_A: Machine paused.
+[18:47:16.6242] [INFO] ECU_B: Machine paused.
+[18:47:16.6242] [INFO] REST: Machine paused.
+[18:47:16.6259] [INFO] ECU_A: Machine resumed.
+[18:47:16.6262] [INFO] ECU_B: Machine resumed.
+[18:47:16.6263] [INFO] REST: Machine resumed.
+[18:47:16.6307] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6453] [INFO] ECU_A: Machine paused.
+[18:47:16.6453] [INFO] ECU_B: Machine paused.
+[18:47:16.6453] [INFO] REST: Machine paused.
+[18:47:16.6461] [INFO] ECU_A: Machine resumed.
+[18:47:16.6462] [INFO] ECU_B: Machine resumed.
+[18:47:16.6463] [INFO] REST: Machine resumed.
+[18:47:16.6631] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6657] [INFO] ECU_A: Machine paused.
+[18:47:16.6657] [INFO] ECU_B: Machine paused.
+[18:47:16.6657] [INFO] REST: Machine paused.
+[18:47:16.6665] [INFO] ECU_A: Machine resumed.
+[18:47:16.6667] [INFO] ECU_B: Machine resumed.
+[18:47:16.6668] [INFO] REST: Machine resumed.
+[18:47:16.6725] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6772] [INFO] ECU_A: Machine paused.
+[18:47:16.6772] [INFO] ECU_B: Machine paused.
+[18:47:16.6772] [INFO] REST: Machine paused.
+[18:47:16.6780] [INFO] ECU_A: Machine resumed.
+[18:47:16.6781] [INFO] ECU_B: Machine resumed.
+[18:47:16.6783] [INFO] REST: Machine resumed.
+[18:47:16.6822] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6854] [INFO] ECU_A: Machine paused.
+[18:47:16.6854] [INFO] ECU_B: Machine paused.
+[18:47:16.6854] [INFO] REST: Machine paused.
+[18:47:16.6869] [INFO] ECU_A: Machine resumed.
+[18:47:16.6872] [INFO] ECU_B: Machine resumed.
+[18:47:16.6874] [INFO] REST: Machine resumed.
+[18:47:16.6921] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.6962] [INFO] ECU_A: Machine paused.
+[18:47:16.6962] [INFO] ECU_B: Machine paused.
+[18:47:16.6962] [INFO] REST: Machine paused.
+[18:47:16.6969] [INFO] ECU_A: Machine resumed.
+[18:47:16.6971] [INFO] ECU_B: Machine resumed.
+[18:47:16.6973] [INFO] REST: Machine resumed.
+[18:47:16.7006] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7048] [INFO] ECU_A: Machine paused.
+[18:47:16.7049] [INFO] ECU_B: Machine paused.
+[18:47:16.7049] [INFO] REST: Machine paused.
+[18:47:16.7069] [INFO] ECU_A: Machine resumed.
+[18:47:16.7071] [INFO] ECU_B: Machine resumed.
+[18:47:16.7072] [INFO] REST: Machine resumed.
+[18:47:16.7120] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7181] [INFO] ECU_A: Machine paused.
+[18:47:16.7181] [INFO] ECU_B: Machine paused.
+[18:47:16.7181] [INFO] REST: Machine paused.
+[18:47:16.7188] [INFO] ECU_A: Machine resumed.
+[18:47:16.7189] [INFO] ECU_B: Machine resumed.
+[18:47:16.7190] [INFO] REST: Machine resumed.
+[18:47:16.7220] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7244] [INFO] ECU_A: Machine paused.
+[18:47:16.7244] [INFO] ECU_B: Machine paused.
+[18:47:16.7244] [INFO] REST: Machine paused.
+[18:47:16.7251] [INFO] ECU_A: Machine resumed.
+[18:47:16.7253] [INFO] ECU_B: Machine resumed.
+[18:47:16.7254] [INFO] REST: Machine resumed.
+[18:47:16.7331] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7382] [INFO] ECU_A: Machine paused.
+[18:47:16.7382] [INFO] ECU_B: Machine paused.
+[18:47:16.7382] [INFO] REST: Machine paused.
+[18:47:16.7389] [INFO] ECU_A: Machine resumed.
+[18:47:16.7391] [INFO] ECU_B: Machine resumed.
+[18:47:16.7392] [INFO] REST: Machine resumed.
+[18:47:16.7465] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7531] [INFO] ECU_A: Machine paused.
+[18:47:16.7531] [INFO] ECU_B: Machine paused.
+[18:47:16.7531] [INFO] REST: Machine paused.
+[18:47:16.7537] [INFO] ECU_A: Machine resumed.
+[18:47:16.7539] [INFO] ECU_B: Machine resumed.
+[18:47:16.7540] [INFO] REST: Machine resumed.
+[18:47:16.7604] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7691] [INFO] ECU_A: Machine paused.
+[18:47:16.7691] [INFO] ECU_B: Machine paused.
+[18:47:16.7691] [INFO] REST: Machine paused.
+[18:47:16.7699] [INFO] ECU_A: Machine resumed.
+[18:47:16.7700] [INFO] ECU_B: Machine resumed.
+[18:47:16.7702] [INFO] REST: Machine resumed.
+[18:47:16.7727] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7754] [INFO] ECU_A: Machine paused.
+[18:47:16.7754] [INFO] ECU_B: Machine paused.
+[18:47:16.7754] [INFO] REST: Machine paused.
+[18:47:16.7760] [INFO] ECU_A: Machine resumed.
+[18:47:16.7761] [INFO] ECU_B: Machine resumed.
+[18:47:16.7762] [INFO] REST: Machine resumed.
+[18:47:16.7810] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7844] [INFO] ECU_A: Machine paused.
+[18:47:16.7844] [INFO] ECU_B: Machine paused.
+[18:47:16.7844] [INFO] REST: Machine paused.
+[18:47:16.7850] [INFO] ECU_A: Machine resumed.
+[18:47:16.7852] [INFO] ECU_B: Machine resumed.
+[18:47:16.7853] [INFO] REST: Machine resumed.
+[18:47:16.7882] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.7908] [INFO] ECU_A: Machine paused.
+[18:47:16.7908] [INFO] ECU_B: Machine paused.
+[18:47:16.7909] [INFO] REST: Machine paused.
+[18:47:16.7917] [INFO] ECU_A: Machine resumed.
+[18:47:16.7919] [INFO] ECU_B: Machine resumed.
+[18:47:16.7920] [INFO] REST: Machine resumed.
+[18:47:16.7969] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8004] [INFO] ECU_A: Machine paused.
+[18:47:16.8005] [INFO] ECU_B: Machine paused.
+[18:47:16.8005] [INFO] REST: Machine paused.
+[18:47:16.8011] [INFO] ECU_A: Machine resumed.
+[18:47:16.8012] [INFO] ECU_B: Machine resumed.
+[18:47:16.8014] [INFO] REST: Machine resumed.
+[18:47:16.8036] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8054] [INFO] ECU_A: Machine paused.
+[18:47:16.8054] [INFO] ECU_B: Machine paused.
+[18:47:16.8054] [INFO] REST: Machine paused.
+[18:47:16.8060] [INFO] ECU_A: Machine resumed.
+[18:47:16.8061] [INFO] ECU_B: Machine resumed.
+[18:47:16.8063] [INFO] REST: Machine resumed.
+[18:47:16.8106] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8160] [INFO] ECU_A: Machine paused.
+[18:47:16.8160] [INFO] ECU_B: Machine paused.
+[18:47:16.8160] [INFO] REST: Machine paused.
+[18:47:16.8166] [INFO] ECU_A: Machine resumed.
+[18:47:16.8168] [INFO] ECU_B: Machine resumed.
+[18:47:16.8170] [INFO] REST: Machine resumed.
+[18:47:16.8194] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8218] [INFO] ECU_A: Machine paused.
+[18:47:16.8218] [INFO] ECU_B: Machine paused.
+[18:47:16.8218] [INFO] REST: Machine paused.
+[18:47:16.8225] [INFO] ECU_A: Machine resumed.
+[18:47:16.8227] [INFO] ECU_B: Machine resumed.
+[18:47:16.8228] [INFO] REST: Machine resumed.
+[18:47:16.8270] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8310] [INFO] ECU_A: Machine paused.
+[18:47:16.8310] [INFO] ECU_B: Machine paused.
+[18:47:16.8310] [INFO] REST: Machine paused.
+[18:47:16.8317] [INFO] ECU_A: Machine resumed.
+[18:47:16.8318] [INFO] ECU_B: Machine resumed.
+[18:47:16.8319] [INFO] REST: Machine resumed.
+[18:47:16.8370] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8419] [INFO] ECU_A: Machine paused.
+[18:47:16.8419] [INFO] ECU_B: Machine paused.
+[18:47:16.8419] [INFO] REST: Machine paused.
+[18:47:16.8427] [INFO] ECU_A: Machine resumed.
+[18:47:16.8429] [INFO] ECU_B: Machine resumed.
+[18:47:16.8431] [INFO] REST: Machine resumed.
+[18:47:16.8475] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8554] [INFO] ECU_A: Machine paused.
+[18:47:16.8554] [INFO] ECU_B: Machine paused.
+[18:47:16.8554] [INFO] REST: Machine paused.
+[18:47:16.8561] [INFO] ECU_A: Machine resumed.
+[18:47:16.8562] [INFO] ECU_B: Machine resumed.
+[18:47:16.8564] [INFO] REST: Machine resumed.
+[18:47:16.8589] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8609] [INFO] ECU_A: Machine paused.
+[18:47:16.8609] [INFO] ECU_B: Machine paused.
+[18:47:16.8609] [INFO] REST: Machine paused.
+[18:47:16.8614] [INFO] ECU_A: Machine resumed.
+[18:47:16.8616] [INFO] ECU_B: Machine resumed.
+[18:47:16.8617] [INFO] REST: Machine resumed.
+[18:47:16.8665] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8722] [INFO] ECU_A: Machine paused.
+[18:47:16.8722] [INFO] ECU_B: Machine paused.
+[18:47:16.8722] [INFO] REST: Machine paused.
+[18:47:16.8730] [INFO] ECU_A: Machine resumed.
+[18:47:16.8732] [INFO] ECU_B: Machine resumed.
+[18:47:16.8733] [INFO] REST: Machine resumed.
+[18:47:16.8762] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8785] [INFO] ECU_A: Machine paused.
+[18:47:16.8785] [INFO] ECU_B: Machine paused.
+[18:47:16.8785] [INFO] REST: Machine paused.
+[18:47:16.8792] [INFO] ECU_A: Machine resumed.
+[18:47:16.8794] [INFO] ECU_B: Machine resumed.
+[18:47:16.8795] [INFO] REST: Machine resumed.
+[18:47:16.8838] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8883] [INFO] ECU_A: Machine paused.
+[18:47:16.8883] [INFO] ECU_B: Machine paused.
+[18:47:16.8883] [INFO] REST: Machine paused.
+[18:47:16.8892] [INFO] ECU_A: Machine resumed.
+[18:47:16.8893] [INFO] ECU_B: Machine resumed.
+[18:47:16.8895] [INFO] REST: Machine resumed.
+[18:47:16.8929] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.8953] [INFO] ECU_A: Machine paused.
+[18:47:16.8954] [INFO] ECU_B: Machine paused.
+[18:47:16.8954] [INFO] REST: Machine paused.
+[18:47:16.8960] [INFO] ECU_A: Machine resumed.
+[18:47:16.8961] [INFO] ECU_B: Machine resumed.
+[18:47:16.8962] [INFO] REST: Machine resumed.
+[18:47:16.9003] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9042] [INFO] ECU_A: Machine paused.
+[18:47:16.9042] [INFO] ECU_B: Machine paused.
+[18:47:16.9042] [INFO] REST: Machine paused.
+[18:47:16.9050] [INFO] ECU_A: Machine resumed.
+[18:47:16.9051] [INFO] ECU_B: Machine resumed.
+[18:47:16.9053] [INFO] REST: Machine resumed.
+[18:47:16.9079] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9110] [INFO] ECU_A: Machine paused.
+[18:47:16.9110] [INFO] ECU_B: Machine paused.
+[18:47:16.9110] [INFO] REST: Machine paused.
+[18:47:16.9116] [INFO] ECU_A: Machine resumed.
+[18:47:16.9117] [INFO] ECU_B: Machine resumed.
+[18:47:16.9119] [INFO] REST: Machine resumed.
+[18:47:16.9157] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9195] [INFO] ECU_A: Machine paused.
+[18:47:16.9195] [INFO] ECU_B: Machine paused.
+[18:47:16.9195] [INFO] REST: Machine paused.
+[18:47:16.9201] [INFO] ECU_A: Machine resumed.
+[18:47:16.9202] [INFO] ECU_B: Machine resumed.
+[18:47:16.9203] [INFO] REST: Machine resumed.
+[18:47:16.9245] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9304] [INFO] ECU_A: Machine paused.
+[18:47:16.9304] [INFO] ECU_B: Machine paused.
+[18:47:16.9304] [INFO] REST: Machine paused.
+[18:47:16.9312] [INFO] ECU_A: Machine resumed.
+[18:47:16.9315] [INFO] ECU_B: Machine resumed.
+[18:47:16.9318] [INFO] REST: Machine resumed.
+[18:47:16.9359] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9420] [INFO] ECU_A: Machine paused.
+[18:47:16.9420] [INFO] ECU_B: Machine paused.
+[18:47:16.9420] [INFO] REST: Machine paused.
+[18:47:16.9426] [INFO] ECU_A: Machine resumed.
+[18:47:16.9427] [INFO] ECU_B: Machine resumed.
+[18:47:16.9429] [INFO] REST: Machine resumed.
+[18:47:16.9452] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9478] [INFO] ECU_A: Machine paused.
+[18:47:16.9478] [INFO] ECU_B: Machine paused.
+[18:47:16.9478] [INFO] REST: Machine paused.
+[18:47:16.9483] [INFO] ECU_A: Machine resumed.
+[18:47:16.9484] [INFO] ECU_B: Machine resumed.
+[18:47:16.9485] [INFO] REST: Machine resumed.
+[18:47:16.9524] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9563] [INFO] ECU_A: Machine paused.
+[18:47:16.9563] [INFO] ECU_B: Machine paused.
+[18:47:16.9564] [INFO] REST: Machine paused.
+[18:47:16.9569] [INFO] ECU_A: Machine resumed.
+[18:47:16.9570] [INFO] ECU_B: Machine resumed.
+[18:47:16.9572] [INFO] REST: Machine resumed.
+[18:47:16.9597] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9620] [INFO] ECU_A: Machine paused.
+[18:47:16.9620] [INFO] ECU_B: Machine paused.
+[18:47:16.9620] [INFO] REST: Machine paused.
+[18:47:16.9627] [INFO] ECU_A: Machine resumed.
+[18:47:16.9628] [INFO] ECU_B: Machine resumed.
+[18:47:16.9629] [INFO] REST: Machine resumed.
+[18:47:16.9674] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9713] [INFO] ECU_A: Machine paused.
+[18:47:16.9713] [INFO] ECU_B: Machine paused.
+[18:47:16.9713] [INFO] REST: Machine paused.
+[18:47:16.9719] [INFO] ECU_A: Machine resumed.
+[18:47:16.9720] [INFO] ECU_B: Machine resumed.
+[18:47:16.9722] [INFO] REST: Machine resumed.
+[18:47:16.9746] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9769] [INFO] ECU_A: Machine paused.
+[18:47:16.9769] [INFO] ECU_B: Machine paused.
+[18:47:16.9769] [INFO] REST: Machine paused.
+[18:47:16.9775] [INFO] ECU_A: Machine resumed.
+[18:47:16.9777] [INFO] ECU_B: Machine resumed.
+[18:47:16.9779] [INFO] REST: Machine resumed.
+[18:47:16.9823] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9860] [INFO] ECU_A: Machine paused.
+[18:47:16.9860] [INFO] ECU_B: Machine paused.
+[18:47:16.9860] [INFO] REST: Machine paused.
+[18:47:16.9867] [INFO] ECU_A: Machine resumed.
+[18:47:16.9868] [INFO] ECU_B: Machine resumed.
+[18:47:16.9870] [INFO] REST: Machine resumed.
+[18:47:16.9894] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:16.9915] [INFO] ECU_A: Machine paused.
+[18:47:16.9915] [INFO] ECU_B: Machine paused.
+[18:47:16.9915] [INFO] REST: Machine paused.
+[18:47:16.9920] [INFO] ECU_A: Machine resumed.
+[18:47:16.9922] [INFO] ECU_B: Machine resumed.
+[18:47:16.9924] [INFO] REST: Machine resumed.
+[18:47:16.9958] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0009] [INFO] ECU_A: Machine paused.
+[18:47:17.0009] [INFO] ECU_B: Machine paused.
+[18:47:17.0009] [INFO] REST: Machine paused.
+[18:47:17.0015] [INFO] ECU_A: Machine resumed.
+[18:47:17.0016] [INFO] ECU_B: Machine resumed.
+[18:47:17.0018] [INFO] REST: Machine resumed.
+[18:47:17.0063] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0114] [INFO] ECU_A: Machine paused.
+[18:47:17.0114] [INFO] ECU_B: Machine paused.
+[18:47:17.0114] [INFO] REST: Machine paused.
+[18:47:17.0120] [INFO] ECU_A: Machine resumed.
+[18:47:17.0121] [INFO] ECU_B: Machine resumed.
+[18:47:17.0122] [INFO] REST: Machine resumed.
+[18:47:17.0175] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0240] [INFO] ECU_A: Machine paused.
+[18:47:17.0240] [INFO] ECU_B: Machine paused.
+[18:47:17.0240] [INFO] REST: Machine paused.
+[18:47:17.0247] [INFO] ECU_A: Machine resumed.
+[18:47:17.0248] [INFO] ECU_B: Machine resumed.
+[18:47:17.0249] [INFO] REST: Machine resumed.
+[18:47:17.0272] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0290] [INFO] ECU_A: Machine paused.
+[18:47:17.0290] [INFO] ECU_B: Machine paused.
+[18:47:17.0290] [INFO] REST: Machine paused.
+[18:47:17.0295] [INFO] ECU_A: Machine resumed.
+[18:47:17.0297] [INFO] ECU_B: Machine resumed.
+[18:47:17.0298] [INFO] REST: Machine resumed.
+[18:47:17.0334] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0380] [INFO] ECU_A: Machine paused.
+[18:47:17.0380] [INFO] ECU_B: Machine paused.
+[18:47:17.0380] [INFO] REST: Machine paused.
+[18:47:17.0385] [INFO] ECU_A: Machine resumed.
+[18:47:17.0387] [INFO] ECU_B: Machine resumed.
+[18:47:17.0388] [INFO] REST: Machine resumed.
+[18:47:17.0415] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0437] [INFO] ECU_A: Machine paused.
+[18:47:17.0437] [INFO] ECU_B: Machine paused.
+[18:47:17.0437] [INFO] REST: Machine paused.
+[18:47:17.0443] [INFO] ECU_A: Machine resumed.
+[18:47:17.0445] [INFO] ECU_B: Machine resumed.
+[18:47:17.0446] [INFO] REST: Machine resumed.
+[18:47:17.0482] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0529] [INFO] ECU_A: Machine paused.
+[18:47:17.0529] [INFO] ECU_B: Machine paused.
+[18:47:17.0529] [INFO] REST: Machine paused.
+[18:47:17.0535] [INFO] ECU_A: Machine resumed.
+[18:47:17.0537] [INFO] ECU_B: Machine resumed.
+[18:47:17.0538] [INFO] REST: Machine resumed.
+[18:47:17.0559] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0577] [INFO] ECU_A: Machine paused.
+[18:47:17.0577] [INFO] ECU_B: Machine paused.
+[18:47:17.0577] [INFO] REST: Machine paused.
+[18:47:17.0582] [INFO] ECU_A: Machine resumed.
+[18:47:17.0584] [INFO] ECU_B: Machine resumed.
+[18:47:17.0586] [INFO] REST: Machine resumed.
+[18:47:17.0624] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0662] [INFO] ECU_A: Machine paused.
+[18:47:17.0662] [INFO] ECU_B: Machine paused.
+[18:47:17.0662] [INFO] REST: Machine paused.
+[18:47:17.0668] [INFO] ECU_A: Machine resumed.
+[18:47:17.0669] [INFO] ECU_B: Machine resumed.
+[18:47:17.0670] [INFO] REST: Machine resumed.
+[18:47:17.0706] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0727] [INFO] ECU_A: Machine paused.
+[18:47:17.0727] [INFO] ECU_B: Machine paused.
+[18:47:17.0727] [INFO] REST: Machine paused.
+[18:47:17.0732] [INFO] ECU_A: Machine resumed.
+[18:47:17.0734] [INFO] ECU_B: Machine resumed.
+[18:47:17.0735] [INFO] REST: Machine resumed.
+[18:47:17.0774] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0822] [INFO] ECU_A: Machine paused.
+[18:47:17.0822] [INFO] ECU_B: Machine paused.
+[18:47:17.0822] [INFO] REST: Machine paused.
+[18:47:17.0828] [INFO] ECU_A: Machine resumed.
+[18:47:17.0830] [INFO] ECU_B: Machine resumed.
+[18:47:17.0831] [INFO] REST: Machine resumed.
+[18:47:17.0877] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.0929] [INFO] ECU_A: Machine paused.
+[18:47:17.0929] [INFO] ECU_B: Machine paused.
+[18:47:17.0929] [INFO] REST: Machine paused.
+[18:47:17.0935] [INFO] ECU_A: Machine resumed.
+[18:47:17.0937] [INFO] ECU_B: Machine resumed.
+[18:47:17.0939] [INFO] REST: Machine resumed.
+[18:47:17.0974] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1060] [INFO] ECU_A: Machine paused.
+[18:47:17.1061] [INFO] ECU_B: Machine paused.
+[18:47:17.1061] [INFO] REST: Machine paused.
+[18:47:17.1067] [INFO] ECU_A: Machine resumed.
+[18:47:17.1068] [INFO] ECU_B: Machine resumed.
+[18:47:17.1070] [INFO] REST: Machine resumed.
+[18:47:17.1101] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1156] [INFO] ECU_A: Machine paused.
+[18:47:17.1156] [INFO] ECU_B: Machine paused.
+[18:47:17.1156] [INFO] REST: Machine paused.
+[18:47:17.1163] [INFO] ECU_A: Machine resumed.
+[18:47:17.1166] [INFO] ECU_B: Machine resumed.
+[18:47:17.1168] [INFO] REST: Machine resumed.
+[18:47:17.1207] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1254] [INFO] ECU_A: Machine paused.
+[18:47:17.1254] [INFO] ECU_B: Machine paused.
+[18:47:17.1254] [INFO] REST: Machine paused.
+[18:47:17.1260] [INFO] ECU_A: Machine resumed.
+[18:47:17.1262] [INFO] ECU_B: Machine resumed.
+[18:47:17.1264] [INFO] REST: Machine resumed.
+[18:47:17.1291] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1331] [INFO] ECU_A: Machine paused.
+[18:47:17.1331] [INFO] ECU_B: Machine paused.
+[18:47:17.1331] [INFO] REST: Machine paused.
+[18:47:17.1336] [INFO] ECU_A: Machine resumed.
+[18:47:17.1338] [INFO] ECU_B: Machine resumed.
+[18:47:17.1339] [INFO] REST: Machine resumed.
+[18:47:17.1376] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1421] [INFO] ECU_A: Machine paused.
+[18:47:17.1421] [INFO] ECU_B: Machine paused.
+[18:47:17.1421] [INFO] REST: Machine paused.
+[18:47:17.1426] [INFO] ECU_A: Machine resumed.
+[18:47:17.1428] [INFO] ECU_B: Machine resumed.
+[18:47:17.1429] [INFO] REST: Machine resumed.
+[18:47:17.1455] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1497] [INFO] ECU_A: Machine paused.
+[18:47:17.1497] [INFO] ECU_B: Machine paused.
+[18:47:17.1497] [INFO] REST: Machine paused.
+[18:47:17.1502] [INFO] ECU_A: Machine resumed.
+[18:47:17.1504] [INFO] ECU_B: Machine resumed.
+[18:47:17.1505] [INFO] REST: Machine resumed.
+[18:47:17.1546] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1602] [INFO] ECU_A: Machine paused.
+[18:47:17.1602] [INFO] ECU_B: Machine paused.
+[18:47:17.1602] [INFO] REST: Machine paused.
+[18:47:17.1608] [INFO] ECU_A: Machine resumed.
+[18:47:17.1609] [INFO] ECU_B: Machine resumed.
+[18:47:17.1611] [INFO] REST: Machine resumed.
+[18:47:17.1637] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1682] [INFO] ECU_A: Machine paused.
+[18:47:17.1682] [INFO] ECU_B: Machine paused.
+[18:47:17.1682] [INFO] REST: Machine paused.
+[18:47:17.1687] [INFO] ECU_A: Machine resumed.
+[18:47:17.1689] [INFO] ECU_B: Machine resumed.
+[18:47:17.1690] [INFO] REST: Machine resumed.
+[18:47:17.1732] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1781] [INFO] ECU_A: Machine paused.
+[18:47:17.1781] [INFO] ECU_B: Machine paused.
+[18:47:17.1781] [INFO] REST: Machine paused.
+[18:47:17.1786] [INFO] ECU_A: Machine resumed.
+[18:47:17.1787] [INFO] ECU_B: Machine resumed.
+[18:47:17.1789] [INFO] REST: Machine resumed.
+[18:47:17.1838] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.1906] [INFO] ECU_A: Machine paused.
+[18:47:17.1906] [INFO] ECU_B: Machine paused.
+[18:47:17.1906] [INFO] REST: Machine paused.
+[18:47:17.1911] [INFO] ECU_A: Machine resumed.
+[18:47:17.1912] [INFO] ECU_B: Machine resumed.
+[18:47:17.1914] [INFO] REST: Machine resumed.
+[18:47:17.1966] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2022] [INFO] ECU_A: Machine paused.
+[18:47:17.2022] [INFO] ECU_B: Machine paused.
+[18:47:17.2022] [INFO] REST: Machine paused.
+[18:47:17.2028] [INFO] ECU_A: Machine resumed.
+[18:47:17.2030] [INFO] ECU_B: Machine resumed.
+[18:47:17.2031] [INFO] REST: Machine resumed.
+[18:47:17.2055] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2096] [INFO] ECU_A: Machine paused.
+[18:47:17.2096] [INFO] ECU_B: Machine paused.
+[18:47:17.2096] [INFO] REST: Machine paused.
+[18:47:17.2101] [INFO] ECU_A: Machine resumed.
+[18:47:17.2102] [INFO] ECU_B: Machine resumed.
+[18:47:17.2104] [INFO] REST: Machine resumed.
+[18:47:17.2149] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2188] [INFO] ECU_A: Machine paused.
+[18:47:17.2188] [INFO] ECU_B: Machine paused.
+[18:47:17.2188] [INFO] REST: Machine paused.
+[18:47:17.2193] [INFO] ECU_A: Machine resumed.
+[18:47:17.2195] [INFO] ECU_B: Machine resumed.
+[18:47:17.2197] [INFO] REST: Machine resumed.
+[18:47:17.2220] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2265] [INFO] ECU_A: Machine paused.
+[18:47:17.2266] [INFO] ECU_B: Machine paused.
+[18:47:17.2266] [INFO] REST: Machine paused.
+[18:47:17.2271] [INFO] ECU_A: Machine resumed.
+[18:47:17.2272] [INFO] ECU_B: Machine resumed.
+[18:47:17.2274] [INFO] REST: Machine resumed.
+[18:47:17.2331] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2373] [INFO] ECU_A: Machine paused.
+[18:47:17.2373] [INFO] ECU_B: Machine paused.
+[18:47:17.2373] [INFO] REST: Machine paused.
+[18:47:17.2380] [INFO] ECU_A: Machine resumed.
+[18:47:17.2382] [INFO] ECU_B: Machine resumed.
+[18:47:17.2384] [INFO] REST: Machine resumed.
+[18:47:17.2411] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2452] [INFO] ECU_A: Machine paused.
+[18:47:17.2452] [INFO] ECU_B: Machine paused.
+[18:47:17.2453] [INFO] REST: Machine paused.
+[18:47:17.2458] [INFO] ECU_A: Machine resumed.
+[18:47:17.2460] [INFO] ECU_B: Machine resumed.
+[18:47:17.2461] [INFO] REST: Machine resumed.
+[18:47:17.2509] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2550] [INFO] ECU_A: Machine paused.
+[18:47:17.2550] [INFO] ECU_B: Machine paused.
+[18:47:17.2550] [INFO] REST: Machine paused.
+[18:47:17.2556] [INFO] ECU_A: Machine resumed.
+[18:47:17.2557] [INFO] ECU_B: Machine resumed.
+[18:47:17.2559] [INFO] REST: Machine resumed.
+[18:47:17.2583] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2626] [INFO] ECU_A: Machine paused.
+[18:47:17.2626] [INFO] ECU_B: Machine paused.
+[18:47:17.2626] [INFO] REST: Machine paused.
+[18:47:17.2632] [INFO] ECU_A: Machine resumed.
+[18:47:17.2634] [INFO] ECU_B: Machine resumed.
+[18:47:17.2636] [INFO] REST: Machine resumed.
+[18:47:17.2680] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2720] [INFO] ECU_A: Machine paused.
+[18:47:17.2720] [INFO] ECU_B: Machine paused.
+[18:47:17.2720] [INFO] REST: Machine paused.
+[18:47:17.2726] [INFO] ECU_A: Machine resumed.
+[18:47:17.2727] [INFO] ECU_B: Machine resumed.
+[18:47:17.2729] [INFO] REST: Machine resumed.
+[18:47:17.2765] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2842] [INFO] ECU_A: Machine paused.
+[18:47:17.2842] [INFO] ECU_B: Machine paused.
+[18:47:17.2842] [INFO] REST: Machine paused.
+[18:47:17.2848] [INFO] ECU_A: Machine resumed.
+[18:47:17.2849] [INFO] ECU_B: Machine resumed.
+[18:47:17.2851] [INFO] REST: Machine resumed.
+[18:47:17.2892] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.2949] [INFO] ECU_A: Machine paused.
+[18:47:17.2949] [INFO] ECU_B: Machine paused.
+[18:47:17.2949] [INFO] REST: Machine paused.
+[18:47:17.2954] [INFO] ECU_A: Machine resumed.
+[18:47:17.2956] [INFO] ECU_B: Machine resumed.
+[18:47:17.2958] [INFO] REST: Machine resumed.
+[18:47:17.2983] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3035] [INFO] ECU_A: Machine paused.
+[18:47:17.3035] [INFO] ECU_B: Machine paused.
+[18:47:17.3035] [INFO] REST: Machine paused.
+[18:47:17.3040] [INFO] ECU_A: Machine resumed.
+[18:47:17.3041] [INFO] ECU_B: Machine resumed.
+[18:47:17.3043] [INFO] REST: Machine resumed.
+[18:47:17.3086] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3135] [INFO] ECU_A: Machine paused.
+[18:47:17.3135] [INFO] ECU_B: Machine paused.
+[18:47:17.3135] [INFO] REST: Machine paused.
+[18:47:17.3140] [INFO] ECU_A: Machine resumed.
+[18:47:17.3142] [INFO] ECU_B: Machine resumed.
+[18:47:17.3144] [INFO] REST: Machine resumed.
+[18:47:17.3169] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3228] [INFO] ECU_A: Machine paused.
+[18:47:17.3228] [INFO] ECU_B: Machine paused.
+[18:47:17.3228] [INFO] REST: Machine paused.
+[18:47:17.3235] [INFO] ECU_A: Machine resumed.
+[18:47:17.3237] [INFO] ECU_B: Machine resumed.
+[18:47:17.3239] [INFO] REST: Machine resumed.
+[18:47:17.3279] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3315] [INFO] ECU_A: Machine paused.
+[18:47:17.3315] [INFO] ECU_B: Machine paused.
+[18:47:17.3315] [INFO] REST: Machine paused.
+[18:47:17.3320] [INFO] ECU_A: Machine resumed.
+[18:47:17.3322] [INFO] ECU_B: Machine resumed.
+[18:47:17.3324] [INFO] REST: Machine resumed.
+[18:47:17.3347] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3397] [INFO] ECU_A: Machine paused.
+[18:47:17.3397] [INFO] ECU_B: Machine paused.
+[18:47:17.3397] [INFO] REST: Machine paused.
+[18:47:17.3403] [INFO] ECU_A: Machine resumed.
+[18:47:17.3405] [INFO] ECU_B: Machine resumed.
+[18:47:17.3407] [INFO] REST: Machine resumed.
+[18:47:17.3448] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3487] [INFO] ECU_A: Machine paused.
+[18:47:17.3487] [INFO] ECU_B: Machine paused.
+[18:47:17.3487] [INFO] REST: Machine paused.
+[18:47:17.3491] [INFO] ECU_A: Machine resumed.
+[18:47:17.3493] [INFO] ECU_B: Machine resumed.
+[18:47:17.3494] [INFO] REST: Machine resumed.
+[18:47:17.3520] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3570] [INFO] ECU_A: Machine paused.
+[18:47:17.3570] [INFO] ECU_B: Machine paused.
+[18:47:17.3570] [INFO] REST: Machine paused.
+[18:47:17.3576] [INFO] ECU_A: Machine resumed.
+[18:47:17.3577] [INFO] ECU_B: Machine resumed.
+[18:47:17.3579] [INFO] REST: Machine resumed.
+[18:47:17.3619] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3658] [INFO] ECU_A: Machine paused.
+[18:47:17.3658] [INFO] ECU_B: Machine paused.
+[18:47:17.3658] [INFO] REST: Machine paused.
+[18:47:17.3663] [INFO] ECU_A: Machine resumed.
+[18:47:17.3664] [INFO] ECU_B: Machine resumed.
+[18:47:17.3666] [INFO] REST: Machine resumed.
+[18:47:17.3717] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3801] [INFO] ECU_A: Machine paused.
+[18:47:17.3801] [INFO] ECU_B: Machine paused.
+[18:47:17.3801] [INFO] REST: Machine paused.
+[18:47:17.3808] [INFO] ECU_A: Machine resumed.
+[18:47:17.3809] [INFO] ECU_B: Machine resumed.
+[18:47:17.3811] [INFO] REST: Machine resumed.
+[18:47:17.3846] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3910] [INFO] ECU_A: Machine paused.
+[18:47:17.3910] [INFO] ECU_B: Machine paused.
+[18:47:17.3910] [INFO] REST: Machine paused.
+[18:47:17.3916] [INFO] ECU_A: Machine resumed.
+[18:47:17.3917] [INFO] ECU_B: Machine resumed.
+[18:47:17.3919] [INFO] REST: Machine resumed.
+[18:47:17.3952] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.3992] [INFO] ECU_A: Machine paused.
+[18:47:17.3992] [INFO] ECU_B: Machine paused.
+[18:47:17.3992] [INFO] REST: Machine paused.
+[18:47:17.3998] [INFO] ECU_A: Machine resumed.
+[18:47:17.3999] [INFO] ECU_B: Machine resumed.
+[18:47:17.4001] [INFO] REST: Machine resumed.
+[18:47:17.4042] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4083] [INFO] ECU_A: Machine paused.
+[18:47:17.4083] [INFO] ECU_B: Machine paused.
+[18:47:17.4083] [INFO] REST: Machine paused.
+[18:47:17.4088] [INFO] ECU_A: Machine resumed.
+[18:47:17.4090] [INFO] ECU_B: Machine resumed.
+[18:47:17.4091] [INFO] REST: Machine resumed.
+[18:47:17.4125] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4165] [INFO] ECU_A: Machine paused.
+[18:47:17.4165] [INFO] ECU_B: Machine paused.
+[18:47:17.4165] [INFO] REST: Machine paused.
+[18:47:17.4170] [INFO] ECU_A: Machine resumed.
+[18:47:17.4172] [INFO] ECU_B: Machine resumed.
+[18:47:17.4173] [INFO] REST: Machine resumed.
+[18:47:17.4217] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4254] [INFO] ECU_A: Machine paused.
+[18:47:17.4255] [INFO] ECU_B: Machine paused.
+[18:47:17.4255] [INFO] REST: Machine paused.
+[18:47:17.4260] [INFO] ECU_A: Machine resumed.
+[18:47:17.4261] [INFO] ECU_B: Machine resumed.
+[18:47:17.4263] [INFO] REST: Machine resumed.
+[18:47:17.4294] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4338] [INFO] ECU_A: Machine paused.
+[18:47:17.4338] [INFO] ECU_B: Machine paused.
+[18:47:17.4338] [INFO] REST: Machine paused.
+[18:47:17.4343] [INFO] ECU_A: Machine resumed.
+[18:47:17.4345] [INFO] ECU_B: Machine resumed.
+[18:47:17.4346] [INFO] REST: Machine resumed.
+[18:47:17.4388] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4424] [INFO] ECU_A: Machine paused.
+[18:47:17.4424] [INFO] ECU_B: Machine paused.
+[18:47:17.4424] [INFO] REST: Machine paused.
+[18:47:17.4430] [INFO] ECU_A: Machine resumed.
+[18:47:17.4432] [INFO] ECU_B: Machine resumed.
+[18:47:17.4433] [INFO] REST: Machine resumed.
+[18:47:17.4465] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4510] [INFO] ECU_A: Machine paused.
+[18:47:17.4510] [INFO] ECU_B: Machine paused.
+[18:47:17.4510] [INFO] REST: Machine paused.
+[18:47:17.4516] [INFO] ECU_A: Machine resumed.
+[18:47:17.4517] [INFO] ECU_B: Machine resumed.
+[18:47:17.4519] [INFO] REST: Machine resumed.
+[18:47:17.4555] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4593] [INFO] ECU_A: Machine paused.
+[18:47:17.4593] [INFO] ECU_B: Machine paused.
+[18:47:17.4593] [INFO] REST: Machine paused.
+[18:47:17.4597] [INFO] ECU_A: Machine resumed.
+[18:47:17.4599] [INFO] ECU_B: Machine resumed.
+[18:47:17.4600] [INFO] REST: Machine resumed.
+[18:47:17.4643] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4713] [INFO] ECU_A: Machine paused.
+[18:47:17.4714] [INFO] ECU_B: Machine paused.
+[18:47:17.4714] [INFO] REST: Machine paused.
+[18:47:17.4720] [INFO] ECU_A: Machine resumed.
+[18:47:17.4721] [INFO] ECU_B: Machine resumed.
+[18:47:17.4722] [INFO] REST: Machine resumed.
+[18:47:17.4757] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4827] [INFO] ECU_A: Machine paused.
+[18:47:17.4827] [INFO] ECU_B: Machine paused.
+[18:47:17.4827] [INFO] REST: Machine paused.
+[18:47:17.4833] [INFO] ECU_A: Machine resumed.
+[18:47:17.4835] [INFO] ECU_B: Machine resumed.
+[18:47:17.4836] [INFO] REST: Machine resumed.
+[18:47:17.4862] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.4911] [INFO] ECU_A: Machine paused.
+[18:47:17.4911] [INFO] ECU_B: Machine paused.
+[18:47:17.4911] [INFO] REST: Machine paused.
+[18:47:17.4916] [INFO] ECU_A: Machine resumed.
+[18:47:17.4918] [INFO] ECU_B: Machine resumed.
+[18:47:17.4920] [INFO] REST: Machine resumed.
+[18:47:17.4957] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5005] [INFO] ECU_A: Machine paused.
+[18:47:17.5005] [INFO] ECU_B: Machine paused.
+[18:47:17.5005] [INFO] REST: Machine paused.
+[18:47:17.5012] [INFO] ECU_A: Machine resumed.
+[18:47:17.5014] [INFO] ECU_B: Machine resumed.
+[18:47:17.5015] [INFO] REST: Machine resumed.
+[18:47:17.5038] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5080] [INFO] ECU_A: Machine paused.
+[18:47:17.5080] [INFO] ECU_B: Machine paused.
+[18:47:17.5080] [INFO] REST: Machine paused.
+[18:47:17.5085] [INFO] ECU_A: Machine resumed.
+[18:47:17.5086] [INFO] ECU_B: Machine resumed.
+[18:47:17.5088] [INFO] REST: Machine resumed.
+[18:47:17.5125] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5175] [INFO] ECU_A: Machine paused.
+[18:47:17.5175] [INFO] ECU_B: Machine paused.
+[18:47:17.5175] [INFO] REST: Machine paused.
+[18:47:17.5183] [INFO] ECU_A: Machine resumed.
+[18:47:17.5185] [INFO] ECU_B: Machine resumed.
+[18:47:17.5186] [INFO] REST: Machine resumed.
+[18:47:17.5209] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5254] [INFO] ECU_A: Machine paused.
+[18:47:17.5254] [INFO] ECU_B: Machine paused.
+[18:47:17.5255] [INFO] REST: Machine paused.
+[18:47:17.5260] [INFO] ECU_A: Machine resumed.
+[18:47:17.5262] [INFO] ECU_B: Machine resumed.
+[18:47:17.5263] [INFO] REST: Machine resumed.
+[18:47:17.5298] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5354] [INFO] ECU_A: Machine paused.
+[18:47:17.5354] [INFO] ECU_B: Machine paused.
+[18:47:17.5354] [INFO] REST: Machine paused.
+[18:47:17.5361] [INFO] ECU_A: Machine resumed.
+[18:47:17.5362] [INFO] ECU_B: Machine resumed.
+[18:47:17.5364] [INFO] REST: Machine resumed.
+[18:47:17.5390] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5478] [INFO] ECU_A: Machine paused.
+[18:47:17.5478] [INFO] ECU_B: Machine paused.
+[18:47:17.5478] [INFO] REST: Machine paused.
+[18:47:17.5485] [INFO] ECU_A: Machine resumed.
+[18:47:17.5487] [INFO] ECU_B: Machine resumed.
+[18:47:17.5489] [INFO] REST: Machine resumed.
+[18:47:17.5602] [WARNING] ECU_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[18:47:17.5657] [INFO] ECU_A: Machine paused.
+[18:47:17.5657] [INFO] ECU_B: Machine paused.
+[18:47:17.5657] [INFO] REST: Machine paused.
+[18:47:17.5657] [INFO] Including script(s): D:\side_project\rh850\examples\mini_autosar_ecu\target\renode\mini_autosar_2ecu.resc
+[92mR[0m[92me[0m[92mn[0m[92mo[0m[92md[0m[92me[0m[92m [0m[92mi[0m[92ms[0m[92m [0m[92mq[0m[92mu[0m[92mi[0m[92mt[0m[92mt[0m[92mi[0m[92mn[0m[92mg[0m[92m
+[0m[92m
+[0m[92m
+[0m[0m[0m[18:47:17.6045] [INFO] ECU_A: Disposed.
+[18:47:17.6240] [INFO] ECU_B: Disposed.
+[18:47:17.6443] [INFO] REST: Disposed.

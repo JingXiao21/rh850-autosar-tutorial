@@ -1,0 +1,17 @@
+:name: mini_autosar GDB debug session (one ECU)
+:description: Loads ONE ECU image into a Renode STM32L552 (RAMN) machine and opens a GDB server; the CPU stays halted until GDB connects.
+# [Educational Implementation]  usage (see tools/gdb/README in README.md section "GDB"):
+#   renode --disable-gui --console -e "$elf=@<LightEcu.elf>; $uart=@<uart.log>; include @<this file>"
+# optional variables:  $gdb_port (default 3333)   $speed_uV  wheel speed ADC input in MICROvolt (default 1650000 = 1.65 V)
+# The machine is NOT started by this script: "machine StartGdbServer" halts at the reset vector (PC = Reset_Handler,
+# MSP = vector[0]) and the debugger decides when to run (continue).  Real counterpart: a Lauterbach/iSYSTEM/J-Link
+# session attached to the target with "reset and halt".
+$gdb_port?=3333
+$speed_uV?=1650000
+
+mach create "ECU"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf
+sysbus.usart1 CreateFileBackend $uart true
+sysbus.adc1 SetVoltage $speed_uV 6
+machine StartGdbServer $gdb_port

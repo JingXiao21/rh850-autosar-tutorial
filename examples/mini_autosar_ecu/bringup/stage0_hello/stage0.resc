@@ -1,0 +1,6 @@
+:name: mini_autosar stage0
+:description: Runs the Stage 0 smoke test on one STM32L552 (RAMN board model), USART1 logged to a file
+mach create "ECU_A"
+machine LoadPlatformDescription @platforms/boards/ramn.repl
+sysbus LoadELF $elf
+sysbus.usart1 CreateFileBackend $uartlog true

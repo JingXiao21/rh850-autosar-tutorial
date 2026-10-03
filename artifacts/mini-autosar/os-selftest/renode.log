@@ -1,0 +1,21 @@
+[23:24:15.4160] [INFO] Loaded monitor commands from: D:\side_project\rh850\tools\toolchains\renode_1.17.0-portable\scripts/monitor.py
+[0mRenode, version 1.17.0 (1.17.0+20260906gitf1dd1b4af)
+
+
+[91m(monitor) [0m$elf=@D:/side_project/rh850/artifacts/mini-autosar/os-selftest/os_selftest.elf;  $uartlog=@D:/side_project/rh850/artifacts/mini-autosar/os-selftest/uart.log;  include @D:/side_project/rh850/examples/mini_autosar_ecu/os/port/cm33/selftest/selftest.resc;  emulation RunFor "0.4";  quit
+
+[23:24:15.4499] [INFO] Including script(s): D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\selftest\selftest.resc
+[23:24:15.4645] [INFO] System bus created.
+[23:24:16.6481] [INFO] sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-23048\b41fb96b-c67e-4194-9c9b-91fb60df6a30.tmp. Name: STM32L552. Description: STM32L552.
+[23:24:16.6964] [INFO] sysbus: Loading block of 7976 bytes length at 0x8000000.
+[23:24:16.7068] [INFO] sysbus: Loading block of 3336 bytes length at 0x8001F28.
+[23:24:16.7069] [INFO] sysbus: Loading block of 5064 bytes length at 0x20000D08.
+[23:24:16.8035] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\os-selftest\uart.log moved to D:\side_project\rh850\artifacts\mini-autosar\os-selftest\uart.log.1
+[23:24:16.8977] [INFO] cpu: Guessing VectorTableOffset value to be 0x8000000.
+[23:24:16.9086] [INFO] cpu: Setting initial values: PC = 0x80015AD, SP = 0x200020D0.
+[23:24:16.9103] [INFO] OS_SELFTEST: Machine started.
+[23:24:20.8646] [INFO] OS_SELFTEST: Machine paused.
+[92mR[0m[92me[0m[92mn[0m[92mo[0m[92md[0m[92me[0m[92m [0m[92mi[0m[92ms[0m[92m [0m[92mq[0m[92mu[0m[92mi[0m[92mt[0m[92mt[0m[92mi[0m[92mn[0m[92mg[0m[92m
+[0m[92m
+[0m[92m
+[0m[0m[0m[23:24:20.9021] [INFO] OS_SELFTEST: Disposed.

@@ -1,0 +1,881 @@
+Archive member included to satisfy reference by file (symbol)
+
+D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+                              D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o (__aeabi_uldivmod)
+D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+                              D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+                              D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+                              D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o (memset)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.alarm_set
+                0x00000000       0x88 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.GetCounterValue
+                0x00000000       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.GetElapsedValue
+                0x00000000       0x5c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.IncrementCounter
+                0x00000000       0x40 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.GetAlarmBase
+                0x00000000       0x44 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.GetAlarm
+                0x00000000       0x80 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.SetRelAlarm
+                0x00000000       0x10 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.SetAbsAlarm
+                0x00000000       0x10 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.CancelAlarm
+                0x00000000       0x44 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .text.GetActiveApplicationMode
+                0x00000000        0xc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .text.Os_Kernel_GetShutdownStatus
+                0x00000000        0xc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .text.Os_Sched_Yield
+                0x00000000       0x4c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .rodata.Os_GetTaskName.str1.1
+                0x00000000        0x7 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .text.Os_GetTaskName
+                0x00000000       0x2c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .text.SuspendAllInterrupts
+                0x00000000       0x24 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .text.SuspendOSInterrupts
+                0x00000000       0x20 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .text.DisableAllInterrupts
+                0x00000000       0x20 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text.ActivateTask
+                0x00000000       0x2c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text.ChainTask
+                0x00000000       0x78 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text.Schedule
+                0x00000000       0x1c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text.GetTaskID
+                0x00000000       0x3c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text.GetTaskState
+                0x00000000       0x3c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .text.Trace_GetTimeUs
+                0x00000000        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .text.Mini_Time_GetMs
+                0x00000000       0x1c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .text.Mini_Time_TickHook
+                0x00000000        0x2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .text.Os_Port_Idle
+                0x00000000        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .text.PreTaskHook
+                0x00000000        0x2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .text.PostTaskHook
+                0x00000000        0x2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .data          0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .text          0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .bss           0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.extab.text.__udivmoddi4
+                0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx.text.__udivmoddi4
+                0x00000000        0x8 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .data          0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+ .data          0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+ .bss           0x00000000        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+RAM              0x20000000         0x00030000         xrw
+RAM2             0x20030000         0x00010000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+START GROUP
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a
+END GROUP
+START GROUP
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libnosys.a
+END GROUP
+START GROUP
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libnosys.a
+END GROUP
+                0x00001000                        _stack_size = 0x1000
+
+.isr_vector     0x08000000      0x1f4
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x1f4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+                0x08000000                g_vectors
+
+.text           0x080001f4     0x1d34
+ *(.text.fast*)
+ .text.fast     0x080001f4       0x14 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+                0x080001f4                SysTick_Handler
+ .text.fast     0x08000208       0xd4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x08000208                Mini_Time_TickHook
+                0x0800020c                Os_Cm33_SwitchContext
+                0x0800024c                PendSV_Handler
+                0x0800027e                Os_Cm33_IrqEntry
+ *(.text*)
+ .text.alarm_arm
+                0x080002dc       0x50 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .text.Os_Counter_Advance
+                0x0800032c       0xfc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+                0x0800032c                Os_Counter_Advance
+ .text.Os_Kernel_TickHandler
+                0x08000428       0x30 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+                0x08000428                Os_Kernel_TickHandler
+ .text.Os_Alarm_Init
+                0x08000458       0x6c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+                0x08000458                Os_Alarm_Init
+ .text.q_best   0x080004c4       0x18 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .text.Os_Ready_Enqueue
+                0x080004dc       0x4c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x080004dc                Os_Ready_Enqueue
+ .text.Os_ReportError
+                0x08000528       0x24 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000528                Os_ReportError
+ .text.OSErrorGetServiceId
+                0x0800054c        0xc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x0800054c                OSErrorGetServiceId
+ .text.Os_InTaskContext
+                0x08000558       0x2c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000558                Os_InTaskContext
+ .text.Os_Reschedule
+                0x08000584       0x70 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000584                Os_Reschedule
+ .text.Os_GetTaskStackUsage
+                0x080005f4       0x14 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x080005f4                Os_GetTaskStackUsage
+ .text.Os_Kernel_TaskReturn
+                0x08000608       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000608                Os_Kernel_TaskReturn
+ .text.Os_Kernel_IsrEnter
+                0x0800063c       0x4c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x0800063c                Os_Kernel_IsrEnter
+ .text.Os_Kernel_IsrExit
+                0x08000688       0x60 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000688                Os_Kernel_IsrExit
+ .text.ShutdownOS
+                0x080006e8       0x2c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x080006e8                ShutdownOS
+ .text.Os_Kernel_SelectNext
+                0x08000714      0x130 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000714                Os_Kernel_SelectNext
+ .text.StartOS  0x08000844      0x1c0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x08000844                StartOS
+ .text.Os_SetEventInternal
+                0x08000a04       0x70 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                0x08000a04                Os_SetEventInternal
+ .text.SetEvent
+                0x08000a74       0x30 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                0x08000a74                SetEvent
+ .text.ClearEvent
+                0x08000aa4       0x58 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                0x08000aa4                ClearEvent
+ .text.GetEvent
+                0x08000afc       0x4c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                0x08000afc                GetEvent
+ .text.WaitEvent
+                0x08000b48       0xa8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                0x08000b48                WaitEvent
+ .text.ResumeAllInterrupts
+                0x08000bf0       0x2c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000bf0                ResumeAllInterrupts
+ .text.ResumeOSInterrupts
+                0x08000c1c       0x24 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000c1c                ResumeOSInterrupts
+ .text.EnableAllInterrupts
+                0x08000c40       0x28 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000c40                EnableAllInterrupts
+ .text.GetISRID
+                0x08000c68       0x1c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000c68                GetISRID
+ .text.Os_Interrupt_IsLocked
+                0x08000c84       0x28 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000c84                Os_Interrupt_IsLocked
+ .text.Os_Interrupt_Snapshot
+                0x08000cac       0x28 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000cac                Os_Interrupt_Snapshot
+ .text.Os_Interrupt_Unwind
+                0x08000cd4       0x50 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                0x08000cd4                Os_Interrupt_Unwind
+ .text.Os_Resource_Init
+                0x08000d24       0x10 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+                0x08000d24                Os_Resource_Init
+ .text.GetResource
+                0x08000d34       0xcc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+                0x08000d34                GetResource
+ .text.ReleaseResource
+                0x08000e00       0x7c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+                0x08000e00                ReleaseResource
+ .text.Os_Resource_ReleaseAll
+                0x08000e7c       0x40 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+                0x08000e7c                Os_Resource_ReleaseAll
+ .text.os_check_blocking_call
+                0x08000ebc       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .text.Os_ActivateInternal
+                0x08000ef0       0x5c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+                0x08000ef0                Os_ActivateInternal
+ .text.Os_Task_Finish
+                0x08000f4c       0x54 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+                0x08000f4c                Os_Task_Finish
+ .text.TerminateTask
+                0x08000fa0       0x2c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+                0x08000fa0                TerminateTask
+ .text.line_putc
+                0x08000fcc       0x12 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .text.line_puts
+                0x08000fde       0x12 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .text.line_putnum
+                0x08000ff0       0x68 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .text.Trace_Log
+                0x08001058      0x1f0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+                0x08001058                Trace_Log
+ .text.Mini_Time_Init
+                0x08001248       0x30 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+                0x08001248                Mini_Time_Init
+ .text.Mini_Time_GetUs
+                0x08001278       0x54 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+                0x08001278                Mini_Time_GetUs
+ .text.Os_Cm33_IdleEntry
+                0x080012cc        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .text.Os_Port_TaskReturn
+                0x080012d0        0x8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .text.Os_Port_Init
+                0x080012d8       0xc8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x080012d8                Os_Port_Init
+ .text.Os_Port_StartTick
+                0x080013a0        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x080013a0                Os_Port_StartTick
+ .text.Os_Port_InitTaskContext
+                0x080013a4       0x78 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x080013a4                Os_Port_InitTaskContext
+ .text.Os_Port_RequestDispatch
+                0x0800141c       0x16 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x0800141c                Os_Port_RequestDispatch
+ *fill*         0x08001432        0x2 
+ .text.Os_Port_StartFirstTask
+                0x08001434       0x38 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x08001434                Os_Port_StartFirstTask
+ .text.Os_Port_Halt
+                0x0800146c        0x6 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x0800146c                Os_Port_Halt
+ .text.Os_Port_DisableAll
+                0x08001472        0x8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x08001472                Os_Port_DisableAll
+ .text.Os_Port_RestoreAll
+                0x0800147a        0x6 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x0800147a                Os_Port_RestoreAll
+ .text.Os_Port_SetOsMask
+                0x08001480       0x12 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x08001480                Os_Port_SetOsMask
+ .text.Os_Port_InIsr
+                0x08001492        0xc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x08001492                Os_Port_InIsr
+ .text.Os_Port_InterruptPoint
+                0x0800149e        0x2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x0800149e                Os_Port_InterruptPoint
+ .text.Os_Port_StackCheck
+                0x080014a0       0x5c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x080014a0                Os_Port_StackCheck
+ .text.Os_Port_StackUsage
+                0x080014fc       0x44 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                0x080014fc                Os_Port_StackUsage
+ .text.Trace_Init
+                0x08001540       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+                0x08001540                Trace_Init
+ .text.Trace_PutChar
+                0x08001574       0x28 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+                0x08001574                Trace_PutChar
+ .text.Trace_PortLock
+                0x0800159c        0x8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+                0x0800159c                Trace_PortLock
+ .text.Trace_PortUnlock
+                0x080015a4        0x6 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+                0x080015a4                Trace_PortUnlock
+ .text.Default_Handler
+                0x080015aa        0x2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+                0x080015aa                DebugMon_Handler
+                0x080015aa                HardFault_Handler
+                0x080015aa                NMI_Handler
+                0x080015aa                UsageFault_Handler
+                0x080015aa                SecureFault_Handler
+                0x080015aa                Default_Handler
+                0x080015aa                MemManage_Handler
+                0x080015aa                SVC_Handler
+                0x080015aa                BusFault_Handler
+ .text.Reset_Handler
+                0x080015ac       0x50 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+                0x080015ac                Reset_Handler
+ .text.Os_Task_Task_Low
+                0x080015fc       0xb0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x080015fc                Os_Task_Task_Low
+ .text.Os_Task_Task_Hi
+                0x080016ac       0x18 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x080016ac                Os_Task_Task_Hi
+ .text.Os_Task_Task_Ext
+                0x080016c4       0x7c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x080016c4                Os_Task_Task_Ext
+ .text.Os_Isr_Isr_Sw
+                0x08001740       0x20 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x08001740                Os_Isr_Isr_Sw
+ .text.Os_AlarmCb_Alarm_Cb
+                0x08001760       0x10 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x08001760                Os_AlarmCb_Alarm_Cb
+ .text.StartupHook
+                0x08001770        0xc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x08001770                StartupHook
+ .text.ErrorHook
+                0x0800177c       0x1c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x0800177c                ErrorHook
+ .text.ShutdownHook
+                0x08001798       0x10 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x08001798                ShutdownHook
+ .text.startup.main
+                0x080017a8       0x12 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                0x080017a8                main
+ *fill*         0x080017ba        0x2 
+ .text          0x080017bc       0x30 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x080017bc                __aeabi_uldivmod
+ .text.__udivmoddi4
+                0x080017ec      0x338 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+                0x080017ec                __udivmoddi4
+ .text          0x08001b24        0x4 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+                0x08001b24                __aeabi_idiv0
+                0x08001b24                __aeabi_ldiv0
+ .text.memset   0x08001b28       0x10 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+                0x08001b28                memset
+ *(.rodata.cfg*)
+ .rodata.cfg    0x08001b38       0xf0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+                0x08001b38                Os_Config
+ *(.rodata*)
+ .rodata.Os_Counter_Advance.str1.1
+                0x08001c28      0x2d7 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+                                  0x9 (size before relaxing)
+ .rodata.Os_Kernel_IsrEnter.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                                  0xd (size before relaxing)
+ .rodata.Os_Kernel_IsrExit.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                                  0xc (size before relaxing)
+ .rodata.Os_Kernel_SelectNext.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                                 0x16 (size before relaxing)
+ .rodata.StartOS.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                                 0x10 (size before relaxing)
+ .rodata.Os_SetEventInternal.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                                 0x17 (size before relaxing)
+ .rodata.WaitEvent.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                                 0x17 (size before relaxing)
+ .rodata.Os_Task_Finish.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+                                  0xc (size before relaxing)
+ .rodata.line_putnum.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+                                 0x22 (size before relaxing)
+ .rodata.Trace_Log.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+                                 0x15 (size before relaxing)
+ .rodata.str1.1
+                0x08001eff        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+                                 0x3c (size before relaxing)
+ *fill*         0x08001eff        0x1 
+ .rodata.s_catName
+                0x08001f00       0x28 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .rodata.fast.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                                 0x16 (size before relaxing)
+ .rodata.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+                                 0x42 (size before relaxing)
+ .rodata.Os_Task_Task_Low.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                 0xf0 (size before relaxing)
+ .rodata.Os_Task_Task_Hi.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                  0x7 (size before relaxing)
+ .rodata.Os_Task_Task_Ext.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                 0x4a (size before relaxing)
+ .rodata.Os_Isr_Isr_Sw.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                 0x11 (size before relaxing)
+ .rodata.StartupHook.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                  0xc (size before relaxing)
+ .rodata.ErrorHook.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                 0x18 (size before relaxing)
+ .rodata.ShutdownHook.str1.1
+                0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                 0x14 (size before relaxing)
+                0x08001f28                        . = ALIGN (0x4)
+                0x08001f28                        _sidata = LOADADDR (.data)
+
+.glue_7         0x08001f28        0x0
+ .glue_7        0x08001f28        0x0 linker stubs
+
+.glue_7t        0x08001f28        0x0
+ .glue_7t       0x08001f28        0x0 linker stubs
+
+.vfp11_veneer   0x08001f28        0x0
+ .vfp11_veneer  0x08001f28        0x0 linker stubs
+
+.v4_bx          0x08001f28        0x0
+ .v4_bx         0x08001f28        0x0 linker stubs
+
+.iplt           0x08001f28        0x0
+ .iplt          0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+
+.rel.dyn        0x08001f28        0x0
+ .rel.iplt      0x08001f28        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+
+.data           0x20000000        0x4 load address 0x08001f28
+                0x20000000                        _sdata = .
+ *(.data*)
+ .data.Os_Running
+                0x20000000        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x20000000                Os_Running
+                0x20000004                        . = ALIGN (0x4)
+ *fill*         0x20000001        0x3 
+                0x20000004                        _edata = .
+
+.igot.plt       0x20000004        0x0 load address 0x08001f2c
+ .igot.plt      0x20000004        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+
+.os_stack       0x20000008      0xd00 load address 0x08001f30
+                0x20000008                        __os_stack_start = .
+ *(.os_stack*)
+ .os_stack      0x20000008      0x100 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .os_stack      0x20000108      0xc00 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+                0x20000d08                        . = ALIGN (0x8)
+                0x20000d08                        __os_stack_end = .
+
+.noinit         0x20030000        0x0
+                0x20030000                        __noinit_start = .
+ *(.bss.noinit*)
+ *(.noinit*)
+                0x20030000                        . = ALIGN (0x4)
+                0x20030000                        __noinit_end = .
+
+.bss            0x20000d08      0x3c8
+                0x20000d08                        _sbss = .
+                0x20000d08                        __rte_buf_start = .
+ *(.bss.rte*)
+                0x20000d08                        __rte_buf_end = .
+                0x20000d08                        __com_buf_start = .
+ *(.bss.com*)
+                0x20000d08                        __com_buf_end = .
+ *(.bss*)
+ .bss.s_alarm   0x20000d08       0x30 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .bss.s_counter
+                0x20000d38        0x8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .bss.s_readyMask
+                0x20000d40        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_qCount  0x20000d44       0x20 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_qHead   0x20000d64       0x20 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_q       0x20000d84      0x200 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_isrSnap
+                0x20000f84       0x20 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_yield   0x20000fa4        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_shutdownStatus
+                0x20000fa5        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_inShutdown
+                0x20000fa6        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_inErrorHook
+                0x20000fa7        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_errSvc  0x20000fa8        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.s_appMode
+                0x20000fa9        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .bss.Os_MaxTaskPriority
+                0x20000faa        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x20000faa                Os_MaxTaskPriority
+ .bss.Os_IsrIds
+                0x20000fab        0x8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x20000fab                Os_IsrIds
+ .bss.Os_IsrDepth
+                0x20000fb3        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x20000fb3                Os_IsrDepth
+ .bss.Os_Started
+                0x20000fb4        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x20000fb4                Os_Started
+ *fill*         0x20000fb5        0x3 
+ .bss.Os_Tcb    0x20000fb8       0x60 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                0x20000fb8                Os_Tcb
+ .bss.s_disSaved
+                0x20001018        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .bss.s_allSaved
+                0x2000101c        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .bss.s_disabled
+                0x20001020        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .bss.s_osNest  0x20001021        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .bss.s_allNest
+                0x20001022        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .bss.s_resOwner
+                0x20001023        0x2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .bss.s_running
+                0x20001025        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ *fill*         0x20001026        0x2 
+ .bss.s_ms      0x20001028        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ *fill*         0x2000102c        0x4 
+ .bss.s_bootStack
+                0x20001030       0x80 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .bss.s_curSp   0x200010b0        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .bss.s_fresh   0x200010b4        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .bss.s_sp      0x200010b8       0x10 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .bss.s_ready   0x200010c8        0x1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ *fill*         0x200010c9        0x3 
+ .bss.g_cbCount
+                0x200010cc        0x4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ *(COMMON)
+                0x200010d0                        . = ALIGN (0x4)
+                0x200010d0                        _ebss = .
+
+.stack          0x200010d0     0x1000
+                0x200010d0                        __stack_start = .
+                0x200020d0                        . = (. + _stack_size)
+ *fill*         0x200010d0     0x1000 
+                0x200020d0                        _estack = .
+
+/DISCARD/
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+                0x00000001                        ASSERT ((_estack <= (ORIGIN (RAM) + LENGTH (RAM))), RAM overflow: .data/.bss/.os_stack/.stack do not fit SRAM1)
+OUTPUT(D:\side_project\rh850\artifacts\mini-autosar\os-selftest\os_selftest.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_info     0x00000000     0x6ec5
+ .debug_info    0x00000000     0x1068 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_info    0x00001068     0x10e3 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_info    0x0000214b      0x99b D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_info    0x00002ae6      0x337 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_info    0x00002e1d      0x887 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_info    0x000036a4      0xab1 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_info    0x00004155      0x767 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_info    0x000048bc      0x1bb D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_info    0x00004a77      0xcb6 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_info    0x0000572d      0x1d0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_info    0x000058fd      0x180 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_info    0x00005a7d      0x57e D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .debug_info    0x00005ffb      0x762 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_info    0x0000675d       0x24 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x00006781      0x708 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_info    0x00006e89       0x3c D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+
+.debug_abbrev   0x00000000     0x1eb7
+ .debug_abbrev  0x00000000      0x3f3 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_abbrev  0x000003f3      0x429 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_abbrev  0x0000081c      0x1a7 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_abbrev  0x000009c3      0x1aa D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_abbrev  0x00000b6d      0x268 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_abbrev  0x00000dd5      0x20e D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_abbrev  0x00000fe3      0x2ec D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_abbrev  0x000012cf       0xf4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_abbrev  0x000013c3      0x403 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_abbrev  0x000017c6      0x13d D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_abbrev  0x00001903       0xf6 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_abbrev  0x000019f9      0x102 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .debug_abbrev  0x00001afb      0x212 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_abbrev  0x00001d0d       0x14 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x00001d21      0x170 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_abbrev  0x00001e91       0x26 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+
+.debug_loclists
+                0x00000000     0x2893
+ .debug_loclists
+                0x00000000      0x82d D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_loclists
+                0x0000082d      0x409 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_loclists
+                0x00000c36      0x207 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_loclists
+                0x00000e3d       0x75 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_loclists
+                0x00000eb2      0x170 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_loclists
+                0x00001022      0x278 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_loclists
+                0x0000129a      0x579 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_loclists
+                0x00001813       0x4f D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_loclists
+                0x00001862      0x53a D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_loclists
+                0x00001d9c       0x41 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_loclists
+                0x00001ddd       0x6b D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_loclists
+                0x00001e48       0xa6 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_loclists
+                0x00001eee      0x9a5 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+
+.debug_aranges  0x00000000      0x4e0
+ .debug_aranges
+                0x00000000       0x80 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_aranges
+                0x00000080       0xa0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_aranges
+                0x00000120       0x40 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_aranges
+                0x00000160       0x68 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_aranges
+                0x000001c8       0x38 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_aranges
+                0x00000200       0x60 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_aranges
+                0x00000260       0x40 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_aranges
+                0x000002a0       0x40 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_aranges
+                0x000002e0       0xb8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_aranges
+                0x00000398       0x38 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_aranges
+                0x000003d0       0x28 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_aranges
+                0x000003f8       0x18 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .debug_aranges
+                0x00000410       0x70 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_aranges
+                0x00000480       0x20 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_aranges
+                0x000004a0       0x20 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_aranges
+                0x000004c0       0x20 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+
+.debug_rnglists
+                0x00000000      0x5c3
+ .debug_rnglists
+                0x00000000       0xdf D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_rnglists
+                0x000000df       0xd3 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_rnglists
+                0x000001b2       0x44 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_rnglists
+                0x000001f6       0x6d D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_rnglists
+                0x00000263       0x4d D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_rnglists
+                0x000002b0       0x4f D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_rnglists
+                0x000002ff       0x88 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_rnglists
+                0x00000387       0x2b D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_rnglists
+                0x000003b2       0xfe D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_rnglists
+                0x000004b0       0x25 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_rnglists
+                0x000004d5       0x19 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_rnglists
+                0x000004ee       0x50 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_rnglists
+                0x0000053e       0x85 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+
+.debug_line     0x00000000     0x49e3
+ .debug_line    0x00000000      0x939 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_line    0x00000939      0xaa2 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_line    0x000013db      0x4ce D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_line    0x000018a9      0x460 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_line    0x00001d09      0x4ce D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_line    0x000021d7      0x5a3 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_line    0x0000277a      0x612 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_line    0x00002d8c      0x2ef D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_line    0x0000307b      0x7fd D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_line    0x00003878      0x26e D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_line    0x00003ae6      0x1e9 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_line    0x00003ccf      0x1fc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .debug_line    0x00003ecb      0x482 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_line    0x0000434d       0x4e D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x0000439b      0x5fe D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00004999       0x4a D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+
+.debug_str      0x00000000     0x1ce8
+ .debug_str     0x00000000     0x1ce8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+                                0x811 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                                0x9f3 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                                0x702 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                                0x32f (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+                                0x631 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+                                0x76e (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+                                0x36e (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+                                0x229 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                                0x808 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+                                0x219 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+                                0x208 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+                                0x55a (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                0x448 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+                                0x195 (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+                                0x7af (size before relaxing)
+ .debug_str     0x00001ce8        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+                                0x1b5 (size before relaxing)
+
+.comment        0x00000000       0x39
+ .comment       0x00000000       0x39 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+                                 0x3a (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x34
+ .ARM.attributes
+                0x00000000       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .ARM.attributes
+                0x00000034       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .ARM.attributes
+                0x00000068       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .ARM.attributes
+                0x0000009c       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .ARM.attributes
+                0x000000d0       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .ARM.attributes
+                0x00000104       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .ARM.attributes
+                0x00000138       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .ARM.attributes
+                0x0000016c       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .ARM.attributes
+                0x000001a0       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .ARM.attributes
+                0x000001d4       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .ARM.attributes
+                0x00000208       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .ARM.attributes
+                0x0000023c       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Cfg.c.o
+ .ARM.attributes
+                0x00000270       0x34 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .ARM.attributes
+                0x000002a4       0x22 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x000002c6       0x32 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x000002f8       0x22 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000031a       0x32 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a(libc_a-memset.o)
+
+.debug_frame    0x00000000      0xb6c
+ .debug_frame   0x00000000      0x198 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Alarm.c.o
+ .debug_frame   0x00000198      0x1c4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Core.c.o
+ .debug_frame   0x0000035c       0xa8 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Event.c.o
+ .debug_frame   0x00000404      0x104 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Interrupt.c.o
+ .debug_frame   0x00000508       0x88 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Resource.c.o
+ .debug_frame   0x00000590       0xfc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Task.c.o
+ .debug_frame   0x0000068c       0xbc D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace.c.o
+ .debug_frame   0x00000748       0x74 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Mini_Time_Target.c.o
+ .debug_frame   0x000007bc      0x1b4 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Os_Port_Cm33.c.o
+ .debug_frame   0x00000970       0x58 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\Trace_Target.c.o
+ .debug_frame   0x000009c8       0x38 D:\side_project\rh850\artifacts\mini-autosar\os-selftest\startup.c.o
+ .debug_frame   0x00000a00      0x10c D:\side_project\rh850\artifacts\mini-autosar\os-selftest\main.c.o
+ .debug_frame   0x00000b0c       0x2c D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00000b38       0x34 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_udivmoddi4.o)
+
+.debug_line_str
+                0x00000000      0x193
+ .debug_line_str
+                0x00000000      0x193 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_aeabi_uldivmod.o)
+                                0x187 (size before relaxing)
+ .debug_line_str
+                0x00000193        0x0 D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a(_dvmd_tls.o)
+                                0x18b (size before relaxing)

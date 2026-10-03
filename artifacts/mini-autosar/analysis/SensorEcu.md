@@ -1,0 +1,270 @@
+# Image analysis: SensorEcu
+
+ELF `SensorEcu.elf`, map `SensorEcu.map`, linker script `stm32l552_autosar.ld`. Toolchain: arm-none-eabi binutils from `tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin`.
+
+```text
+text	   data	    bss	    dec	    hex	filename
+  13500	     12	   8604	  22116	   5664	D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+```
+
+
+## 1. Memory regions (linker script MEMORY{} vs usage)
+
+| Region | Attr | Origin | Length | Used B | Free B | Used | 0..100% |
+|---|---|---|---:|---:|---:|---:|---|
+| FLASH | rx | 0x08000000 | 524288 (512 KiB) | 13512 | 510776 | 2.58% | [#...................] |
+| RAM | rwx | 0x20000000 | 196608 (192 KiB) | 8624 | 187984 | 4.39% | [#...................] |
+| RAM2 | rw | 0x20030000 | 65536 (64 KiB) | 0 | 65536 | 0.00% | [....................] |
+
+Used = highest end address of any section placed in the region minus its origin (the number `--print-memory-usage` prints). FLASH also holds the load image of `.data` (LMA); RAM2 is only used by `.noinit` (MINI_VAR_NOINIT).
+
+
+## 2. Output sections (VMA / LMA / size / region)
+
+| Section | VMA | LMA | Size B | VMA in | LMA in | Align | Notes |
+|---|---|---|---:|---|---|---:|---|
+| .isr_vector | 0x08000000 | 0x08000000 | 500 | FLASH | FLASH | 512 |  |
+| .text | 0x080001f4 | 0x080001f4 | 13000 | FLASH | FLASH | 4 |  |
+| **.data** | 0x20000000 | 0x080034bc | 12 | RAM | FLASH | 4 | LMA != VMA: load image in FLASH, copied to RAM by Reset_Handler |
+| .os_stack | 0x20000010 | - | 3328 | RAM | - | 8 | NOLOAD/NOBITS: no flash image |
+| .noinit | 0x20030000 | - | 0 | RAM2 | - | 4 | NOLOAD/NOBITS: no flash image |
+| .bss | 0x20000d10 | - | 1180 | RAM | - | 8 | NOLOAD/NOBITS: no flash image |
+| .stack | 0x200011b0 | - | 4096 | RAM | - | 8 | NOLOAD/NOBITS: no flash image |
+
+
+## 3. Program headers (readelf -l): what is loaded where
+
+| Type | Offset | VirtAddr | PhysAddr | FileSiz | MemSiz | Flg | Note |
+|---|---|---|---|---:|---:|---|---|
+| LOAD | 0x00001000 | 0x08000000 | 0x08000000 | 13500 | 13500 | R E |  |
+| LOAD | 0x00005000 | 0x20000000 | 0x080034bc | 12 | 12 | RW | PhysAddr != VirtAddr |
+| LOAD | 0x00000010 | 0x20000010 | 0x080034c8 | 0 | 3328 | RW | PhysAddr != VirtAddr |
+| LOAD | 0x00000d10 | 0x20000d10 | 0x20000d10 | 0 | 5280 | RW |  |
+
+
+## 4. Per-module contribution (from the map, per input object)
+
+| Module | Code | RO data | .data | .bss | Stacks | Flash B | RAM B |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Main stack (.stack, linker) | 0 | 0 | 0 | 0 | 4096 | 0 | 4096 |
+| OS | 2568 | 0 | 1 | 781 | 0 | 2569 | 782 |
+| Os_Cfg (generated) | 0 | 188 | 0 | 0 | 3072 | 188 | 3072 |
+| BswM | 332 | 951 | 0 | 6 | 0 | 1283 | 6 |
+| Can | 1236 | 0 | 0 | 37 | 0 | 1236 | 37 |
+| Com | 1230 | 0 | 0 | 9 | 0 | 1230 | 9 |
+| OS port (cm33) | 770 | 0 | 0 | 152 | 256 | 770 | 408 |
+| libc/libgcc | 892 | 0 | 0 | 0 | 0 | 892 | 0 |
+| Adc | 668 | 0 | 0 | 24 | 0 | 668 | 24 |
+| Trace | 636 | 40 | 0 | 0 | 0 | 676 | 0 |
+| Startup/vectors | 82 | 500 | 0 | 0 | 0 | 582 | 0 |
+| Mcu | 448 | 0 | 5 | 9 | 0 | 453 | 14 |
+| Port | 396 | 0 | 0 | 4 | 0 | 396 | 4 |
+| CanIf | 360 | 0 | 0 | 5 | 0 | 360 | 5 |
+| Det | 226 | 0 | 0 | 98 | 0 | 226 | 98 |
+| EcuM | 306 | 0 | 1 | 1 | 0 | 307 | 2 |
+| Trace/Time port | 258 | 0 | 0 | 6 | 0 | 258 | 6 |
+| RTE (generated) | 254 | 0 | 0 | 8 | 0 | 254 | 8 |
+| BswM_Cfg (generated) | 112 | 148 | 0 | 0 | 0 | 260 | 0 |
+| PduR | 192 | 0 | 0 | 5 | 0 | 192 | 5 |
+| IoHwAb | 188 | 0 | 0 | 7 | 0 | 188 | 7 |
+| SWC SpeedSensorSWC | 100 | 0 | 0 | 0 | 0 | 100 | 0 |
+| EcuM_Cfg (generated) | 80 | 1 | 0 | 0 | 0 | 81 | 0 |
+| Integration (main/hooks) | 70 | 0 | 0 | 0 | 0 | 70 | 0 |
+| Com_Cfg (generated) | 0 | 60 | 0 | 2 | 0 | 60 | 2 |
+| (alignment fill) | 22 | 0 | 5 | 26 | 0 | 27 | 31 |
+| Port_Cfg (generated) | 0 | 48 | 0 | 0 | 0 | 48 | 0 |
+| SchM | 44 | 0 | 0 | 0 | 0 | 44 | 0 |
+| Can_Cfg (generated) | 0 | 28 | 0 | 0 | 0 | 28 | 0 |
+| CanIf_Cfg (generated) | 0 | 28 | 0 | 0 | 0 | 28 | 0 |
+| PduR_Cfg (generated) | 0 | 20 | 0 | 0 | 0 | 20 | 0 |
+| Adc_Cfg (generated) | 0 | 10 | 0 | 0 | 0 | 10 | 0 |
+| Mcu_Cfg (generated) | 0 | 8 | 0 | 0 | 0 | 8 | 0 |
+| **TOTAL** | 11470 | 2030 | 12 | 1180 | 7424 | 13512 | 8616 |
+
+Flash = code + RO data + `.data` load image; RAM = `.data` + `.bss` + OS stacks + main stack. Object files are mapped to modules by name (os/src -> OS, gen/*Rte* -> RTE, swc/* -> SWC, bsw/com -> Com ...); generated configuration tables are listed separately as `<Module>_Cfg (generated)`. `(alignment fill)` is padding between input sections.
+
+
+## 5. Top 15 largest symbols (nm -S --size-sort)
+
+| Symbol | Size B | Type | Address | Region |
+|---|---:|---|---|---|
+| __stack_start | 4096 | B | 0x200011b0 | RAM |
+| Os_Stack_Task_Swc10ms | 1024 | b | 0x20000010 | RAM |
+| Os_Stack_Task_Init | 1024 | b | 0x20000810 | RAM |
+| Os_Stack_Task_BswMain | 1024 | b | 0x20000410 | RAM |
+| __udivmoddi4 | 822 | T | 0x08002b70 | FLASH |
+| s_q | 512 | b | 0x20000f0c | RAM |
+| g_vectors | 500 | R | 0x08000000 | FLASH |
+| Trace_Log | 496 | T | 0x08002898 | FLASH |
+| StartOS | 396 | T | 0x08002358 | FLASH |
+| Port_Init | 360 | T | 0x0800197c | FLASH |
+| CanHw_Init | 308 | T | 0x08001514 | FLASH |
+| Os_Kernel_SelectNext | 304 | T | 0x08002228 | FLASH |
+| Com_ReceiveSignal | 292 | T | 0x08000738 | FLASH |
+| s_idleStack | 256 | b | 0x20000c10 | RAM |
+| Os_Counter_Advance | 252 | T | 0x08001e54 | FLASH |
+
+Type: T/t code, R/r read-only data, D/d initialised data, B/b zero-initialised data (upper case = global, lower = static).
+
+
+## 6. MemMap-style sections: where did they end up?
+
+| Input section | MemMap macro | Purpose | Output / region | Size B | Range | Contributors |
+|---|---|---|---|---:|---|---|
+| .text.fast | MINI_CODE_FAST | ISR + dispatcher code | .text / FLASH | 232 | 0x080001f4..0x080002dc | OS port (cm33), Trace/Time port |
+| .rodata.cfg | MINI_CONST_CFG | generated config tables | .text / FLASH | 402 | 0x08002ebc..0x08003050 | Adc_Cfg (generated), BswM_Cfg (generated), CanIf_Cfg (generated), Can_Cfg (generated), Com |
+| .bss.rte | MINI_VAR_RTE_BUF | RTE buffers | .bss / RAM | 8 | 0x20000d10..0x20000d18 | RTE (generated) |
+| .bss.com | MINI_VAR_COM_BUF | Com I-PDU buffers | .bss / RAM | 2 | 0x20000d24..0x20000d26 | Com_Cfg (generated) |
+| .os_stack | MINI_VAR_OS_STACK | OS task stacks | .os_stack / RAM | 3328 | 0x20000010..0x20000d10 | OS port (cm33), Os_Cfg (generated) |
+| .bss.noinit | MINI_VAR_NOINIT | survives warm reset | - | 0 | - | - |
+| .isr_vector | (startup.c attribute) | vector table | .isr_vector / FLASH | 500 | 0x08000000..0x080001f4 | Startup/vectors |
+
+| Linker symbol | Value | Region |
+|---|---|---|
+| __rte_buf_start | 0x20000d10 | RAM |
+| __rte_buf_end | 0x20000d18 | RAM |
+| __com_buf_start | 0x20000d18 | RAM |
+| __com_buf_end | 0x20000d26 | RAM |
+| __os_stack_start | 0x20000010 | RAM |
+| __os_stack_end | 0x20000d10 | RAM |
+| __noinit_start | 0x20030000 | RAM2 |
+| __noinit_end | 0x20030000 | RAM2 |
+| _sdata | 0x20000000 | RAM |
+| _edata | 0x2000000c | RAM |
+| _sidata | 0x080034bc | FLASH |
+| _sbss | 0x20000d10 | RAM |
+| _ebss | 0x200011ac | RAM |
+| __stack_start | 0x200011b0 | RAM |
+| _estack | 0x200021b0 | RAM |
+
+
+## 7. Stacks
+
+| Task stack (Os_Cfg.c / kernel) | Words | Bytes | Address |
+|---|---:|---:|---|
+| Task_Swc10ms | 256 | 1024 | 0x20000010 |
+| Task_BswMain | 256 | 1024 | 0x20000410 |
+| Task_Init | 256 | 1024 | 0x20000810 |
+| s_idleStack | 64 | 256 | 0x20000c10 |
+| s_bootStack | 32 | 128 | 0x20000e00 |
+
+.os_stack spans 3328 B (sum of the stack arrays inside it 3328 B; s_bootStack lives in .bss, the boot stack of StartOS).
+
+Main stack (MSP, `.stack`): 4096 B from 0x200011b0 to 0x200021b0 (idle phase before the first task, all ISRs, PendSV). Tasks run on PSP inside `.os_stack`; stack watermarks are measured at runtime by Os_GetTaskStackUsage() (0xDEADBEEF paint).
+
+
+## 8. Vector table, Reset_Handler, _estack
+
+`g_vectors` at 0x08000000, 500 B = 125 entries, alignment check for VTOR: OK (512-byte aligned).
+
+| Entry | Word | Expected | Check |
+|---|---|---|---|
+| [0] initial MSP | 0x200021b0 | _estack = 0x200021b0 | OK |
+| [1] Reset vector | 0x08002af1 | Reset_Handler = 0x08002af0 (+1 Thumb bit) | OK |
+
+| Handler | Vector entries |
+|---|---:|
+| Os_Cm33_IrqEntry | 109 |
+| Default_Handler | 8 |
+| (reserved, 0) | 4 |
+| Reset_Handler | 1 |
+| PendSV_Handler | 1 |
+| SysTick_Handler | 1 |
+
+Start of `Reset_Handler` (objdump -d --disassemble=Reset_Handler):
+
+```text
+08002af0 <Reset_Handler>:
+ 8002af0:	b508      	push	{r3, lr}
+ 8002af2:	f04f 23e0 	mov.w	r3, #3758153728	@ 0xe000e000
+ 8002af6:	4a0c      	ldr	r2, [pc, #48]	@ (8002b28 <Reset_Handler+0x38>)
+ 8002af8:	490c      	ldr	r1, [pc, #48]	@ (8002b2c <Reset_Handler+0x3c>)
+ 8002afa:	f8c3 2d08 	str.w	r2, [r3, #3336]	@ 0xd08
+ 8002afe:	4b0c      	ldr	r3, [pc, #48]	@ (8002b30 <Reset_Handler+0x40>)
+ 8002b00:	4a0c      	ldr	r2, [pc, #48]	@ (8002b34 <Reset_Handler+0x44>)
+ 8002b02:	428b      	cmp	r3, r1
+ 8002b04:	d307      	bcc.n	8002b16 <Reset_Handler+0x26>
+ 8002b06:	2100      	movs	r1, #0
+ 8002b08:	4b0b      	ldr	r3, [pc, #44]	@ (8002b38 <Reset_Handler+0x48>)
+ 8002b0a:	4a0c      	ldr	r2, [pc, #48]	@ (8002b3c <Reset_Handler+0x4c>)
+ 8002b0c:	4293      	cmp	r3, r2
+ 8002b0e:	d307      	bcc.n	8002b20 <Reset_Handler+0x30>
+ 8002b10:	f7fe fa67 	bl	8000fe2 <main>
+ 8002b14:	e7fe      	b.n	8002b14 <Reset_Handler+0x24>
+ 8002b16:	f852 0b04 	ldr.w	r0, [r2], #4
+ 8002b1a:	f843 0b04 	str.w	r0, [r3], #4
+ 8002b1e:	e7f0      	b.n	8002b02 <Reset_Handler+0x12>
+ 8002b20:	f843 1b04 	str.w	r1, [r3], #4
+ 8002b24:	e7f2      	b.n	8002b0c <Reset_Handler+0x1c>
+ 8002b26:	bf00      	nop
+ 8002b28:	08000000 	.word	0x08000000
+ 8002b2c:	2000000c 	.word	0x2000000c
+ 8002b30:	20000000 	.word	0x20000000
+ 8002b34:	080034bc 	.word	0x080034bc
+ 8002b38:	20000d10 	.word	0x20000d10
+```
+
+
+## 9. Cross reference (-Wl,--cref table of the map)
+
+| Symbol | Defined in | Referenced by |
+|---|---|---|
+| Os_Config | gen__SensorEcu__Os_Cfg.c.o | os__src__Os_Task.c.o, os__src__Os_Resource.c.o, os__src__Os_Event.c.o, os__src__Os_Core.c.o, os__src__Os_Alarm.c.o, os__port__cm33__Os_Port_Cm33.c.o |
+| Com_SendSignal | bsw__com__Com.c.o | gen__SensorEcu__Rte.c.o |
+| Can_Write | mcal__can__Can.c.o | ecual__canif__CanIf.c.o |
+| EcuM_Init | bsw__ecum__EcuM.c.o | integration__Main_Target.c.o |
+| Rte_Start | gen__SensorEcu__Rte.c.o | gen__SensorEcu__BswM_Cfg.c.o |
+
+The first object after the symbol in the cref table defines it; the following lines are the objects that reference it. The table has 253 symbols. Use `--xref NAME` (repeatable) to look up others.
+
+
+## 10. Warnings and notes
+
+No warnings: no orphan sections with content, all regions <= 80% full, .data has an LMA in FLASH, vector table sane.
+
+Notes:
+- .bss.noinit (MINI_VAR_NOINIT) is not used by any module of this image; .noinit stays empty
+
+
+## Appendix: binutils output excerpts and commands run
+
+`size -A` (section sizes as the linker placed them):
+
+```text
+D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf  :
+section             size        addr
+.isr_vector          500   134217728
+.text              13000   134218228
+.data                 12   536870912
+.os_stack           3328   536870928
+.noinit                0   537067520
+.bss                1180   536874256
+.stack              4096   536875440
+.debug_info        70960           0
+.debug_abbrev      19042           0
+.debug_loclists    25345           0
+.debug_aranges      2952           0
+.debug_rnglists     3976           0
+.debug_line        52620           0
+.debug_str         15996           0
+.comment              57           0
+.ARM.attributes       52           0
+.debug_frame        6788           0
+.debug_line_str      403           0
+Total             220307
+```
+
+Commands executed by analyze_image.py (see tools/BINUTILS_CHEATSHEET.md for what each shows):
+
+```text
+arm-none-eabi-objdump -h D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-readelf -l -W D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-nm -S -n D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-nm -S --size-sort -C D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-size D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-size -A D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-objdump -s -j .isr_vector D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-readelf -h D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+arm-none-eabi-objdump -d --disassemble=Reset_Handler D:\side_project\rh850\artifacts\mini-autosar\target\SensorEcu\SensorEcu.elf
+```
+

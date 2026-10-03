@@ -1,0 +1,791 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_DisableControllerInterrupts
+                0x00000000       0x4c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_EnableControllerInterrupts
+                0x00000000       0x54 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_GetVersionInfo
+                0x00000000       0x22 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .rodata.Can_MainFunction_BusOff.str1.1
+                0x00000000        0x7 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_MainFunction_BusOff
+                0x00000000       0x48 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_MainFunction_Mode
+                0x00000000        0x2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_Isr_Rx
+                0x00000000       0x1c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .text.CanHw_RxIrqEnable
+                0x00000000       0x14 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .text.CanHw_IsBusOff
+                0x00000000       0x10 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_GetPllStatus
+                0x00000000       0x38 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_GetResetReason
+                0x00000000       0x24 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_GetResetRawValue
+                0x00000000       0x28 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_PerformReset
+                0x00000000       0x24 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_SetMode
+                0x00000000       0x20 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_GetVersionInfo
+                0x00000000       0x22 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text.Mcu_GetSystemClockHz
+                0x00000000        0xc D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text.port_find
+                0x00000000       0x30 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text.Port_SetPinDirection
+                0x00000000       0x4c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text.Port_RefreshPortDirection
+                0x00000000       0x50 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text.Port_SetPinMode
+                0x00000000       0x84 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text.Port_GetVersionInfo
+                0x00000000       0x22 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .text.Trace_GetTimeUs
+                0x00000000        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .text.RestBus_ModeRequest
+                0x00000000       0x10 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .text.CanIf_ControllerBusOff
+                0x00000000        0x2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .text.Det_ReportTransientFault
+                0x00000000        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .text          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+ .data          0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+ .bss           0x00000000        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+RAM              0x20000000         0x00030000         xrw
+RAM2             0x20030000         0x00010000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+LOAD D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+START GROUP
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a
+END GROUP
+START GROUP
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libnosys.a
+END GROUP
+START GROUP
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v8-m.main/nofp\libgcc.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libc_nano.a
+LOAD D:/side_project/rh850/tools/toolchains/xpack-arm-none-eabi-gcc-15.2.1-1.1/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp\libnosys.a
+END GROUP
+                0x00001000                        _stack_size = 0x1000
+
+.isr_vector     0x08000000      0x1f4
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x1f4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+                0x08000000                g_vectors
+
+.text           0x080001f4     0x122c
+ *(.text.fast*)
+ .text.fast     0x080001f4       0x14 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                0x080001f4                SysTick_Handler
+ *(.text*)
+ .text.can_rx_drain
+                0x08000208       0xa8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .text.Can_Init
+                0x080002b0       0x68 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                0x080002b0                Can_Init
+ .text.Can_SetControllerMode
+                0x08000318       0x8c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                0x08000318                Can_SetControllerMode
+ .text.Can_Write
+                0x080003a4       0xf0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                0x080003a4                Can_Write
+ .text.Can_MainFunction_Write
+                0x08000494       0x48 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                0x08000494                Can_MainFunction_Write
+ .text.Can_MainFunction_Read
+                0x080004dc       0x2c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                0x080004dc                Can_MainFunction_Read
+ .text.hw_wait_cccr_init
+                0x08000508       0x24 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .text.CanHw_Init
+                0x0800052c      0x134 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x0800052c                CanHw_Init
+ .text.CanHw_Start
+                0x08000660       0x24 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x08000660                CanHw_Start
+ .text.CanHw_Stop
+                0x08000684       0x40 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x08000684                CanHw_Stop
+ .text.CanHw_TxRequest
+                0x080006c4       0xa8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x080006c4                CanHw_TxRequest
+ .text.CanHw_TxIsDone
+                0x0800076c       0x44 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x0800076c                CanHw_TxIsDone
+ .text.CanHw_RxFetch
+                0x080007b0       0x7c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x080007b0                CanHw_RxFetch
+ .text.CanHw_RxIrqAck
+                0x0800082c       0x24 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x0800082c                CanHw_RxIrqAck
+ .text.CanHw_GetRxLostCount
+                0x08000850        0xc D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                0x08000850                CanHw_GetRxLostCount
+ .text.Mcu_Init
+                0x0800085c       0x78 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                0x0800085c                Mcu_Init
+ .text.Mcu_InitClock
+                0x080008d4       0xd8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                0x080008d4                Mcu_InitClock
+ .text.Mcu_DistributePllClock
+                0x080009ac       0x70 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                0x080009ac                Mcu_DistributePllClock
+ .text.port_set_moder
+                0x08000a1c       0x24 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .text.Port_Init
+                0x08000a40      0x168 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+                0x08000a40                Port_Init
+ .text.Mini_Time_Init
+                0x08000ba8       0x30 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                0x08000ba8                Mini_Time_Init
+ .text.Mini_Time_GetMs
+                0x08000bd8       0x1c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                0x08000bd8                Mini_Time_GetMs
+ .text.Mini_Time_GetUs
+                0x08000bf4       0x54 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                0x08000bf4                Mini_Time_GetUs
+ .text.Mini_Time_TickHook
+                0x08000c48        0x2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                0x08000c48                Mini_Time_TickHook
+ *fill*         0x08000c4a        0x2 
+ .text.Trace_Init
+                0x08000c4c       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                0x08000c4c                Trace_Init
+ .text.Trace_PutChar
+                0x08000c80       0x28 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                0x08000c80                Trace_PutChar
+ .text.Trace_PortLock
+                0x08000ca8        0x8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                0x08000ca8                Trace_PortLock
+ .text.Trace_PortUnlock
+                0x08000cb0        0x6 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                0x08000cb0                Trace_PortUnlock
+ .text.line_putc
+                0x08000cb6       0x12 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .text.line_puts
+                0x08000cc8       0x12 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ *fill*         0x08000cda        0x2 
+ .text.line_putnum
+                0x08000cdc       0x68 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .text.Trace_Log
+                0x08000d44      0x1f0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                0x08000d44                Trace_Log
+ .text.rb_tx    0x08000f34       0x40 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .text.RestBus_AmbientLux
+                0x08000f74       0x18 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                0x08000f74                RestBus_AmbientLux
+ .text.RestBus_Speed01kmh
+                0x08000f8c       0x2a D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                0x08000f8c                RestBus_Speed01kmh
+ *fill*         0x08000fb6        0x2 
+ .text.RestBus_Init
+                0x08000fb8       0x30 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                0x08000fb8                RestBus_Init
+ .text.RestBus_Step
+                0x08000fe8       0xa0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                0x08000fe8                RestBus_Step
+ .text.RestBus_OnRx
+                0x08001088       0x1c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                0x08001088                RestBus_OnRx
+ .text.restbus_send
+                0x080010a4       0x40 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .text.startup.main
+                0x080010e4       0x74 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x080010e4                main
+ .text.CanIf_RxIndication
+                0x08001158        0xa D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x08001158                CanIf_RxIndication
+ .text.CanIf_TxConfirmation
+                0x08001162        0x2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x08001162                CanIf_TxConfirmation
+ .text.CanIf_ControllerModeIndication
+                0x08001164        0x2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x08001164                CanIf_ControllerModeIndication
+ *fill*         0x08001166        0x2 
+ .text.SuspendAllInterrupts
+                0x08001168       0x20 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x08001168                SuspendAllInterrupts
+ .text.ResumeAllInterrupts
+                0x08001188       0x20 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x08001188                ResumeAllInterrupts
+ .text.SuspendOSInterrupts
+                0x080011a8        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x080011a8                SuspendOSInterrupts
+ .text.ResumeOSInterrupts
+                0x080011ac        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x080011ac                ResumeOSInterrupts
+ .text.Det_ReportError
+                0x080011b0       0x1c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x080011b0                Det_ReportError
+ .text.Det_ReportRuntimeError
+                0x080011cc       0x1c D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                0x080011cc                Det_ReportRuntimeError
+ .text.Default_Handler
+                0x080011e8        0x2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+                0x080011e8                DebugMon_Handler
+                0x080011e8                HardFault_Handler
+                0x080011e8                PendSV_Handler
+                0x080011e8                NMI_Handler
+                0x080011e8                UsageFault_Handler
+                0x080011e8                SecureFault_Handler
+                0x080011e8                Default_Handler
+                0x080011e8                MemManage_Handler
+                0x080011e8                SVC_Handler
+                0x080011e8                Os_Cm33_IrqEntry
+                0x080011e8                BusFault_Handler
+ *fill*         0x080011ea        0x2 
+ .text.Reset_Handler
+                0x080011ec       0x50 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+                0x080011ec                Reset_Handler
+ *(.rodata.cfg*)
+ *(.rodata*)
+ .rodata.can_rx_drain.str1.1
+                0x0800123c      0x14e D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                 0x1c (size before relaxing)
+ .rodata.Can_Write.str1.1
+                0x0800138a        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                 0x1c (size before relaxing)
+ .rodata.Mcu_DistributePllClock.str1.1
+                0x0800138a        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                  0xd (size before relaxing)
+ .rodata.line_putnum.str1.1
+                0x0800138a        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                                 0x22 (size before relaxing)
+ .rodata.Trace_Log.str1.1
+                0x0800138a        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                                 0x15 (size before relaxing)
+ .rodata.str1.1
+                0x0800138a        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                                 0x3c (size before relaxing)
+ *fill*         0x0800138a        0x2 
+ .rodata.s_catName
+                0x0800138c       0x28 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .rodata.rb_tx.str1.1
+                0x080013b4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                 0x37 (size before relaxing)
+ .rodata.RestBus_OnRx.str1.1
+                0x080013b4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                 0x24 (size before relaxing)
+ .rodata.main.str1.1
+                0x080013b4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                 0x10 (size before relaxing)
+ .rodata.Det_ReportError.str1.1
+                0x080013b4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                 0x23 (size before relaxing)
+ .rodata.Det_ReportRuntimeError.str1.1
+                0x080013b4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                 0x25 (size before relaxing)
+ .rodata.Can_Config
+                0x080013b4        0xc D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                0x080013b4                Can_Config
+ .rodata.restbus_hoh
+                0x080013c0       0x30 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .rodata.Port_Config
+                0x080013f0        0x8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                0x080013f0                Port_Config
+ .rodata.restbus_pins
+                0x080013f8       0x20 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .rodata.Mcu_Config
+                0x08001418        0x8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                0x08001418                Mcu_Config
+                0x08001420                        . = ALIGN (0x4)
+                0x08001420                        _sidata = LOADADDR (.data)
+
+.glue_7         0x08001420        0x0
+ .glue_7        0x08001420        0x0 linker stubs
+
+.glue_7t        0x08001420        0x0
+ .glue_7t       0x08001420        0x0 linker stubs
+
+.vfp11_veneer   0x08001420        0x0
+ .vfp11_veneer  0x08001420        0x0 linker stubs
+
+.v4_bx          0x08001420        0x0
+ .v4_bx         0x08001420        0x0 linker stubs
+
+.iplt           0x08001420        0x0
+ .iplt          0x08001420        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+
+.rel.dyn        0x08001420        0x0
+ .rel.iplt      0x08001420        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+
+.data           0x20000000        0x8 load address 0x08001420
+                0x20000000                        _sdata = .
+ *(.data*)
+ .data.mcu_resetReason
+                0x20000000        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ *fill*         0x20000001        0x3 
+ .data.mcu_sysClockHz
+                0x20000004        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                0x20000008                        . = ALIGN (0x4)
+                0x20000008                        _edata = .
+
+.igot.plt       0x20000008        0x0 load address 0x08001428
+ .igot.plt      0x20000008        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+
+.os_stack       0x20000008        0x0 load address 0x08001428
+                0x20000008                        __os_stack_start = .
+ *(.os_stack*)
+                0x20000008                        . = ALIGN (0x8)
+                0x20000008                        __os_stack_end = .
+
+.noinit         0x20030000        0x0
+                0x20030000                        __noinit_start = .
+ *(.bss.noinit*)
+ *(.noinit*)
+                0x20030000                        . = ALIGN (0x4)
+                0x20030000                        __noinit_end = .
+
+.bss            0x20000008       0x68
+                0x20000008                        _sbss = .
+                0x20000008                        __rte_buf_start = .
+ *(.bss.rte*)
+                0x20000008                        __rte_buf_end = .
+                0x20000008                        __com_buf_start = .
+ *(.bss.com*)
+                0x20000008                        __com_buf_end = .
+ *(.bss*)
+ .bss.can_lostReported
+                0x20000008        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .bss.can_busOffReported
+                0x2000000c        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .bss.can_irqDisableNesting
+                0x2000000d        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .bss.can_tx    0x2000000e       0x12 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .bss.can_state
+                0x20000020        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ *fill*         0x20000021        0x3 
+ .bss.can_cfg   0x20000024        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .bss.hw_rxLost
+                0x20000028        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .bss.hw_txPendingMask
+                0x2000002c        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .bss.mcu_rawReset
+                0x20000030        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .bss.mcu_pllStarted
+                0x20000034        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ *fill*         0x20000035        0x3 
+ .bss.mcu_cfg   0x20000038        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .bss.port_cfg  0x2000003c        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .bss.s_running
+                0x20000040        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ *fill*         0x20000041        0x3 
+ .bss.s_ms      0x20000044        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .bss.s_ready   0x20000048        0x1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ *fill*         0x20000049        0x3 
+ .bss.rb_nextSpeed
+                0x2000004c        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .bss.rb_nextMode
+                0x20000050        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .bss.rb_nextAmbient
+                0x20000054        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .bss.rb_flags  0x20000058        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .bss.rb_send   0x2000005c        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .bss.rest_savedPrimask
+                0x20000060        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .bss.rest_nest
+                0x20000064        0x4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .bss.restbus_txBuf
+                0x20000068        0x8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ *(COMMON)
+                0x20000070                        . = ALIGN (0x4)
+                0x20000070                        _ebss = .
+
+.stack          0x20000070     0x1000
+                0x20000070                        __stack_start = .
+                0x20001070                        . = (. + _stack_size)
+ *fill*         0x20000070     0x1000 
+                0x20001070                        _estack = .
+
+/DISCARD/
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+                0x00000001                        ASSERT ((_estack <= (ORIGIN (RAM) + LENGTH (RAM))), RAM overflow: .data/.bss/.os_stack/.stack do not fit SRAM1)
+OUTPUT(D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\RestBus.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_info     0x00000000     0x5616
+ .debug_info    0x00000000      0xc95 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_info    0x00000c95     0x108e D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_info    0x00001d23      0xc4e D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_info    0x00002971      0xb7e D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_info    0x000034ef      0x1bb D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_info    0x000036aa      0x1d0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_info    0x0000387a      0x767 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_info    0x00003fe1      0x507 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_info    0x000044e8      0xbf4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_info    0x000050dc      0x3ba D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .debug_info    0x00005496      0x180 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_abbrev   0x00000000     0x1710
+ .debug_abbrev  0x00000000      0x35a D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_abbrev  0x0000035a      0x34d D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_abbrev  0x000006a7      0x25e D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_abbrev  0x00000905      0x2a2 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_abbrev  0x00000ba7       0xf4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_abbrev  0x00000c9b      0x13d D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_abbrev  0x00000dd8      0x2ec D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_abbrev  0x000010c4      0x1ed D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_abbrev  0x000012b1      0x28b D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_abbrev  0x0000153c       0xde D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .debug_abbrev  0x0000161a       0xf6 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_loclists
+                0x00000000     0x2537
+ .debug_loclists
+                0x00000000      0x3ba D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_loclists
+                0x000003ba      0xa02 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_loclists
+                0x00000dbc      0x53d D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_loclists
+                0x000012f9      0x6ee D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_loclists
+                0x000019e7       0x4f D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_loclists
+                0x00001a36       0x41 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_loclists
+                0x00001a77      0x579 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_loclists
+                0x00001ff0      0x213 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_loclists
+                0x00002203      0x2c9 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_loclists
+                0x000024cc       0x6b D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_aranges  0x00000000      0x368
+ .debug_aranges
+                0x00000000       0x78 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_aranges
+                0x00000078       0x70 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_aranges
+                0x000000e8       0x68 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_aranges
+                0x00000150       0x50 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_aranges
+                0x000001a0       0x40 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_aranges
+                0x000001e0       0x38 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_aranges
+                0x00000218       0x40 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_aranges
+                0x00000258       0x50 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_aranges
+                0x000002a8       0x80 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_aranges
+                0x00000328       0x18 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .debug_aranges
+                0x00000340       0x28 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_rnglists
+                0x00000000      0x647
+ .debug_rnglists
+                0x00000000       0xac D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_rnglists
+                0x000000ac      0x217 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_rnglists
+                0x000002c3       0xce D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_rnglists
+                0x00000391      0x126 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_rnglists
+                0x000004b7       0x2b D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_rnglists
+                0x000004e2       0x25 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_rnglists
+                0x00000507       0x88 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_rnglists
+                0x0000058f       0x44 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_rnglists
+                0x000005d3       0x5b D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_rnglists
+                0x0000062e       0x19 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_line     0x00000000     0x412a
+ .debug_line    0x00000000      0xa02 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_line    0x00000a02      0xbcd D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_line    0x000015cf      0x8b5 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_line    0x00001e84      0x92a D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_line    0x000027ae      0x2ef D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_line    0x00002a9d      0x26e D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_line    0x00002d0b      0x612 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_line    0x0000331d      0x3ff D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_line    0x0000371c      0x5a1 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_line    0x00003cbd      0x284 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .debug_line    0x00003f41      0x1e9 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_str      0x00000000     0x12d4
+ .debug_str     0x00000000     0x12d4 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                0x7f0 (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                0x3ff (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                0x57d (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+                                0x45f (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                                0x229 (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                                0x219 (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                                0x36e (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                0x35d (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                0x875 (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                                0x3f0 (size before relaxing)
+ .debug_str     0x000012d4        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+                                0x208 (size before relaxing)
+
+.comment        0x00000000       0x39
+ .comment       0x00000000       0x39 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                                 0x3a (size before relaxing)
+ .comment       0x00000039        0x0 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+                                 0x3a (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x34
+ .ARM.attributes
+                0x00000000       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .ARM.attributes
+                0x00000034       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .ARM.attributes
+                0x00000068       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .ARM.attributes
+                0x0000009c       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .ARM.attributes
+                0x000000d0       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .ARM.attributes
+                0x00000104       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .ARM.attributes
+                0x00000138       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .ARM.attributes
+                0x0000016c       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .ARM.attributes
+                0x000001a0       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .ARM.attributes
+                0x000001d4       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+ .ARM.attributes
+                0x00000208       0x34 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+.debug_frame    0x00000000      0x80c
+ .debug_frame   0x00000000      0x190 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+ .debug_frame   0x00000190      0x110 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+ .debug_frame   0x000002a0       0xd8 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+ .debug_frame   0x00000378      0x118 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+ .debug_frame   0x00000490       0x74 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+ .debug_frame   0x00000504       0x58 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+ .debug_frame   0x0000055c       0xbc D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+ .debug_frame   0x00000618       0xac D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+ .debug_frame   0x000006c4      0x110 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ .debug_frame   0x000007d4       0x38 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+
+Cross Reference Table
+
+Symbol                                            File
+BusFault_Handler                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+CanHw_GetRxLostCount                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_Init                                        D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_IsBusOff                                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_RxFetch                                     D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_RxIrqAck                                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_RxIrqEnable                                 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_Start                                       D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_Stop                                        D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_TxIsDone                                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanHw_TxRequest                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can_Hw_Stm32.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanIf_ControllerBusOff                            D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanIf_ControllerModeIndication                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanIf_RxIndication                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+CanIf_TxConfirmation                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_Config                                        D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Can_DisableControllerInterrupts                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_EnableControllerInterrupts                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_GetVersionInfo                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_Init                                          D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Can_Isr_Rx                                        D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_MainFunction_BusOff                           D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_MainFunction_Mode                             D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Can_MainFunction_Read                             D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Can_MainFunction_Write                            D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Can_SetControllerMode                             D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Can_Write                                         D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+DebugMon_Handler                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+Default_Handler                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+Det_ReportError                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Det_ReportRuntimeError                            D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Det_ReportTransientFault                          D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+HardFault_Handler                                 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+Mcu_Config                                        D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Mcu_DistributePllClock                            D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Mcu_GetPllStatus                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+Mcu_GetResetRawValue                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+Mcu_GetResetReason                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+Mcu_GetSystemClockHz                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+Mcu_GetVersionInfo                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+Mcu_Init                                          D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Mcu_InitClock                                     D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Mcu_PerformReset                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+Mcu_SetMode                                       D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+MemManage_Handler                                 D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+Mini_Time_GetMs                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Mini_Time_GetUs                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+Mini_Time_Init                                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Mini_Time_TickHook                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+NMI_Handler                                       D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+Os_Cm33_IrqEntry                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+PendSV_Handler                                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+Port_Config                                       D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__RestBus_Cfg.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Port_GetVersionInfo                               D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+Port_Init                                         D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Port_RefreshPortDirection                         D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+Port_SetPinDirection                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+Port_SetPinMode                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__port__Port.c.o
+Reset_Handler                                     D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+RestBus_AmbientLux                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+RestBus_Init                                      D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+RestBus_ModeRequest                               D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+RestBus_OnRx                                      D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+RestBus_Speed01kmh                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+RestBus_Step                                      D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ResumeAllInterrupts                               D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+ResumeOSInterrupts                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+SVC_Handler                                       D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+SecureFault_Handler                               D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+SuspendAllInterrupts                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+SuspendOSInterrupts                               D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+SysTick_Handler                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Mini_Time_Target.c.o
+Trace_GetTimeUs                                   D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+Trace_Init                                        D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+Trace_Log                                         D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\sim__restbus__RestBus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__mcu__Mcu.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\mcal__can__Can.c.o
+Trace_PortLock                                    D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+Trace_PortUnlock                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+Trace_PutChar                                     D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__port__cm33__Trace_Target.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\os__src__Trace.c.o
+UsageFault_Handler                                D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+_ebss                                             D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+_edata                                            D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+_estack                                           D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+_sbss                                             D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+_sdata                                            D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+_sidata                                           D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+g_vectors                                         D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o
+main                                              D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__restbus__main_restbus.c.o
+                                                  D:\side_project\rh850\artifacts\mini-autosar\target\RestBus\target__stm32l552__startup__startup.c.o

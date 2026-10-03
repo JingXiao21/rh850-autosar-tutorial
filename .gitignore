@@ -19,3 +19,17 @@ artifacts/page-previews/
 
 # Duplicate archive packages of files already in the repo
 *.zip
+
+# Local open-source toolchains (arm-none-eabi-gcc, Renode) — install via tools/setup_toolchains.py
+tools/toolchains/
+
+# mini_autosar_ecu build outputs: keep text results (traces, UART logs, maps, analysis, gdb session),
+# ignore binaries and Renode's rotated logs. Rebuild with examples/mini_autosar_ecu/tools/run_mini_autosar.py
+artifacts/mini-autosar/**/*.elf
+artifacts/mini-autosar/**/*.log.[0-9]
+artifacts/mini-autosar/gencc/
+artifacts/mini-autosar/headers/
+artifacts/mini-autosar/ldcheck/
+artifacts/mini-autosar/host/**/*.map
+artifacts/mini-autosar/unit/**/*.map
+artifacts/mini-autosar/renode-bringup/**/*.map

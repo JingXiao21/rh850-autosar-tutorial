@@ -25,6 +25,8 @@ RH850 (CPU / Memory / Clock / Port / Interrupt) → MCAL → CAN Driver → CanI
 | `python tools/run_host_tests.py` | [examples/rh850_mcal_reference](examples/rh850_mcal_reference/README.md)：OSTM 驱动、CAN FD 位时间、tick 累加的主机测试 | `artifacts/host-build/results.txt`（每次覆盖） |
 | `python tools/build_hardware_index.py --check` | 寄存器索引（`docs/hardware-registers.json/.csv`）一致性检查 | — |
 
+| `python tools/setup_toolchains.py` 然后 `python examples/mini_autosar_ecu/tools/run_mini_autosar.py` | [examples/mini_autosar_ecu](examples/mini_autosar_ecu/README.md)：两 ECU 迷你 Classic AUTOSAR（SWC/RTE/OS/Com/CAN），STM32L552（RAMN）在 Renode 中仿真 + PC 版 | `artifacts/mini-autosar/`（trace、UART、map 分析、GDB 会话） |
+
 以上代码都只在 PC 上运行，**没有在真实 RH850 硬件上验证过**。
 
 ## 资料与规划

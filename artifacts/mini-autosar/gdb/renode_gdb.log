@@ -1,0 +1,38 @@
+[18:47:20.6190] [INFO] Loaded monitor commands from: D:\side_project\rh850\tools\toolchains\renode_1.17.0-portable\scripts/monitor.py
+[0mRenode, version 1.17.0 (1.17.0+20260906gitf1dd1b4af)
+
+[91m(monitor) [0m$elf=@D:/side_project/rh850/artifacts/mini-autosar/target/LightEcu/LightEcu.elf;  $uart=@D:/side_project/rh850/artifacts/mini-autosar/gdb/uart_LightEcu.log;  $gdb_port=3333;  include @D:/side_project/rh850/examples/mini_autosar_ecu/target/renode/debug_ecu.resc
+[18:47:20.6605] [INFO] Including script(s): D:\side_project\rh850\examples\mini_autosar_ecu\target\renode\debug_ecu.resc
+[18:47:20.6743] [INFO] System bus created.
+[18:47:22.1491] [INFO] sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-20308\97d61fc1-456a-4d4c-b466-b8859802a719.tmp. Name: STM32L552. Description: STM32L552.
+[18:47:22.1941] [INFO] sysbus: Loading block of 16764 bytes length at 0x8000000.
+[18:47:22.2080] [INFO] sysbus: Loading block of 12 bytes length at 0x800417C.
+[18:47:22.2081] [INFO] sysbus: Loading block of 4864 bytes length at 0x8004188.
+[18:47:22.2081] [INFO] sysbus: Loading block of 5352 bytes length at 0x20001310.
+[18:47:22.3304] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\gdb\uart_LightEcu.log moved to D:\side_project\rh850\artifacts\mini-autosar\gdb\uart_LightEcu.log.5
+[18:47:22.4226] [INFO] ECU: CPUs: ["ECU.cpu"] were added to a new GDB server created on port :3333
+[18:47:22.4227] [INFO] ECU: GDB server with all CPUs started on port :3333
+[33m(ECU) [0m[18:47:24.6341] [INFO] cpu: Guessing VectorTableOffset value to be 0x8000000.
+[18:47:24.6455] [INFO] cpu: Setting initial values: PC = 0x8003415, SP = 0x200027F8.
+[18:47:24.6472] [INFO] ECU: Machine started.
+[18:47:25.3346] [WARNING] gpioPortA: Unhandled read from offset 0x2C.
+[18:47:25.3350] [WARNING] gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:25.3365] [WARNING] gpioPortA: Unhandled read from offset 0x2C.
+[18:47:25.3365] [WARNING] gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[18:47:25.3366] [WARNING] gpioPortA: Unhandled read from offset 0x2C.
+[18:47:25.3366] [WARNING] gpioPortA: Unhandled write to offset 0x2C, value 0x2.
+[18:47:25.3377] [WARNING] gpioPortC: Unhandled read from offset 0x2C.
+[18:47:25.3377] [WARNING] gpioPortC: Unhandled write to offset 0x2C, value 0x0.
+[18:47:25.3378] [WARNING] gpioPortB: Unhandled read from offset 0x2C.
+[18:47:25.3378] [WARNING] gpioPortB: Unhandled write to offset 0x2C, value 0x0.
+[18:47:25.3381] [WARNING] gpioPortD: Unhandled read from offset 0x2C.
+[18:47:25.3382] [WARNING] gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:25.3383] [WARNING] gpioPortD: Unhandled read from offset 0x2C.
+[18:47:25.3383] [WARNING] gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[18:47:25.3449] [WARNING] adc1: Unhandled write to offset 0x8. Unhandled bits: [31] when writing value 0x90000000. Tags: ADCAL (0x1).
+[18:47:25.4775] [WARNING] fdcan1: Unhandled write to offset 0x50. Unhandled bits: [24-31] when writing value 0xFFFFFFFF. Tags: RESERVED (0xFF).
+[18:47:26.2174] [WARNING] fdcan1: Attempted to send CAN frame while not connected to a CAN network
+quit
+[92mR[0m[92me[0m[92mn[0m[92mo[0m[92md[0m[92me[0m[92m [0m[92mi[0m[92ms[0m[92m [0m[92mq[0m[92mu[0m[92mi[0m[92mt[0m[92mt[0m[92mi[0m[92mn[0m[92mg[0m[92m[0m[92m
+[0m[92m[0m[0m[0m[18:47:26.4481] [INFO] ECU: Machine paused.
+[18:47:26.5149] [INFO] ECU: Disposed.

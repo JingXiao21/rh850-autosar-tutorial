@@ -1,0 +1,25 @@
+test_declared_api_compiles (__main__.Contract.test_declared_api_compiles) ... ok
+test_swc_headers_only_rte_and_trace (__main__.Contract.test_swc_headers_only_rte_and_trace) ... ok
+test_undeclared_api_does_not_compile (__main__.Contract.test_undeclared_api_does_not_compile) ... ok
+test_banner (__main__.GoldenAndDeterminism.test_banner) ... ok
+test_deterministic (__main__.GoldenAndDeterminism.test_deterministic) ... ok
+test_expected_file_set (__main__.GoldenAndDeterminism.test_expected_file_set) ... ok
+test_golden_equals_committed (__main__.GoldenAndDeterminism.test_golden_equals_committed) ... ok
+test_semantics_in_output (__main__.GoldenAndDeterminism.test_semantics_in_output) ... ok
+test_all_errors_reported_together (__main__.Validation.test_all_errors_reported_together) ... WARNING: LightEcu.ecuc.json: OsEvent Ev_LightCtl_VehicleSpeed of task Task_LightCtl is not used by any RTE event
+ok
+test_can_id_mismatch (__main__.Validation.test_can_id_mismatch) ... ok
+test_data_type_mismatch_signal (__main__.Validation.test_data_type_mismatch_signal) ... ok
+test_extended_task_needs_autostart (__main__.Validation.test_extended_task_needs_autostart) ... ok
+test_period_vs_alarm (__main__.Validation.test_period_vs_alarm) ... ok
+test_resource_ceiling_too_low (__main__.Validation.test_resource_ceiling_too_low) ... ok
+test_signal_vs_isignal_mismatch (__main__.Validation.test_signal_vs_isignal_mismatch) ... ok
+test_task_priority_conflict (__main__.Validation.test_task_priority_conflict) ... ok
+test_unconnected_port (__main__.Validation.test_unconnected_port) ... ok
+test_unmapped_event (__main__.Validation.test_unmapped_event) ... WARNING: LightEcu.ecuc.json: OsEvent Ev_LightCtl_VehicleSpeed of task Task_LightCtl is not used by any RTE event
+ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.876s
+
+OK

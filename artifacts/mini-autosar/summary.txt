@@ -1,0 +1,92 @@
+mini_autosar_ecu build/test summary  (2026-10-03 18:47:26)
+OK=89 FAIL=0 SKIP=0
+
+OK   gen      SensorEcu                                     
+OK   gen      LightEcu                                      
+OK   headers  host/ECU_A                                    
+OK   headers  host/ECU_B                                    
+OK   headers  target/ECU_A                                  
+OK   headers  target/ECU_B                                  
+OK   ldcheck  stm32l552_autosar.ld                          FLASH:         552 B       512 KB      0.11% | RAM:        4104 B       192 KB      2.09% | RAM2:           0 B        64 KB      0.00%
+OK   gencc    host/SensorEcu                                14 files
+OK   gencc    host/LightEcu                                 16 files
+OK   gencc    target/SensorEcu                              14 files
+OK   gencc    target/LightEcu                               16 files
+OK   host     SensorEcu                                     artifacts\mini-autosar\host\SensorEcu\SensorEcu.exe
+OK   host     LightEcu                                      artifacts\mini-autosar\host\LightEcu\LightEcu.exe
+OK   target   SensorEcu                                     FLASH:       13512 B       512 KB      2.58% | RAM:        8624 B       192 KB      4.39% | RAM2:           0 B        64 KB      0.00%
+OK   target   LightEcu                                      FLASH:       16776 B       512 KB      3.20% | RAM:       10232 B       192 KB      5.20% | RAM2:           0 B        64 KB      0.00%
+OK   target   RestBus                                       FLASH:        5160 B       512 KB      0.98% | RAM:        4208 B       192 KB      2.14% | RAM2:           0 B        64 KB      0.00%
+OK   analyze  SensorEcu                                     analyze_image: SensorEcu: 0 warning(s); report D:\side_project\rh850\artifacts\mini-autosar\analysis\SensorEcu.md
+OK   analyze  LightEcu                                      analyze_image: LightEcu: 0 warning(s); report D:\side_project\rh850\artifacts\mini-autosar\analysis\LightEcu.md
+OK   unit     test_generator (python)                       OK
+OK   unit     test_bswm_rules                               artifacts\mini-autosar\unit\test_bswm_rules\test_bswm_rules.exe
+OK   unit     test_bswm_rules (run)                         
+OK   unit     test_canif_routing                            artifacts\mini-autosar\unit\test_canif_routing\test_canif_routing.exe
+OK   unit     test_canif_routing (run)                      
+OK   unit     test_com_signals                              artifacts\mini-autosar\unit\test_com_signals\test_com_signals.exe
+OK   unit     test_com_signals (run)                        
+OK   unit     test_ecum_startup                             artifacts\mini-autosar\unit\test_ecum_startup\test_ecum_startup.exe
+OK   unit     test_ecum_startup (run)                       
+OK   unit     test_iohwab                                   artifacts\mini-autosar\unit\test_iohwab\test_iohwab.exe
+OK   unit     test_iohwab (run)                             
+OK   unit     test_mcal_adc                                 artifacts\mini-autosar\unit\test_mcal_adc\test_mcal_adc.exe
+OK   unit     test_mcal_adc (run)                           
+OK   unit     test_mcal_can                                 artifacts\mini-autosar\unit\test_mcal_can\test_mcal_can.exe
+OK   unit     test_mcal_can (run)                           
+OK   unit     test_mcal_can_poll                            artifacts\mini-autosar\unit\test_mcal_can_poll\test_mcal_can_poll.exe
+OK   unit     test_mcal_can_poll (run)                      
+OK   unit     test_mcal_dio                                 artifacts\mini-autosar\unit\test_mcal_dio\test_mcal_dio.exe
+OK   unit     test_mcal_dio (run)                           
+OK   unit     test_mcal_mcu                                 artifacts\mini-autosar\unit\test_mcal_mcu\test_mcal_mcu.exe
+OK   unit     test_mcal_mcu (run)                           
+OK   unit     test_os_alarms                                artifacts\mini-autosar\unit\test_os_alarms\test_os_alarms.exe
+OK   unit     test_os_alarms (run)                          
+OK   unit     test_os_errors                                artifacts\mini-autosar\unit\test_os_errors\test_os_errors.exe
+OK   unit     test_os_errors (run)                          
+OK   unit     test_os_events                                artifacts\mini-autosar\unit\test_os_events\test_os_events.exe
+OK   unit     test_os_events (run)                          
+OK   unit     test_os_isr                                   artifacts\mini-autosar\unit\test_os_isr\test_os_isr.exe
+OK   unit     test_os_isr (run)                             
+OK   unit     test_os_resources                             artifacts\mini-autosar\unit\test_os_resources\test_os_resources.exe
+OK   unit     test_os_resources (run)                       
+OK   unit     test_os_sched                                 artifacts\mini-autosar\unit\test_os_sched\test_os_sched.exe
+OK   unit     test_os_sched (run)                           
+OK   unit     test_pdur_routing                             artifacts\mini-autosar\unit\test_pdur_routing\test_pdur_routing.exe
+OK   unit     test_pdur_routing (run)                       
+OK   unit     test_restbus_profile                          artifacts\mini-autosar\unit\test_restbus_profile\test_restbus_profile.exe
+OK   unit     test_restbus_profile (run)                    
+OK   unit     test_rte_lightecu                             artifacts\mini-autosar\unit\test_rte_lightecu\test_rte_lightecu.exe
+OK   unit     test_rte_lightecu (run)                       
+OK   unit     test_rte_sensorecu                            artifacts\mini-autosar\unit\test_rte_sensorecu\test_rte_sensorecu.exe
+OK   unit     test_rte_sensorecu (run)                      
+OK   unit     test_rte_tasks                                artifacts\mini-autosar\unit\test_rte_tasks\test_rte_tasks.exe
+OK   unit     test_rte_tasks (run)                          
+OK   sim      SensorEcu.exe                                 rc=0
+OK   sim      LightEcu.exe                                  rc=0
+OK   sim      A: EcuM startup reaches RUN                   t=0us
+OK   sim      A: OS StartOS                                 t=0us
+OK   sim      A: first VehicleSpeed frame 0x101             t=10000us
+OK   sim      B: EcuM startup reaches RUN                   t=0us
+OK   sim      B: first AmbientLight RX 0x301                t=1000us
+OK   sim      B: headlight LOW  (dusk, speed>0)             t=500000us
+OK   sim      B: headlight HIGH (dark, speed>=60)           t=1500000us
+OK   sim      B: mode POST_RUN                              t=3010000us
+OK   sim      B: headlight OFF in POST_RUN                  t=3010000us
+OK   sim      B: mode back to RUN                           t=3510000us
+OK   sim      B: HeadlightStatus frame 0x201                t=10000us
+OK   sim      B: Odometer GetDistance served                t=20000us
+OK   renode   renode.exe run                                rc=0
+OK   renode   A: EcuM startup reaches RUN                   t=328us
+OK   renode   A: OS StartOS                                 t=0us
+OK   renode   A: first VehicleSpeed frame 0x101             t=10092us
+OK   renode   B: EcuM startup reaches RUN                   t=280us
+OK   renode   B: first AmbientLight RX 0x301                t=99918us
+OK   renode   B: headlight LOW  (dusk, speed>0)             t=500114us
+OK   renode   B: headlight HIGH (dark, speed>=60)           t=1500126us
+OK   renode   B: mode POST_RUN                              t=3010339us
+OK   renode   B: headlight OFF in POST_RUN                  t=3010517us
+OK   renode   B: mode back to RUN                           t=3510345us
+OK   renode   B: HeadlightStatus frame 0x201                t=10240us
+OK   renode   B: Odometer GetDistance served                t=20204us
+OK   gdb      Reset->main->TASK->Can_Write                  gdb session: OK -> D:\side_project\rh850\artifacts\mini-autosar\gdb_session.txt

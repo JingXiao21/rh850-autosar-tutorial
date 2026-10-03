@@ -1,0 +1,180 @@
+mini_autosar_ecu GDB session (2026-10-03 18:47:26)
+gdb: GNU gdb (xPack GNU Arm Embedded GCC x86_64) 16.3.90.20250906-git
+renode: 1.17.0 (headless, machine StartGdbServer)
+image: artifacts/mini-autosar/target/LightEcu/LightEcu.elf
+renode script: target/renode/debug_ecu.resc, gdb scripts: tools/gdb/mini_autosar.gdb + demo_session.gdb
+result: all expected stops reached
+
+====================================================================================================
+
+===== 1. attach: the CPU is held at the reset vector =====
+Reset_Handler () at D:\side_project\rh850\examples\mini_autosar_ecu\target\stm32l552\startup\startup.c:84
+84	    *(volatile uint32_t *)0xE000ED08u = (uint32_t)(uintptr_t)&g_vectors[0];
+connected: pc=0x08003414 sp=0x200027f8
+Reset_Handler in section .text
+VTOR = 0x08000000
+vector[0] initial MSP  = 0x200027f8   (_estack = 0x200027f8)
+vector[1] Reset        = 0x08003415   (Reset_Handler = 0x08003414, bit0 = Thumb)
+vector[14] PendSV      = 0x08000251
+vector[15] SysTick     = 0x080001f9
+vector[16+39] FDCAN1_IT0 = 0x08000283   (all external IRQs -> Os_Cm33_IrqEntry = 0x08000282)
+
+===== 2. Reset_Handler (halted here since attach) -> main =====
+Breakpoint 1 at 0x8003414: file D:\side_project\rh850\examples\mini_autosar_ecu\target\stm32l552\startup\startup.c, line 84.
+Breakpoint 2 at 0x800146a: file D:\side_project\rh850\examples\mini_autosar_ecu\integration\Main_Target.c, line 13.
+Breakpoint 3 at 0x8000bac: file D:\side_project\rh850\examples\mini_autosar_ecu\bsw\ecum\EcuM.c, line 80.
+Breakpoint 4 at 0x8002818: file D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c, line 373.
+
+Breakpoint 2, main () at D:\side_project\rh850\examples\mini_autosar_ecu\integration\Main_Target.c:13
+13	    EcuM_Init();            /* DriverInitZero -> DriverInitOne -> StartOS: does not return */
+#0  main () at D:\side_project\rh850\examples\mini_autosar_ecu\integration\Main_Target.c:13
+
+===== 3. main -> EcuM_Init =====
+
+Breakpoint 3, EcuM_Init () at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\ecum\EcuM.c:80
+80	    ecum_runRequests = 0u;
+#0  EcuM_Init () at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\ecum\EcuM.c:80
+#1  0x08001470 in main () at D:\side_project\rh850\examples\mini_autosar_ecu\integration\Main_Target.c:13
+
+===== 4. EcuM_Init -> StartOS (OS start, task scheduling begins) =====
+
+Breakpoint 4, StartOS (Mode=Mode@entry=0 '\000') at D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c:373
+373	    (void)Os_Port_DisableAll();                   /* the port re-enables interrupts when the first task starts */
+#0  StartOS (Mode=Mode@entry=0 '\000') at D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c:373
+#1  0x08000be6 in EcuM_Init () at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\ecum\EcuM.c:87
+#2  0x08001470 in main () at D:\side_project\rh850\examples\mini_autosar_ecu\integration\Main_Target.c:13
+
+===== 5. OS dispatcher: Os_Kernel_SelectNext picks the first task =====
+Breakpoint 5 at 0x80026e8: file D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c, line 192.
+
+Breakpoint 5, Os_Kernel_SelectNext (prevOut=prevOut@entry=0x200027c7 "") at D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c:192
+192	    TaskType prev = Os_Running;
+#0  Os_Kernel_SelectNext (prevOut=prevOut@entry=0x200027c7 "") at D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c:192
+#1  0x08000220 in Os_Cm33_SwitchContext (sp=0x20001484 <s_bootStack+92>) at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:186
+#2  0x0800026c in PendSV_Handler () at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:201
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+running task: none yet (INVALID_TASK, before the first dispatch)
+Os_Started=1  Os_IsrDepth=0  IPSR=0x0e
+pc             0x80026e8           0x80026e8 <Os_Kernel_SelectNext>
+sp             0x200027c0          0x200027c0
+lr             0x8000221           134218273
+#0  Os_Kernel_SelectNext (prevOut=prevOut@entry=0x200027c7 "") at D:\side_project\rh850\examples\mini_autosar_ecu\os\src\Os_Core.c:192
+#1  0x08000220 in Os_Cm33_SwitchContext (sp=0x20001484 <s_bootStack+92>) at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:186
+#2  0x0800026c in PendSV_Handler () at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:201
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+id  task             state      base  cur  act  res  eventsSet eventsWait
+0   Task_Init        READY        10   10    1    0 0x00000000 0x00000000
+1   Task_BswMain     SUSPENDED     4    4    0    0 0x00000000 0x00000000
+2   Task_LightCtl    READY         3    3    1    0 0x00000000 0x00000000
+3   Task_LightAct    SUSPENDED     2    2    0    0 0x00000000 0x00000000
+4   (idle)           READY         0    0    0    0 0x00000000 0x00000000
+ready bitmap s_readyMask = 0x00000408 (bit p set = queue of priority p not empty)
+  prio 10 (1 queued): Task_Init
+  prio  3 (1 queued): Task_LightCtl
+
+===== 6. a task body: TASK(Task_LightCtl) (extended task, autostarted) =====
+Temporary breakpoint 6 at 0x8001410: file D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c, line 86.
+
+Temporary breakpoint 6, Os_Task_Task_LightCtl () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:86
+86	    EventMaskType ev = 0u;
+running task: 2 = Task_LightCtl (priority 3)
+Os_Started=1  Os_IsrDepth=0  IPSR=0x00
+pc             0x8001410           0x8001410 <Os_Task_Task_LightCtl>
+sp             0x20000a10          0x20000a10 <Os_Stack_Task_BswMain>
+lr             0x800202d           134225965
+#0  Os_Task_Task_LightCtl () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:86
+#1  0x0800202c in Os_Cm33_IdleEntry () at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:86
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+id  task             state      base  cur  act  res  eventsSet eventsWait
+0   Task_Init        SUSPENDED    10   10    0    0 0x00000000 0x00000000
+1   Task_BswMain     SUSPENDED     4    4    0    0 0x00000000 0x00000000
+2   Task_LightCtl    RUNNING       3    3    1    0 0x00000000 0x00000000
+3   Task_LightAct    SUSPENDED     2    2    0    0 0x00000000 0x00000000
+4   (idle)           READY         0    0    0    0 0x00000000 0x00000000
+task                   base  words   used   free
+Task_Init        0x20000e10    256     92    164
+Task_BswMain     0x20000a10    256      0    256
+Task_LightCtl    0x20000410    384     17    367
+Task_LightAct    0x20000010    256      0    256
+
+===== 7. runnable LightCtl_Run20ms (20 ms alarm -> SetEvent -> task wakes) =====
+Temporary breakpoint 7 at 0x80032c4: file D:\side_project\rh850\examples\mini_autosar_ecu\swc\LightControlSWC\LightControlSWC.c, line 59.
+
+Temporary breakpoint 7, LightCtl_Run20ms () at D:\side_project\rh850\examples\mini_autosar_ecu\swc\LightControlSWC\LightControlSWC.c:59
+59	    uint8 ambient = 255u;                  /* default = bright: if no value is available the lamp stays off */
+#0  LightCtl_Run20ms () at D:\side_project\rh850\examples\mini_autosar_ecu\swc\LightControlSWC\LightControlSWC.c:59
+#1  0x0800143c in Os_Task_Task_LightCtl () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:99
+#2  0x0800202c in Os_Cm33_IdleEntry () at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:86
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+ready bitmap s_readyMask = 0x00000000 (bit p set = queue of priority p not empty)
+  (empty: only the idle task can run)
+
+===== 8. RTE -> Com -> CAN: Rte_Write_P_HeadlightStatus_HeadlightStatus, Com_SendSignal, Can_Write =====
+Temporary breakpoint 8 at 0x800121c: file D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte.c, line 171.
+Temporary breakpoint 9 at 0x80006e4: file D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c, line 254.
+Temporary breakpoint 10 at 0x8001768: file D:\side_project\rh850\examples\mini_autosar_ecu\mcal\can\Can.c, line 208.
+
+Temporary breakpoint 8, Rte_Write_P_HeadlightStatus_HeadlightStatus (data=0 '\000') at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte.c:171
+171	    return Rte_Sink_LightActuator_P_HeadlightStatus_HeadlightStatus(data);
+#0  Rte_Write_P_HeadlightStatus_HeadlightStatus (data=0 '\000') at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte.c:171
+#1  0x080032b2 in Actuator_OnCmd () at D:\side_project\rh850\examples\mini_autosar_ecu\swc\LightActuatorSWC\LightActuatorSWC.c:54
+#2  0x08001462 in Os_Task_Task_LightAct () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:126
+#3  0x0800202c in Os_Cm33_IdleEntry () at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:86
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Temporary breakpoint 9, Com_SendSignal (SignalId=SignalId@entry=3, SignalDataPtr=SignalDataPtr@entry=0x200003ef <Os_Stack_Task_LightAct+991>) at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c:254
+254	    if (com_status != COM_INIT) {
+#0  Com_SendSignal (SignalId=SignalId@entry=3, SignalDataPtr=SignalDataPtr@entry=0x200003ef <Os_Stack_Task_LightAct+991>) at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c:254
+#1  0x08001242 in Rte_Sink_LightActuator_P_HeadlightStatus_HeadlightStatus (data=<optimized out>) at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte.c:113
+#2  Rte_Write_P_HeadlightStatus_HeadlightStatus (data=<optimized out>) at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte.c:171
+#3  0x080032b2 in Actuator_OnCmd () at D:\side_project\rh850\examples\mini_autosar_ecu\swc\LightActuatorSWC\LightActuatorSWC.c:54
+#4  0x08001462 in Os_Task_Task_LightAct () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:126
+#5  0x0800202c in Os_Cm33_IdleEntry () at D:\side_project\rh850\examples\mini_autosar_ecu\os\port\cm33\Os_Port_Cm33.c:86
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+Temporary breakpoint 10, Can_Write (Hth=3, PduInfo=PduInfo@entry=0x20000d9c <Os_Stack_Task_BswMain+908>) at D:\side_project\rh850\examples\mini_autosar_ecu\mcal\can\Can.c:208
+208	    uint8 idx = 0u;
+#0  Can_Write (Hth=3, PduInfo=PduInfo@entry=0x20000d9c <Os_Stack_Task_BswMain+908>) at D:\side_project\rh850\examples\mini_autosar_ecu\mcal\can\Can.c:208
+#1  0x08000f08 in CanIf_Transmit (TxPduId=0, PduInfoPtr=PduInfoPtr@entry=0x20000dc4 <Os_Stack_Task_BswMain+948>) at D:\side_project\rh850\examples\mini_autosar_ecu\ecual\canif\CanIf.c:138
+#2  0x08000d5c in PduR_ComTransmit (id=<optimized out>, PduInfoPtr=PduInfoPtr@entry=0x20000dc4 <Os_Stack_Task_BswMain+948>) at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\pdur\PduR.c:72
+#3  0x080005be in com_transmit (ipdu=3) at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c:168
+#4  0x0800099c in Com_MainFunctionTx () at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c:384
+#5  0x08001400 in Os_Task_Task_BswMain () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:65
+running task: 1 = Task_BswMain (priority 4)
+Os_Started=1  Os_IsrDepth=0  IPSR=0x00
+pc             0x8001768           0x8001768 <Can_Write>
+sp             0x20000d98          0x20000d98 <Os_Stack_Task_BswMain+904>
+lr             0x8000f09           134221577
+#0  Can_Write (Hth=3, PduInfo=PduInfo@entry=0x20000d9c <Os_Stack_Task_BswMain+908>) at D:\side_project\rh850\examples\mini_autosar_ecu\mcal\can\Can.c:208
+#1  0x08000f08 in CanIf_Transmit (TxPduId=0, PduInfoPtr=PduInfoPtr@entry=0x20000dc4 <Os_Stack_Task_BswMain+948>) at D:\side_project\rh850\examples\mini_autosar_ecu\ecual\canif\CanIf.c:138
+#2  0x08000d5c in PduR_ComTransmit (id=<optimized out>, PduInfoPtr=PduInfoPtr@entry=0x20000dc4 <Os_Stack_Task_BswMain+948>) at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\pdur\PduR.c:72
+#3  0x080005be in com_transmit (ipdu=3) at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c:168
+#4  0x0800099c in Com_MainFunctionTx () at D:\side_project\rh850\examples\mini_autosar_ecu\bsw\com\Com.c:384
+#5  0x08001400 in Os_Task_Task_BswMain () at D:\side_project\rh850\examples\mini_autosar_ecu\gen\LightEcu\Rte_Tasks.c:65
+id  task             state      base  cur  act  res  eventsSet eventsWait
+0   Task_Init        SUSPENDED    10   10    0    0 0x00000000 0x00000000
+1   Task_BswMain     RUNNING       4    4    1    0 0x00000000 0x00000000
+2   Task_LightCtl    WAITING       3    3    1    0 0x00000000 0x00000007
+3   Task_LightAct    SUSPENDED     2    2    0    0 0x00000000 0x00000000
+4   (idle)           READY         0    0    0    0 0x00000000 0x00000000
+ready bitmap s_readyMask = 0x00000000 (bit p set = queue of priority p not empty)
+  (empty: only the idle task can run)
+
+===== end of demo: detach (Renode keeps running) =====
+[Inferior 1 (Remote target) detached]
+
+====================================================================================================
+UART log of the debugged ECU up to the point where the debugger detached (first 12 lines):
+
+[000000000] ECUB BSW   ECUM STATE STARTUP
+[000000000] ECUB BSW   ECUM INIT_ZERO
+[000000000] ECUB BSW   MCU clock=80000000
+[000000000] ECUB BSW   ECUM INIT_ONE
+[000000000] ECUB OS    STARTOS mode=0
+[000000020] ECUB OS    TASK_START Task_Init prio=10
+[000000038] ECUB BSW   ECUM STARTUP_TWO
+[000000052] ECUB BSW   SCHM START
+[000000064] ECUB BSW   SCHM INIT
+[000000075] ECUB BSW   SCHM TIMING
+[000000088] ECUB BSW   BSWM RULE R_Startup TRUE
+[000000105] ECUB BSW   BSWM ACTION EcuM_AL_DriverInitTwo rc=0

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  [Educational Implementation]  SwcTypes.arxml
+  Real AUTOSAR counterpart: the SW-component-template part of an ARXML (AUTOSAR_CP_TPS_SoftwareComponentTemplate):
+  data types, port interfaces, SWC types with ports and internal behavior (runnables, RTE events, PIM,
+  exclusive areas). SIMPLIFICATIONS vs real ARXML: no xmlns / schema version (parser must not need one),
+  no UUIDs/categories/admin data, references are plain absolute paths in *-REF elements, application data
+  types are replaced by IMPLEMENTATION-DATA-TYPE aliases of the Platform_Types names, no composition types
+  (the system description lives in config/system/System.arxml), one instance per SWC type.
+  The element names that ARE used are the genuine ARXML names, so a real ARXML reader would understand
+  the structure. Consumed by generator/gen_rte.py (agent D).
+-->
+<AUTOSAR>
+  <AR-PACKAGES>
+
+    <!-- ===================================================== data types -->
+    <AR-PACKAGE>
+      <SHORT-NAME>DataTypes</SHORT-NAME>
+      <ELEMENTS>
+        <IMPLEMENTATION-DATA-TYPE><SHORT-NAME>uint8</SHORT-NAME><BASE-TYPE>uint8</BASE-TYPE></IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE><SHORT-NAME>uint16</SHORT-NAME><BASE-TYPE>uint16</BASE-TYPE></IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE><SHORT-NAME>uint32</SHORT-NAME><BASE-TYPE>uint32</BASE-TYPE></IMPLEMENTATION-DATA-TYPE>
+        <!-- Mode declaration group: the generator emits Rte_ModeType_EcuMode + RTE_MODE_EcuMode_<name> into Rte_Type.h -->
+        <MODE-DECLARATION-GROUP>
+          <SHORT-NAME>EcuMode</SHORT-NAME>
+          <INITIAL-MODE-REF>/DataTypes/EcuMode/RUN</INITIAL-MODE-REF>
+          <MODE-DECLARATIONS>
+            <MODE-DECLARATION><SHORT-NAME>RUN</SHORT-NAME><VALUE>0</VALUE></MODE-DECLARATION>
+            <MODE-DECLARATION><SHORT-NAME>POST_RUN</SHORT-NAME><VALUE>1</VALUE></MODE-DECLARATION>
+          </MODE-DECLARATIONS>
+        </MODE-DECLARATION-GROUP>
+      </ELEMENTS>
+    </AR-PACKAGE>
+
+    <!-- ===================================================== port interfaces -->
+    <AR-PACKAGE>
+      <SHORT-NAME>Interfaces</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>VehicleSpeedIf</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <!-- unit 0.1 km/h, range 0..2000 -->
+            <VARIABLE-DATA-PROTOTYPE><SHORT-NAME>VehicleSpeed</SHORT-NAME><TYPE-TREF>/DataTypes/uint16</TYPE-TREF><INIT-VALUE>0</INIT-VALUE></VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>AmbientLightIf</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <!-- 0 = dark .. 255 = bright (lux/1, saturated) -->
+            <VARIABLE-DATA-PROTOTYPE><SHORT-NAME>AmbientLight</SHORT-NAME><TYPE-TREF>/DataTypes/uint8</TYPE-TREF><INIT-VALUE>255</INIT-VALUE></VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>HeadlightCmdIf</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <!-- 0 OFF, 1 LOW beam, 2 HIGH beam -->
+            <VARIABLE-DATA-PROTOTYPE><SHORT-NAME>HeadlightCmd</SHORT-NAME><TYPE-TREF>/DataTypes/uint8</TYPE-TREF><INIT-VALUE>0</INIT-VALUE></VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>HeadlightStatusIf</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE><SHORT-NAME>HeadlightStatus</SHORT-NAME><TYPE-TREF>/DataTypes/uint8</TYPE-TREF><INIT-VALUE>0</INIT-VALUE></VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>OdometerDistanceIf</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <!-- distance driven in metres since start -->
+            <VARIABLE-DATA-PROTOTYPE><SHORT-NAME>Distance</SHORT-NAME><TYPE-TREF>/DataTypes/uint32</TYPE-TREF><INIT-VALUE>0</INIT-VALUE></VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+        </SENDER-RECEIVER-INTERFACE>
+
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>WheelSpeedIf</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <SHORT-NAME>GetWheelSpeed</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE><SHORT-NAME>Raw</SHORT-NAME><TYPE-TREF>/DataTypes/uint16</TYPE-TREF><DIRECTION>OUT</DIRECTION></ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>LightHwIf</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <SHORT-NAME>SetHeadlight</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE><SHORT-NAME>State</SHORT-NAME><TYPE-TREF>/DataTypes/uint8</TYPE-TREF><DIRECTION>IN</DIRECTION></ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+        <CLIENT-SERVER-INTERFACE>
+          <SHORT-NAME>OdometerIf</SHORT-NAME>
+          <OPERATIONS>
+            <CLIENT-SERVER-OPERATION>
+              <SHORT-NAME>UpdateSpeed</SHORT-NAME>
+              <ARGUMENTS>
+                <!-- called once per received VehicleSpeed frame (assumed period 20 ms) -->
+                <ARGUMENT-DATA-PROTOTYPE><SHORT-NAME>Speed</SHORT-NAME><TYPE-TREF>/DataTypes/uint16</TYPE-TREF><DIRECTION>IN</DIRECTION></ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+            <CLIENT-SERVER-OPERATION>
+              <SHORT-NAME>GetDistance</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE><SHORT-NAME>Distance</SHORT-NAME><TYPE-TREF>/DataTypes/uint32</TYPE-TREF><DIRECTION>OUT</DIRECTION></ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </OPERATIONS>
+        </CLIENT-SERVER-INTERFACE>
+
+        <MODE-SWITCH-INTERFACE>
+          <SHORT-NAME>EcuModeIf</SHORT-NAME>
+          <MODE-GROUP><SHORT-NAME>EcuMode</SHORT-NAME><TYPE-TREF>/DataTypes/EcuMode</TYPE-TREF></MODE-GROUP>
+        </MODE-SWITCH-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+
+    <!-- ===================================================== software component types -->
+    <AR-PACKAGE>
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <ELEMENTS>
+
+        <!-- ================= SpeedSensorSWC (ECU_A) ================= -->
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>SpeedSensorSWC</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_WheelSpeed</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/WheelSpeedIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE><SHORT-NAME>P_VehicleSpeed</SHORT-NAME><PROVIDED-INTERFACE-TREF>/Interfaces/VehicleSpeedIf</PROVIDED-INTERFACE-TREF></P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>SpeedSensorSWC_IB</SHORT-NAME>
+              <!-- PIM: call counter so the runnable can print one trace line per 10 activations without a C static -->
+              <PER-INSTANCE-MEMORYS>
+                <PER-INSTANCE-MEMORY>
+                  <SHORT-NAME>SpeedSensor_State</SHORT-NAME><TYPE>SpeedSensor_StateType</TYPE>
+                  <FIELDS>
+                    <FIELD><NAME>calls</NAME><TYPE>uint32</TYPE></FIELD>
+                  </FIELDS>
+                  <INIT-VALUE>{0}</INIT-VALUE>
+                </PER-INSTANCE-MEMORY>
+              </PER-INSTANCE-MEMORYS>
+              <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>SpeedSensor_Run10ms</SHORT-NAME>
+                  <SYMBOL>SpeedSensor_Run10ms</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <!-- implicit communication: Rte_IWrite_SpeedSensor_Run10ms_P_VehicleSpeed_VehicleSpeed(v) -->
+                  <DATA-WRITE-ACCESSS>
+                    <VARIABLE-ACCESS><SHORT-NAME>wr_VehicleSpeed</SHORT-NAME><PORT-REF>P_VehicleSpeed</PORT-REF><DATA-ELEMENT-REF>VehicleSpeed</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-WRITE-ACCESSS>
+                  <!-- Rte_Call_R_WheelSpeed_GetWheelSpeed(&raw) -->
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT><SHORT-NAME>call_GetWheelSpeed</SHORT-NAME><PORT-REF>R_WheelSpeed</PORT-REF><OPERATION-REF>GetWheelSpeed</OPERATION-REF><TIMEOUT>0</TIMEOUT></SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <EVENTS>
+                <TIMING-EVENT><SHORT-NAME>TE_SpeedSensor_10ms</SHORT-NAME><START-ON-EVENT-REF>SpeedSensor_Run10ms</START-ON-EVENT-REF><PERIOD>0.010</PERIOD></TIMING-EVENT>
+              </EVENTS>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+
+        <!-- ================= LightControlSWC (ECU_B) ================= -->
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>LightControlSWC</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_VehicleSpeed</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/VehicleSpeedIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_AmbientLight</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/AmbientLightIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE><SHORT-NAME>P_HeadlightCmd</SHORT-NAME><PROVIDED-INTERFACE-TREF>/Interfaces/HeadlightCmdIf</PROVIDED-INTERFACE-TREF></P-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_Odometer</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/OdometerIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_EcuMode</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/EcuModeIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>LightControlSWC_IB</SHORT-NAME>
+              <!-- per-instance memory: Rte_Pim_LightCtl_State() returns LightCtl_StateType* ; the TYPE is defined
+                   by the generator in Rte_LightControlSWC_Type.h (included by Rte_LightControlSWC.h) -->
+              <PER-INSTANCE-MEMORYS>
+                <PER-INSTANCE-MEMORY>
+                  <SHORT-NAME>LightCtl_State</SHORT-NAME><TYPE>LightCtl_StateType</TYPE>
+                  <FIELDS>
+                    <FIELD><NAME>lastSpeed</NAME><TYPE>uint16</TYPE></FIELD>
+                    <FIELD><NAME>lastCmd</NAME><TYPE>uint8</TYPE></FIELD>
+                    <FIELD><NAME>postRun</NAME><TYPE>uint8</TYPE></FIELD>
+                    <FIELD><NAME>speedRxCount</NAME><TYPE>uint32</TYPE></FIELD>
+                    <FIELD><NAME>lastAmbient</NAME><TYPE>uint8</TYPE></FIELD>
+                  </FIELDS>
+                  <INIT-VALUE>{0,0,0,0,255}</INIT-VALUE>
+                </PER-INSTANCE-MEMORY>
+              </PER-INSTANCE-MEMORYS>
+              <RUNNABLES>
+                <!-- TimingEvent 20 ms; explicit Rte_Read AmbientLight, explicit Rte_Write HeadlightCmd; disabled in POST_RUN -->
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>LightCtl_Run20ms</SHORT-NAME><SYMBOL>LightCtl_Run20ms</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS><SHORT-NAME>rd_AmbientLight</SHORT-NAME><PORT-REF>R_AmbientLight</PORT-REF><DATA-ELEMENT-REF>AmbientLight</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS><SHORT-NAME>wr_HeadlightCmd</SHORT-NAME><PORT-REF>P_HeadlightCmd</PORT-REF><DATA-ELEMENT-REF>HeadlightCmd</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <MODE-ACCESS-POINTS>
+                    <MODE-ACCESS-POINT><SHORT-NAME>mode_EcuMode</SHORT-NAME><PORT-REF>R_EcuMode</PORT-REF><MODE-GROUP-REF>EcuMode</MODE-GROUP-REF></MODE-ACCESS-POINT>
+                  </MODE-ACCESS-POINTS>
+                </RUNNABLE-ENTITY>
+                <!-- DataReceivedEvent VehicleSpeed (from CAN 0x101); IMPLICIT read (DATA-READ-ACCESS ->
+                     Rte_IRead_LightCtl_OnSpeed_R_VehicleSpeed_VehicleSpeed()) + Rte_Call_R_Odometer_UpdateSpeed.
+                     Implicit here on purpose: the other S/R read (AmbientLight in Run20ms) is explicit, so both families are shown. -->
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>LightCtl_OnSpeed</SHORT-NAME><SYMBOL>LightCtl_OnSpeed</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-READ-ACCESSS>
+                    <VARIABLE-ACCESS><SHORT-NAME>ird_VehicleSpeed</SHORT-NAME><PORT-REF>R_VehicleSpeed</PORT-REF><DATA-ELEMENT-REF>VehicleSpeed</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-READ-ACCESSS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT><SHORT-NAME>call_UpdateSpeed</SHORT-NAME><PORT-REF>R_Odometer</PORT-REF><OPERATION-REF>UpdateSpeed</OPERATION-REF><TIMEOUT>0</TIMEOUT></SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+                <!-- ModeSwitchEvent: entering RUN or POST_RUN; reads Rte_Mode_R_EcuMode_EcuMode(), forces OFF in POST_RUN -->
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>LightCtl_OnModeSwitch</SHORT-NAME><SYMBOL>LightCtl_OnModeSwitch</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS><SHORT-NAME>wr_HeadlightCmd_m</SHORT-NAME><PORT-REF>P_HeadlightCmd</PORT-REF><DATA-ELEMENT-REF>HeadlightCmd</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <MODE-ACCESS-POINTS>
+                    <MODE-ACCESS-POINT><SHORT-NAME>mode_EcuMode_m</SHORT-NAME><PORT-REF>R_EcuMode</PORT-REF><MODE-GROUP-REF>EcuMode</MODE-GROUP-REF></MODE-ACCESS-POINT>
+                  </MODE-ACCESS-POINTS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <EVENTS>
+                <TIMING-EVENT>
+                  <SHORT-NAME>TE_LightCtl_20ms</SHORT-NAME><START-ON-EVENT-REF>LightCtl_Run20ms</START-ON-EVENT-REF><PERIOD>0.020</PERIOD>
+                  <DISABLED-MODE-IREFS><DISABLED-MODE-IREF><PORT-REF>R_EcuMode</PORT-REF><MODE-REF>/DataTypes/EcuMode/POST_RUN</MODE-REF></DISABLED-MODE-IREF></DISABLED-MODE-IREFS>
+                </TIMING-EVENT>
+                <DATA-RECEIVED-EVENT>
+                  <SHORT-NAME>DRE_LightCtl_VehicleSpeed</SHORT-NAME><START-ON-EVENT-REF>LightCtl_OnSpeed</START-ON-EVENT-REF>
+                  <DATA-IREF><PORT-REF>R_VehicleSpeed</PORT-REF><DATA-ELEMENT-REF>VehicleSpeed</DATA-ELEMENT-REF></DATA-IREF>
+                </DATA-RECEIVED-EVENT>
+                <SWC-MODE-SWITCH-EVENT>
+                  <SHORT-NAME>MSE_LightCtl_EnterRun</SHORT-NAME><START-ON-EVENT-REF>LightCtl_OnModeSwitch</START-ON-EVENT-REF>
+                  <ACTIVATION>ON-ENTRY</ACTIVATION><MODE-IREF><PORT-REF>R_EcuMode</PORT-REF><MODE-REF>/DataTypes/EcuMode/RUN</MODE-REF></MODE-IREF>
+                </SWC-MODE-SWITCH-EVENT>
+                <SWC-MODE-SWITCH-EVENT>
+                  <SHORT-NAME>MSE_LightCtl_EnterPostRun</SHORT-NAME><START-ON-EVENT-REF>LightCtl_OnModeSwitch</START-ON-EVENT-REF>
+                  <ACTIVATION>ON-ENTRY</ACTIVATION><MODE-IREF><PORT-REF>R_EcuMode</PORT-REF><MODE-REF>/DataTypes/EcuMode/POST_RUN</MODE-REF></MODE-IREF>
+                </SWC-MODE-SWITCH-EVENT>
+              </EVENTS>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+
+        <!-- ================= LightActuatorSWC (ECU_B) ================= -->
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>LightActuatorSWC</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_HeadlightCmd</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/HeadlightCmdIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_LightHw</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/LightHwIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE><SHORT-NAME>R_Odometer</SHORT-NAME><REQUIRED-INTERFACE-TREF>/Interfaces/OdometerIf</REQUIRED-INTERFACE-TREF></R-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE><SHORT-NAME>P_HeadlightStatus</SHORT-NAME><PROVIDED-INTERFACE-TREF>/Interfaces/HeadlightStatusIf</PROVIDED-INTERFACE-TREF></P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE><SHORT-NAME>P_OdometerDistance</SHORT-NAME><PROVIDED-INTERFACE-TREF>/Interfaces/OdometerDistanceIf</PROVIDED-INTERFACE-TREF></P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>LightActuatorSWC_IB</SHORT-NAME>
+              <!-- PIM: last state driven to the hardware (255 = never) so SetHeadlight is only called on change -->
+              <PER-INSTANCE-MEMORYS>
+                <PER-INSTANCE-MEMORY>
+                  <SHORT-NAME>Actuator_State</SHORT-NAME><TYPE>Actuator_StateType</TYPE>
+                  <FIELDS>
+                    <FIELD><NAME>lastState</NAME><TYPE>uint8</TYPE></FIELD>
+                    <FIELD><NAME>calls</NAME><TYPE>uint32</TYPE></FIELD>
+                  </FIELDS>
+                  <INIT-VALUE>{255,0}</INIT-VALUE>
+                </PER-INSTANCE-MEMORY>
+              </PER-INSTANCE-MEMORYS>
+              <RUNNABLES>
+                <!-- DataReceivedEvent HeadlightCmd (intra-ECU, activates Task_LightAct):
+                     Rte_Read cmd, Rte_Call_R_LightHw_SetHeadlight (-> IoHwAb -> Dio), Rte_Call_R_Odometer_GetDistance,
+                     Rte_Write HeadlightStatus + Distance (-> Com signals -> CAN 0x201) -->
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>Actuator_OnCmd</SHORT-NAME><SYMBOL>Actuator_OnCmd</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS><SHORT-NAME>rd_HeadlightCmd</SHORT-NAME><PORT-REF>R_HeadlightCmd</PORT-REF><DATA-ELEMENT-REF>HeadlightCmd</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS><SHORT-NAME>wr_HeadlightStatus</SHORT-NAME><PORT-REF>P_HeadlightStatus</PORT-REF><DATA-ELEMENT-REF>HeadlightStatus</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                    <VARIABLE-ACCESS><SHORT-NAME>wr_Distance</SHORT-NAME><PORT-REF>P_OdometerDistance</PORT-REF><DATA-ELEMENT-REF>Distance</DATA-ELEMENT-REF></VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <SERVER-CALL-POINTS>
+                    <SYNCHRONOUS-SERVER-CALL-POINT><SHORT-NAME>call_SetHeadlight</SHORT-NAME><PORT-REF>R_LightHw</PORT-REF><OPERATION-REF>SetHeadlight</OPERATION-REF><TIMEOUT>0</TIMEOUT></SYNCHRONOUS-SERVER-CALL-POINT>
+                    <SYNCHRONOUS-SERVER-CALL-POINT><SHORT-NAME>call_GetDistance</SHORT-NAME><PORT-REF>R_Odometer</PORT-REF><OPERATION-REF>GetDistance</OPERATION-REF><TIMEOUT>0</TIMEOUT></SYNCHRONOUS-SERVER-CALL-POINT>
+                  </SERVER-CALL-POINTS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <EVENTS>
+                <DATA-RECEIVED-EVENT>
+                  <SHORT-NAME>DRE_Actuator_HeadlightCmd</SHORT-NAME><START-ON-EVENT-REF>Actuator_OnCmd</START-ON-EVENT-REF>
+                  <DATA-IREF><PORT-REF>R_HeadlightCmd</PORT-REF><DATA-ELEMENT-REF>HeadlightCmd</DATA-ELEMENT-REF></DATA-IREF>
+                </DATA-RECEIVED-EVENT>
+              </EVENTS>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+
+        <!-- ================= OdometerSWC (ECU_B, server) ================= -->
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>OdometerSWC</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE><SHORT-NAME>P_Odometer</SHORT-NAME><PROVIDED-INTERFACE-TREF>/Interfaces/OdometerIf</PROVIDED-INTERFACE-TREF></P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>OdometerSWC_IB</SHORT-NAME>
+              <EXCLUSIVE-AREAS>
+                <EXCLUSIVE-AREA><SHORT-NAME>EA_Odo</SHORT-NAME></EXCLUSIVE-AREA>
+              </EXCLUSIVE-AREAS>
+              <PER-INSTANCE-MEMORYS>
+                <PER-INSTANCE-MEMORY>
+                  <SHORT-NAME>Odo_State</SHORT-NAME><TYPE>Odo_StateType</TYPE>
+                  <FIELDS>
+                    <FIELD><NAME>distanceMm</NAME><TYPE>uint32</TYPE></FIELD>
+                    <FIELD><NAME>updates</NAME><TYPE>uint32</TYPE></FIELD>
+                  </FIELDS>
+                  <INIT-VALUE>{0,0}</INIT-VALUE>
+                </PER-INSTANCE-MEMORY>
+              </PER-INSTANCE-MEMORYS>
+              <RUNNABLES>
+                <!-- server runnables: prototype Std_ReturnType Odo_UpdateSpeed(uint16 Speed) etc.
+                     Both use Rte_Enter_EA_Odo()/Rte_Exit_EA_Odo() around the PIM access -->
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>Odo_UpdateSpeed</SHORT-NAME><SYMBOL>Odo_UpdateSpeed</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS><CAN-ENTER-EXCLUSIVE-AREA-REF>EA_Odo</CAN-ENTER-EXCLUSIVE-AREA-REF></CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>Odo_GetDistance</SHORT-NAME><SYMBOL>Odo_GetDistance</SYMBOL>
+                  <CAN-BE-INVOKED-CONCURRENTLY>true</CAN-BE-INVOKED-CONCURRENTLY>
+                  <CAN-ENTER-EXCLUSIVE-AREA-REFS><CAN-ENTER-EXCLUSIVE-AREA-REF>EA_Odo</CAN-ENTER-EXCLUSIVE-AREA-REF></CAN-ENTER-EXCLUSIVE-AREA-REFS>
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <EVENTS>
+                <OPERATION-INVOKED-EVENT>
+                  <SHORT-NAME>OIE_Odo_UpdateSpeed</SHORT-NAME><START-ON-EVENT-REF>Odo_UpdateSpeed</START-ON-EVENT-REF>
+                  <OPERATION-IREF><PORT-REF>P_Odometer</PORT-REF><OPERATION-REF>UpdateSpeed</OPERATION-REF></OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+                <OPERATION-INVOKED-EVENT>
+                  <SHORT-NAME>OIE_Odo_GetDistance</SHORT-NAME><START-ON-EVENT-REF>Odo_GetDistance</START-ON-EVENT-REF>
+                  <OPERATION-IREF><PORT-REF>P_Odometer</PORT-REF><OPERATION-REF>GetDistance</OPERATION-REF></OPERATION-IREF>
+                </OPERATION-INVOKED-EVENT>
+              </EVENTS>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+
+        <!-- ================= BswM_Service: the mode manager as seen by the RTE ================= -->
+        <SERVICE-SW-COMPONENT-TYPE>
+          <SHORT-NAME>BswM_Service</SHORT-NAME>
+          <PORTS>
+            <!-- BswM calls Rte_Switch_P_EcuMode_EcuMode(mode) from its action callouts (generated BswM_Cfg.c) -->
+            <P-PORT-PROTOTYPE><SHORT-NAME>P_EcuMode</SHORT-NAME><PROVIDED-INTERFACE-TREF>/Interfaces/EcuModeIf</PROVIDED-INTERFACE-TREF></P-PORT-PROTOTYPE>
+          </PORTS>
+        </SERVICE-SW-COMPONENT-TYPE>
+
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -40,5 +40,6 @@ python tools/run_host_tests.py   # examples/rh850_mcal_reference：OSTM、CAN FD
 - **Classic AUTOSAR 入门（原理与工作流，新手从这里开始）**：[11-classic-autosar-primer/README.md](11-classic-autosar-primer/README.md)
 - 产业生态调研（ETAS / Vector / EB、OEM 合作模式、RTA-CAR 工作流）：[12-industry-ecosystem/README.md](12-industry-ecosystem/README.md)
 - 商业调研（MCU 趋势、机器人实时软件）：[13-market-research/README.md](13-market-research/README.md)
+- **动手项目：可运行的迷你 Classic AUTOSAR ECU（看 RTE / SWC / OS 代码架构）**：[14-mini-autosar-project/README.md](14-mini-autosar-project/README.md)
 - `reference/`：API / 模块 / 配置地图、术语表、源码追踪表；`reference/research/`：写作底稿与复审日志
 - `legacy/` 及带 Legacy banner 的文件：上一阶段产物，只作线索，不再维护

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  [Educational Implementation]  System.arxml
+  Real AUTOSAR counterpart: the System Description (AUTOSAR_CP_TPS_SystemTemplate): root composition with
+  SW-component prototypes + connectors, ECU instances, SWC-to-ECU mapping, data mapping (S/R element ->
+  ISignal) and the communication matrix (ISignal, ISignalIPdu, CanFrame, CAN identifiers).
+  SIMPLIFICATIONS: no namespace; CAN cluster / physical channel collapsed into one CAN-CLUSTER element;
+  all references are plain paths; frame transmitters/receivers are expressed with FRAME-PORT directions of the
+  ECU instance connector; byte order LITTLE-ENDIAN everywhere (MOST-SIGNIFICANT-BYTE-LAST).
+  Consumed by generator/gen_rte.py (agent D) together with SwcTypes.arxml and config/ecuc/<ecu>.ecuc.json.
+-->
+<AUTOSAR>
+  <AR-PACKAGES>
+
+    <!-- ===================================================== ECU instances -->
+    <AR-PACKAGE>
+      <SHORT-NAME>Ecus</SHORT-NAME>
+      <ELEMENTS>
+        <ECU-INSTANCE>
+          <SHORT-NAME>SensorEcu</SHORT-NAME>
+          <ECUC-REF>config/ecuc/SensorEcu.ecuc.json</ECUC-REF>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>SensorEcu_Can0</SHORT-NAME><CLUSTER-REF>/Network/Can500k</CLUSTER-REF>
+              <FRAME-PORTS>
+                <FRAME-PORT><SHORT-NAME>FP_VehicleSpeed</SHORT-NAME><COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_VehicleSpeed</FRAME-REF></FRAME-PORT>
+              </FRAME-PORTS>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+        <ECU-INSTANCE>
+          <SHORT-NAME>LightEcu</SHORT-NAME>
+          <ECUC-REF>config/ecuc/LightEcu.ecuc.json</ECUC-REF>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>LightEcu_Can0</SHORT-NAME><CLUSTER-REF>/Network/Can500k</CLUSTER-REF>
+              <FRAME-PORTS>
+                <FRAME-PORT><SHORT-NAME>FP_VehicleSpeed</SHORT-NAME><COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_VehicleSpeed</FRAME-REF></FRAME-PORT>
+                <FRAME-PORT><SHORT-NAME>FP_AmbientLight</SHORT-NAME><COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_AmbientLight</FRAME-REF></FRAME-PORT>
+                <FRAME-PORT><SHORT-NAME>FP_EcuModeReq</SHORT-NAME><COMMUNICATION-DIRECTION>IN</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_EcuModeReq</FRAME-REF></FRAME-PORT>
+                <FRAME-PORT><SHORT-NAME>FP_LightStatus</SHORT-NAME><COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_LightStatus</FRAME-REF></FRAME-PORT>
+              </FRAME-PORTS>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+        <!-- not generated: the rest-bus tester (0x301, 0x3F0) is hand-written sim code (sim/restbus) -->
+        <ECU-INSTANCE>
+          <SHORT-NAME>RestBus</SHORT-NAME><GENERATE>false</GENERATE>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>RestBus_Can0</SHORT-NAME><CLUSTER-REF>/Network/Can500k</CLUSTER-REF>
+              <FRAME-PORTS>
+                <FRAME-PORT><SHORT-NAME>FP_AmbientLight</SHORT-NAME><COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_AmbientLight</FRAME-REF></FRAME-PORT>
+                <FRAME-PORT><SHORT-NAME>FP_EcuModeReq</SHORT-NAME><COMMUNICATION-DIRECTION>OUT</COMMUNICATION-DIRECTION><FRAME-REF>/Network/Frames/Frame_EcuModeReq</FRAME-REF></FRAME-PORT>
+              </FRAME-PORTS>
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+
+    <!-- ===================================================== communication matrix -->
+    <AR-PACKAGE>
+      <SHORT-NAME>Network</SHORT-NAME>
+      <ELEMENTS>
+        <CAN-CLUSTER><SHORT-NAME>Can500k</SHORT-NAME><BAUDRATE>500000</BAUDRATE><CAN-FD>false</CAN-FD></CAN-CLUSTER>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>Signals</SHORT-NAME>
+          <ELEMENTS>
+            <!-- I-SIGNAL: LENGTH in bits, INIT-VALUE raw -->
+            <I-SIGNAL><SHORT-NAME>VehicleSpeed</SHORT-NAME><LENGTH>16</LENGTH><TYPE>uint16</TYPE><INIT-VALUE>0</INIT-VALUE></I-SIGNAL>
+            <I-SIGNAL><SHORT-NAME>AmbientLight</SHORT-NAME><LENGTH>8</LENGTH><TYPE>uint8</TYPE><INIT-VALUE>255</INIT-VALUE></I-SIGNAL>
+            <I-SIGNAL><SHORT-NAME>EcuModeRequest</SHORT-NAME><LENGTH>8</LENGTH><TYPE>uint8</TYPE><INIT-VALUE>0</INIT-VALUE></I-SIGNAL>
+            <I-SIGNAL><SHORT-NAME>HeadlightStatus</SHORT-NAME><LENGTH>8</LENGTH><TYPE>uint8</TYPE><INIT-VALUE>0</INIT-VALUE></I-SIGNAL>
+            <I-SIGNAL><SHORT-NAME>OdometerDistance</SHORT-NAME><LENGTH>32</LENGTH><TYPE>uint32</TYPE><INIT-VALUE>0</INIT-VALUE></I-SIGNAL>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>Pdus</SHORT-NAME>
+          <ELEMENTS>
+            <I-SIGNAL-I-PDU>
+              <SHORT-NAME>Pdu_VehicleSpeed</SHORT-NAME><LENGTH>2</LENGTH>
+              <I-SIGNAL-TO-PDU-MAPPINGS>
+                <I-SIGNAL-TO-I-PDU-MAPPING><I-SIGNAL-REF>/Network/Signals/VehicleSpeed</I-SIGNAL-REF><PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER><START-POSITION>0</START-POSITION><TRANSFER-PROPERTY>PENDING</TRANSFER-PROPERTY></I-SIGNAL-TO-I-PDU-MAPPING>
+              </I-SIGNAL-TO-PDU-MAPPINGS>
+              <!-- sender timing: cyclic 20 ms -->
+              <I-PDU-TIMING><TRANSMISSION-MODE>CYCLIC</TRANSMISSION-MODE><PERIOD>0.020</PERIOD><OFFSET>0.000</OFFSET></I-PDU-TIMING>
+              <!-- receiver side: processing is a property of the RECEIVING ECU's Com config (see LightEcu ecuc) -->
+            </I-SIGNAL-I-PDU>
+            <I-SIGNAL-I-PDU>
+              <SHORT-NAME>Pdu_AmbientLight</SHORT-NAME><LENGTH>1</LENGTH>
+              <I-SIGNAL-TO-PDU-MAPPINGS>
+                <I-SIGNAL-TO-I-PDU-MAPPING><I-SIGNAL-REF>/Network/Signals/AmbientLight</I-SIGNAL-REF><PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER><START-POSITION>0</START-POSITION><TRANSFER-PROPERTY>PENDING</TRANSFER-PROPERTY></I-SIGNAL-TO-I-PDU-MAPPING>
+              </I-SIGNAL-TO-PDU-MAPPINGS>
+              <I-PDU-TIMING><TRANSMISSION-MODE>CYCLIC</TRANSMISSION-MODE><PERIOD>0.100</PERIOD><OFFSET>0.000</OFFSET></I-PDU-TIMING>
+            </I-SIGNAL-I-PDU>
+            <I-SIGNAL-I-PDU>
+              <SHORT-NAME>Pdu_EcuModeReq</SHORT-NAME><LENGTH>1</LENGTH>
+              <I-SIGNAL-TO-PDU-MAPPINGS>
+                <I-SIGNAL-TO-I-PDU-MAPPING><I-SIGNAL-REF>/Network/Signals/EcuModeRequest</I-SIGNAL-REF><PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER><START-POSITION>0</START-POSITION><TRANSFER-PROPERTY>PENDING</TRANSFER-PROPERTY></I-SIGNAL-TO-I-PDU-MAPPING>
+              </I-SIGNAL-TO-PDU-MAPPINGS>
+              <I-PDU-TIMING><TRANSMISSION-MODE>CYCLIC</TRANSMISSION-MODE><PERIOD>0.100</PERIOD><OFFSET>0.000</OFFSET></I-PDU-TIMING>
+            </I-SIGNAL-I-PDU>
+            <I-SIGNAL-I-PDU>
+              <SHORT-NAME>Pdu_LightStatus</SHORT-NAME><LENGTH>6</LENGTH>
+              <I-SIGNAL-TO-PDU-MAPPINGS>
+                <I-SIGNAL-TO-I-PDU-MAPPING><I-SIGNAL-REF>/Network/Signals/HeadlightStatus</I-SIGNAL-REF><PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER><START-POSITION>0</START-POSITION><TRANSFER-PROPERTY>PENDING</TRANSFER-PROPERTY></I-SIGNAL-TO-I-PDU-MAPPING>
+                <I-SIGNAL-TO-I-PDU-MAPPING><I-SIGNAL-REF>/Network/Signals/OdometerDistance</I-SIGNAL-REF><PACKING-BYTE-ORDER>MOST-SIGNIFICANT-BYTE-LAST</PACKING-BYTE-ORDER><START-POSITION>16</START-POSITION><TRANSFER-PROPERTY>PENDING</TRANSFER-PROPERTY></I-SIGNAL-TO-I-PDU-MAPPING>
+              </I-SIGNAL-TO-PDU-MAPPINGS>
+              <I-PDU-TIMING><TRANSMISSION-MODE>CYCLIC</TRANSMISSION-MODE><PERIOD>0.100</PERIOD><OFFSET>0.000</OFFSET></I-PDU-TIMING>
+            </I-SIGNAL-I-PDU>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>Frames</SHORT-NAME>
+          <ELEMENTS>
+            <!-- CAN-FRAME + its CAN-FRAME-TRIGGERING collapsed: IDENTIFIER (decimal in comment), standard 11-bit, classic CAN -->
+            <CAN-FRAME><SHORT-NAME>Frame_VehicleSpeed</SHORT-NAME><FRAME-LENGTH>2</FRAME-LENGTH><PDU-REF>/Network/Pdus/Pdu_VehicleSpeed</PDU-REF><IDENTIFIER>0x101</IDENTIFIER><CAN-ADDRESSING-MODE>STANDARD</CAN-ADDRESSING-MODE></CAN-FRAME>
+            <CAN-FRAME><SHORT-NAME>Frame_LightStatus</SHORT-NAME><FRAME-LENGTH>6</FRAME-LENGTH><PDU-REF>/Network/Pdus/Pdu_LightStatus</PDU-REF><IDENTIFIER>0x201</IDENTIFIER><CAN-ADDRESSING-MODE>STANDARD</CAN-ADDRESSING-MODE></CAN-FRAME>
+            <CAN-FRAME><SHORT-NAME>Frame_AmbientLight</SHORT-NAME><FRAME-LENGTH>1</FRAME-LENGTH><PDU-REF>/Network/Pdus/Pdu_AmbientLight</PDU-REF><IDENTIFIER>0x301</IDENTIFIER><CAN-ADDRESSING-MODE>STANDARD</CAN-ADDRESSING-MODE></CAN-FRAME>
+            <CAN-FRAME><SHORT-NAME>Frame_EcuModeReq</SHORT-NAME><FRAME-LENGTH>1</FRAME-LENGTH><PDU-REF>/Network/Pdus/Pdu_EcuModeReq</PDU-REF><IDENTIFIER>0x3F0</IDENTIFIER><CAN-ADDRESSING-MODE>STANDARD</CAN-ADDRESSING-MODE></CAN-FRAME>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+
+    <!-- ===================================================== the system -->
+    <AR-PACKAGE>
+      <SHORT-NAME>MiniSystem</SHORT-NAME>
+      <ELEMENTS>
+        <SYSTEM>
+          <SHORT-NAME>MiniAutosarSystem</SHORT-NAME>
+          <ROOT-SOFTWARE-COMPOSITIONS>
+            <ROOT-SW-COMPOSITION-PROTOTYPE>
+              <SHORT-NAME>RootComposition</SHORT-NAME>
+              <COMPONENTS>
+                <SW-COMPONENT-PROTOTYPE><SHORT-NAME>SpeedSensor</SHORT-NAME><TYPE-TREF>/ComponentTypes/SpeedSensorSWC</TYPE-TREF></SW-COMPONENT-PROTOTYPE>
+                <SW-COMPONENT-PROTOTYPE><SHORT-NAME>LightControl</SHORT-NAME><TYPE-TREF>/ComponentTypes/LightControlSWC</TYPE-TREF></SW-COMPONENT-PROTOTYPE>
+                <SW-COMPONENT-PROTOTYPE><SHORT-NAME>LightActuator</SHORT-NAME><TYPE-TREF>/ComponentTypes/LightActuatorSWC</TYPE-TREF></SW-COMPONENT-PROTOTYPE>
+                <SW-COMPONENT-PROTOTYPE><SHORT-NAME>Odometer</SHORT-NAME><TYPE-TREF>/ComponentTypes/OdometerSWC</TYPE-TREF></SW-COMPONENT-PROTOTYPE>
+                <SW-COMPONENT-PROTOTYPE><SHORT-NAME>BswM</SHORT-NAME><TYPE-TREF>/ComponentTypes/BswM_Service</TYPE-TREF></SW-COMPONENT-PROTOTYPE>
+              </COMPONENTS>
+              <CONNECTORS>
+                <!-- intra-ECU connectors (ECU_B): RTE-internal buffer + activation -->
+                <ASSEMBLY-SW-CONNECTOR><SHORT-NAME>C_HeadlightCmd</SHORT-NAME>
+                  <PROVIDER-IREF><COMPONENT>LightControl</COMPONENT><PORT>P_HeadlightCmd</PORT></PROVIDER-IREF>
+                  <REQUESTER-IREF><COMPONENT>LightActuator</COMPONENT><PORT>R_HeadlightCmd</PORT></REQUESTER-IREF></ASSEMBLY-SW-CONNECTOR>
+                <ASSEMBLY-SW-CONNECTOR><SHORT-NAME>C_Odo_LightControl</SHORT-NAME>
+                  <PROVIDER-IREF><COMPONENT>Odometer</COMPONENT><PORT>P_Odometer</PORT></PROVIDER-IREF>
+                  <REQUESTER-IREF><COMPONENT>LightControl</COMPONENT><PORT>R_Odometer</PORT></REQUESTER-IREF></ASSEMBLY-SW-CONNECTOR>
+                <ASSEMBLY-SW-CONNECTOR><SHORT-NAME>C_Odo_LightActuator</SHORT-NAME>
+                  <PROVIDER-IREF><COMPONENT>Odometer</COMPONENT><PORT>P_Odometer</PORT></PROVIDER-IREF>
+                  <REQUESTER-IREF><COMPONENT>LightActuator</COMPONENT><PORT>R_Odometer</PORT></REQUESTER-IREF></ASSEMBLY-SW-CONNECTOR>
+                <ASSEMBLY-SW-CONNECTOR><SHORT-NAME>C_EcuMode</SHORT-NAME>
+                  <PROVIDER-IREF><COMPONENT>BswM</COMPONENT><PORT>P_EcuMode</PORT></PROVIDER-IREF>
+                  <REQUESTER-IREF><COMPONENT>LightControl</COMPONENT><PORT>R_EcuMode</PORT></REQUESTER-IREF></ASSEMBLY-SW-CONNECTOR>
+                <!-- inter-ECU S/R: SpeedSensor(P_VehicleSpeed, ECU_A) -> LightControl(R_VehicleSpeed, ECU_B). In a real system
+                     this is also an assembly connector; the RTE of each ECU only sees the data mapping below. -->
+                <ASSEMBLY-SW-CONNECTOR><SHORT-NAME>C_VehicleSpeed</SHORT-NAME>
+                  <PROVIDER-IREF><COMPONENT>SpeedSensor</COMPONENT><PORT>P_VehicleSpeed</PORT></PROVIDER-IREF>
+                  <REQUESTER-IREF><COMPONENT>LightControl</COMPONENT><PORT>R_VehicleSpeed</PORT></REQUESTER-IREF></ASSEMBLY-SW-CONNECTOR>
+              </CONNECTORS>
+            </ROOT-SW-COMPOSITION-PROTOTYPE>
+          </ROOT-SOFTWARE-COMPOSITIONS>
+
+          <MAPPING>
+            <SWC-TO-ECU-MAPPINGS>
+              <SWC-TO-ECU-MAPPING><COMPONENT>SpeedSensor</COMPONENT><ECU-REF>/Ecus/SensorEcu</ECU-REF></SWC-TO-ECU-MAPPING>
+              <SWC-TO-ECU-MAPPING><COMPONENT>BswM</COMPONENT><ECU-REF>/Ecus/SensorEcu</ECU-REF></SWC-TO-ECU-MAPPING>
+              <SWC-TO-ECU-MAPPING><COMPONENT>LightControl</COMPONENT><ECU-REF>/Ecus/LightEcu</ECU-REF></SWC-TO-ECU-MAPPING>
+              <SWC-TO-ECU-MAPPING><COMPONENT>LightActuator</COMPONENT><ECU-REF>/Ecus/LightEcu</ECU-REF></SWC-TO-ECU-MAPPING>
+              <SWC-TO-ECU-MAPPING><COMPONENT>Odometer</COMPONENT><ECU-REF>/Ecus/LightEcu</ECU-REF></SWC-TO-ECU-MAPPING>
+              <!-- BswM_Service exists once per ECU: the generator instantiates it for every ECU that lists "BswM" in its ecuc.swcs -->
+              <SWC-TO-ECU-MAPPING><COMPONENT>BswM</COMPONENT><ECU-REF>/Ecus/LightEcu</ECU-REF></SWC-TO-ECU-MAPPING>
+            </SWC-TO-ECU-MAPPINGS>
+            <!-- S/R data mapping: S/R data element -> I-SIGNAL (RTE uses Com_SendSignal / Com_ReceiveSignal).
+                 Elements NOT listed here but connected inside one ECU use RTE-internal buffers. -->
+            <SENDER-RECEIVER-TO-SIGNAL-MAPPINGS>
+              <SENDER-RECEIVER-TO-SIGNAL-MAPPING><COMPONENT>SpeedSensor</COMPONENT><PORT>P_VehicleSpeed</PORT><DATA-ELEMENT>VehicleSpeed</DATA-ELEMENT><I-SIGNAL-REF>/Network/Signals/VehicleSpeed</I-SIGNAL-REF></SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+              <SENDER-RECEIVER-TO-SIGNAL-MAPPING><COMPONENT>LightControl</COMPONENT><PORT>R_VehicleSpeed</PORT><DATA-ELEMENT>VehicleSpeed</DATA-ELEMENT><I-SIGNAL-REF>/Network/Signals/VehicleSpeed</I-SIGNAL-REF></SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+              <SENDER-RECEIVER-TO-SIGNAL-MAPPING><COMPONENT>LightControl</COMPONENT><PORT>R_AmbientLight</PORT><DATA-ELEMENT>AmbientLight</DATA-ELEMENT><I-SIGNAL-REF>/Network/Signals/AmbientLight</I-SIGNAL-REF></SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+              <SENDER-RECEIVER-TO-SIGNAL-MAPPING><COMPONENT>LightActuator</COMPONENT><PORT>P_HeadlightStatus</PORT><DATA-ELEMENT>HeadlightStatus</DATA-ELEMENT><I-SIGNAL-REF>/Network/Signals/HeadlightStatus</I-SIGNAL-REF></SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+              <SENDER-RECEIVER-TO-SIGNAL-MAPPING><COMPONENT>LightActuator</COMPONENT><PORT>P_OdometerDistance</PORT><DATA-ELEMENT>Distance</DATA-ELEMENT><I-SIGNAL-REF>/Network/Signals/OdometerDistance</I-SIGNAL-REF></SENDER-RECEIVER-TO-SIGNAL-MAPPING>
+            </SENDER-RECEIVER-TO-SIGNAL-MAPPINGS>
+          </MAPPING>
+        </SYSTEM>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

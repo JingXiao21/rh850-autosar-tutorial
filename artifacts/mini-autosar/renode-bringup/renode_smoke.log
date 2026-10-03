@@ -1,0 +1,63 @@
+[23:37:01.7362] [INFO] Loaded monitor commands from: D:\side_project\rh850\tools\toolchains\renode_1.17.0-portable\scripts/monitor.py
+[0mRenode, version 1.17.0 (1.17.0+20260906gitf1dd1b4af)
+
+[91m(monitor) [0m$elf_a=@D:/side_project/rh850/artifacts/mini-autosar/renode-bringup/smoke_a.elf;  $elf_b=@D:/side_project/rh850/artifacts/mini-autosar/renode-bringup/smoke_b.elf;  $uart_a=@D:/side_project/rh850/artifacts/mini-autosar/renode-bringup/uart_smoke_a.log;  $uart_b=@D:/side_project/rh850/artifacts/mini-autosar/renode-bringup/uart_smoke_b.log;  include @D:/side_project/rh850/examples/mini_autosar_ecu/target/renode/smoke/mcal_can_smoke.resc;  quit
+[23:37:01.7730] [INFO] Including script(s): D:\side_project\rh850\examples\mini_autosar_ecu\target\renode\smoke\mcal_can_smoke.resc
+[23:37:01.9455] [INFO] System bus created.
+[23:37:02.9170] [INFO] sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-24976\004e507b-faea-4dee-a110-e7e2b7161389.tmp. Name: STM32L552. Description: STM32L552.
+[23:37:02.9455] [INFO] sysbus: Loading block of 6808 bytes length at 0x8000000.
+[23:37:02.9552] [INFO] sysbus: Loading block of 248 bytes length at 0x8001A98.
+[23:37:02.9552] [INFO] sysbus: Loading block of 8192 bytes length at 0x200000F8.
+[23:37:03.0474] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\renode-bringup\uart_smoke_a.log moved to D:\side_project\rh850\artifacts\mini-autosar\renode-bringup\uart_smoke_a.log.5
+[23:37:03.1096] [INFO] System bus created.
+[23:37:03.4702] [INFO] NODE_B/sysbus: Loaded SVD: C:\Users\13713\AppData\Local\Temp\renode-24976\357bc0fc-8dca-41dd-ac50-1cbf972c9c9b.tmp. Name: STM32L552. Description: STM32L552.
+[23:37:03.4734] [INFO] NODE_B/sysbus: Loading block of 6544 bytes length at 0x8000000.
+[23:37:03.4735] [INFO] NODE_B/sysbus: Loading block of 248 bytes length at 0x8001990.
+[23:37:03.4736] [INFO] NODE_B/sysbus: Loading block of 8192 bytes length at 0x200000F8.
+[23:37:03.4752] [INFO] Old file D:\side_project\rh850\artifacts\mini-autosar\renode-bringup\uart_smoke_b.log moved to D:\side_project\rh850\artifacts\mini-autosar\renode-bringup\uart_smoke_b.log.5
+[23:37:03.4801] [INFO] NODE_A/cpu: Guessing VectorTableOffset value to be 0x8000000.
+[23:37:03.4906] [INFO] NODE_A/cpu: Setting initial values: PC = 0x8000145, SP = 0x200020F8.
+[23:37:03.4922] [INFO] NODE_A: Machine started.
+[23:37:03.4925] [INFO] NODE_B/cpu: Guessing VectorTableOffset value to be 0x8000000.
+[23:37:03.4940] [INFO] NODE_B/cpu: Setting initial values: PC = 0x8000145, SP = 0x200020F8.
+[23:37:03.4946] [INFO] NODE_B: Machine started.
+[23:37:03.8714] [WARNING] NODE_B/gpioPortA: Unhandled read from offset 0x2C.
+[23:37:03.8714] [WARNING] NODE_A/gpioPortA: Unhandled read from offset 0x2C.
+[23:37:03.8715] [WARNING] NODE_B/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8715] [WARNING] NODE_A/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8733] [WARNING] NODE_B/gpioPortA: Unhandled read from offset 0x2C.
+[23:37:03.8733] [WARNING] NODE_A/gpioPortA: Unhandled read from offset 0x2C.
+[23:37:03.8733] [WARNING] NODE_A/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8733] [WARNING] NODE_B/gpioPortA: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8734] [WARNING] NODE_A/gpioPortA: Unhandled read from offset 0x2C.
+[23:37:03.8734] [WARNING] NODE_B/gpioPortA: Unhandled read from offset 0x2C.
+[23:37:03.8734] [WARNING] NODE_A/gpioPortA: Unhandled write to offset 0x2C, value 0x2.
+[23:37:03.8734] [WARNING] NODE_B/gpioPortA: Unhandled write to offset 0x2C, value 0x2.
+[23:37:03.8739] [WARNING] NODE_A/gpioPortC: Unhandled read from offset 0x2C.
+[23:37:03.8740] [WARNING] NODE_A/gpioPortC: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8740] [WARNING] NODE_B/gpioPortC: Unhandled read from offset 0x2C.
+[23:37:03.8740] [WARNING] NODE_B/gpioPortC: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8741] [WARNING] NODE_A/gpioPortB: Unhandled read from offset 0x2C.
+[23:37:03.8741] [WARNING] NODE_A/gpioPortB: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8741] [WARNING] NODE_B/gpioPortB: Unhandled read from offset 0x2C.
+[23:37:03.8742] [WARNING] NODE_B/gpioPortB: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8744] [WARNING] NODE_A/gpioPortD: Unhandled read from offset 0x2C.
+[23:37:03.8744] [WARNING] NODE_A/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8744] [WARNING] NODE_B/gpioPortD: Unhandled read from offset 0x2C.
+[23:37:03.8745] [WARNING] NODE_B/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8745] [WARNING] NODE_A/gpioPortD: Unhandled read from offset 0x2C.
+[23:37:03.8745] [WARNING] NODE_A/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8745] [WARNING] NODE_B/gpioPortD: Unhandled read from offset 0x2C.
+[23:37:03.8745] [WARNING] NODE_B/gpioPortD: Unhandled write to offset 0x2C, value 0x0.
+[23:37:03.8878] [WARNING] NODE_A/adc1: Unhandled write to offset 0x8. Unhandled bits: [31] when writing value 0x90000000. Tags: ADCAL (0x1).
+[23:37:03.8878] [WARNING] NODE_B/adc1: Unhandled write to offset 0x8. Unhandled bits: [31] when writing value 0x90000000. Tags: ADCAL (0x1).
+[23:37:03.8903] [WARNING] NODE_B/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[23:37:03.8904] [WARNING] NODE_A/adc1: Unhandled write to offset 0x14. Unhandled bits: [20] when writing value 0x100000. Tags: SMP6 (0x4).
+[23:37:03.8990] [WARNING] NODE_B/fdcan1: Unhandled write to offset 0x50. Unhandled bits: [24-31] when writing value 0xFFFFFFFF. Tags: RESERVED (0xFF).
+[23:37:03.8990] [WARNING] NODE_A/fdcan1: Unhandled write to offset 0x50. Unhandled bits: [24-31] when writing value 0xFFFFFFFF. Tags: RESERVED (0xFF).
+[23:37:03.9687] [WARNING] NODE_A/fdcan1: Unhandled write to offset 0xD0. Unhandled bits: [0-2] when writing value 0x7. Tags: CR (0x7).
+[23:37:04.1534] [INFO] NODE_A: Machine paused.
+[23:37:04.1535] [INFO] NODE_B: Machine paused.
+[92mR[0m[92me[0m[92mn[0m[92mo[0m[92md[0m[92me[0m[92m [0m[92mi[0m[92ms[0m[92m [0m[92mq[0m[92mu[0m[92mi[0m[92mt[0m[92mt[0m[92mi[0m[92mn[0m[92mg[0m[92m[0m[92m
+[0m[92m[0m[0m[0m[23:37:04.1972] [INFO] NODE_A: Disposed.
+[23:37:04.2161] [INFO] NODE_B: Disposed.
